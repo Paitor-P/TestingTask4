@@ -1,9 +1,16 @@
 plugins {
     id("java")
+    id("jacoco")
+    id("info.solidsoft.pitest") version "1.15.0"
 }
 
 group = "com.viktor.lab"
 version = "1.0-SNAPSHOT"
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
 
 repositories {
     mavenCentral()
@@ -12,9 +19,102 @@ repositories {
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation("junit:junit:4.13.2")
+    testImplementation(files("tools/evosuite-1.2.0.jar"))
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+}
+
+val generatedTestsDir = providers.gradleProperty("generatedTestsDir")
+    .orElse(layout.buildDirectory.dir("empty-generated-tests").map { it.asFile.absolutePath })
+
+sourceSets {
+    create("generatedTest") {
+        java.srcDir(generatedTestsDir)
+        compileClasspath += sourceSets["main"].output + configurations["testRuntimeClasspath"]
+        runtimeClasspath += output + compileClasspath
+    }
+}
+
+configurations.named("generatedTestImplementation") {
+    extendsFrom(configurations["testImplementation"])
+}
+configurations.named("generatedTestRuntimeOnly") {
+    extendsFrom(configurations["testRuntimeOnly"])
+}
+
+tasks.withType<JavaCompile>().configureEach {
+    options.release.set(17)
+    options.encoding = "UTF-8"
 }
 
 tasks.test {
     useJUnitPlatform()
 }
+
+val generatedTest = tasks.register<Test>("generatedTest") {
+    description = "Runs generated tests from -PgeneratedTestsDir"
+    group = "verification"
+    testClassesDirs = sourceSets["generatedTest"].output.classesDirs
+    classpath = sourceSets["generatedTest"].runtimeClasspath
+    useJUnit()
+    ignoreFailures = true
+    jvmArgs(
+        "-Djava.security.manager=allow",
+        "--add-opens", "java.base/java.net=ALL-UNNAMED",
+        "--add-opens", "java.desktop/java.awt=ALL-UNNAMED",
+        "--add-opens", "java.base/java.lang=ALL-UNNAMED",
+        "--add-opens", "java.base/java.util=ALL-UNNAMED"
+    )
+}
+
+tasks.register<Delete>("cleanGeneratedAnalysis") {
+    delete(
+        layout.buildDirectory.dir("classes/java/generatedTest"),
+        layout.buildDirectory.dir("tmp/compileGeneratedTestJava"),
+        layout.buildDirectory.dir("test-results/generatedTest"),
+        layout.buildDirectory.dir("reports/tests/generatedTest"),
+        layout.buildDirectory.dir("reports/jacoco/generated"),
+        layout.buildDirectory.dir("reports/pitest/generated"),
+        layout.buildDirectory.file("jacoco/generatedTest.exec")
+    )
+}
+
+tasks.register<JacocoReport>("jacocoGeneratedTestReport") {
+    dependsOn(generatedTest)
+    executionData(layout.buildDirectory.file("jacoco/generatedTest.exec"))
+    classDirectories.setFrom(sourceSets["main"].output)
+    sourceDirectories.setFrom(sourceSets["main"].allSource.srcDirs)
+    reports {
+        xml.required.set(true)
+        xml.outputLocation.set(layout.buildDirectory.file("reports/jacoco/generated/jacocoGeneratedTestReport.xml"))
+        html.required.set(true)
+        html.outputLocation.set(layout.buildDirectory.dir("reports/jacoco/generated/html"))
+    }
+}
+
+pitest {
+    targetClasses.set(
+        setOf(providers.gradleProperty("pitTargetClass").orElse("com.viktor.lab4.*").get())
+    )
+    targetTests.set(
+        setOf(providers.gradleProperty("pitTargetTests").orElse("com.viktor.lab4.*").get())
+    )
+    mainSourceSets.set(listOf(sourceSets["main"]))
+    testSourceSets.set(listOf(sourceSets["generatedTest"]))
+    reportDir.set(layout.buildDirectory.dir("reports/pitest/generated"))
+    outputFormats.set(setOf("XML", "HTML"))
+    timestampedReports.set(false)
+    failWhenNoMutations.set(false)
+    threads.set(1)
+    useClasspathFile.set(true)
+    jvmArgs.set(
+        listOf(
+            "-Djava.security.manager=allow",
+            "--add-opens=java.base/java.net=ALL-UNNAMED",
+            "--add-opens=java.desktop/java.awt=ALL-UNNAMED",
+            "--add-opens=java.base/java.lang=ALL-UNNAMED",
+            "--add-opens=java.base/java.util=ALL-UNNAMED"
+        )
+    )
+}
+
