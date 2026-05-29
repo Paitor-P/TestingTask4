@@ -76,3 +76,30 @@ Results:
 - Aggregated CSV: `reports\summary-quality-aggregated.csv`
 - JaCoCo HTML: `build\reports\jacoco\generated\html\index.html`
 - PIT HTML: `build\reports\pitest\generated\index.html`
+
+## Collect Spectral Traces (JaCoCo per-test)
+
+Script: `scripts\collect-spectra.ps1`
+
+```powershell
+# PowerShell
+Set-Location C:\Users\user\Documents\Polytech\Testing\Lab4up
+.\scripts\collect-spectra.ps1 -Tools EvoSuite,Randoop -BudgetsSec 30,60,120 -Runs 1,2,3
+```
+
+Results:
+- Traces: `reports\traces\evosuite_all_traces.csv`, `reports\traces\randoop_all_traces.csv`
+- CSV columns: `program_class`, `generation_time_sec`, `seed`, `test_name`, `coverage_vector`
+
+## Compare Spectral Traces (Python)
+
+Script: `py\compare_traces.py`
+
+```powershell
+# PowerShell
+Set-Location C:\Users\user\Documents\Polytech\Testing\Lab4up
+python .\py\compare_traces.py --evosuite .\reports\traces\evosuite_all_traces.csv --randoop .\reports\traces\randoop_all_traces.csv --out .\reports\trace_similarity.csv
+```
+
+Results:
+- Similarity table: `reports\trace_similarity.csv`

@@ -22,6 +22,8 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     testImplementation(files("tools/evosuite-1.2.0.jar"))
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    implementation("org.jacoco:org.jacoco.core:0.8.12")
+    implementation("org.jacoco:org.jacoco.agent:0.8.12")
 }
 
 val generatedTestsDir = providers.gradleProperty("generatedTestsDir")
@@ -92,6 +94,18 @@ tasks.register<JacocoReport>("jacocoGeneratedTestReport") {
     }
 }
 
+tasks.register("printJacocoAgentPath") {
+    doLast {
+        println(configurations["jacocoAgent"].singleFile.absolutePath)
+    }
+}
+
+tasks.register("printGeneratedTestClasspath") {
+    doLast {
+        println(sourceSets["generatedTest"].runtimeClasspath.asPath)
+    }
+}
+
 pitest {
     targetClasses.set(
         setOf(providers.gradleProperty("pitTargetClass").orElse("com.viktor.lab4.*").get())
@@ -117,4 +131,3 @@ pitest {
         )
     )
 }
-
