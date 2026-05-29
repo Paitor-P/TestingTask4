@@ -2,19 +2,27 @@
 """
 Quality analysis script for generated tests.
 Executes JaCoCo and PIT mutation testing analysis.
+
+OPTIMIZATIONS:
+- Parallel gradle execution: Uses ThreadPoolExecutor to run multiple gradle analysis jobs concurrently
+  (default 2 workers to avoid system overload). Adjust with --max-workers if needed.
+- Working directories are prepared sequentially before parallel execution to avoid filesystem conflicts
+- Gradle output is captured instead of printed to speed up execution
+- Results are collected and aggregated after all parallel tasks complete
 """
 
 import argparse
-import sys
-import os
-import subprocess
 import csv
-import xml.etree.ElementTree as ET
-from datetime import datetime
-from pathlib import Path
-from typing import List, Optional, Dict, Tuple
+import os
 import re
 import shutil
+import subprocess
+import sys
+import xml.etree.ElementTree as ET
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from datetime import datetime
+from pathlib import Path
+from typing import Optional, Dict
 
 
 def parse_generation_summary(summary_path: str) -> Dict[str, Optional[float]]:
@@ -204,6 +212,68 @@ def prepare_working_test_dir(tool: str, source_dir: str, work_dir: str) -> None:
                 java_file.write_text(content)
 
 
+def execute_gradle_analysis(params: Dict) -> Dict:
+    """Execute gradle analysis for one test run (for parallel execution)."""
+    repo = params['repo']
+    gradle_cmd = params['gradle_cmd']
+    work_dir = params['work_dir']
+    target_class = params['target_class']
+    pit_tests_pattern = params['pit_tests_pattern']
+
+    cmd_args = [
+        "--no-daemon",
+        "cleanGeneratedAnalysis",
+        "generatedTest",
+        "jacocoGeneratedTestReport",
+        "pitest",
+        f"-PgeneratedTestsDir={work_dir}",
+        f"-PpitTargetClass={target_class}",
+        f"-PpitTargetTests={pit_tests_pattern}"
+    ]
+
+    status = "OK"
+    error_text = ""
+    started = datetime.now()
+
+    try:
+        result = subprocess.run(
+            [gradle_cmd] + cmd_args,
+            check=False,
+            capture_output=True,
+            text=True,
+            timeout=600
+        )
+        if result.returncode != 0 and result.returncode != 1:
+            status = "FAILED"
+            error_text = f"Gradle exit code: {result.returncode}"
+    except subprocess.TimeoutExpired:
+        status = "FAILED"
+        error_text = "Gradle execution timed out"
+    except Exception as e:
+        status = "FAILED"
+        error_text = str(e)
+
+    elapsed_analysis = round((datetime.now() - started).total_seconds(), 3)
+
+    # Collect metrics after gradle execution
+    jacoco_xml = os.path.join(repo, "build/reports/jacoco/generated/jacocoGeneratedTestReport.xml")
+    pit_xml = os.path.join(repo, "build/reports/pitest/generated/mutations.xml")
+    test_results_dir = os.path.join(repo, "build/test-results/generatedTest")
+
+    coverage = get_jacoco_metrics(jacoco_xml, target_class)
+    pit = get_pit_metrics(pit_xml)
+    tests = get_test_counts(test_results_dir)
+
+    return {
+        'status': status,
+        'error_text': error_text,
+        'elapsed_analysis': elapsed_analysis,
+        'coverage': coverage,
+        'pit': pit,
+        'tests': tests
+    }
+
+
 def main():
     parser = argparse.ArgumentParser(
         description='Analyze quality of generated tests using JaCoCo and PIT',
@@ -252,6 +322,12 @@ def main():
         action='store_true',
         help='Stop on first error'
     )
+    parser.add_argument(
+        '--max-workers',
+        type=int,
+        default=2,
+        help='Number of parallel gradle executions (default: 2, reduce if out of memory)'
+    )
 
     args = parser.parse_args()
 
@@ -273,6 +349,10 @@ def main():
     if not generated_path.exists():
         print("ERROR: generated-tests directory not found")
         return 1
+
+    # Collect all tasks for parallel execution
+    tasks = []
+    task_metadata = {}
 
     for tool_dir in generated_path.iterdir():
         if not tool_dir.is_dir() or tool_dir.name not in args.tools:
@@ -325,83 +405,142 @@ def main():
                         else "com.viktor.lab4.autogen.*"
                     )
 
-                    status = "OK"
-                    error_text = ""
-                    started = datetime.now()
-
                     work_dir = os.path.join(
                         repo,
                         f"build/analysis-work/{tool}/{class_simple}/{budget}/run{run}-seed{seed}"
                     )
+
+                    # Prepare working directory before parallel execution
                     prepare_working_test_dir(tool, str(run_dir), work_dir)
 
                     if not args.skip_execution:
-                        cmd_args = [
-                            "--no-daemon",
-                            "cleanGeneratedAnalysis",
-                            "generatedTest",
-                            "jacocoGeneratedTestReport",
-                            "pitest",
-                            f"-PgeneratedTestsDir={work_dir}",
-                            f"-PpitTargetClass={target_class}",
-                            f"-PpitTargetTests={pit_tests_pattern}"
-                        ]
+                        # Create task for parallel execution
+                        task_id = len(tasks)
+                        params = {
+                            'repo': repo,
+                            'gradle_cmd': args.gradle_cmd,
+                            'work_dir': work_dir,
+                            'target_class': target_class,
+                            'pit_tests_pattern': pit_tests_pattern
+                        }
+                        tasks.append(params)
+                        task_metadata[task_id] = {
+                            'tool': tool,
+                            'class_simple': class_simple,
+                            'target_class': target_class,
+                            'budget': budget,
+                            'run': run,
+                            'seed': seed,
+                            'java_files': java_files,
+                            'run_dir': run_dir,
+                            'work_dir': work_dir
+                        }
+                    else:
+                        # If skipping execution, add record immediately
+                        gen_key = f"{tool}|{class_simple}|{budget}|{run}"
+                        gen_elapsed = generation_map.get(gen_key)
 
-                        print()
-                        print(f">>> {args.gradle_cmd} {' '.join(cmd_args)}")
+                        jacoco_xml = os.path.join(repo, "build/reports/jacoco/generated/jacocoGeneratedTestReport.xml")
+                        pit_xml = os.path.join(repo, "build/reports/pitest/generated/mutations.xml")
+                        test_results_dir = os.path.join(repo, "build/test-results/generatedTest")
 
-                        try:
-                            subprocess.run(
-                                [args.gradle_cmd] + cmd_args,
-                                check=False
-                            )
-                        except Exception as e:
-                            status = "FAILED"
-                            error_text = str(e)
-                            if args.stop_on_error:
-                                raise
+                        coverage = get_jacoco_metrics(jacoco_xml, target_class)
+                        pit = get_pit_metrics(pit_xml)
+                        tests = get_test_counts(test_results_dir)
 
-                    elapsed_analysis = round((datetime.now() - started).total_seconds(), 3)
+                        record = {
+                            'tool': tool,
+                            'case': class_simple,
+                            'targetClass': target_class,
+                            'budgetSec': budget,
+                            'run': run,
+                            'seed': seed,
+                            'generatedTestFiles': len(java_files),
+                            'testsExecuted': tests['tests'],
+                            'testFailures': tests['failures'],
+                            'testSkipped': tests['skipped'],
+                            'lineCoveragePct': coverage['linePct'],
+                            'branchCoveragePct': coverage['branchPct'],
+                            'instructionCoveragePct': coverage['instPct'],
+                            'mutationScorePct': pit['mutationPct'],
+                            'mutationsTotal': pit['total'],
+                            'mutationsKilled': pit['killed'],
+                            'mutationsSurvived': pit['survived'],
+                            'mutationsTimedOut': pit['timedOut'],
+                            'mutationsNoCoverage': pit['noCoverage'],
+                            'generationElapsedSec': gen_elapsed,
+                            'analysisElapsedSec': 0,
+                            'status': 'OK',
+                            'error': '',
+                            'sourceDir': str(run_dir),
+                            'preparedDir': work_dir
+                        }
+                        records.append(record)
 
-                    jacoco_xml = os.path.join(repo, "build/reports/jacoco/generated/jacocoGeneratedTestReport.xml")
-                    pit_xml = os.path.join(repo, "build/reports/pitest/generated/mutations.xml")
-                    test_results_dir = os.path.join(repo, "build/test-results/generatedTest")
+    # Execute tasks in parallel (configurable max workers)
+    if tasks:
+        print(f"Executing {len(tasks)} gradle analysis tasks with max {args.max_workers} workers...")
+        results_by_task = {}
+        completed_count = 0
+        with ThreadPoolExecutor(max_workers=args.max_workers) as executor:
+            futures = {executor.submit(execute_gradle_analysis, task): idx for idx, task in enumerate(tasks)}
 
-                    coverage = get_jacoco_metrics(jacoco_xml, target_class)
-                    pit = get_pit_metrics(pit_xml)
-                    tests = get_test_counts(test_results_dir)
-
-                    gen_key = f"{tool}|{class_simple}|{budget}|{run}"
-                    gen_elapsed = generation_map.get(gen_key)
-
-                    record = {
-                        'tool': tool,
-                        'case': class_simple,
-                        'targetClass': target_class,
-                        'budgetSec': budget,
-                        'run': run,
-                        'seed': seed,
-                        'generatedTestFiles': len(java_files),
-                        'testsExecuted': tests['tests'],
-                        'testFailures': tests['failures'],
-                        'testSkipped': tests['skipped'],
-                        'lineCoveragePct': coverage['linePct'],
-                        'branchCoveragePct': coverage['branchPct'],
-                        'instructionCoveragePct': coverage['instPct'],
-                        'mutationScorePct': pit['mutationPct'],
-                        'mutationsTotal': pit['total'],
-                        'mutationsKilled': pit['killed'],
-                        'mutationsSurvived': pit['survived'],
-                        'mutationsTimedOut': pit['timedOut'],
-                        'mutationsNoCoverage': pit['noCoverage'],
-                        'generationElapsedSec': gen_elapsed,
-                        'analysisElapsedSec': elapsed_analysis,
-                        'status': status,
-                        'error': error_text,
-                        'sourceDir': str(run_dir),
-                        'preparedDir': work_dir
+            for future in as_completed(futures):
+                task_idx = futures[future]
+                try:
+                    result = future.result()
+                    results_by_task[task_idx] = result
+                except Exception as e:
+                    results_by_task[task_idx] = {
+                        'status': 'FAILED',
+                        'error_text': str(e),
+                        'elapsed_analysis': 0,
+                        'coverage': {'linePct': None, 'branchPct': None, 'instPct': None},
+                        'pit': {'mutationPct': None, 'total': 0, 'killed': 0, 'survived': 0, 'timedOut': 0, 'noCoverage': 0},
+                        'tests': {'tests': 0, 'failures': 0, 'skipped': 0}
                     }
-                    records.append(record)
+                    if args.stop_on_error:
+                        raise
+
+                completed_count += 1
+                meta = task_metadata.get(task_idx, {})
+                print(f"  [{completed_count}/{len(tasks)}] {meta.get('tool', '?')}/{meta.get('class_simple', '?')}/{meta.get('budget', '?')}/run{meta.get('run', '?')} - {results_by_task[task_idx]['status']}")
+
+        # Build records from execution results
+        for task_idx, metadata in task_metadata.items():
+            result = results_by_task.get(task_idx, {})
+
+            gen_key = f"{metadata['tool']}|{metadata['class_simple']}|{metadata['budget']}|{metadata['run']}"
+            gen_elapsed = generation_map.get(gen_key)
+
+            record = {
+                'tool': metadata['tool'],
+                'case': metadata['class_simple'],
+                'targetClass': metadata['target_class'],
+                'budgetSec': metadata['budget'],
+                'run': metadata['run'],
+                'seed': metadata['seed'],
+                'generatedTestFiles': len(metadata['java_files']),
+                'testsExecuted': result.get('tests', {}).get('tests', 0),
+                'testFailures': result.get('tests', {}).get('failures', 0),
+                'testSkipped': result.get('tests', {}).get('skipped', 0),
+                'lineCoveragePct': result.get('coverage', {}).get('linePct'),
+                'branchCoveragePct': result.get('coverage', {}).get('branchPct'),
+                'instructionCoveragePct': result.get('coverage', {}).get('instPct'),
+                'mutationScorePct': result.get('pit', {}).get('mutationPct'),
+                'mutationsTotal': result.get('pit', {}).get('total', 0),
+                'mutationsKilled': result.get('pit', {}).get('killed', 0),
+                'mutationsSurvived': result.get('pit', {}).get('survived', 0),
+                'mutationsTimedOut': result.get('pit', {}).get('timedOut', 0),
+                'mutationsNoCoverage': result.get('pit', {}).get('noCoverage', 0),
+                'generationElapsedSec': gen_elapsed,
+                'analysisElapsedSec': result.get('elapsed_analysis', 0),
+                'status': result.get('status', 'UNKNOWN'),
+                'error': result.get('error_text', ''),
+                'sourceDir': str(metadata['run_dir']),
+                'preparedDir': metadata['work_dir']
+            }
+            records.append(record)
 
     records.sort(key=lambda r: (r['tool'], r['case'], r['budgetSec'], r['run']))
 
