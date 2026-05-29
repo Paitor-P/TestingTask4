@@ -356,18 +356,21 @@ def main():
     parser.add_argument(
         '--cases',
         nargs='+',
+        default=[],
         help='Filter by test case names'
     )
     parser.add_argument(
         '--budgets',
         type=int,
         nargs='+',
+        default=[],
         help='Filter by budget seconds'
     )
     parser.add_argument(
         '--runs',
         type=int,
         nargs='+',
+        default=[],
         help='Filter by run numbers'
     )
     parser.add_argument(
@@ -403,6 +406,20 @@ def main():
     generation_map = parse_generation_summary(os.path.join(generated_root, "generation-summary.csv"))
     records = []
 
+    # Debug: Show applied filters
+    print("=" * 60)
+    print("Active filters:")
+    print(f"  Tools: {args.tools if args.tools else 'ALL'}")
+    print(f"  Cases: {args.cases if args.cases else 'ALL'}")
+    print(f"  Budgets (sec): {args.budgets if args.budgets else 'ALL'}")
+    print(f"  Runs: {args.runs if args.runs else 'ALL'}")
+    print(f"  Max workers: {args.max_workers}")
+    print()
+    print("Syntax note: Use '--cases LruCache' (space before value)")
+    print("            not '--cases=LruCache' (avoid = with nargs='+')")
+    print("=" * 60)
+    print()
+
     generated_path = Path(generated_root)
     if not generated_path.exists():
         print("ERROR: generated-tests directory not found")
@@ -411,6 +428,8 @@ def main():
     # Collect all tasks for parallel execution
     tasks = []
     task_metadata = {}
+    total_found = 0
+    filtered_out = 0
 
     for tool_dir in generated_path.iterdir():
         if not tool_dir.is_dir() or tool_dir.name not in args.tools:
@@ -424,6 +443,7 @@ def main():
 
             class_simple = class_dir.name
             if args.cases and class_simple not in args.cases:
+                filtered_out += 1
                 continue
 
             target_class = f"com.viktor.lab4.{class_simple}"
@@ -438,6 +458,7 @@ def main():
                     continue
 
                 if args.budgets and budget not in args.budgets:
+                    filtered_out += 1
                     continue
 
                 for run_dir in budget_dir.iterdir():
@@ -452,11 +473,14 @@ def main():
                     seed = int(match.group(2))
 
                     if args.runs and run not in args.runs:
+                        filtered_out += 1
                         continue
 
                     java_files = list(run_dir.glob("**/*.java"))
                     if not java_files:
                         continue
+
+                    total_found += 1
 
                     pit_tests_pattern = (
                         "com.viktor.lab4.*ESTest*" if tool == "EvoSuite"
@@ -534,6 +558,20 @@ def main():
                             'preparedDir': work_dir
                         }
                         records.append(record)
+
+    # Show results of filtering
+    print(f"\nTest collection summary:")
+    print(f"  Total matching filters: {total_found}")
+    print(f"  Filtered out by constraints: {filtered_out}")
+    print(f"  Will process: {len(tasks)} tasks")
+    if not tasks and not args.skip_execution:
+        if args.cases or args.budgets or args.runs:
+            print("\n⚠️  WARNING: No tasks found after applying filters!")
+            print("   Check that filter values match exactly (case-sensitive for cases).")
+            print("   Tip: Run without filters to see available options.")
+        else:
+            print("\n❌ ERROR: No test tasks found at all!")
+    print()
 
     # Execute tasks in parallel (configurable max workers)
     if tasks:
@@ -613,6 +651,33 @@ def main():
             'sourceDir', 'preparedDir'
         ]
 
+        # CSV Columns Description (summary-quality.csv):
+        # tool: Test generation tool (EvoSuite, Randoop)
+        # case: Target class short name (e.g. LruCache)
+        # targetClass: Fully qualified class name (e.g. com.viktor.lab4.LruCache)
+        # budgetSec: Search budget in seconds
+        # run: Run number (1-3)
+        # seed: Random seed used
+        # generatedTestFiles: Number of generated *.java test files
+        # testsExecuted: Total number of tests executed
+        # testFailures: Number of failed/error tests
+        # testSkipped: Number of skipped tests
+        # lineCoveragePct: Line coverage percentage (JaCoCo)
+        # branchCoveragePct: Branch coverage percentage (JaCoCo)
+        # instructionCoveragePct: Instruction coverage percentage (JaCoCo)
+        # mutationScorePct: Mutation score percentage (PIT killed/total)
+        # mutationsTotal: Total number of mutations generated (PIT)
+        # mutationsKilled: Number of detected/killed mutations
+        # mutationsSurvived: Number of mutations that survived (not caught)
+        # mutationsTimedOut: Number of mutations that timed out
+        # mutationsNoCoverage: Number of mutations not covered by tests
+        # generationElapsedSec: Time spent on test generation (from generation-summary.csv)
+        # analysisElapsedSec: Time spent on JaCoCo+PIT analysis
+        # status: Execution status (OK or FAILED)
+        # error: Error message if status is FAILED
+        # sourceDir: Directory with generated test sources
+        # preparedDir: Working directory used for analysis
+
         with open(summary_csv, 'w', newline='', encoding='utf-8') as f:
             writer = csv.DictWriter(f, fieldnames=fieldnames)
             writer.writeheader()
@@ -678,6 +743,48 @@ def main():
             'meanBranchCoveragePct', 'branchVariance', 'branchStddev', 'branchCI_lower', 'branchCI_upper',
             'meanMutationScorePct', 'mutationVariance', 'mutationStddev', 'mutationCI_lower', 'mutationCI_upper'
         ]
+
+        # CSV Columns Description (summary-quality-aggregated.csv):
+        # Aggregated statistics across multiple runs for each (tool, case, budget) combination
+        #
+        # Basic identification:
+        # tool: Test generation tool (EvoSuite, Randoop)
+        # case: Target class short name
+        # budgetSec: Search budget in seconds
+        # runs: Number of runs aggregated
+        #
+        # Test Execution Statistics:
+        # meanTestsExecuted: Average number of tests executed across runs
+        # testsVariance: Variance of test execution count
+        # testsStddev: Standard deviation of test execution count
+        # testsCI_lower: 95% confidence interval lower bound
+        # testsCI_upper: 95% confidence interval upper bound
+        #
+        # Line Coverage Statistics (JaCoCo):
+        # meanLineCoveragePct: Average line coverage percentage
+        # lineVariance: Variance of line coverage
+        # lineStddev: Standard deviation of line coverage
+        # lineCI_lower: 95% CI lower bound for line coverage
+        # lineCI_upper: 95% CI upper bound for line coverage
+        #
+        # Branch Coverage Statistics (JaCoCo):
+        # meanBranchCoveragePct: Average branch coverage percentage
+        # branchVariance: Variance of branch coverage
+        # branchStddev: Standard deviation of branch coverage
+        # branchCI_lower: 95% CI lower bound for branch coverage
+        # branchCI_upper: 95% CI upper bound for branch coverage
+        #
+        # Mutation Score Statistics (PIT):
+        # meanMutationScorePct: Average mutation score (killed/total)
+        # mutationVariance: Variance of mutation score
+        # mutationStddev: Standard deviation of mutation score
+        # mutationCI_lower: 95% CI lower bound for mutation score
+        # mutationCI_upper: 95% CI upper bound for mutation score
+        #
+        # Confidence Interval (95%) calculation uses Student's t-distribution
+        # for small samples (n < 30): CI = mean ± t_α/2,n-1 * (stddev / sqrt(n))
+        # Useful for: identifying stable metrics, comparing tool effectiveness,
+        # determining statistical significance of differences
 
         with open(agg_csv, 'w', newline='', encoding='utf-8') as f:
             writer = csv.DictWriter(f, fieldnames=agg_fieldnames)
