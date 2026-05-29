@@ -93,4 +93,4 @@ Results:
 
 ## Trace Comparison Notes
 
-Comparison is done per pair of `program_class` + `generation_time_sec` only. Seeds are объединены: все тесты каждого инструмента в группе сравниваются между собой. For each EvoSuite test we take the max Jaccard vs Randoop tests, then average these maxima for the group.
+Comparison is done per `program_class` + `generation_time_sec` + `run` only. For each pair, similarity is computed between EvoSuite and Randoop tests; then results are aggregated across runs (mean/variance/stddev/CI) into `reports\trace_similarity_aggregated.csv`.

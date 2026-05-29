@@ -4,8 +4,10 @@ import os
 import re
 import shutil
 import subprocess
+import math
 from dataclasses import dataclass
 from pathlib import Path
+from statistics import stdev, variance
 
 import numpy as np
 import pandas as pd
@@ -19,14 +21,29 @@ REQUIRED_COLUMNS = [
     "coverage_vector",
 ]
 
+OPTIONAL_COLUMNS = ["run"]
+
 
 @dataclass
 class GroupResult:
     program_class: str
     generation_time_sec: int
+    run: int
     evosuite_tests: int
     randoop_tests: int
     mean_max_jaccard: float
+
+
+@dataclass
+class AggregateResult:
+    program_class: str
+    generation_time_sec: int
+    runs: int
+    mean_max_jaccard: float
+    variance: float | None
+    stddev: float | None
+    ci_lower: float | None
+    ci_upper: float | None
 
 
 def split_csv_arg(value: str | None) -> list[str] | None:
@@ -129,6 +146,7 @@ def jaccard_cross(a: np.ndarray, b: np.ndarray) -> np.ndarray:
 def compute_group_similarity(
     program_class: str,
     generation_time_sec: int,
+    run_id: int,
     evo: pd.DataFrame,
     ran: pd.DataFrame,
 ) -> GroupResult:
@@ -148,6 +166,7 @@ def compute_group_similarity(
     return GroupResult(
         program_class=program_class,
         generation_time_sec=int(generation_time_sec),
+        run=int(run_id),
         evosuite_tests=int(mat_evo.shape[0]),
         randoop_tests=int(mat_ran.shape[0]),
         mean_max_jaccard=mean_max,
@@ -179,10 +198,21 @@ def collect_traces(
         tool_file = "evosuite_all_traces.csv" if tool == "EvoSuite" else "randoop_all_traces.csv"
         out_csv = traces_dir / tool_file
         file_exists = out_csv.exists()
+        header = REQUIRED_COLUMNS + ["run"]
+
+        if file_exists:
+            with out_csv.open("r", encoding="utf-8", newline="") as reader:
+                existing_header = next(csv.reader(reader), [])
+            if "run" not in existing_header:
+                raise RuntimeError(
+                    f"Trace file missing 'run' column: {out_csv}. "
+                    "Delete the file or use a new traces directory."
+                )
+
         with out_csv.open("a", encoding="utf-8", newline="") as handle:
             writer = csv.writer(handle)
             if not file_exists:
-                writer.writerow(REQUIRED_COLUMNS)
+                writer.writerow(header)
 
             tool_dir = generated_root / tool
             if not tool_dir.exists():
@@ -276,11 +306,16 @@ def collect_traces(
                                         seed,
                                         f"{test_class}#{method}",
                                         vector_line,
+                                        run_id,
                                     ]
                                 )
 
 
-def compare_traces(traces_dir: Path, classes: list[str] | None, times: list[int] | None) -> pd.DataFrame:
+def compare_traces(
+    traces_dir: Path,
+    classes: list[str] | None,
+    times: list[int] | None,
+) -> tuple[pd.DataFrame, pd.DataFrame]:
     evo_path = traces_dir / "evosuite_all_traces.csv"
     ran_path = traces_dir / "randoop_all_traces.csv"
     evo = pd.read_csv(evo_path)
@@ -288,6 +323,11 @@ def compare_traces(traces_dir: Path, classes: list[str] | None, times: list[int]
 
     validate_columns(evo, "EvoSuite")
     validate_columns(ran, "Randoop")
+
+    run_col = "run"
+    if run_col not in evo.columns or run_col not in ran.columns:
+        print("[compare] missing 'run' column, using seed as run key")
+        run_col = "seed"
 
     if classes:
         evo = evo[evo["program_class"].isin(classes)]
@@ -298,21 +338,95 @@ def compare_traces(traces_dir: Path, classes: list[str] | None, times: list[int]
 
     print(f"[compare] evo_rows={len(evo)} randoop_rows={len(ran)}")
 
-    keys = ["program_class", "generation_time_sec"]
+    keys = ["program_class", "generation_time_sec", run_col]
     results: list[GroupResult] = []
 
     evo_keys = {tuple(row) for row in evo[keys].drop_duplicates().itertuples(index=False, name=None)}
     ran_keys = {tuple(row) for row in ran[keys].drop_duplicates().itertuples(index=False, name=None)}
 
-    for (program_class, generation_time) in sorted(evo_keys | ran_keys):
-        evo_group = evo[(evo["program_class"] == program_class) & (evo["generation_time_sec"] == generation_time)]
-        ran_group = ran[(ran["program_class"] == program_class) & (ran["generation_time_sec"] == generation_time)]
+    for (program_class, generation_time, run_id) in sorted(evo_keys | ran_keys):
+        evo_group = evo[
+            (evo["program_class"] == program_class)
+            & (evo["generation_time_sec"] == generation_time)
+            & (evo[run_col] == run_id)
+        ]
+        ran_group = ran[
+            (ran["program_class"] == program_class)
+            & (ran["generation_time_sec"] == generation_time)
+            & (ran[run_col] == run_id)
+        ]
         if evo_group.empty and ran_group.empty:
             continue
-        print(f"[compare] class={program_class} time={generation_time} evo={len(evo_group)} ran={len(ran_group)}")
-        results.append(compute_group_similarity(program_class, generation_time, evo_group, ran_group))
+        print(
+            f"[compare] class={program_class} time={generation_time} "
+            f"run={run_id} evo={len(evo_group)} ran={len(ran_group)}"
+        )
+        results.append(compute_group_similarity(program_class, generation_time, run_id, evo_group, ran_group))
 
-    return pd.DataFrame([r.__dict__ for r in results]).sort_values(keys)
+    detail_df = pd.DataFrame([r.__dict__ for r in results]).sort_values(
+        ["program_class", "generation_time_sec", "run"]
+    )
+
+    agg_records: list[AggregateResult] = []
+    for (program_class, generation_time), group in detail_df.groupby(["program_class", "generation_time_sec"]):
+        values = group["mean_max_jaccard"].tolist()
+        stats = calc_confidence_interval(values)
+        agg_records.append(
+            AggregateResult(
+                program_class=program_class,
+                generation_time_sec=int(generation_time),
+                runs=len(values),
+                mean_max_jaccard=stats["mean"],
+                variance=stats["variance"],
+                stddev=stats["stddev"],
+                ci_lower=stats["ci_lower"],
+                ci_upper=stats["ci_upper"],
+            )
+        )
+
+    agg_df = pd.DataFrame([r.__dict__ for r in agg_records]).sort_values(["program_class", "generation_time_sec"])
+    return detail_df, agg_df
+
+
+def calc_confidence_interval(values: list[float], confidence: float = 0.95) -> dict[str, float | None]:
+    if not values or len(values) < 2:
+        return {
+            "mean": round(values[0], 6) if values else 0.0,
+            "variance": None,
+            "stddev": None,
+            "ci_lower": None,
+            "ci_upper": None,
+        }
+
+    mean = sum(values) / len(values)
+    var = variance(values)
+    std = stdev(values)
+    n = len(values)
+    df = n - 1
+
+    t_values = {
+        1: 12.706, 2: 4.303, 3: 3.182, 4: 2.776, 5: 2.571, 6: 2.447, 7: 2.365,
+        8: 2.306, 9: 2.262, 10: 2.228, 15: 2.131, 20: 2.086, 25: 2.060, 30: 2.042,
+    }
+
+    if df in t_values:
+        t_val = t_values[df]
+    elif df > 30:
+        t_val = 1.96
+    else:
+        lower_df = max([k for k in t_values.keys() if k < df])
+        upper_df = min([k for k in t_values.keys() if k > df])
+        t_val = t_values[lower_df] + (df - lower_df) * (t_values[upper_df] - t_values[lower_df]) / (upper_df - lower_df)
+
+    margin_error = t_val * (std / math.sqrt(n))
+
+    return {
+        "mean": round(mean, 6),
+        "variance": round(var, 6),
+        "stddev": round(std, 6),
+        "ci_lower": round(mean - margin_error, 6),
+        "ci_upper": round(mean + margin_error, 6),
+    }
 
 
 def main() -> None:
@@ -335,6 +449,10 @@ def main() -> None:
     traces_dir = repo / args.traces_dir
     out_path = repo / args.out
 
+    gradle_path = Path(args.gradle)
+    if not gradle_path.is_absolute():
+        gradle_path = (repo / gradle_path).resolve()
+
     tools = split_csv_arg(args.tools) or []
     classes = split_csv_arg(args.classes)
     times = [int(x) for x in split_csv_arg(args.times) or []] or None
@@ -352,13 +470,16 @@ def main() -> None:
             classes=classes,
             times=times,
             runs=runs,
-            gradle_cmd=args.gradle,
+            gradle_cmd=str(gradle_path),
             java_exe=args.java,
         )
 
-    result = compare_traces(traces_dir, classes, times)
+    result, aggregated = compare_traces(traces_dir, classes, times)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     result.to_csv(out_path, index=False)
+
+    agg_path = out_path.with_name(out_path.stem + "_aggregated" + out_path.suffix)
+    aggregated.to_csv(agg_path, index=False)
 
 
 if __name__ == "__main__":
