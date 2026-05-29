@@ -46,6 +46,18 @@ class AggregateResult:
     ci_upper: float | None
 
 
+@dataclass
+class ExclusiveResult:
+    program_class: str
+    generation_time_sec: int
+    run: int
+    total_lines: int
+    covered_by_any: int
+    shared_lines: int
+    evosuite_exclusive: int
+    randoop_exclusive: int
+
+
 def split_csv_arg(value: str | None) -> list[str] | None:
     if value is None:
         return None
@@ -170,6 +182,47 @@ def compute_group_similarity(
         evosuite_tests=int(mat_evo.shape[0]),
         randoop_tests=int(mat_ran.shape[0]),
         mean_max_jaccard=mean_max,
+    )
+
+
+def compute_exclusive_lines(
+    program_class: str,
+    generation_time_sec: int,
+    run_id: int,
+    evo: pd.DataFrame,
+    ran: pd.DataFrame,
+) -> ExclusiveResult:
+    vectors_evo = parse_vectors(evo["coverage_vector"]) if not evo.empty else []
+    vectors_ran = parse_vectors(ran["coverage_vector"]) if not ran.empty else []
+
+    mat_evo = stack_vectors(vectors_evo)
+    mat_ran = stack_vectors(vectors_ran)
+
+    total_lines = int(mat_evo.shape[1] if mat_evo.size else mat_ran.shape[1])
+    if mat_evo.size == 0:
+        evo_union = np.zeros(total_lines, dtype=np.int8)
+    else:
+        evo_union = (mat_evo.astype(bool).any(axis=0)).astype(np.int8)
+
+    if mat_ran.size == 0:
+        ran_union = np.zeros(total_lines, dtype=np.int8)
+    else:
+        ran_union = (mat_ran.astype(bool).any(axis=0)).astype(np.int8)
+
+    shared = int(np.logical_and(evo_union == 1, ran_union == 1).sum())
+    evo_excl = int(np.logical_and(evo_union == 1, ran_union == 0).sum())
+    ran_excl = int(np.logical_and(evo_union == 0, ran_union == 1).sum())
+    covered_any = int((evo_union | ran_union).sum())
+
+    return ExclusiveResult(
+        program_class=program_class,
+        generation_time_sec=int(generation_time_sec),
+        run=int(run_id),
+        total_lines=total_lines,
+        covered_by_any=covered_any,
+        shared_lines=shared,
+        evosuite_exclusive=evo_excl,
+        randoop_exclusive=ran_excl,
     )
 
 
@@ -315,7 +368,7 @@ def compare_traces(
     traces_dir: Path,
     classes: list[str] | None,
     times: list[int] | None,
-) -> tuple[pd.DataFrame, pd.DataFrame]:
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     evo_path = traces_dir / "evosuite_all_traces.csv"
     ran_path = traces_dir / "randoop_all_traces.csv"
     evo = pd.read_csv(evo_path)
@@ -340,6 +393,7 @@ def compare_traces(
 
     keys = ["program_class", "generation_time_sec", run_col]
     results: list[GroupResult] = []
+    exclusive_records: list[ExclusiveResult] = []
 
     evo_keys = {tuple(row) for row in evo[keys].drop_duplicates().itertuples(index=False, name=None)}
     ran_keys = {tuple(row) for row in ran[keys].drop_duplicates().itertuples(index=False, name=None)}
@@ -362,8 +416,13 @@ def compare_traces(
             f"run={run_id} evo={len(evo_group)} ran={len(ran_group)}"
         )
         results.append(compute_group_similarity(program_class, generation_time, run_id, evo_group, ran_group))
+        exclusive_records.append(compute_exclusive_lines(program_class, generation_time, run_id, evo_group, ran_group))
 
     detail_df = pd.DataFrame([r.__dict__ for r in results]).sort_values(
+        ["program_class", "generation_time_sec", "run"]
+    )
+
+    exclusive_df = pd.DataFrame([r.__dict__ for r in exclusive_records]).sort_values(
         ["program_class", "generation_time_sec", "run"]
     )
 
@@ -385,7 +444,7 @@ def compare_traces(
         )
 
     agg_df = pd.DataFrame([r.__dict__ for r in agg_records]).sort_values(["program_class", "generation_time_sec"])
-    return detail_df, agg_df
+    return detail_df, agg_df, exclusive_df
 
 
 def calc_confidence_interval(values: list[float], confidence: float = 0.95) -> dict[str, float | None]:
@@ -474,12 +533,15 @@ def main() -> None:
             java_exe=args.java,
         )
 
-    result, aggregated = compare_traces(traces_dir, classes, times)
+    result, aggregated, exclusive = compare_traces(traces_dir, classes, times)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     result.to_csv(out_path, index=False)
 
     agg_path = out_path.with_name(out_path.stem + "_aggregated" + out_path.suffix)
     aggregated.to_csv(agg_path, index=False)
+
+    excl_path = out_path.with_name(out_path.stem + "_exclusive" + out_path.suffix)
+    exclusive.to_csv(excl_path, index=False)
 
 
 if __name__ == "__main__":
