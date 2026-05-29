@@ -9,6 +9,14 @@ OPTIMIZATIONS:
 - Working directories are prepared sequentially before parallel execution to avoid filesystem conflicts
 - Gradle output is captured instead of printed to speed up execution
 - Results are collected and aggregated after all parallel tasks complete
+
+STATISTICS IN AGGREGATED REPORT:
+- For each key metric (tests executed, line/branch/mutation coverage):
+  * Mean value (sample average)
+  * Variance (measure of spread)
+  * Standard deviation (sqrt of variance)
+  * 95% Confidence Interval (CI_lower, CI_upper) using t-distribution for small samples (n<30)
+- CI calculation: mean ± t_α/2 * (stddev / sqrt(n)) where t_α/2 from Student's t-distribution
 """
 
 import argparse
@@ -23,6 +31,8 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
 from typing import Optional, Dict
+from statistics import stdev, variance
+import math
 
 
 def parse_generation_summary(summary_path: str) -> Dict[str, Optional[float]]:
@@ -271,6 +281,54 @@ def execute_gradle_analysis(params: Dict) -> Dict:
         'coverage': coverage,
         'pit': pit,
         'tests': tests
+    }
+
+
+def calc_confidence_interval(values: list, confidence: float = 0.95) -> Dict:
+    """Calculate mean, variance, std dev and 95% confidence interval for a list of values.
+    
+    Uses Student's t-distribution for CI calculation (appropriate for small samples).
+    CI is calculated as: mean ± t_α/2,n-1 * (std / sqrt(n))
+    Returns None values if sample has less than 2 points.
+    """
+    if not values or len(values) < 2:
+        return {'mean': 0.0, 'variance': None, 'stddev': None, 'ci_lower': None, 'ci_upper': None}
+    
+    mean = sum(values) / len(values)
+    var = variance(values)
+    std = stdev(values)
+    
+    n = len(values)
+    # Simplified t-value for 95% CI: approximate using Welch-Satterthwaite approach
+    # For df=n-1, use approximation: t ≈ 2 + 1/df (simplified, works for df > 1)
+    df = n - 1
+    alpha = 1 - confidence
+    
+    # Use approximation of t-quantile: t_crit ≈ sqrt(f(1-alpha/2)*df/(1-alpha/2)) 
+    # For 0.975 quantile with small df, use pre-calculated values
+    t_values = {
+        1: 12.706, 2: 4.303, 3: 3.182, 4: 2.776, 5: 2.571, 6: 2.447, 7: 2.365,
+        8: 2.306, 9: 2.262, 10: 2.228, 15: 2.131, 20: 2.086, 25: 2.060, 30: 2.042
+    }
+    
+    if df in t_values:
+        t_val = t_values[df]
+    elif df > 30:
+        t_val = 1.96  # z-score for normal distribution at 0.975
+    else:
+        # Linear interpolation for values between those in table
+        lower_df = max([k for k in t_values.keys() if k < df])
+        upper_df = min([k for k in t_values.keys() if k > df])
+        t_val = t_values[lower_df] + (df - lower_df) * (t_values[upper_df] - t_values[lower_df]) / (upper_df - lower_df)
+    
+    margin_error = t_val * (std / math.sqrt(n))
+    
+    return {
+        'mean': round(mean, 2),
+        'variance': round(var, 4),
+        'stddev': round(std, 2),
+        'ci_lower': round(mean - margin_error, 2),
+        'ci_upper': round(mean + margin_error, 2)
     }
 
 
@@ -577,28 +635,48 @@ def main():
         mutation_scores = [r['mutationScorePct'] for r in rows if r['mutationScorePct'] is not None]
         tests_executed = [r['testsExecuted'] for r in rows if r['testsExecuted'] is not None]
 
-        mean_line = round(sum(line_coverages) / len(line_coverages), 2) if line_coverages else 0.0
-        mean_branch = round(sum(branch_coverages) / len(branch_coverages), 2) if branch_coverages else 0.0
-        mean_mutation = round(sum(mutation_scores) / len(mutation_scores), 2) if mutation_scores else 0.0
-        mean_tests = round(sum(tests_executed) / len(tests_executed), 2) if tests_executed else 0.0
+        # Calculate statistics for each metric with CI and variance
+        tests_stats = calc_confidence_interval(tests_executed)
+        line_stats = calc_confidence_interval(line_coverages)
+        branch_stats = calc_confidence_interval(branch_coverages)
+        mutation_stats = calc_confidence_interval(mutation_scores)
 
         agg_records.append({
             'tool': tool,
             'case': case,
             'budgetSec': budget,
             'runs': len(rows),
-            'meanTestsExecuted': mean_tests,
-            'meanLineCoveragePct': mean_line,
-            'meanBranchCoveragePct': mean_branch,
-            'meanMutationScorePct': mean_mutation
+            'meanTestsExecuted': tests_stats['mean'],
+            'testsVariance': tests_stats['variance'],
+            'testsStddev': tests_stats['stddev'],
+            'testsCI_lower': tests_stats['ci_lower'],
+            'testsCI_upper': tests_stats['ci_upper'],
+            'meanLineCoveragePct': line_stats['mean'],
+            'lineVariance': line_stats['variance'],
+            'lineStddev': line_stats['stddev'],
+            'lineCI_lower': line_stats['ci_lower'],
+            'lineCI_upper': line_stats['ci_upper'],
+            'meanBranchCoveragePct': branch_stats['mean'],
+            'branchVariance': branch_stats['variance'],
+            'branchStddev': branch_stats['stddev'],
+            'branchCI_lower': branch_stats['ci_lower'],
+            'branchCI_upper': branch_stats['ci_upper'],
+            'meanMutationScorePct': mutation_stats['mean'],
+            'mutationVariance': mutation_stats['variance'],
+            'mutationStddev': mutation_stats['stddev'],
+            'mutationCI_lower': mutation_stats['ci_lower'],
+            'mutationCI_upper': mutation_stats['ci_upper']
         })
 
     agg_records.sort(key=lambda r: (r['tool'], r['case'], r['budgetSec']))
 
     if agg_records:
         agg_fieldnames = [
-            'tool', 'case', 'budgetSec', 'runs', 'meanTestsExecuted',
-            'meanLineCoveragePct', 'meanBranchCoveragePct', 'meanMutationScorePct'
+            'tool', 'case', 'budgetSec', 'runs',
+            'meanTestsExecuted', 'testsVariance', 'testsStddev', 'testsCI_lower', 'testsCI_upper',
+            'meanLineCoveragePct', 'lineVariance', 'lineStddev', 'lineCI_lower', 'lineCI_upper',
+            'meanBranchCoveragePct', 'branchVariance', 'branchStddev', 'branchCI_lower', 'branchCI_upper',
+            'meanMutationScorePct', 'mutationVariance', 'mutationStddev', 'mutationCI_lower', 'mutationCI_upper'
         ]
 
         with open(agg_csv, 'w', newline='', encoding='utf-8') as f:
