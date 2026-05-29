@@ -165,6 +165,27 @@ def find_evosuite_compatible_java(repo_root: str) -> Optional[str]:
     compatible.sort(key=lambda x: (-x[1], x[0]))
     return compatible[0][0]
 
+def get_next_run_index(out_base: str, tool: str, class_short: str, budget: str) -> int:
+    """Возвращает следующий доступный run_index на основе существующих папок."""
+    target_dir = os.path.join(out_base, tool, class_short, budget)
+
+    # Если директория ещё не создана, начинаем с 1
+    if not os.path.isdir(target_dir):
+        return 1
+
+    # Регулярка для извлечения числа после "run" и перед "-"
+    pattern = re.compile(r'^run(\d+)-')
+    max_index = 0
+
+    for entry in os.listdir(target_dir):
+        full_path = os.path.join(target_dir, entry)
+        # Проверяем, что это директория и имя соответствует шаблону
+        if os.path.isdir(full_path) and pattern.match(entry):
+            idx = int(pattern.match(entry).group(1))
+            if idx > max_index:
+                max_index = idx
+
+    return max_index + 1
 
 def main():
     parser = argparse.ArgumentParser(
@@ -316,12 +337,15 @@ def main():
     ]
     
     for tool in tools:
+        print(f"Tool = {tool}")
         for target in target_classes:
+            print(f"target = {target}")
             class_short = get_class_short_name(target)
             for budget in budgets:
                 for i, seed in enumerate(seeds):
-                    run_index = i + 1
-                    run_dir = os.path.join(out_base, f"{tool}/{class_short}/{budget}/run{run_index}-seed{seed}")
+                    print(f"budget = {budget}, seed = {seed}")
+                    run_index = get_next_run_index(out_base, tool, class_short, str(budget))
+                    run_dir = os.path.join(out_base, tool, class_short, str(budget), f"run{run_index}-seed{seed}")
                     
                     if not args.dry_run:
                         Path(run_dir).mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,3281 @@
+package com.viktor.lab4.autogen;
+
+import org.junit.FixMethodOrder;
+import org.junit.Test;
+import org.junit.runners.MethodSorters;
+
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+public class RegressionTest2 {
+
+    public static boolean debug = false;
+
+    @Test
+    public void test1001() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1001");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc3 = serializableLruCache1.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc5 = serializableLruCache1.get((java.io.Serializable) false);
+        int int6 = serializableLruCache1.size();
+        int int7 = serializableLruCache1.size();
+        org.junit.Assert.assertNull(constantDesc3);
+        org.junit.Assert.assertNull(constantDesc5);
+        org.junit.Assert.assertTrue("'" + int6 + "' != '" + 0 + "'", int6 == 0);
+        org.junit.Assert.assertTrue("'" + int7 + "' != '" + 0 + "'", int7 == 0);
+    }
+
+    @Test
+    public void test1002() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1002");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc3 = serializableLruCache1.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc5 = serializableLruCache1.get((java.io.Serializable) false);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache7 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc9 = serializableLruCache7.get((java.io.Serializable) (byte) 10);
+        boolean boolean11 = serializableLruCache7.containsKey((java.io.Serializable) (-1));
+        serializableLruCache7.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 1);
+        boolean boolean16 = serializableLruCache7.containsKey((java.io.Serializable) 10.0f);
+        java.lang.Class<?> wildcardClass17 = serializableLruCache7.getClass();
+        java.lang.constant.ConstantDesc constantDesc18 = serializableLruCache1.get((java.io.Serializable) wildcardClass17);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache20 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) ' ');
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache22 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache22.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc27 = serializableLruCache22.get((java.io.Serializable) ' ');
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache29 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache29.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        boolean boolean34 = serializableLruCache29.containsKey((java.io.Serializable) 1);
+        serializableLruCache29.put((java.io.Serializable) 0, (java.lang.constant.ConstantDesc) (-1.0d));
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache39 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache39.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc44 = serializableLruCache39.get((java.io.Serializable) ' ');
+        serializableLruCache39.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.Class<?> wildcardClass48 = serializableLruCache39.getClass();
+        java.lang.constant.ConstantDesc constantDesc49 = serializableLruCache29.get((java.io.Serializable) wildcardClass48);
+        java.lang.constant.ConstantDesc constantDesc50 = serializableLruCache22.get((java.io.Serializable) wildcardClass48);
+        java.lang.constant.ConstantDesc constantDesc51 = serializableLruCache20.get((java.io.Serializable) wildcardClass48);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache53 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        java.lang.constant.ConstantDesc constantDesc55 = serializableLruCache53.get((java.io.Serializable) 0);
+        serializableLruCache53.put((java.io.Serializable) (short) -1, (java.lang.constant.ConstantDesc) 1);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache60 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc62 = serializableLruCache60.get((java.io.Serializable) (byte) 10);
+        int int63 = serializableLruCache60.size();
+        java.io.Serializable serializable64 = null;
+        java.lang.constant.ConstantDesc constantDesc65 = serializableLruCache60.get(serializable64);
+        boolean boolean67 = serializableLruCache60.containsKey((java.io.Serializable) "hi!");
+        java.lang.Class<?> wildcardClass68 = serializableLruCache60.getClass();
+        boolean boolean69 = serializableLruCache53.containsKey((java.io.Serializable) wildcardClass68);
+        java.lang.Class<?> wildcardClass70 = serializableLruCache53.getClass();
+        serializableLruCache20.put((java.io.Serializable) wildcardClass70, (java.lang.constant.ConstantDesc) 10.0d);
+        serializableLruCache1.put((java.io.Serializable) wildcardClass70, (java.lang.constant.ConstantDesc) (-1));
+        org.junit.Assert.assertNull(constantDesc3);
+        org.junit.Assert.assertNull(constantDesc5);
+        org.junit.Assert.assertNull(constantDesc9);
+        org.junit.Assert.assertTrue("'" + boolean11 + "' != '" + false + "'", boolean11 == false);
+        org.junit.Assert.assertTrue("'" + boolean16 + "' != '" + false + "'", boolean16 == false);
+        org.junit.Assert.assertNotNull(wildcardClass17);
+        org.junit.Assert.assertNull(constantDesc18);
+        org.junit.Assert.assertNull(constantDesc27);
+        org.junit.Assert.assertTrue("'" + boolean34 + "' != '" + false + "'", boolean34 == false);
+        org.junit.Assert.assertNull(constantDesc44);
+        org.junit.Assert.assertNotNull(wildcardClass48);
+        org.junit.Assert.assertNull(constantDesc49);
+        org.junit.Assert.assertNull(constantDesc50);
+        org.junit.Assert.assertNull(constantDesc51);
+        org.junit.Assert.assertNull(constantDesc55);
+        org.junit.Assert.assertNull(constantDesc62);
+        org.junit.Assert.assertTrue("'" + int63 + "' != '" + 0 + "'", int63 == 0);
+        org.junit.Assert.assertNull(constantDesc65);
+        org.junit.Assert.assertTrue("'" + boolean67 + "' != '" + false + "'", boolean67 == false);
+        org.junit.Assert.assertNotNull(wildcardClass68);
+        org.junit.Assert.assertTrue("'" + boolean69 + "' != '" + false + "'", boolean69 == false);
+        org.junit.Assert.assertNotNull(wildcardClass70);
+    }
+
+    @Test
+    public void test1003() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1003");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc3 = serializableLruCache1.get((java.io.Serializable) (byte) 10);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache5 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache5.put((java.io.Serializable) 1.0d, (java.lang.constant.ConstantDesc) "");
+        serializableLruCache5.put((java.io.Serializable) 0, (java.lang.constant.ConstantDesc) 1L);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache13 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc15 = serializableLruCache13.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc17 = serializableLruCache13.get((java.io.Serializable) (short) 100);
+        int int18 = serializableLruCache13.size();
+        java.lang.Object obj19 = new java.lang.Object();
+        java.lang.Class<?> wildcardClass20 = obj19.getClass();
+        java.lang.constant.ConstantDesc constantDesc21 = serializableLruCache13.get((java.io.Serializable) wildcardClass20);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache23 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean25 = serializableLruCache23.containsKey((java.io.Serializable) 10);
+        boolean boolean27 = serializableLruCache23.containsKey((java.io.Serializable) 1.0d);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache29 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass30 = annotatedElementLruCache29.getClass();
+        java.lang.constant.ConstantDesc constantDesc31 = serializableLruCache23.get((java.io.Serializable) wildcardClass30);
+        java.lang.Class<?> wildcardClass32 = serializableLruCache23.getClass();
+        serializableLruCache13.put((java.io.Serializable) wildcardClass32, (java.lang.constant.ConstantDesc) 1);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache36 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean38 = serializableLruCache36.containsKey((java.io.Serializable) 1.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache40 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean42 = serializableLruCache40.containsKey((java.io.Serializable) 10);
+        boolean boolean44 = serializableLruCache40.containsKey((java.io.Serializable) 1.0d);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache46 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass47 = annotatedElementLruCache46.getClass();
+        java.lang.constant.ConstantDesc constantDesc48 = serializableLruCache40.get((java.io.Serializable) wildcardClass47);
+        boolean boolean49 = serializableLruCache36.containsKey((java.io.Serializable) wildcardClass47);
+        serializableLruCache13.put((java.io.Serializable) boolean49, (java.lang.constant.ConstantDesc) "");
+        java.lang.Class<?> wildcardClass52 = serializableLruCache13.getClass();
+        boolean boolean53 = serializableLruCache5.containsKey((java.io.Serializable) wildcardClass52);
+        boolean boolean54 = serializableLruCache1.containsKey((java.io.Serializable) boolean53);
+        java.io.Serializable serializable55 = null;
+        boolean boolean56 = serializableLruCache1.containsKey(serializable55);
+        int int57 = serializableLruCache1.size();
+        org.junit.Assert.assertNull(constantDesc3);
+        org.junit.Assert.assertNull(constantDesc15);
+        org.junit.Assert.assertNull(constantDesc17);
+        org.junit.Assert.assertTrue("'" + int18 + "' != '" + 0 + "'", int18 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass20);
+        org.junit.Assert.assertNull(constantDesc21);
+        org.junit.Assert.assertTrue("'" + boolean25 + "' != '" + false + "'", boolean25 == false);
+        org.junit.Assert.assertTrue("'" + boolean27 + "' != '" + false + "'", boolean27 == false);
+        org.junit.Assert.assertNotNull(wildcardClass30);
+        org.junit.Assert.assertNull(constantDesc31);
+        org.junit.Assert.assertNotNull(wildcardClass32);
+        org.junit.Assert.assertTrue("'" + boolean38 + "' != '" + false + "'", boolean38 == false);
+        org.junit.Assert.assertTrue("'" + boolean42 + "' != '" + false + "'", boolean42 == false);
+        org.junit.Assert.assertTrue("'" + boolean44 + "' != '" + false + "'", boolean44 == false);
+        org.junit.Assert.assertNotNull(wildcardClass47);
+        org.junit.Assert.assertNull(constantDesc48);
+        org.junit.Assert.assertTrue("'" + boolean49 + "' != '" + false + "'", boolean49 == false);
+        org.junit.Assert.assertNotNull(wildcardClass52);
+        org.junit.Assert.assertTrue("'" + boolean53 + "' != '" + false + "'", boolean53 == false);
+        org.junit.Assert.assertTrue("'" + boolean54 + "' != '" + false + "'", boolean54 == false);
+        org.junit.Assert.assertTrue("'" + boolean56 + "' != '" + false + "'", boolean56 == false);
+        org.junit.Assert.assertTrue("'" + int57 + "' != '" + 0 + "'", int57 == 0);
+    }
+
+    @Test
+    public void test1004() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1004");
+        // The following exception was thrown during execution in test generation
+        try {
+            com.viktor.lab4.LruCache<java.lang.constant.Constable, java.lang.constant.ConstantDesc> constableLruCache1 = new com.viktor.lab4.LruCache<java.lang.constant.Constable, java.lang.constant.ConstantDesc>((-1));
+            org.junit.Assert.fail("Expected exception of type java.lang.IllegalArgumentException; message: capacity must be > 0");
+        } catch (java.lang.IllegalArgumentException e) {
+            // Expected exception.
+        }
+    }
+
+    @Test
+    public void test1005() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1005");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc3 = serializableLruCache1.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc5 = serializableLruCache1.get((java.io.Serializable) (short) 100);
+        serializableLruCache1.put((java.io.Serializable) (byte) -1, (java.lang.constant.ConstantDesc) 10L);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache10 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache10.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc15 = serializableLruCache10.get((java.io.Serializable) ' ');
+        serializableLruCache10.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.constant.ConstantDesc constantDesc20 = serializableLruCache10.get((java.io.Serializable) 1);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache22 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass23 = annotatedElementLruCache22.getClass();
+        java.lang.constant.ConstantDesc constantDesc24 = serializableLruCache10.get((java.io.Serializable) wildcardClass23);
+        serializableLruCache1.put((java.io.Serializable) wildcardClass23, (java.lang.constant.ConstantDesc) 10.0f);
+        int int27 = serializableLruCache1.size();
+        int int28 = serializableLruCache1.size();
+        int int29 = serializableLruCache1.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache31 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc33 = serializableLruCache31.get((java.io.Serializable) (byte) 10);
+        boolean boolean35 = serializableLruCache31.containsKey((java.io.Serializable) (-1));
+        serializableLruCache31.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 1);
+        boolean boolean40 = serializableLruCache31.containsKey((java.io.Serializable) 100);
+        serializableLruCache31.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 0);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache45 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        boolean boolean47 = serializableLruCache45.containsKey((java.io.Serializable) "");
+        java.io.Serializable serializable48 = null;
+        java.lang.constant.ConstantDesc constantDesc49 = serializableLruCache45.get(serializable48);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache51 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc53 = serializableLruCache51.get((java.io.Serializable) (byte) 10);
+        boolean boolean55 = serializableLruCache51.containsKey((java.io.Serializable) (-1));
+        int int56 = serializableLruCache51.size();
+        java.lang.Class<?> wildcardClass57 = serializableLruCache51.getClass();
+        serializableLruCache45.put((java.io.Serializable) wildcardClass57, (java.lang.constant.ConstantDesc) 1L);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache61 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean63 = serializableLruCache61.containsKey((java.io.Serializable) 10);
+        java.lang.constant.ConstantDesc constantDesc65 = serializableLruCache61.get((java.io.Serializable) '#');
+        serializableLruCache61.put((java.io.Serializable) (-1.0f), (java.lang.constant.ConstantDesc) "");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache70 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache70.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc75 = serializableLruCache70.get((java.io.Serializable) ' ');
+        serializableLruCache70.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.constant.ConstantDesc constantDesc80 = serializableLruCache70.get((java.io.Serializable) 1);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache82 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass83 = annotatedElementLruCache82.getClass();
+        java.lang.constant.ConstantDesc constantDesc84 = serializableLruCache70.get((java.io.Serializable) wildcardClass83);
+        serializableLruCache61.put((java.io.Serializable) wildcardClass83, (java.lang.constant.ConstantDesc) 0.0f);
+        java.lang.constant.ConstantDesc constantDesc87 = serializableLruCache45.get((java.io.Serializable) wildcardClass83);
+        boolean boolean88 = serializableLruCache31.containsKey((java.io.Serializable) wildcardClass83);
+        serializableLruCache1.put((java.io.Serializable) wildcardClass83, (java.lang.constant.ConstantDesc) 10.0f);
+        org.junit.Assert.assertNull(constantDesc3);
+        org.junit.Assert.assertNull(constantDesc5);
+        org.junit.Assert.assertNull(constantDesc15);
+        org.junit.Assert.assertNull(constantDesc20);
+        org.junit.Assert.assertNotNull(wildcardClass23);
+        org.junit.Assert.assertNull(constantDesc24);
+        org.junit.Assert.assertTrue("'" + int27 + "' != '" + 2 + "'", int27 == 2);
+        org.junit.Assert.assertTrue("'" + int28 + "' != '" + 2 + "'", int28 == 2);
+        org.junit.Assert.assertTrue("'" + int29 + "' != '" + 2 + "'", int29 == 2);
+        org.junit.Assert.assertNull(constantDesc33);
+        org.junit.Assert.assertTrue("'" + boolean35 + "' != '" + false + "'", boolean35 == false);
+        org.junit.Assert.assertTrue("'" + boolean40 + "' != '" + false + "'", boolean40 == false);
+        org.junit.Assert.assertTrue("'" + boolean47 + "' != '" + false + "'", boolean47 == false);
+        org.junit.Assert.assertNull(constantDesc49);
+        org.junit.Assert.assertNull(constantDesc53);
+        org.junit.Assert.assertTrue("'" + boolean55 + "' != '" + false + "'", boolean55 == false);
+        org.junit.Assert.assertTrue("'" + int56 + "' != '" + 0 + "'", int56 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass57);
+        org.junit.Assert.assertTrue("'" + boolean63 + "' != '" + false + "'", boolean63 == false);
+        org.junit.Assert.assertNull(constantDesc65);
+        org.junit.Assert.assertNull(constantDesc75);
+        org.junit.Assert.assertNull(constantDesc80);
+        org.junit.Assert.assertNotNull(wildcardClass83);
+        org.junit.Assert.assertNull(constantDesc84);
+        org.junit.Assert.assertEquals("'" + constantDesc87 + "' != '" + 1L + "'", constantDesc87, 1L);
+        org.junit.Assert.assertTrue("'" + boolean88 + "' != '" + false + "'", boolean88 == false);
+    }
+
+    @Test
+    public void test1006() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1006");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc3 = serializableLruCache1.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc5 = serializableLruCache1.get((java.io.Serializable) false);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache7 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean9 = serializableLruCache7.containsKey((java.io.Serializable) 1.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache11 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc13 = serializableLruCache11.get((java.io.Serializable) (byte) 10);
+        int int14 = serializableLruCache11.size();
+        serializableLruCache11.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 0L);
+        java.lang.Class<?> wildcardClass18 = serializableLruCache11.getClass();
+        java.lang.constant.ConstantDesc constantDesc19 = serializableLruCache7.get((java.io.Serializable) wildcardClass18);
+        java.lang.constant.ConstantDesc constantDesc20 = serializableLruCache1.get((java.io.Serializable) wildcardClass18);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache22 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass23 = annotatedElementLruCache22.getClass();
+        boolean boolean24 = serializableLruCache1.containsKey((java.io.Serializable) wildcardClass23);
+        int int25 = serializableLruCache1.size();
+        int int26 = serializableLruCache1.size();
+        int int27 = serializableLruCache1.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache29 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc31 = serializableLruCache29.get((java.io.Serializable) (byte) 10);
+        boolean boolean33 = serializableLruCache29.containsKey((java.io.Serializable) (-1));
+        serializableLruCache29.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 1);
+        boolean boolean38 = serializableLruCache29.containsKey((java.io.Serializable) 10.0f);
+        boolean boolean40 = serializableLruCache29.containsKey((java.io.Serializable) 10.0f);
+        java.lang.Class<?> wildcardClass41 = serializableLruCache29.getClass();
+        java.lang.constant.ConstantDesc constantDesc42 = serializableLruCache1.get((java.io.Serializable) wildcardClass41);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache44 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean46 = serializableLruCache44.containsKey((java.io.Serializable) 1.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache48 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean50 = serializableLruCache48.containsKey((java.io.Serializable) 10);
+        boolean boolean52 = serializableLruCache48.containsKey((java.io.Serializable) 1.0d);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache54 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass55 = annotatedElementLruCache54.getClass();
+        java.lang.constant.ConstantDesc constantDesc56 = serializableLruCache48.get((java.io.Serializable) wildcardClass55);
+        boolean boolean57 = serializableLruCache44.containsKey((java.io.Serializable) wildcardClass55);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache59 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc61 = serializableLruCache59.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc63 = serializableLruCache59.get((java.io.Serializable) false);
+        boolean boolean65 = serializableLruCache59.containsKey((java.io.Serializable) 1);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache67 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        boolean boolean69 = serializableLruCache67.containsKey((java.io.Serializable) "");
+        java.lang.constant.ConstantDesc constantDesc71 = serializableLruCache67.get((java.io.Serializable) (-1));
+        serializableLruCache67.put((java.io.Serializable) 10.0f, (java.lang.constant.ConstantDesc) (-1.0f));
+        java.lang.Class<?> wildcardClass75 = serializableLruCache67.getClass();
+        java.lang.constant.ConstantDesc constantDesc76 = serializableLruCache59.get((java.io.Serializable) wildcardClass75);
+        java.lang.constant.ConstantDesc constantDesc77 = serializableLruCache44.get((java.io.Serializable) wildcardClass75);
+        serializableLruCache1.put((java.io.Serializable) wildcardClass75, (java.lang.constant.ConstantDesc) 0.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache81 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (byte) 1);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache83 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc85 = serializableLruCache83.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc87 = serializableLruCache83.get((java.io.Serializable) (short) 100);
+        int int88 = serializableLruCache83.size();
+        java.lang.Class<?> wildcardClass89 = serializableLruCache83.getClass();
+        serializableLruCache81.put((java.io.Serializable) wildcardClass89, (java.lang.constant.ConstantDesc) 10.0d);
+        java.lang.Class<?> wildcardClass92 = serializableLruCache81.getClass();
+        boolean boolean93 = serializableLruCache1.containsKey((java.io.Serializable) wildcardClass92);
+        org.junit.Assert.assertNull(constantDesc3);
+        org.junit.Assert.assertNull(constantDesc5);
+        org.junit.Assert.assertTrue("'" + boolean9 + "' != '" + false + "'", boolean9 == false);
+        org.junit.Assert.assertNull(constantDesc13);
+        org.junit.Assert.assertTrue("'" + int14 + "' != '" + 0 + "'", int14 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass18);
+        org.junit.Assert.assertNull(constantDesc19);
+        org.junit.Assert.assertNull(constantDesc20);
+        org.junit.Assert.assertNotNull(wildcardClass23);
+        org.junit.Assert.assertTrue("'" + boolean24 + "' != '" + false + "'", boolean24 == false);
+        org.junit.Assert.assertTrue("'" + int25 + "' != '" + 0 + "'", int25 == 0);
+        org.junit.Assert.assertTrue("'" + int26 + "' != '" + 0 + "'", int26 == 0);
+        org.junit.Assert.assertTrue("'" + int27 + "' != '" + 0 + "'", int27 == 0);
+        org.junit.Assert.assertNull(constantDesc31);
+        org.junit.Assert.assertTrue("'" + boolean33 + "' != '" + false + "'", boolean33 == false);
+        org.junit.Assert.assertTrue("'" + boolean38 + "' != '" + false + "'", boolean38 == false);
+        org.junit.Assert.assertTrue("'" + boolean40 + "' != '" + false + "'", boolean40 == false);
+        org.junit.Assert.assertNotNull(wildcardClass41);
+        org.junit.Assert.assertNull(constantDesc42);
+        org.junit.Assert.assertTrue("'" + boolean46 + "' != '" + false + "'", boolean46 == false);
+        org.junit.Assert.assertTrue("'" + boolean50 + "' != '" + false + "'", boolean50 == false);
+        org.junit.Assert.assertTrue("'" + boolean52 + "' != '" + false + "'", boolean52 == false);
+        org.junit.Assert.assertNotNull(wildcardClass55);
+        org.junit.Assert.assertNull(constantDesc56);
+        org.junit.Assert.assertTrue("'" + boolean57 + "' != '" + false + "'", boolean57 == false);
+        org.junit.Assert.assertNull(constantDesc61);
+        org.junit.Assert.assertNull(constantDesc63);
+        org.junit.Assert.assertTrue("'" + boolean65 + "' != '" + false + "'", boolean65 == false);
+        org.junit.Assert.assertTrue("'" + boolean69 + "' != '" + false + "'", boolean69 == false);
+        org.junit.Assert.assertNull(constantDesc71);
+        org.junit.Assert.assertNotNull(wildcardClass75);
+        org.junit.Assert.assertNull(constantDesc76);
+        org.junit.Assert.assertNull(constantDesc77);
+        org.junit.Assert.assertNull(constantDesc85);
+        org.junit.Assert.assertNull(constantDesc87);
+        org.junit.Assert.assertTrue("'" + int88 + "' != '" + 0 + "'", int88 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass89);
+        org.junit.Assert.assertNotNull(wildcardClass92);
+        org.junit.Assert.assertTrue("'" + boolean93 + "' != '" + true + "'", boolean93 == true);
+    }
+
+    @Test
+    public void test1007() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1007");
+        com.viktor.lab4.LruCache<java.lang.constant.ConstantDesc, java.lang.invoke.TypeDescriptor.OfField<java.lang.Class<?>>> constantDescLruCache1 = new com.viktor.lab4.LruCache<java.lang.constant.ConstantDesc, java.lang.invoke.TypeDescriptor.OfField<java.lang.Class<?>>>(10);
+    }
+
+    @Test
+    public void test1008() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1008");
+        com.viktor.lab4.LruCache<com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>, java.lang.Comparable<java.lang.String>> serializableLruCacheLruCache1 = new com.viktor.lab4.LruCache<com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>, java.lang.Comparable<java.lang.String>>(2);
+    }
+
+    @Test
+    public void test1009() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1009");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache1.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc6 = serializableLruCache1.get((java.io.Serializable) ' ');
+        serializableLruCache1.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.constant.ConstantDesc constantDesc11 = serializableLruCache1.get((java.io.Serializable) 1);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache13 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass14 = annotatedElementLruCache13.getClass();
+        java.lang.constant.ConstantDesc constantDesc15 = serializableLruCache1.get((java.io.Serializable) wildcardClass14);
+        serializableLruCache1.put((java.io.Serializable) (-1.0f), (java.lang.constant.ConstantDesc) "");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache20 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache20.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc25 = serializableLruCache20.get((java.io.Serializable) ' ');
+        serializableLruCache20.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.constant.ConstantDesc constantDesc30 = serializableLruCache20.get((java.io.Serializable) 1);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache32 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache32.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc37 = serializableLruCache32.get((java.io.Serializable) ' ');
+        serializableLruCache32.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.Class<?> wildcardClass41 = serializableLruCache32.getClass();
+        java.lang.constant.ConstantDesc constantDesc42 = serializableLruCache20.get((java.io.Serializable) wildcardClass41);
+        boolean boolean43 = serializableLruCache1.containsKey((java.io.Serializable) wildcardClass41);
+        java.io.Serializable serializable44 = null;
+        serializableLruCache1.put(serializable44, (java.lang.constant.ConstantDesc) (-1L));
+        int int47 = serializableLruCache1.size();
+        org.junit.Assert.assertNull(constantDesc6);
+        org.junit.Assert.assertNull(constantDesc11);
+        org.junit.Assert.assertNotNull(wildcardClass14);
+        org.junit.Assert.assertNull(constantDesc15);
+        org.junit.Assert.assertNull(constantDesc25);
+        org.junit.Assert.assertNull(constantDesc30);
+        org.junit.Assert.assertNull(constantDesc37);
+        org.junit.Assert.assertNotNull(wildcardClass41);
+        org.junit.Assert.assertNull(constantDesc42);
+        org.junit.Assert.assertTrue("'" + boolean43 + "' != '" + false + "'", boolean43 == false);
+        org.junit.Assert.assertTrue("'" + int47 + "' != '" + 4 + "'", int47 == 4);
+    }
+
+    @Test
+    public void test1010() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1010");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean3 = serializableLruCache1.containsKey((java.io.Serializable) 10);
+        boolean boolean5 = serializableLruCache1.containsKey((java.io.Serializable) 1.0d);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache7 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean9 = serializableLruCache7.containsKey((java.io.Serializable) 10);
+        boolean boolean11 = serializableLruCache7.containsKey((java.io.Serializable) 1.0d);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache13 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass14 = annotatedElementLruCache13.getClass();
+        java.lang.constant.ConstantDesc constantDesc15 = serializableLruCache7.get((java.io.Serializable) wildcardClass14);
+        java.lang.constant.ConstantDesc constantDesc16 = serializableLruCache1.get((java.io.Serializable) wildcardClass14);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache18 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache20 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc22 = serializableLruCache20.get((java.io.Serializable) (byte) 10);
+        int int23 = serializableLruCache20.size();
+        java.io.Serializable serializable24 = null;
+        java.lang.constant.ConstantDesc constantDesc25 = serializableLruCache20.get(serializable24);
+        boolean boolean27 = serializableLruCache20.containsKey((java.io.Serializable) "hi!");
+        java.lang.Class<?> wildcardClass28 = serializableLruCache20.getClass();
+        boolean boolean29 = serializableLruCache18.containsKey((java.io.Serializable) wildcardClass28);
+        java.lang.constant.ConstantDesc constantDesc30 = serializableLruCache1.get((java.io.Serializable) boolean29);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache32 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc34 = serializableLruCache32.get((java.io.Serializable) (byte) 10);
+        boolean boolean36 = serializableLruCache32.containsKey((java.io.Serializable) (-1));
+        serializableLruCache32.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 1);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache41 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache43 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc45 = serializableLruCache43.get((java.io.Serializable) (byte) 10);
+        int int46 = serializableLruCache43.size();
+        serializableLruCache43.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 0L);
+        java.lang.Class<?> wildcardClass50 = serializableLruCache43.getClass();
+        serializableLruCache41.put((java.io.Serializable) wildcardClass50, (java.lang.constant.ConstantDesc) 1.0d);
+        java.lang.constant.ConstantDesc constantDesc53 = serializableLruCache32.get((java.io.Serializable) wildcardClass50);
+        int int54 = serializableLruCache32.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache56 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache56.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.io.Serializable serializable60 = null;
+        java.lang.constant.ConstantDesc constantDesc61 = serializableLruCache56.get(serializable60);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache63 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean65 = serializableLruCache63.containsKey((java.io.Serializable) 10);
+        boolean boolean67 = serializableLruCache63.containsKey((java.io.Serializable) 1.0d);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache69 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean71 = serializableLruCache69.containsKey((java.io.Serializable) 10);
+        boolean boolean73 = serializableLruCache69.containsKey((java.io.Serializable) 1.0d);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache75 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass76 = annotatedElementLruCache75.getClass();
+        java.lang.constant.ConstantDesc constantDesc77 = serializableLruCache69.get((java.io.Serializable) wildcardClass76);
+        java.lang.constant.ConstantDesc constantDesc78 = serializableLruCache63.get((java.io.Serializable) wildcardClass76);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache80 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        java.lang.constant.ConstantDesc constantDesc82 = serializableLruCache80.get((java.io.Serializable) 0);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache84 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        java.lang.Object obj85 = new java.lang.Object();
+        java.lang.Class<?> wildcardClass86 = obj85.getClass();
+        serializableLruCache84.put((java.io.Serializable) wildcardClass86, (java.lang.constant.ConstantDesc) 1.0f);
+        boolean boolean89 = serializableLruCache80.containsKey((java.io.Serializable) 1.0f);
+        serializableLruCache80.put((java.io.Serializable) 1.0d, (java.lang.constant.ConstantDesc) 10);
+        java.lang.Class<?> wildcardClass93 = serializableLruCache80.getClass();
+        boolean boolean94 = serializableLruCache63.containsKey((java.io.Serializable) wildcardClass93);
+        java.lang.constant.ConstantDesc constantDesc95 = serializableLruCache56.get((java.io.Serializable) wildcardClass93);
+        boolean boolean96 = serializableLruCache32.containsKey((java.io.Serializable) wildcardClass93);
+        java.lang.Class<?> wildcardClass97 = serializableLruCache32.getClass();
+        java.lang.constant.ConstantDesc constantDesc98 = serializableLruCache1.get((java.io.Serializable) wildcardClass97);
+        org.junit.Assert.assertTrue("'" + boolean3 + "' != '" + false + "'", boolean3 == false);
+        org.junit.Assert.assertTrue("'" + boolean5 + "' != '" + false + "'", boolean5 == false);
+        org.junit.Assert.assertTrue("'" + boolean9 + "' != '" + false + "'", boolean9 == false);
+        org.junit.Assert.assertTrue("'" + boolean11 + "' != '" + false + "'", boolean11 == false);
+        org.junit.Assert.assertNotNull(wildcardClass14);
+        org.junit.Assert.assertNull(constantDesc15);
+        org.junit.Assert.assertNull(constantDesc16);
+        org.junit.Assert.assertNull(constantDesc22);
+        org.junit.Assert.assertTrue("'" + int23 + "' != '" + 0 + "'", int23 == 0);
+        org.junit.Assert.assertNull(constantDesc25);
+        org.junit.Assert.assertTrue("'" + boolean27 + "' != '" + false + "'", boolean27 == false);
+        org.junit.Assert.assertNotNull(wildcardClass28);
+        org.junit.Assert.assertTrue("'" + boolean29 + "' != '" + false + "'", boolean29 == false);
+        org.junit.Assert.assertNull(constantDesc30);
+        org.junit.Assert.assertNull(constantDesc34);
+        org.junit.Assert.assertTrue("'" + boolean36 + "' != '" + false + "'", boolean36 == false);
+        org.junit.Assert.assertNull(constantDesc45);
+        org.junit.Assert.assertTrue("'" + int46 + "' != '" + 0 + "'", int46 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass50);
+        org.junit.Assert.assertNull(constantDesc53);
+        org.junit.Assert.assertTrue("'" + int54 + "' != '" + 1 + "'", int54 == 1);
+        org.junit.Assert.assertNull(constantDesc61);
+        org.junit.Assert.assertTrue("'" + boolean65 + "' != '" + false + "'", boolean65 == false);
+        org.junit.Assert.assertTrue("'" + boolean67 + "' != '" + false + "'", boolean67 == false);
+        org.junit.Assert.assertTrue("'" + boolean71 + "' != '" + false + "'", boolean71 == false);
+        org.junit.Assert.assertTrue("'" + boolean73 + "' != '" + false + "'", boolean73 == false);
+        org.junit.Assert.assertNotNull(wildcardClass76);
+        org.junit.Assert.assertNull(constantDesc77);
+        org.junit.Assert.assertNull(constantDesc78);
+        org.junit.Assert.assertNull(constantDesc82);
+        org.junit.Assert.assertNotNull(wildcardClass86);
+        org.junit.Assert.assertTrue("'" + boolean89 + "' != '" + false + "'", boolean89 == false);
+        org.junit.Assert.assertNotNull(wildcardClass93);
+        org.junit.Assert.assertTrue("'" + boolean94 + "' != '" + false + "'", boolean94 == false);
+        org.junit.Assert.assertNull(constantDesc95);
+        org.junit.Assert.assertTrue("'" + boolean96 + "' != '" + false + "'", boolean96 == false);
+        org.junit.Assert.assertNotNull(wildcardClass97);
+        org.junit.Assert.assertNull(constantDesc98);
+    }
+
+    @Test
+    public void test1011() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1011");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc3 = serializableLruCache1.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc5 = serializableLruCache1.get((java.io.Serializable) false);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache7 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean9 = serializableLruCache7.containsKey((java.io.Serializable) 1.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache11 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc13 = serializableLruCache11.get((java.io.Serializable) (byte) 10);
+        int int14 = serializableLruCache11.size();
+        serializableLruCache11.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 0L);
+        java.lang.Class<?> wildcardClass18 = serializableLruCache11.getClass();
+        java.lang.constant.ConstantDesc constantDesc19 = serializableLruCache7.get((java.io.Serializable) wildcardClass18);
+        java.lang.constant.ConstantDesc constantDesc20 = serializableLruCache1.get((java.io.Serializable) wildcardClass18);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache22 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass23 = annotatedElementLruCache22.getClass();
+        boolean boolean24 = serializableLruCache1.containsKey((java.io.Serializable) wildcardClass23);
+        int int25 = serializableLruCache1.size();
+        int int26 = serializableLruCache1.size();
+        int int27 = serializableLruCache1.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache29 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (byte) 100);
+        java.lang.Class<?> wildcardClass30 = serializableLruCache29.getClass();
+        boolean boolean31 = serializableLruCache1.containsKey((java.io.Serializable) wildcardClass30);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache33 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache35 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass36 = annotatedElementLruCache35.getClass();
+        java.lang.constant.ConstantDesc constantDesc37 = serializableLruCache33.get((java.io.Serializable) wildcardClass36);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache39 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc41 = serializableLruCache39.get((java.io.Serializable) (byte) 10);
+        boolean boolean43 = serializableLruCache39.containsKey((java.io.Serializable) (-1));
+        serializableLruCache39.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 1);
+        java.lang.Class<?> wildcardClass47 = serializableLruCache39.getClass();
+        boolean boolean48 = serializableLruCache33.containsKey((java.io.Serializable) wildcardClass47);
+        java.lang.constant.ConstantDesc constantDesc49 = serializableLruCache1.get((java.io.Serializable) wildcardClass47);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache51 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache51.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc56 = serializableLruCache51.get((java.io.Serializable) ' ');
+        serializableLruCache51.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.constant.ConstantDesc constantDesc61 = serializableLruCache51.get((java.io.Serializable) 1L);
+        int int62 = serializableLruCache51.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache64 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache66 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.Class<?> wildcardClass67 = serializableLruCache66.getClass();
+        java.lang.constant.ConstantDesc constantDesc68 = serializableLruCache64.get((java.io.Serializable) wildcardClass67);
+        java.lang.constant.ConstantDesc constantDesc69 = serializableLruCache51.get((java.io.Serializable) wildcardClass67);
+        java.lang.Class<?> wildcardClass70 = serializableLruCache51.getClass();
+        boolean boolean71 = serializableLruCache1.containsKey((java.io.Serializable) wildcardClass70);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache73 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean75 = serializableLruCache73.containsKey((java.io.Serializable) 1.0f);
+        java.lang.constant.ConstantDesc constantDesc77 = serializableLruCache73.get((java.io.Serializable) false);
+        serializableLruCache73.put((java.io.Serializable) 0.0f, (java.lang.constant.ConstantDesc) 10.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache82 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc84 = serializableLruCache82.get((java.io.Serializable) (byte) 10);
+        int int85 = serializableLruCache82.size();
+        java.lang.Class<?> wildcardClass86 = serializableLruCache82.getClass();
+        java.lang.constant.ConstantDesc constantDesc87 = serializableLruCache73.get((java.io.Serializable) wildcardClass86);
+        com.viktor.lab4.LruCache<java.lang.invoke.TypeDescriptor, java.lang.Comparable<java.lang.String>> typeDescriptorLruCache89 = new com.viktor.lab4.LruCache<java.lang.invoke.TypeDescriptor, java.lang.Comparable<java.lang.String>>((int) (short) 100);
+        java.lang.Class<?> wildcardClass90 = typeDescriptorLruCache89.getClass();
+        serializableLruCache73.put((java.io.Serializable) wildcardClass90, (java.lang.constant.ConstantDesc) (-1.0f));
+        java.lang.constant.ConstantDesc constantDesc93 = serializableLruCache1.get((java.io.Serializable) (-1.0f));
+        org.junit.Assert.assertNull(constantDesc3);
+        org.junit.Assert.assertNull(constantDesc5);
+        org.junit.Assert.assertTrue("'" + boolean9 + "' != '" + false + "'", boolean9 == false);
+        org.junit.Assert.assertNull(constantDesc13);
+        org.junit.Assert.assertTrue("'" + int14 + "' != '" + 0 + "'", int14 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass18);
+        org.junit.Assert.assertNull(constantDesc19);
+        org.junit.Assert.assertNull(constantDesc20);
+        org.junit.Assert.assertNotNull(wildcardClass23);
+        org.junit.Assert.assertTrue("'" + boolean24 + "' != '" + false + "'", boolean24 == false);
+        org.junit.Assert.assertTrue("'" + int25 + "' != '" + 0 + "'", int25 == 0);
+        org.junit.Assert.assertTrue("'" + int26 + "' != '" + 0 + "'", int26 == 0);
+        org.junit.Assert.assertTrue("'" + int27 + "' != '" + 0 + "'", int27 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass30);
+        org.junit.Assert.assertTrue("'" + boolean31 + "' != '" + false + "'", boolean31 == false);
+        org.junit.Assert.assertNotNull(wildcardClass36);
+        org.junit.Assert.assertNull(constantDesc37);
+        org.junit.Assert.assertNull(constantDesc41);
+        org.junit.Assert.assertTrue("'" + boolean43 + "' != '" + false + "'", boolean43 == false);
+        org.junit.Assert.assertNotNull(wildcardClass47);
+        org.junit.Assert.assertTrue("'" + boolean48 + "' != '" + false + "'", boolean48 == false);
+        org.junit.Assert.assertNull(constantDesc49);
+        org.junit.Assert.assertNull(constantDesc56);
+        org.junit.Assert.assertNull(constantDesc61);
+        org.junit.Assert.assertTrue("'" + int62 + "' != '" + 2 + "'", int62 == 2);
+        org.junit.Assert.assertNotNull(wildcardClass67);
+        org.junit.Assert.assertNull(constantDesc68);
+        org.junit.Assert.assertNull(constantDesc69);
+        org.junit.Assert.assertNotNull(wildcardClass70);
+        org.junit.Assert.assertTrue("'" + boolean71 + "' != '" + false + "'", boolean71 == false);
+        org.junit.Assert.assertTrue("'" + boolean75 + "' != '" + false + "'", boolean75 == false);
+        org.junit.Assert.assertNull(constantDesc77);
+        org.junit.Assert.assertNull(constantDesc84);
+        org.junit.Assert.assertTrue("'" + int85 + "' != '" + 0 + "'", int85 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass86);
+        org.junit.Assert.assertNull(constantDesc87);
+        org.junit.Assert.assertNotNull(wildcardClass90);
+        org.junit.Assert.assertNull(constantDesc93);
+    }
+
+    @Test
+    public void test1012() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1012");
+        com.viktor.lab4.LruCache<java.lang.Class<?>, java.lang.reflect.Type> wildcardClassLruCache1 = new com.viktor.lab4.LruCache<java.lang.Class<?>, java.lang.reflect.Type>((int) '#');
+    }
+
+    @Test
+    public void test1013() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1013");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache1.put((java.io.Serializable) 1.0d, (java.lang.constant.ConstantDesc) "");
+        int int5 = serializableLruCache1.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache7 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc9 = serializableLruCache7.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc11 = serializableLruCache7.get((java.io.Serializable) (short) 100);
+        int int12 = serializableLruCache7.size();
+        java.lang.Object obj13 = new java.lang.Object();
+        java.lang.Class<?> wildcardClass14 = obj13.getClass();
+        java.lang.constant.ConstantDesc constantDesc15 = serializableLruCache7.get((java.io.Serializable) wildcardClass14);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache17 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        java.lang.constant.ConstantDesc constantDesc19 = serializableLruCache17.get((java.io.Serializable) 0);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache21 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        java.lang.Object obj22 = new java.lang.Object();
+        java.lang.Class<?> wildcardClass23 = obj22.getClass();
+        serializableLruCache21.put((java.io.Serializable) wildcardClass23, (java.lang.constant.ConstantDesc) 1.0f);
+        boolean boolean26 = serializableLruCache17.containsKey((java.io.Serializable) 1.0f);
+        int int27 = serializableLruCache17.size();
+        serializableLruCache17.put((java.io.Serializable) 10.0f, (java.lang.constant.ConstantDesc) 0.0d);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache32 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean34 = serializableLruCache32.containsKey((java.io.Serializable) 10);
+        boolean boolean36 = serializableLruCache32.containsKey((java.io.Serializable) 1.0d);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache38 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass39 = annotatedElementLruCache38.getClass();
+        java.lang.constant.ConstantDesc constantDesc40 = serializableLruCache32.get((java.io.Serializable) wildcardClass39);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache42 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean44 = serializableLruCache42.containsKey((java.io.Serializable) 10);
+        serializableLruCache42.put((java.io.Serializable) (byte) 1, (java.lang.constant.ConstantDesc) 1.0d);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache49 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc51 = serializableLruCache49.get((java.io.Serializable) (byte) 10);
+        int int52 = serializableLruCache49.size();
+        java.io.Serializable serializable53 = null;
+        java.lang.constant.ConstantDesc constantDesc54 = serializableLruCache49.get(serializable53);
+        boolean boolean56 = serializableLruCache49.containsKey((java.io.Serializable) "hi!");
+        java.lang.Class<?> wildcardClass57 = serializableLruCache49.getClass();
+        serializableLruCache42.put((java.io.Serializable) wildcardClass57, (java.lang.constant.ConstantDesc) 10);
+        java.lang.Class<?> wildcardClass60 = serializableLruCache42.getClass();
+        java.lang.constant.ConstantDesc constantDesc61 = serializableLruCache32.get((java.io.Serializable) wildcardClass60);
+        serializableLruCache17.put((java.io.Serializable) wildcardClass60, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.constant.ConstantDesc constantDesc64 = serializableLruCache7.get((java.io.Serializable) wildcardClass60);
+        java.lang.constant.ConstantDesc constantDesc65 = serializableLruCache1.get((java.io.Serializable) wildcardClass60);
+        org.junit.Assert.assertTrue("'" + int5 + "' != '" + 1 + "'", int5 == 1);
+        org.junit.Assert.assertNull(constantDesc9);
+        org.junit.Assert.assertNull(constantDesc11);
+        org.junit.Assert.assertTrue("'" + int12 + "' != '" + 0 + "'", int12 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass14);
+        org.junit.Assert.assertNull(constantDesc15);
+        org.junit.Assert.assertNull(constantDesc19);
+        org.junit.Assert.assertNotNull(wildcardClass23);
+        org.junit.Assert.assertTrue("'" + boolean26 + "' != '" + false + "'", boolean26 == false);
+        org.junit.Assert.assertTrue("'" + int27 + "' != '" + 0 + "'", int27 == 0);
+        org.junit.Assert.assertTrue("'" + boolean34 + "' != '" + false + "'", boolean34 == false);
+        org.junit.Assert.assertTrue("'" + boolean36 + "' != '" + false + "'", boolean36 == false);
+        org.junit.Assert.assertNotNull(wildcardClass39);
+        org.junit.Assert.assertNull(constantDesc40);
+        org.junit.Assert.assertTrue("'" + boolean44 + "' != '" + false + "'", boolean44 == false);
+        org.junit.Assert.assertNull(constantDesc51);
+        org.junit.Assert.assertTrue("'" + int52 + "' != '" + 0 + "'", int52 == 0);
+        org.junit.Assert.assertNull(constantDesc54);
+        org.junit.Assert.assertTrue("'" + boolean56 + "' != '" + false + "'", boolean56 == false);
+        org.junit.Assert.assertNotNull(wildcardClass57);
+        org.junit.Assert.assertNotNull(wildcardClass60);
+        org.junit.Assert.assertNull(constantDesc61);
+        org.junit.Assert.assertNull(constantDesc64);
+        org.junit.Assert.assertNull(constantDesc65);
+    }
+
+    @Test
+    public void test1014() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1014");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache1.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc6 = serializableLruCache1.get((java.io.Serializable) ' ');
+        serializableLruCache1.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.constant.ConstantDesc constantDesc11 = serializableLruCache1.get((java.io.Serializable) 1);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache13 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass14 = annotatedElementLruCache13.getClass();
+        java.lang.constant.ConstantDesc constantDesc15 = serializableLruCache1.get((java.io.Serializable) wildcardClass14);
+        java.lang.constant.ConstantDesc constantDesc17 = serializableLruCache1.get((java.io.Serializable) '#');
+        int int18 = serializableLruCache1.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache20 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache20.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc25 = serializableLruCache20.get((java.io.Serializable) ' ');
+        serializableLruCache20.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.constant.ConstantDesc constantDesc30 = serializableLruCache20.get((java.io.Serializable) 1);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache32 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache34 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc36 = serializableLruCache34.get((java.io.Serializable) (byte) 10);
+        int int37 = serializableLruCache34.size();
+        serializableLruCache34.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 0L);
+        java.lang.Class<?> wildcardClass41 = serializableLruCache34.getClass();
+        serializableLruCache32.put((java.io.Serializable) wildcardClass41, (java.lang.constant.ConstantDesc) 1.0d);
+        java.lang.Class<?> wildcardClass44 = serializableLruCache32.getClass();
+        java.lang.constant.ConstantDesc constantDesc45 = serializableLruCache20.get((java.io.Serializable) wildcardClass44);
+        java.lang.constant.ConstantDesc constantDesc47 = serializableLruCache20.get((java.io.Serializable) 100);
+        java.lang.Class<?> wildcardClass48 = serializableLruCache20.getClass();
+        boolean boolean49 = serializableLruCache1.containsKey((java.io.Serializable) wildcardClass48);
+        org.junit.Assert.assertNull(constantDesc6);
+        org.junit.Assert.assertNull(constantDesc11);
+        org.junit.Assert.assertNotNull(wildcardClass14);
+        org.junit.Assert.assertNull(constantDesc15);
+        org.junit.Assert.assertEquals("'" + constantDesc17 + "' != '" + 1L + "'", constantDesc17, 1L);
+        org.junit.Assert.assertTrue("'" + int18 + "' != '" + 2 + "'", int18 == 2);
+        org.junit.Assert.assertNull(constantDesc25);
+        org.junit.Assert.assertNull(constantDesc30);
+        org.junit.Assert.assertNull(constantDesc36);
+        org.junit.Assert.assertTrue("'" + int37 + "' != '" + 0 + "'", int37 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass41);
+        org.junit.Assert.assertNotNull(wildcardClass44);
+        org.junit.Assert.assertNull(constantDesc45);
+        org.junit.Assert.assertNull(constantDesc47);
+        org.junit.Assert.assertNotNull(wildcardClass48);
+        org.junit.Assert.assertTrue("'" + boolean49 + "' != '" + false + "'", boolean49 == false);
+    }
+
+    @Test
+    public void test1015() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1015");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc3 = serializableLruCache1.get((java.io.Serializable) (byte) 10);
+        boolean boolean5 = serializableLruCache1.containsKey((java.io.Serializable) (-1));
+        serializableLruCache1.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 1);
+        boolean boolean10 = serializableLruCache1.containsKey((java.io.Serializable) 10.0f);
+        boolean boolean12 = serializableLruCache1.containsKey((java.io.Serializable) 10.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache14 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc16 = serializableLruCache14.get((java.io.Serializable) (byte) 10);
+        boolean boolean18 = serializableLruCache14.containsKey((java.io.Serializable) (-1));
+        int int19 = serializableLruCache14.size();
+        java.lang.Class<?> wildcardClass20 = serializableLruCache14.getClass();
+        java.lang.constant.ConstantDesc constantDesc21 = serializableLruCache1.get((java.io.Serializable) wildcardClass20);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache23 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache23.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        boolean boolean28 = serializableLruCache23.containsKey((java.io.Serializable) (-1.0f));
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache30 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass31 = annotatedElementLruCache30.getClass();
+        java.lang.constant.ConstantDesc constantDesc32 = serializableLruCache23.get((java.io.Serializable) wildcardClass31);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache34 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc36 = serializableLruCache34.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc38 = serializableLruCache34.get((java.io.Serializable) false);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache40 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc42 = serializableLruCache40.get((java.io.Serializable) (byte) 10);
+        boolean boolean44 = serializableLruCache40.containsKey((java.io.Serializable) (-1));
+        serializableLruCache40.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 1);
+        boolean boolean49 = serializableLruCache40.containsKey((java.io.Serializable) 10.0f);
+        java.lang.Class<?> wildcardClass50 = serializableLruCache40.getClass();
+        java.lang.constant.ConstantDesc constantDesc51 = serializableLruCache34.get((java.io.Serializable) wildcardClass50);
+        java.lang.constant.ConstantDesc constantDesc52 = serializableLruCache23.get((java.io.Serializable) wildcardClass50);
+        java.lang.constant.ConstantDesc constantDesc53 = serializableLruCache1.get((java.io.Serializable) wildcardClass50);
+        org.junit.Assert.assertNull(constantDesc3);
+        org.junit.Assert.assertTrue("'" + boolean5 + "' != '" + false + "'", boolean5 == false);
+        org.junit.Assert.assertTrue("'" + boolean10 + "' != '" + false + "'", boolean10 == false);
+        org.junit.Assert.assertTrue("'" + boolean12 + "' != '" + false + "'", boolean12 == false);
+        org.junit.Assert.assertNull(constantDesc16);
+        org.junit.Assert.assertTrue("'" + boolean18 + "' != '" + false + "'", boolean18 == false);
+        org.junit.Assert.assertTrue("'" + int19 + "' != '" + 0 + "'", int19 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass20);
+        org.junit.Assert.assertNull(constantDesc21);
+        org.junit.Assert.assertTrue("'" + boolean28 + "' != '" + false + "'", boolean28 == false);
+        org.junit.Assert.assertNotNull(wildcardClass31);
+        org.junit.Assert.assertNull(constantDesc32);
+        org.junit.Assert.assertNull(constantDesc36);
+        org.junit.Assert.assertNull(constantDesc38);
+        org.junit.Assert.assertNull(constantDesc42);
+        org.junit.Assert.assertTrue("'" + boolean44 + "' != '" + false + "'", boolean44 == false);
+        org.junit.Assert.assertTrue("'" + boolean49 + "' != '" + false + "'", boolean49 == false);
+        org.junit.Assert.assertNotNull(wildcardClass50);
+        org.junit.Assert.assertNull(constantDesc51);
+        org.junit.Assert.assertNull(constantDesc52);
+        org.junit.Assert.assertNull(constantDesc53);
+    }
+
+    @Test
+    public void test1016() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1016");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        java.lang.Object obj2 = new java.lang.Object();
+        java.lang.Class<?> wildcardClass3 = obj2.getClass();
+        serializableLruCache1.put((java.io.Serializable) wildcardClass3, (java.lang.constant.ConstantDesc) 1.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache7 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        java.lang.Object obj8 = new java.lang.Object();
+        java.lang.Class<?> wildcardClass9 = obj8.getClass();
+        serializableLruCache7.put((java.io.Serializable) wildcardClass9, (java.lang.constant.ConstantDesc) 1.0f);
+        java.lang.constant.ConstantDesc constantDesc12 = serializableLruCache1.get((java.io.Serializable) 1.0f);
+        int int13 = serializableLruCache1.size();
+        org.junit.Assert.assertNotNull(wildcardClass3);
+        org.junit.Assert.assertNotNull(wildcardClass9);
+        org.junit.Assert.assertNull(constantDesc12);
+        org.junit.Assert.assertTrue("'" + int13 + "' != '" + 1 + "'", int13 == 1);
+    }
+
+    @Test
+    public void test1017() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1017");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache1.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc6 = serializableLruCache1.get((java.io.Serializable) ' ');
+        serializableLruCache1.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.constant.ConstantDesc constantDesc11 = serializableLruCache1.get((java.io.Serializable) 1);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache13 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass14 = annotatedElementLruCache13.getClass();
+        java.lang.constant.ConstantDesc constantDesc15 = serializableLruCache1.get((java.io.Serializable) wildcardClass14);
+        serializableLruCache1.put((java.io.Serializable) (-1.0f), (java.lang.constant.ConstantDesc) "");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache20 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache20.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc25 = serializableLruCache20.get((java.io.Serializable) ' ');
+        serializableLruCache20.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.constant.ConstantDesc constantDesc30 = serializableLruCache20.get((java.io.Serializable) 1);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache32 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache32.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc37 = serializableLruCache32.get((java.io.Serializable) ' ');
+        serializableLruCache32.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.Class<?> wildcardClass41 = serializableLruCache32.getClass();
+        java.lang.constant.ConstantDesc constantDesc42 = serializableLruCache20.get((java.io.Serializable) wildcardClass41);
+        boolean boolean43 = serializableLruCache1.containsKey((java.io.Serializable) wildcardClass41);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache45 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean47 = serializableLruCache45.containsKey((java.io.Serializable) 10);
+        boolean boolean49 = serializableLruCache45.containsKey((java.io.Serializable) 1.0d);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache51 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean53 = serializableLruCache51.containsKey((java.io.Serializable) 10);
+        boolean boolean55 = serializableLruCache51.containsKey((java.io.Serializable) 1.0d);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache57 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass58 = annotatedElementLruCache57.getClass();
+        java.lang.constant.ConstantDesc constantDesc59 = serializableLruCache51.get((java.io.Serializable) wildcardClass58);
+        java.lang.constant.ConstantDesc constantDesc60 = serializableLruCache45.get((java.io.Serializable) wildcardClass58);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache62 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        java.lang.constant.ConstantDesc constantDesc64 = serializableLruCache62.get((java.io.Serializable) 0);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache66 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        java.lang.Object obj67 = new java.lang.Object();
+        java.lang.Class<?> wildcardClass68 = obj67.getClass();
+        serializableLruCache66.put((java.io.Serializable) wildcardClass68, (java.lang.constant.ConstantDesc) 1.0f);
+        boolean boolean71 = serializableLruCache62.containsKey((java.io.Serializable) 1.0f);
+        serializableLruCache62.put((java.io.Serializable) 1.0d, (java.lang.constant.ConstantDesc) 10);
+        java.lang.Class<?> wildcardClass75 = serializableLruCache62.getClass();
+        boolean boolean76 = serializableLruCache45.containsKey((java.io.Serializable) wildcardClass75);
+        java.lang.constant.ConstantDesc constantDesc77 = serializableLruCache1.get((java.io.Serializable) boolean76);
+        org.junit.Assert.assertNull(constantDesc6);
+        org.junit.Assert.assertNull(constantDesc11);
+        org.junit.Assert.assertNotNull(wildcardClass14);
+        org.junit.Assert.assertNull(constantDesc15);
+        org.junit.Assert.assertNull(constantDesc25);
+        org.junit.Assert.assertNull(constantDesc30);
+        org.junit.Assert.assertNull(constantDesc37);
+        org.junit.Assert.assertNotNull(wildcardClass41);
+        org.junit.Assert.assertNull(constantDesc42);
+        org.junit.Assert.assertTrue("'" + boolean43 + "' != '" + false + "'", boolean43 == false);
+        org.junit.Assert.assertTrue("'" + boolean47 + "' != '" + false + "'", boolean47 == false);
+        org.junit.Assert.assertTrue("'" + boolean49 + "' != '" + false + "'", boolean49 == false);
+        org.junit.Assert.assertTrue("'" + boolean53 + "' != '" + false + "'", boolean53 == false);
+        org.junit.Assert.assertTrue("'" + boolean55 + "' != '" + false + "'", boolean55 == false);
+        org.junit.Assert.assertNotNull(wildcardClass58);
+        org.junit.Assert.assertNull(constantDesc59);
+        org.junit.Assert.assertNull(constantDesc60);
+        org.junit.Assert.assertNull(constantDesc64);
+        org.junit.Assert.assertNotNull(wildcardClass68);
+        org.junit.Assert.assertTrue("'" + boolean71 + "' != '" + false + "'", boolean71 == false);
+        org.junit.Assert.assertNotNull(wildcardClass75);
+        org.junit.Assert.assertTrue("'" + boolean76 + "' != '" + false + "'", boolean76 == false);
+        org.junit.Assert.assertNull(constantDesc77);
+    }
+
+    @Test
+    public void test1018() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1018");
+        com.viktor.lab4.LruCache<java.lang.CharSequence, java.lang.invoke.TypeDescriptor.OfField<java.lang.Class<?>>> charSequenceLruCache1 = new com.viktor.lab4.LruCache<java.lang.CharSequence, java.lang.invoke.TypeDescriptor.OfField<java.lang.Class<?>>>(100);
+    }
+
+    @Test
+    public void test1019() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1019");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache1.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc6 = serializableLruCache1.get((java.io.Serializable) ' ');
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache8 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc10 = serializableLruCache8.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc12 = serializableLruCache8.get((java.io.Serializable) (short) 100);
+        serializableLruCache8.put((java.io.Serializable) (byte) -1, (java.lang.constant.ConstantDesc) 10L);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache17 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache17.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc22 = serializableLruCache17.get((java.io.Serializable) ' ');
+        serializableLruCache17.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.constant.ConstantDesc constantDesc27 = serializableLruCache17.get((java.io.Serializable) 1);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache29 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass30 = annotatedElementLruCache29.getClass();
+        java.lang.constant.ConstantDesc constantDesc31 = serializableLruCache17.get((java.io.Serializable) wildcardClass30);
+        serializableLruCache8.put((java.io.Serializable) wildcardClass30, (java.lang.constant.ConstantDesc) 10.0f);
+        boolean boolean34 = serializableLruCache1.containsKey((java.io.Serializable) 10.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache36 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean38 = serializableLruCache36.containsKey((java.io.Serializable) 1.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache40 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean42 = serializableLruCache40.containsKey((java.io.Serializable) 10);
+        boolean boolean44 = serializableLruCache40.containsKey((java.io.Serializable) 1.0d);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache46 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass47 = annotatedElementLruCache46.getClass();
+        java.lang.constant.ConstantDesc constantDesc48 = serializableLruCache40.get((java.io.Serializable) wildcardClass47);
+        boolean boolean49 = serializableLruCache36.containsKey((java.io.Serializable) wildcardClass47);
+        java.lang.constant.ConstantDesc constantDesc50 = serializableLruCache1.get((java.io.Serializable) wildcardClass47);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache52 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache52.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.Class<?> wildcardClass56 = serializableLruCache52.getClass();
+        boolean boolean57 = serializableLruCache1.containsKey((java.io.Serializable) wildcardClass56);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache59 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache59.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc64 = serializableLruCache59.get((java.io.Serializable) ' ');
+        serializableLruCache59.put((java.io.Serializable) (byte) 0, (java.lang.constant.ConstantDesc) 100.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache69 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean71 = serializableLruCache69.containsKey((java.io.Serializable) 10);
+        java.lang.constant.ConstantDesc constantDesc73 = serializableLruCache69.get((java.io.Serializable) (byte) 100);
+        java.lang.Class<?> wildcardClass74 = serializableLruCache69.getClass();
+        java.lang.constant.ConstantDesc constantDesc75 = serializableLruCache59.get((java.io.Serializable) wildcardClass74);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache77 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (byte) 100);
+        com.viktor.lab4.LruCache<com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>, java.lang.Comparable<java.lang.String>> serializableLruCacheLruCache79 = new com.viktor.lab4.LruCache<com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>, java.lang.Comparable<java.lang.String>>((int) ' ');
+        java.lang.Class<?> wildcardClass80 = serializableLruCacheLruCache79.getClass();
+        boolean boolean81 = serializableLruCache77.containsKey((java.io.Serializable) wildcardClass80);
+        java.lang.Class<?> wildcardClass82 = serializableLruCache77.getClass();
+        java.lang.constant.ConstantDesc constantDesc83 = serializableLruCache59.get((java.io.Serializable) wildcardClass82);
+        serializableLruCache1.put((java.io.Serializable) wildcardClass82, (java.lang.constant.ConstantDesc) 0L);
+        com.viktor.lab4.LruCache<java.lang.Object, java.lang.reflect.Type> objLruCache87 = new com.viktor.lab4.LruCache<java.lang.Object, java.lang.reflect.Type>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass88 = objLruCache87.getClass();
+        serializableLruCache1.put((java.io.Serializable) wildcardClass88, (java.lang.constant.ConstantDesc) 2);
+        org.junit.Assert.assertNull(constantDesc6);
+        org.junit.Assert.assertNull(constantDesc10);
+        org.junit.Assert.assertNull(constantDesc12);
+        org.junit.Assert.assertNull(constantDesc22);
+        org.junit.Assert.assertNull(constantDesc27);
+        org.junit.Assert.assertNotNull(wildcardClass30);
+        org.junit.Assert.assertNull(constantDesc31);
+        org.junit.Assert.assertTrue("'" + boolean34 + "' != '" + false + "'", boolean34 == false);
+        org.junit.Assert.assertTrue("'" + boolean38 + "' != '" + false + "'", boolean38 == false);
+        org.junit.Assert.assertTrue("'" + boolean42 + "' != '" + false + "'", boolean42 == false);
+        org.junit.Assert.assertTrue("'" + boolean44 + "' != '" + false + "'", boolean44 == false);
+        org.junit.Assert.assertNotNull(wildcardClass47);
+        org.junit.Assert.assertNull(constantDesc48);
+        org.junit.Assert.assertTrue("'" + boolean49 + "' != '" + false + "'", boolean49 == false);
+        org.junit.Assert.assertNull(constantDesc50);
+        org.junit.Assert.assertNotNull(wildcardClass56);
+        org.junit.Assert.assertTrue("'" + boolean57 + "' != '" + false + "'", boolean57 == false);
+        org.junit.Assert.assertNull(constantDesc64);
+        org.junit.Assert.assertTrue("'" + boolean71 + "' != '" + false + "'", boolean71 == false);
+        org.junit.Assert.assertNull(constantDesc73);
+        org.junit.Assert.assertNotNull(wildcardClass74);
+        org.junit.Assert.assertNull(constantDesc75);
+        org.junit.Assert.assertNotNull(wildcardClass80);
+        org.junit.Assert.assertTrue("'" + boolean81 + "' != '" + false + "'", boolean81 == false);
+        org.junit.Assert.assertNotNull(wildcardClass82);
+        org.junit.Assert.assertNull(constantDesc83);
+        org.junit.Assert.assertNotNull(wildcardClass88);
+    }
+
+    @Test
+    public void test1020() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1020");
+        com.viktor.lab4.LruCache<java.lang.Class<?>, java.lang.invoke.TypeDescriptor> wildcardClassLruCache1 = new com.viktor.lab4.LruCache<java.lang.Class<?>, java.lang.invoke.TypeDescriptor>((int) '#');
+    }
+
+    @Test
+    public void test1021() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1021");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc3 = serializableLruCache1.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc5 = serializableLruCache1.get((java.io.Serializable) false);
+        int int6 = serializableLruCache1.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache8 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        boolean boolean10 = serializableLruCache8.containsKey((java.io.Serializable) "");
+        java.lang.constant.ConstantDesc constantDesc12 = serializableLruCache8.get((java.io.Serializable) (-1));
+        serializableLruCache8.put((java.io.Serializable) 10.0f, (java.lang.constant.ConstantDesc) (-1.0f));
+        java.lang.Class<?> wildcardClass16 = serializableLruCache8.getClass();
+        serializableLruCache1.put((java.io.Serializable) wildcardClass16, (java.lang.constant.ConstantDesc) 0.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache20 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache20.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc25 = serializableLruCache20.get((java.io.Serializable) ' ');
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache27 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache27.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        boolean boolean32 = serializableLruCache27.containsKey((java.io.Serializable) 1);
+        serializableLruCache27.put((java.io.Serializable) 0, (java.lang.constant.ConstantDesc) (-1.0d));
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache37 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache37.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc42 = serializableLruCache37.get((java.io.Serializable) ' ');
+        serializableLruCache37.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.Class<?> wildcardClass46 = serializableLruCache37.getClass();
+        java.lang.constant.ConstantDesc constantDesc47 = serializableLruCache27.get((java.io.Serializable) wildcardClass46);
+        java.lang.constant.ConstantDesc constantDesc48 = serializableLruCache20.get((java.io.Serializable) wildcardClass46);
+        serializableLruCache1.put((java.io.Serializable) wildcardClass46, (java.lang.constant.ConstantDesc) (-1.0d));
+        org.junit.Assert.assertNull(constantDesc3);
+        org.junit.Assert.assertNull(constantDesc5);
+        org.junit.Assert.assertTrue("'" + int6 + "' != '" + 0 + "'", int6 == 0);
+        org.junit.Assert.assertTrue("'" + boolean10 + "' != '" + false + "'", boolean10 == false);
+        org.junit.Assert.assertNull(constantDesc12);
+        org.junit.Assert.assertNotNull(wildcardClass16);
+        org.junit.Assert.assertNull(constantDesc25);
+        org.junit.Assert.assertTrue("'" + boolean32 + "' != '" + false + "'", boolean32 == false);
+        org.junit.Assert.assertNull(constantDesc42);
+        org.junit.Assert.assertNotNull(wildcardClass46);
+        org.junit.Assert.assertNull(constantDesc47);
+        org.junit.Assert.assertNull(constantDesc48);
+    }
+
+    @Test
+    public void test1022() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1022");
+        com.viktor.lab4.LruCache<java.lang.Object, java.lang.constant.ConstantDesc> objLruCache1 = new com.viktor.lab4.LruCache<java.lang.Object, java.lang.constant.ConstantDesc>((int) (byte) 100);
+    }
+
+    @Test
+    public void test1023() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1023");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc3 = serializableLruCache1.get((java.io.Serializable) (byte) 10);
+        boolean boolean5 = serializableLruCache1.containsKey((java.io.Serializable) (-1));
+        serializableLruCache1.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 1);
+        boolean boolean10 = serializableLruCache1.containsKey((java.io.Serializable) 100);
+        int int11 = serializableLruCache1.size();
+        int int12 = serializableLruCache1.size();
+        org.junit.Assert.assertNull(constantDesc3);
+        org.junit.Assert.assertTrue("'" + boolean5 + "' != '" + false + "'", boolean5 == false);
+        org.junit.Assert.assertTrue("'" + boolean10 + "' != '" + false + "'", boolean10 == false);
+        org.junit.Assert.assertTrue("'" + int11 + "' != '" + 1 + "'", int11 == 1);
+        org.junit.Assert.assertTrue("'" + int12 + "' != '" + 1 + "'", int12 == 1);
+    }
+
+    @Test
+    public void test1024() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1024");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache1.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc6 = serializableLruCache1.get((java.io.Serializable) ' ');
+        serializableLruCache1.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.constant.ConstantDesc constantDesc11 = serializableLruCache1.get((java.io.Serializable) 1);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache13 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass14 = annotatedElementLruCache13.getClass();
+        java.lang.constant.ConstantDesc constantDesc15 = serializableLruCache1.get((java.io.Serializable) wildcardClass14);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache17 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc19 = serializableLruCache17.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc21 = serializableLruCache17.get((java.io.Serializable) (short) 100);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache23 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache23.put((java.io.Serializable) 1.0d, (java.lang.constant.ConstantDesc) "");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache28 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean30 = serializableLruCache28.containsKey((java.io.Serializable) 10);
+        boolean boolean32 = serializableLruCache28.containsKey((java.io.Serializable) 1.0d);
+        java.io.Serializable serializable33 = null;
+        boolean boolean34 = serializableLruCache28.containsKey(serializable33);
+        java.lang.Class<?> wildcardClass35 = serializableLruCache28.getClass();
+        java.lang.constant.ConstantDesc constantDesc36 = serializableLruCache23.get((java.io.Serializable) wildcardClass35);
+        serializableLruCache17.put((java.io.Serializable) wildcardClass35, (java.lang.constant.ConstantDesc) (-1.0d));
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache40 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc42 = serializableLruCache40.get((java.io.Serializable) (byte) 10);
+        boolean boolean44 = serializableLruCache40.containsKey((java.io.Serializable) (-1));
+        serializableLruCache40.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 1);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache49 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache51 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc53 = serializableLruCache51.get((java.io.Serializable) (byte) 10);
+        int int54 = serializableLruCache51.size();
+        serializableLruCache51.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 0L);
+        java.lang.Class<?> wildcardClass58 = serializableLruCache51.getClass();
+        serializableLruCache49.put((java.io.Serializable) wildcardClass58, (java.lang.constant.ConstantDesc) 1.0d);
+        java.lang.constant.ConstantDesc constantDesc61 = serializableLruCache40.get((java.io.Serializable) wildcardClass58);
+        serializableLruCache17.put((java.io.Serializable) wildcardClass58, (java.lang.constant.ConstantDesc) (-1));
+        boolean boolean64 = serializableLruCache1.containsKey((java.io.Serializable) wildcardClass58);
+        java.lang.constant.ConstantDesc constantDesc66 = null;
+        serializableLruCache1.put((java.io.Serializable) (short) 0, constantDesc66);
+        java.lang.constant.ConstantDesc constantDesc69 = serializableLruCache1.get((java.io.Serializable) 0);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache71 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache71.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        boolean boolean76 = serializableLruCache71.containsKey((java.io.Serializable) 1);
+        serializableLruCache71.put((java.io.Serializable) 0, (java.lang.constant.ConstantDesc) (-1.0d));
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache81 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc83 = serializableLruCache81.get((java.io.Serializable) (byte) 0);
+        int int84 = serializableLruCache81.size();
+        int int85 = serializableLruCache81.size();
+        java.lang.Class<?> wildcardClass86 = serializableLruCache81.getClass();
+        boolean boolean87 = serializableLruCache71.containsKey((java.io.Serializable) wildcardClass86);
+        boolean boolean88 = serializableLruCache1.containsKey((java.io.Serializable) boolean87);
+        org.junit.Assert.assertNull(constantDesc6);
+        org.junit.Assert.assertNull(constantDesc11);
+        org.junit.Assert.assertNotNull(wildcardClass14);
+        org.junit.Assert.assertNull(constantDesc15);
+        org.junit.Assert.assertNull(constantDesc19);
+        org.junit.Assert.assertNull(constantDesc21);
+        org.junit.Assert.assertTrue("'" + boolean30 + "' != '" + false + "'", boolean30 == false);
+        org.junit.Assert.assertTrue("'" + boolean32 + "' != '" + false + "'", boolean32 == false);
+        org.junit.Assert.assertTrue("'" + boolean34 + "' != '" + false + "'", boolean34 == false);
+        org.junit.Assert.assertNotNull(wildcardClass35);
+        org.junit.Assert.assertNull(constantDesc36);
+        org.junit.Assert.assertNull(constantDesc42);
+        org.junit.Assert.assertTrue("'" + boolean44 + "' != '" + false + "'", boolean44 == false);
+        org.junit.Assert.assertNull(constantDesc53);
+        org.junit.Assert.assertTrue("'" + int54 + "' != '" + 0 + "'", int54 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass58);
+        org.junit.Assert.assertNull(constantDesc61);
+        org.junit.Assert.assertTrue("'" + boolean64 + "' != '" + false + "'", boolean64 == false);
+        org.junit.Assert.assertNull(constantDesc69);
+        org.junit.Assert.assertTrue("'" + boolean76 + "' != '" + false + "'", boolean76 == false);
+        org.junit.Assert.assertNull(constantDesc83);
+        org.junit.Assert.assertTrue("'" + int84 + "' != '" + 0 + "'", int84 == 0);
+        org.junit.Assert.assertTrue("'" + int85 + "' != '" + 0 + "'", int85 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass86);
+        org.junit.Assert.assertTrue("'" + boolean87 + "' != '" + false + "'", boolean87 == false);
+        org.junit.Assert.assertTrue("'" + boolean88 + "' != '" + false + "'", boolean88 == false);
+    }
+
+    @Test
+    public void test1025() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1025");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean3 = serializableLruCache1.containsKey((java.io.Serializable) 1.0f);
+        java.lang.constant.ConstantDesc constantDesc5 = serializableLruCache1.get((java.io.Serializable) false);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache7 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.Class<?> wildcardClass8 = serializableLruCache7.getClass();
+        java.lang.constant.ConstantDesc constantDesc9 = serializableLruCache1.get((java.io.Serializable) wildcardClass8);
+        int int10 = serializableLruCache1.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache12 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc14 = serializableLruCache12.get((java.io.Serializable) (byte) 10);
+        boolean boolean16 = serializableLruCache12.containsKey((java.io.Serializable) (-1));
+        serializableLruCache12.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 1);
+        boolean boolean21 = serializableLruCache12.containsKey((java.io.Serializable) 10.0f);
+        boolean boolean23 = serializableLruCache12.containsKey((java.io.Serializable) 10.0f);
+        com.viktor.lab4.LruCache<java.lang.Class<?>, java.io.Serializable> wildcardClassLruCache25 = new com.viktor.lab4.LruCache<java.lang.Class<?>, java.io.Serializable>((int) 'a');
+        java.lang.Class<?> wildcardClass26 = wildcardClassLruCache25.getClass();
+        boolean boolean27 = serializableLruCache12.containsKey((java.io.Serializable) wildcardClass26);
+        java.lang.constant.ConstantDesc constantDesc28 = serializableLruCache1.get((java.io.Serializable) wildcardClass26);
+        // The following exception was thrown during execution in test generation
+        try {
+            java.lang.Class<?> wildcardClass29 = constantDesc28.getClass();
+            org.junit.Assert.fail("Expected exception of type java.lang.NullPointerException; message: null");
+        } catch (java.lang.NullPointerException e) {
+            // Expected exception.
+        }
+        org.junit.Assert.assertTrue("'" + boolean3 + "' != '" + false + "'", boolean3 == false);
+        org.junit.Assert.assertNull(constantDesc5);
+        org.junit.Assert.assertNotNull(wildcardClass8);
+        org.junit.Assert.assertNull(constantDesc9);
+        org.junit.Assert.assertTrue("'" + int10 + "' != '" + 0 + "'", int10 == 0);
+        org.junit.Assert.assertNull(constantDesc14);
+        org.junit.Assert.assertTrue("'" + boolean16 + "' != '" + false + "'", boolean16 == false);
+        org.junit.Assert.assertTrue("'" + boolean21 + "' != '" + false + "'", boolean21 == false);
+        org.junit.Assert.assertTrue("'" + boolean23 + "' != '" + false + "'", boolean23 == false);
+        org.junit.Assert.assertNotNull(wildcardClass26);
+        org.junit.Assert.assertTrue("'" + boolean27 + "' != '" + false + "'", boolean27 == false);
+        org.junit.Assert.assertNull(constantDesc28);
+    }
+
+    @Test
+    public void test1026() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1026");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc3 = serializableLruCache1.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc5 = serializableLruCache1.get((java.io.Serializable) (short) 100);
+        int int6 = serializableLruCache1.size();
+        int int7 = serializableLruCache1.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache9 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean11 = serializableLruCache9.containsKey((java.io.Serializable) 10);
+        serializableLruCache9.put((java.io.Serializable) (byte) 1, (java.lang.constant.ConstantDesc) 1.0d);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache16 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc18 = serializableLruCache16.get((java.io.Serializable) (byte) 10);
+        int int19 = serializableLruCache16.size();
+        java.io.Serializable serializable20 = null;
+        java.lang.constant.ConstantDesc constantDesc21 = serializableLruCache16.get(serializable20);
+        boolean boolean23 = serializableLruCache16.containsKey((java.io.Serializable) "hi!");
+        java.lang.Class<?> wildcardClass24 = serializableLruCache16.getClass();
+        serializableLruCache9.put((java.io.Serializable) wildcardClass24, (java.lang.constant.ConstantDesc) 10);
+        boolean boolean27 = serializableLruCache1.containsKey((java.io.Serializable) wildcardClass24);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache29 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc31 = serializableLruCache29.get((java.io.Serializable) (byte) 10);
+        int int32 = serializableLruCache29.size();
+        java.io.Serializable serializable33 = null;
+        java.lang.constant.ConstantDesc constantDesc34 = serializableLruCache29.get(serializable33);
+        boolean boolean36 = serializableLruCache29.containsKey((java.io.Serializable) "hi!");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache38 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc40 = serializableLruCache38.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc42 = serializableLruCache38.get((java.io.Serializable) false);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache44 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean46 = serializableLruCache44.containsKey((java.io.Serializable) 1.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache48 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc50 = serializableLruCache48.get((java.io.Serializable) (byte) 10);
+        int int51 = serializableLruCache48.size();
+        serializableLruCache48.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 0L);
+        java.lang.Class<?> wildcardClass55 = serializableLruCache48.getClass();
+        java.lang.constant.ConstantDesc constantDesc56 = serializableLruCache44.get((java.io.Serializable) wildcardClass55);
+        java.lang.constant.ConstantDesc constantDesc57 = serializableLruCache38.get((java.io.Serializable) wildcardClass55);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache59 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc61 = serializableLruCache59.get((java.io.Serializable) (byte) 10);
+        boolean boolean63 = serializableLruCache59.containsKey((java.io.Serializable) (-1));
+        serializableLruCache59.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 1);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache68 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache70 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc72 = serializableLruCache70.get((java.io.Serializable) (byte) 10);
+        int int73 = serializableLruCache70.size();
+        serializableLruCache70.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 0L);
+        java.lang.Class<?> wildcardClass77 = serializableLruCache70.getClass();
+        serializableLruCache68.put((java.io.Serializable) wildcardClass77, (java.lang.constant.ConstantDesc) 1.0d);
+        java.lang.constant.ConstantDesc constantDesc80 = serializableLruCache59.get((java.io.Serializable) wildcardClass77);
+        java.lang.constant.ConstantDesc constantDesc81 = serializableLruCache38.get((java.io.Serializable) wildcardClass77);
+        boolean boolean82 = serializableLruCache29.containsKey((java.io.Serializable) wildcardClass77);
+        boolean boolean83 = serializableLruCache1.containsKey((java.io.Serializable) boolean82);
+        org.junit.Assert.assertNull(constantDesc3);
+        org.junit.Assert.assertNull(constantDesc5);
+        org.junit.Assert.assertTrue("'" + int6 + "' != '" + 0 + "'", int6 == 0);
+        org.junit.Assert.assertTrue("'" + int7 + "' != '" + 0 + "'", int7 == 0);
+        org.junit.Assert.assertTrue("'" + boolean11 + "' != '" + false + "'", boolean11 == false);
+        org.junit.Assert.assertNull(constantDesc18);
+        org.junit.Assert.assertTrue("'" + int19 + "' != '" + 0 + "'", int19 == 0);
+        org.junit.Assert.assertNull(constantDesc21);
+        org.junit.Assert.assertTrue("'" + boolean23 + "' != '" + false + "'", boolean23 == false);
+        org.junit.Assert.assertNotNull(wildcardClass24);
+        org.junit.Assert.assertTrue("'" + boolean27 + "' != '" + false + "'", boolean27 == false);
+        org.junit.Assert.assertNull(constantDesc31);
+        org.junit.Assert.assertTrue("'" + int32 + "' != '" + 0 + "'", int32 == 0);
+        org.junit.Assert.assertNull(constantDesc34);
+        org.junit.Assert.assertTrue("'" + boolean36 + "' != '" + false + "'", boolean36 == false);
+        org.junit.Assert.assertNull(constantDesc40);
+        org.junit.Assert.assertNull(constantDesc42);
+        org.junit.Assert.assertTrue("'" + boolean46 + "' != '" + false + "'", boolean46 == false);
+        org.junit.Assert.assertNull(constantDesc50);
+        org.junit.Assert.assertTrue("'" + int51 + "' != '" + 0 + "'", int51 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass55);
+        org.junit.Assert.assertNull(constantDesc56);
+        org.junit.Assert.assertNull(constantDesc57);
+        org.junit.Assert.assertNull(constantDesc61);
+        org.junit.Assert.assertTrue("'" + boolean63 + "' != '" + false + "'", boolean63 == false);
+        org.junit.Assert.assertNull(constantDesc72);
+        org.junit.Assert.assertTrue("'" + int73 + "' != '" + 0 + "'", int73 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass77);
+        org.junit.Assert.assertNull(constantDesc80);
+        org.junit.Assert.assertNull(constantDesc81);
+        org.junit.Assert.assertTrue("'" + boolean82 + "' != '" + false + "'", boolean82 == false);
+        org.junit.Assert.assertTrue("'" + boolean83 + "' != '" + false + "'", boolean83 == false);
+    }
+
+    @Test
+    public void test1027() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1027");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc3 = serializableLruCache1.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc5 = serializableLruCache1.get((java.io.Serializable) (short) 100);
+        serializableLruCache1.put((java.io.Serializable) 10.0f, (java.lang.constant.ConstantDesc) (-1.0d));
+        int int9 = serializableLruCache1.size();
+        com.viktor.lab4.LruCache<com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>, java.lang.Comparable<java.lang.String>> serializableLruCacheLruCache11 = new com.viktor.lab4.LruCache<com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>, java.lang.Comparable<java.lang.String>>((int) ' ');
+        java.lang.Class<?> wildcardClass12 = serializableLruCacheLruCache11.getClass();
+        serializableLruCache1.put((java.io.Serializable) wildcardClass12, (java.lang.constant.ConstantDesc) 100L);
+        int int15 = serializableLruCache1.size();
+        int int16 = serializableLruCache1.size();
+        int int17 = serializableLruCache1.size();
+        int int18 = serializableLruCache1.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache20 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        java.lang.constant.ConstantDesc constantDesc22 = serializableLruCache20.get((java.io.Serializable) 0);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache24 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        java.lang.Object obj25 = new java.lang.Object();
+        java.lang.Class<?> wildcardClass26 = obj25.getClass();
+        serializableLruCache24.put((java.io.Serializable) wildcardClass26, (java.lang.constant.ConstantDesc) 1.0f);
+        boolean boolean29 = serializableLruCache20.containsKey((java.io.Serializable) 1.0f);
+        int int30 = serializableLruCache20.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache32 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean34 = serializableLruCache32.containsKey((java.io.Serializable) 1.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache36 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc38 = serializableLruCache36.get((java.io.Serializable) (byte) 10);
+        int int39 = serializableLruCache36.size();
+        serializableLruCache36.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 0L);
+        java.lang.Class<?> wildcardClass43 = serializableLruCache36.getClass();
+        java.lang.constant.ConstantDesc constantDesc44 = serializableLruCache32.get((java.io.Serializable) wildcardClass43);
+        boolean boolean45 = serializableLruCache20.containsKey((java.io.Serializable) wildcardClass43);
+        serializableLruCache1.put((java.io.Serializable) boolean45, (java.lang.constant.ConstantDesc) 1.0d);
+        org.junit.Assert.assertNull(constantDesc3);
+        org.junit.Assert.assertNull(constantDesc5);
+        org.junit.Assert.assertTrue("'" + int9 + "' != '" + 1 + "'", int9 == 1);
+        org.junit.Assert.assertNotNull(wildcardClass12);
+        org.junit.Assert.assertTrue("'" + int15 + "' != '" + 2 + "'", int15 == 2);
+        org.junit.Assert.assertTrue("'" + int16 + "' != '" + 2 + "'", int16 == 2);
+        org.junit.Assert.assertTrue("'" + int17 + "' != '" + 2 + "'", int17 == 2);
+        org.junit.Assert.assertTrue("'" + int18 + "' != '" + 2 + "'", int18 == 2);
+        org.junit.Assert.assertNull(constantDesc22);
+        org.junit.Assert.assertNotNull(wildcardClass26);
+        org.junit.Assert.assertTrue("'" + boolean29 + "' != '" + false + "'", boolean29 == false);
+        org.junit.Assert.assertTrue("'" + int30 + "' != '" + 0 + "'", int30 == 0);
+        org.junit.Assert.assertTrue("'" + boolean34 + "' != '" + false + "'", boolean34 == false);
+        org.junit.Assert.assertNull(constantDesc38);
+        org.junit.Assert.assertTrue("'" + int39 + "' != '" + 0 + "'", int39 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass43);
+        org.junit.Assert.assertNull(constantDesc44);
+        org.junit.Assert.assertTrue("'" + boolean45 + "' != '" + false + "'", boolean45 == false);
+    }
+
+    @Test
+    public void test1028() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1028");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (byte) 1);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache3 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc5 = serializableLruCache3.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc7 = serializableLruCache3.get((java.io.Serializable) (short) 100);
+        int int8 = serializableLruCache3.size();
+        java.lang.Class<?> wildcardClass9 = serializableLruCache3.getClass();
+        serializableLruCache1.put((java.io.Serializable) wildcardClass9, (java.lang.constant.ConstantDesc) 10.0d);
+        com.viktor.lab4.LruCache<java.lang.invoke.TypeDescriptor.OfField<java.lang.Class<?>>, java.lang.reflect.AnnotatedElement> wildcardClassOfFieldLruCache13 = new com.viktor.lab4.LruCache<java.lang.invoke.TypeDescriptor.OfField<java.lang.Class<?>>, java.lang.reflect.AnnotatedElement>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass14 = wildcardClassOfFieldLruCache13.getClass();
+        boolean boolean15 = serializableLruCache1.containsKey((java.io.Serializable) wildcardClass14);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache17 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (byte) 100);
+        java.lang.Class<?> wildcardClass18 = serializableLruCache17.getClass();
+        boolean boolean19 = serializableLruCache1.containsKey((java.io.Serializable) wildcardClass18);
+        org.junit.Assert.assertNull(constantDesc5);
+        org.junit.Assert.assertNull(constantDesc7);
+        org.junit.Assert.assertTrue("'" + int8 + "' != '" + 0 + "'", int8 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass9);
+        org.junit.Assert.assertNotNull(wildcardClass14);
+        org.junit.Assert.assertTrue("'" + boolean15 + "' != '" + true + "'", boolean15 == true);
+        org.junit.Assert.assertNotNull(wildcardClass18);
+        org.junit.Assert.assertTrue("'" + boolean19 + "' != '" + true + "'", boolean19 == true);
+    }
+
+    @Test
+    public void test1029() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1029");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        java.lang.constant.ConstantDesc constantDesc3 = serializableLruCache1.get((java.io.Serializable) 0);
+        int int4 = serializableLruCache1.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache6 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean8 = serializableLruCache6.containsKey((java.io.Serializable) 10);
+        boolean boolean10 = serializableLruCache6.containsKey((java.io.Serializable) 1.0d);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache12 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean14 = serializableLruCache12.containsKey((java.io.Serializable) 10);
+        boolean boolean16 = serializableLruCache12.containsKey((java.io.Serializable) 1.0d);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache18 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass19 = annotatedElementLruCache18.getClass();
+        java.lang.constant.ConstantDesc constantDesc20 = serializableLruCache12.get((java.io.Serializable) wildcardClass19);
+        java.lang.constant.ConstantDesc constantDesc21 = serializableLruCache6.get((java.io.Serializable) wildcardClass19);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache23 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        java.lang.constant.ConstantDesc constantDesc25 = serializableLruCache23.get((java.io.Serializable) 0);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache27 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        java.lang.Object obj28 = new java.lang.Object();
+        java.lang.Class<?> wildcardClass29 = obj28.getClass();
+        serializableLruCache27.put((java.io.Serializable) wildcardClass29, (java.lang.constant.ConstantDesc) 1.0f);
+        boolean boolean32 = serializableLruCache23.containsKey((java.io.Serializable) 1.0f);
+        serializableLruCache23.put((java.io.Serializable) 1.0d, (java.lang.constant.ConstantDesc) 10);
+        java.lang.Class<?> wildcardClass36 = serializableLruCache23.getClass();
+        boolean boolean37 = serializableLruCache6.containsKey((java.io.Serializable) wildcardClass36);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache39 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache41 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc43 = serializableLruCache41.get((java.io.Serializable) (byte) 10);
+        int int44 = serializableLruCache41.size();
+        serializableLruCache41.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 0L);
+        java.lang.Class<?> wildcardClass48 = serializableLruCache41.getClass();
+        serializableLruCache39.put((java.io.Serializable) wildcardClass48, (java.lang.constant.ConstantDesc) 1.0d);
+        boolean boolean51 = serializableLruCache6.containsKey((java.io.Serializable) wildcardClass48);
+        java.lang.constant.ConstantDesc constantDesc52 = serializableLruCache1.get((java.io.Serializable) boolean51);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache54 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        java.lang.constant.ConstantDesc constantDesc56 = serializableLruCache54.get((java.io.Serializable) 0);
+        serializableLruCache54.put((java.io.Serializable) (short) -1, (java.lang.constant.ConstantDesc) 1);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache61 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc63 = serializableLruCache61.get((java.io.Serializable) (byte) 10);
+        int int64 = serializableLruCache61.size();
+        java.io.Serializable serializable65 = null;
+        java.lang.constant.ConstantDesc constantDesc66 = serializableLruCache61.get(serializable65);
+        boolean boolean68 = serializableLruCache61.containsKey((java.io.Serializable) "hi!");
+        java.lang.Class<?> wildcardClass69 = serializableLruCache61.getClass();
+        boolean boolean70 = serializableLruCache54.containsKey((java.io.Serializable) wildcardClass69);
+        java.lang.Class<?> wildcardClass71 = serializableLruCache54.getClass();
+        boolean boolean72 = serializableLruCache1.containsKey((java.io.Serializable) wildcardClass71);
+        org.junit.Assert.assertNull(constantDesc3);
+        org.junit.Assert.assertTrue("'" + int4 + "' != '" + 0 + "'", int4 == 0);
+        org.junit.Assert.assertTrue("'" + boolean8 + "' != '" + false + "'", boolean8 == false);
+        org.junit.Assert.assertTrue("'" + boolean10 + "' != '" + false + "'", boolean10 == false);
+        org.junit.Assert.assertTrue("'" + boolean14 + "' != '" + false + "'", boolean14 == false);
+        org.junit.Assert.assertTrue("'" + boolean16 + "' != '" + false + "'", boolean16 == false);
+        org.junit.Assert.assertNotNull(wildcardClass19);
+        org.junit.Assert.assertNull(constantDesc20);
+        org.junit.Assert.assertNull(constantDesc21);
+        org.junit.Assert.assertNull(constantDesc25);
+        org.junit.Assert.assertNotNull(wildcardClass29);
+        org.junit.Assert.assertTrue("'" + boolean32 + "' != '" + false + "'", boolean32 == false);
+        org.junit.Assert.assertNotNull(wildcardClass36);
+        org.junit.Assert.assertTrue("'" + boolean37 + "' != '" + false + "'", boolean37 == false);
+        org.junit.Assert.assertNull(constantDesc43);
+        org.junit.Assert.assertTrue("'" + int44 + "' != '" + 0 + "'", int44 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass48);
+        org.junit.Assert.assertTrue("'" + boolean51 + "' != '" + false + "'", boolean51 == false);
+        org.junit.Assert.assertNull(constantDesc52);
+        org.junit.Assert.assertNull(constantDesc56);
+        org.junit.Assert.assertNull(constantDesc63);
+        org.junit.Assert.assertTrue("'" + int64 + "' != '" + 0 + "'", int64 == 0);
+        org.junit.Assert.assertNull(constantDesc66);
+        org.junit.Assert.assertTrue("'" + boolean68 + "' != '" + false + "'", boolean68 == false);
+        org.junit.Assert.assertNotNull(wildcardClass69);
+        org.junit.Assert.assertTrue("'" + boolean70 + "' != '" + false + "'", boolean70 == false);
+        org.junit.Assert.assertNotNull(wildcardClass71);
+        org.junit.Assert.assertTrue("'" + boolean72 + "' != '" + false + "'", boolean72 == false);
+    }
+
+    @Test
+    public void test1030() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1030");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache1.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc6 = serializableLruCache1.get((java.io.Serializable) ' ');
+        serializableLruCache1.put((java.io.Serializable) (byte) 0, (java.lang.constant.ConstantDesc) 100.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache11 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc13 = serializableLruCache11.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc15 = serializableLruCache11.get((java.io.Serializable) false);
+        boolean boolean17 = serializableLruCache11.containsKey((java.io.Serializable) 1);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache19 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        boolean boolean21 = serializableLruCache19.containsKey((java.io.Serializable) "");
+        java.lang.constant.ConstantDesc constantDesc23 = serializableLruCache19.get((java.io.Serializable) (-1));
+        serializableLruCache19.put((java.io.Serializable) 10.0f, (java.lang.constant.ConstantDesc) (-1.0f));
+        java.lang.Class<?> wildcardClass27 = serializableLruCache19.getClass();
+        java.lang.constant.ConstantDesc constantDesc28 = serializableLruCache11.get((java.io.Serializable) wildcardClass27);
+        java.lang.constant.ConstantDesc constantDesc29 = serializableLruCache1.get((java.io.Serializable) wildcardClass27);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache31 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        boolean boolean33 = serializableLruCache31.containsKey((java.io.Serializable) "");
+        java.io.Serializable serializable34 = null;
+        java.lang.constant.ConstantDesc constantDesc35 = serializableLruCache31.get(serializable34);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache37 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache37.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc42 = serializableLruCache37.get((java.io.Serializable) ' ');
+        serializableLruCache37.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.constant.ConstantDesc constantDesc47 = serializableLruCache37.get((java.io.Serializable) 1);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache49 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass50 = annotatedElementLruCache49.getClass();
+        java.lang.constant.ConstantDesc constantDesc51 = serializableLruCache37.get((java.io.Serializable) wildcardClass50);
+        serializableLruCache37.put((java.io.Serializable) (-1.0f), (java.lang.constant.ConstantDesc) "");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache56 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc58 = serializableLruCache56.get((java.io.Serializable) (byte) 10);
+        int int59 = serializableLruCache56.size();
+        boolean boolean61 = serializableLruCache56.containsKey((java.io.Serializable) ' ');
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache63 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        java.lang.Class<?> wildcardClass64 = serializableLruCache63.getClass();
+        serializableLruCache56.put((java.io.Serializable) wildcardClass64, (java.lang.constant.ConstantDesc) 10.0d);
+        java.lang.constant.ConstantDesc constantDesc67 = serializableLruCache37.get((java.io.Serializable) wildcardClass64);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache69 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache69.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        boolean boolean74 = serializableLruCache69.containsKey((java.io.Serializable) 1);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache76 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        java.lang.constant.ConstantDesc constantDesc78 = serializableLruCache76.get((java.io.Serializable) 0);
+        java.lang.constant.ConstantDesc constantDesc80 = serializableLruCache76.get((java.io.Serializable) (byte) 100);
+        java.lang.constant.ConstantDesc constantDesc82 = serializableLruCache76.get((java.io.Serializable) 1.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache84 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean86 = serializableLruCache84.containsKey((java.io.Serializable) 10);
+        boolean boolean88 = serializableLruCache84.containsKey((java.io.Serializable) 1.0d);
+        java.lang.Class<?> wildcardClass89 = serializableLruCache84.getClass();
+        serializableLruCache76.put((java.io.Serializable) wildcardClass89, (java.lang.constant.ConstantDesc) 1L);
+        java.lang.Class<?> wildcardClass92 = serializableLruCache76.getClass();
+        java.lang.constant.ConstantDesc constantDesc93 = serializableLruCache69.get((java.io.Serializable) wildcardClass92);
+        serializableLruCache37.put((java.io.Serializable) wildcardClass92, (java.lang.constant.ConstantDesc) 0.0f);
+        boolean boolean96 = serializableLruCache31.containsKey((java.io.Serializable) wildcardClass92);
+        serializableLruCache1.put((java.io.Serializable) boolean96, (java.lang.constant.ConstantDesc) (-1));
+        org.junit.Assert.assertNull(constantDesc6);
+        org.junit.Assert.assertNull(constantDesc13);
+        org.junit.Assert.assertNull(constantDesc15);
+        org.junit.Assert.assertTrue("'" + boolean17 + "' != '" + false + "'", boolean17 == false);
+        org.junit.Assert.assertTrue("'" + boolean21 + "' != '" + false + "'", boolean21 == false);
+        org.junit.Assert.assertNull(constantDesc23);
+        org.junit.Assert.assertNotNull(wildcardClass27);
+        org.junit.Assert.assertNull(constantDesc28);
+        org.junit.Assert.assertNull(constantDesc29);
+        org.junit.Assert.assertTrue("'" + boolean33 + "' != '" + false + "'", boolean33 == false);
+        org.junit.Assert.assertNull(constantDesc35);
+        org.junit.Assert.assertNull(constantDesc42);
+        org.junit.Assert.assertNull(constantDesc47);
+        org.junit.Assert.assertNotNull(wildcardClass50);
+        org.junit.Assert.assertNull(constantDesc51);
+        org.junit.Assert.assertNull(constantDesc58);
+        org.junit.Assert.assertTrue("'" + int59 + "' != '" + 0 + "'", int59 == 0);
+        org.junit.Assert.assertTrue("'" + boolean61 + "' != '" + false + "'", boolean61 == false);
+        org.junit.Assert.assertNotNull(wildcardClass64);
+        org.junit.Assert.assertNull(constantDesc67);
+        org.junit.Assert.assertTrue("'" + boolean74 + "' != '" + false + "'", boolean74 == false);
+        org.junit.Assert.assertNull(constantDesc78);
+        org.junit.Assert.assertNull(constantDesc80);
+        org.junit.Assert.assertNull(constantDesc82);
+        org.junit.Assert.assertTrue("'" + boolean86 + "' != '" + false + "'", boolean86 == false);
+        org.junit.Assert.assertTrue("'" + boolean88 + "' != '" + false + "'", boolean88 == false);
+        org.junit.Assert.assertNotNull(wildcardClass89);
+        org.junit.Assert.assertNotNull(wildcardClass92);
+        org.junit.Assert.assertNull(constantDesc93);
+        org.junit.Assert.assertTrue("'" + boolean96 + "' != '" + false + "'", boolean96 == false);
+    }
+
+    @Test
+    public void test1031() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1031");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (byte) 1);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache3 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc5 = serializableLruCache3.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc7 = serializableLruCache3.get((java.io.Serializable) (short) 100);
+        int int8 = serializableLruCache3.size();
+        java.lang.Class<?> wildcardClass9 = serializableLruCache3.getClass();
+        serializableLruCache1.put((java.io.Serializable) wildcardClass9, (java.lang.constant.ConstantDesc) 10.0d);
+        com.viktor.lab4.LruCache<java.lang.invoke.TypeDescriptor.OfField<java.lang.Class<?>>, java.lang.reflect.AnnotatedElement> wildcardClassOfFieldLruCache13 = new com.viktor.lab4.LruCache<java.lang.invoke.TypeDescriptor.OfField<java.lang.Class<?>>, java.lang.reflect.AnnotatedElement>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass14 = wildcardClassOfFieldLruCache13.getClass();
+        boolean boolean15 = serializableLruCache1.containsKey((java.io.Serializable) wildcardClass14);
+        com.viktor.lab4.LruCache<java.lang.reflect.Type, java.lang.reflect.GenericDeclaration> typeLruCache17 = new com.viktor.lab4.LruCache<java.lang.reflect.Type, java.lang.reflect.GenericDeclaration>((int) 'a');
+        java.lang.Class<?> wildcardClass18 = typeLruCache17.getClass();
+        serializableLruCache1.put((java.io.Serializable) wildcardClass18, (java.lang.constant.ConstantDesc) 3);
+        org.junit.Assert.assertNull(constantDesc5);
+        org.junit.Assert.assertNull(constantDesc7);
+        org.junit.Assert.assertTrue("'" + int8 + "' != '" + 0 + "'", int8 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass9);
+        org.junit.Assert.assertNotNull(wildcardClass14);
+        org.junit.Assert.assertTrue("'" + boolean15 + "' != '" + true + "'", boolean15 == true);
+        org.junit.Assert.assertNotNull(wildcardClass18);
+    }
+
+    @Test
+    public void test1032() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1032");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        boolean boolean3 = serializableLruCache1.containsKey((java.io.Serializable) "");
+        java.io.Serializable serializable4 = null;
+        java.lang.constant.ConstantDesc constantDesc5 = serializableLruCache1.get(serializable4);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache7 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        java.lang.Object obj8 = new java.lang.Object();
+        java.lang.Class<?> wildcardClass9 = obj8.getClass();
+        serializableLruCache7.put((java.io.Serializable) wildcardClass9, (java.lang.constant.ConstantDesc) 1.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache13 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        java.lang.Object obj14 = new java.lang.Object();
+        java.lang.Class<?> wildcardClass15 = obj14.getClass();
+        serializableLruCache13.put((java.io.Serializable) wildcardClass15, (java.lang.constant.ConstantDesc) 1.0f);
+        java.lang.constant.ConstantDesc constantDesc18 = serializableLruCache7.get((java.io.Serializable) 1.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache20 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc22 = serializableLruCache20.get((java.io.Serializable) (byte) 10);
+        int int23 = serializableLruCache20.size();
+        java.io.Serializable serializable24 = null;
+        java.lang.constant.ConstantDesc constantDesc25 = serializableLruCache20.get(serializable24);
+        boolean boolean27 = serializableLruCache20.containsKey((java.io.Serializable) 0);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache29 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc31 = serializableLruCache29.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc33 = serializableLruCache29.get((java.io.Serializable) false);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache35 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc37 = serializableLruCache35.get((java.io.Serializable) (byte) 10);
+        boolean boolean39 = serializableLruCache35.containsKey((java.io.Serializable) (-1));
+        serializableLruCache35.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 1);
+        boolean boolean44 = serializableLruCache35.containsKey((java.io.Serializable) 10.0f);
+        java.lang.Class<?> wildcardClass45 = serializableLruCache35.getClass();
+        java.lang.constant.ConstantDesc constantDesc46 = serializableLruCache29.get((java.io.Serializable) wildcardClass45);
+        java.lang.constant.ConstantDesc constantDesc47 = serializableLruCache20.get((java.io.Serializable) wildcardClass45);
+        serializableLruCache7.put((java.io.Serializable) wildcardClass45, (java.lang.constant.ConstantDesc) (-1.0d));
+        serializableLruCache1.put((java.io.Serializable) wildcardClass45, (java.lang.constant.ConstantDesc) 0.0d);
+        int int52 = serializableLruCache1.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache54 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) ' ');
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache56 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc58 = serializableLruCache56.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc60 = serializableLruCache56.get((java.io.Serializable) false);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache62 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc64 = serializableLruCache62.get((java.io.Serializable) (byte) 10);
+        boolean boolean66 = serializableLruCache62.containsKey((java.io.Serializable) (-1));
+        serializableLruCache62.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 1);
+        boolean boolean71 = serializableLruCache62.containsKey((java.io.Serializable) 10.0f);
+        java.lang.Class<?> wildcardClass72 = serializableLruCache62.getClass();
+        java.lang.constant.ConstantDesc constantDesc73 = serializableLruCache56.get((java.io.Serializable) wildcardClass72);
+        serializableLruCache54.put((java.io.Serializable) wildcardClass72, (java.lang.constant.ConstantDesc) (-1.0f));
+        boolean boolean76 = serializableLruCache1.containsKey((java.io.Serializable) (-1.0f));
+        org.junit.Assert.assertTrue("'" + boolean3 + "' != '" + false + "'", boolean3 == false);
+        org.junit.Assert.assertNull(constantDesc5);
+        org.junit.Assert.assertNotNull(wildcardClass9);
+        org.junit.Assert.assertNotNull(wildcardClass15);
+        org.junit.Assert.assertNull(constantDesc18);
+        org.junit.Assert.assertNull(constantDesc22);
+        org.junit.Assert.assertTrue("'" + int23 + "' != '" + 0 + "'", int23 == 0);
+        org.junit.Assert.assertNull(constantDesc25);
+        org.junit.Assert.assertTrue("'" + boolean27 + "' != '" + false + "'", boolean27 == false);
+        org.junit.Assert.assertNull(constantDesc31);
+        org.junit.Assert.assertNull(constantDesc33);
+        org.junit.Assert.assertNull(constantDesc37);
+        org.junit.Assert.assertTrue("'" + boolean39 + "' != '" + false + "'", boolean39 == false);
+        org.junit.Assert.assertTrue("'" + boolean44 + "' != '" + false + "'", boolean44 == false);
+        org.junit.Assert.assertNotNull(wildcardClass45);
+        org.junit.Assert.assertNull(constantDesc46);
+        org.junit.Assert.assertNull(constantDesc47);
+        org.junit.Assert.assertTrue("'" + int52 + "' != '" + 1 + "'", int52 == 1);
+        org.junit.Assert.assertNull(constantDesc58);
+        org.junit.Assert.assertNull(constantDesc60);
+        org.junit.Assert.assertNull(constantDesc64);
+        org.junit.Assert.assertTrue("'" + boolean66 + "' != '" + false + "'", boolean66 == false);
+        org.junit.Assert.assertTrue("'" + boolean71 + "' != '" + false + "'", boolean71 == false);
+        org.junit.Assert.assertNotNull(wildcardClass72);
+        org.junit.Assert.assertNull(constantDesc73);
+        org.junit.Assert.assertTrue("'" + boolean76 + "' != '" + false + "'", boolean76 == false);
+    }
+
+    @Test
+    public void test1033() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1033");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) 'a');
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache3 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache5 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc7 = serializableLruCache5.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc9 = serializableLruCache5.get((java.io.Serializable) false);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache11 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean13 = serializableLruCache11.containsKey((java.io.Serializable) 1.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache15 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc17 = serializableLruCache15.get((java.io.Serializable) (byte) 10);
+        int int18 = serializableLruCache15.size();
+        serializableLruCache15.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 0L);
+        java.lang.Class<?> wildcardClass22 = serializableLruCache15.getClass();
+        java.lang.constant.ConstantDesc constantDesc23 = serializableLruCache11.get((java.io.Serializable) wildcardClass22);
+        java.lang.constant.ConstantDesc constantDesc24 = serializableLruCache5.get((java.io.Serializable) wildcardClass22);
+        java.lang.constant.ConstantDesc constantDesc25 = serializableLruCache3.get((java.io.Serializable) wildcardClass22);
+        int int26 = serializableLruCache3.size();
+        com.viktor.lab4.LruCache<java.lang.Class<?>, java.lang.Object> wildcardClassLruCache28 = new com.viktor.lab4.LruCache<java.lang.Class<?>, java.lang.Object>((int) (byte) 1);
+        java.lang.Class<?> wildcardClass29 = wildcardClassLruCache28.getClass();
+        serializableLruCache3.put((java.io.Serializable) wildcardClass29, (java.lang.constant.ConstantDesc) "");
+        boolean boolean32 = serializableLruCache1.containsKey((java.io.Serializable) wildcardClass29);
+        org.junit.Assert.assertNull(constantDesc7);
+        org.junit.Assert.assertNull(constantDesc9);
+        org.junit.Assert.assertTrue("'" + boolean13 + "' != '" + false + "'", boolean13 == false);
+        org.junit.Assert.assertNull(constantDesc17);
+        org.junit.Assert.assertTrue("'" + int18 + "' != '" + 0 + "'", int18 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass22);
+        org.junit.Assert.assertNull(constantDesc23);
+        org.junit.Assert.assertNull(constantDesc24);
+        org.junit.Assert.assertNull(constantDesc25);
+        org.junit.Assert.assertTrue("'" + int26 + "' != '" + 0 + "'", int26 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass29);
+        org.junit.Assert.assertTrue("'" + boolean32 + "' != '" + false + "'", boolean32 == false);
+    }
+
+    @Test
+    public void test1034() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1034");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache1.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc6 = serializableLruCache1.get((java.io.Serializable) ' ');
+        int int7 = serializableLruCache1.size();
+        java.lang.constant.ConstantDesc constantDesc9 = serializableLruCache1.get((java.io.Serializable) 100L);
+        boolean boolean11 = serializableLruCache1.containsKey((java.io.Serializable) "");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache13 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache13.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc18 = serializableLruCache13.get((java.io.Serializable) ' ');
+        serializableLruCache13.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.constant.ConstantDesc constantDesc23 = serializableLruCache13.get((java.io.Serializable) 1L);
+        int int24 = serializableLruCache13.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache26 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache26.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc31 = serializableLruCache26.get((java.io.Serializable) ' ');
+        int int32 = serializableLruCache26.size();
+        java.lang.constant.ConstantDesc constantDesc34 = serializableLruCache26.get((java.io.Serializable) 100L);
+        java.lang.constant.ConstantDesc constantDesc36 = serializableLruCache26.get((java.io.Serializable) (short) 10);
+        java.lang.Class<?> wildcardClass37 = serializableLruCache26.getClass();
+        java.lang.constant.ConstantDesc constantDesc38 = serializableLruCache13.get((java.io.Serializable) wildcardClass37);
+        serializableLruCache1.put((java.io.Serializable) wildcardClass37, (java.lang.constant.ConstantDesc) (-1.0f));
+        boolean boolean42 = serializableLruCache1.containsKey((java.io.Serializable) "");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache44 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache44.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc49 = serializableLruCache44.get((java.io.Serializable) ' ');
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache51 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean53 = serializableLruCache51.containsKey((java.io.Serializable) 1.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache55 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc57 = serializableLruCache55.get((java.io.Serializable) (byte) 10);
+        int int58 = serializableLruCache55.size();
+        serializableLruCache55.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 0L);
+        java.lang.Class<?> wildcardClass62 = serializableLruCache55.getClass();
+        java.lang.constant.ConstantDesc constantDesc63 = serializableLruCache51.get((java.io.Serializable) wildcardClass62);
+        boolean boolean64 = serializableLruCache44.containsKey((java.io.Serializable) wildcardClass62);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache66 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache66.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc71 = serializableLruCache66.get((java.io.Serializable) ' ');
+        serializableLruCache66.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.constant.ConstantDesc constantDesc76 = serializableLruCache66.get((java.io.Serializable) 1);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache78 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache78.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        boolean boolean83 = serializableLruCache78.containsKey((java.io.Serializable) (-1.0f));
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache85 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        java.lang.Class<?> wildcardClass86 = serializableLruCache85.getClass();
+        boolean boolean87 = serializableLruCache78.containsKey((java.io.Serializable) wildcardClass86);
+        serializableLruCache66.put((java.io.Serializable) wildcardClass86, (java.lang.constant.ConstantDesc) 10L);
+        boolean boolean90 = serializableLruCache44.containsKey((java.io.Serializable) wildcardClass86);
+        java.lang.Class<?> wildcardClass91 = serializableLruCache44.getClass();
+        serializableLruCache1.put((java.io.Serializable) wildcardClass91, (java.lang.constant.ConstantDesc) 4);
+        org.junit.Assert.assertNull(constantDesc6);
+        org.junit.Assert.assertTrue("'" + int7 + "' != '" + 1 + "'", int7 == 1);
+        org.junit.Assert.assertNull(constantDesc9);
+        org.junit.Assert.assertTrue("'" + boolean11 + "' != '" + false + "'", boolean11 == false);
+        org.junit.Assert.assertNull(constantDesc18);
+        org.junit.Assert.assertNull(constantDesc23);
+        org.junit.Assert.assertTrue("'" + int24 + "' != '" + 2 + "'", int24 == 2);
+        org.junit.Assert.assertNull(constantDesc31);
+        org.junit.Assert.assertTrue("'" + int32 + "' != '" + 1 + "'", int32 == 1);
+        org.junit.Assert.assertNull(constantDesc34);
+        org.junit.Assert.assertNull(constantDesc36);
+        org.junit.Assert.assertNotNull(wildcardClass37);
+        org.junit.Assert.assertNull(constantDesc38);
+        org.junit.Assert.assertTrue("'" + boolean42 + "' != '" + false + "'", boolean42 == false);
+        org.junit.Assert.assertNull(constantDesc49);
+        org.junit.Assert.assertTrue("'" + boolean53 + "' != '" + false + "'", boolean53 == false);
+        org.junit.Assert.assertNull(constantDesc57);
+        org.junit.Assert.assertTrue("'" + int58 + "' != '" + 0 + "'", int58 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass62);
+        org.junit.Assert.assertNull(constantDesc63);
+        org.junit.Assert.assertTrue("'" + boolean64 + "' != '" + false + "'", boolean64 == false);
+        org.junit.Assert.assertNull(constantDesc71);
+        org.junit.Assert.assertNull(constantDesc76);
+        org.junit.Assert.assertTrue("'" + boolean83 + "' != '" + false + "'", boolean83 == false);
+        org.junit.Assert.assertNotNull(wildcardClass86);
+        org.junit.Assert.assertTrue("'" + boolean87 + "' != '" + false + "'", boolean87 == false);
+        org.junit.Assert.assertTrue("'" + boolean90 + "' != '" + false + "'", boolean90 == false);
+        org.junit.Assert.assertNotNull(wildcardClass91);
+    }
+
+    @Test
+    public void test1035() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1035");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        java.lang.Object obj2 = new java.lang.Object();
+        java.lang.Class<?> wildcardClass3 = obj2.getClass();
+        serializableLruCache1.put((java.io.Serializable) wildcardClass3, (java.lang.constant.ConstantDesc) 1.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache7 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc9 = serializableLruCache7.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc11 = serializableLruCache7.get((java.io.Serializable) (short) 100);
+        int int12 = serializableLruCache7.size();
+        java.lang.Object obj13 = new java.lang.Object();
+        java.lang.Class<?> wildcardClass14 = obj13.getClass();
+        java.lang.constant.ConstantDesc constantDesc15 = serializableLruCache7.get((java.io.Serializable) wildcardClass14);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache17 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean19 = serializableLruCache17.containsKey((java.io.Serializable) 10);
+        boolean boolean21 = serializableLruCache17.containsKey((java.io.Serializable) 1.0d);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache23 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass24 = annotatedElementLruCache23.getClass();
+        java.lang.constant.ConstantDesc constantDesc25 = serializableLruCache17.get((java.io.Serializable) wildcardClass24);
+        boolean boolean26 = serializableLruCache7.containsKey((java.io.Serializable) wildcardClass24);
+        java.lang.constant.ConstantDesc constantDesc27 = serializableLruCache1.get((java.io.Serializable) wildcardClass24);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache29 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean31 = serializableLruCache29.containsKey((java.io.Serializable) 10);
+        int int32 = serializableLruCache29.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache34 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc36 = serializableLruCache34.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc38 = serializableLruCache34.get((java.io.Serializable) false);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache40 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.Class<?> wildcardClass41 = serializableLruCache40.getClass();
+        boolean boolean42 = serializableLruCache34.containsKey((java.io.Serializable) wildcardClass41);
+        java.lang.constant.ConstantDesc constantDesc43 = serializableLruCache29.get((java.io.Serializable) boolean42);
+        int int44 = serializableLruCache29.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache46 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc48 = serializableLruCache46.get((java.io.Serializable) (byte) 10);
+        boolean boolean50 = serializableLruCache46.containsKey((java.io.Serializable) (-1));
+        serializableLruCache46.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 1);
+        boolean boolean55 = serializableLruCache46.containsKey((java.io.Serializable) 10.0f);
+        boolean boolean57 = serializableLruCache46.containsKey((java.io.Serializable) 10.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache59 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc61 = serializableLruCache59.get((java.io.Serializable) (byte) 10);
+        boolean boolean63 = serializableLruCache59.containsKey((java.io.Serializable) (-1));
+        int int64 = serializableLruCache59.size();
+        java.lang.Class<?> wildcardClass65 = serializableLruCache59.getClass();
+        java.lang.constant.ConstantDesc constantDesc66 = serializableLruCache46.get((java.io.Serializable) wildcardClass65);
+        java.lang.Class<?> wildcardClass67 = serializableLruCache46.getClass();
+        java.lang.constant.ConstantDesc constantDesc68 = serializableLruCache29.get((java.io.Serializable) wildcardClass67);
+        java.lang.constant.ConstantDesc constantDesc69 = serializableLruCache1.get((java.io.Serializable) wildcardClass67);
+        int int70 = serializableLruCache1.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache72 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc74 = serializableLruCache72.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc76 = serializableLruCache72.get((java.io.Serializable) (short) 100);
+        int int77 = serializableLruCache72.size();
+        java.lang.Object obj78 = new java.lang.Object();
+        java.lang.Class<?> wildcardClass79 = obj78.getClass();
+        java.lang.constant.ConstantDesc constantDesc80 = serializableLruCache72.get((java.io.Serializable) wildcardClass79);
+        java.lang.Class<?> wildcardClass81 = serializableLruCache72.getClass();
+        serializableLruCache1.put((java.io.Serializable) wildcardClass81, (java.lang.constant.ConstantDesc) 10);
+        org.junit.Assert.assertNotNull(wildcardClass3);
+        org.junit.Assert.assertNull(constantDesc9);
+        org.junit.Assert.assertNull(constantDesc11);
+        org.junit.Assert.assertTrue("'" + int12 + "' != '" + 0 + "'", int12 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass14);
+        org.junit.Assert.assertNull(constantDesc15);
+        org.junit.Assert.assertTrue("'" + boolean19 + "' != '" + false + "'", boolean19 == false);
+        org.junit.Assert.assertTrue("'" + boolean21 + "' != '" + false + "'", boolean21 == false);
+        org.junit.Assert.assertNotNull(wildcardClass24);
+        org.junit.Assert.assertNull(constantDesc25);
+        org.junit.Assert.assertTrue("'" + boolean26 + "' != '" + false + "'", boolean26 == false);
+        org.junit.Assert.assertNull(constantDesc27);
+        org.junit.Assert.assertTrue("'" + boolean31 + "' != '" + false + "'", boolean31 == false);
+        org.junit.Assert.assertTrue("'" + int32 + "' != '" + 0 + "'", int32 == 0);
+        org.junit.Assert.assertNull(constantDesc36);
+        org.junit.Assert.assertNull(constantDesc38);
+        org.junit.Assert.assertNotNull(wildcardClass41);
+        org.junit.Assert.assertTrue("'" + boolean42 + "' != '" + false + "'", boolean42 == false);
+        org.junit.Assert.assertNull(constantDesc43);
+        org.junit.Assert.assertTrue("'" + int44 + "' != '" + 0 + "'", int44 == 0);
+        org.junit.Assert.assertNull(constantDesc48);
+        org.junit.Assert.assertTrue("'" + boolean50 + "' != '" + false + "'", boolean50 == false);
+        org.junit.Assert.assertTrue("'" + boolean55 + "' != '" + false + "'", boolean55 == false);
+        org.junit.Assert.assertTrue("'" + boolean57 + "' != '" + false + "'", boolean57 == false);
+        org.junit.Assert.assertNull(constantDesc61);
+        org.junit.Assert.assertTrue("'" + boolean63 + "' != '" + false + "'", boolean63 == false);
+        org.junit.Assert.assertTrue("'" + int64 + "' != '" + 0 + "'", int64 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass65);
+        org.junit.Assert.assertNull(constantDesc66);
+        org.junit.Assert.assertNotNull(wildcardClass67);
+        org.junit.Assert.assertNull(constantDesc68);
+        org.junit.Assert.assertNull(constantDesc69);
+        org.junit.Assert.assertTrue("'" + int70 + "' != '" + 1 + "'", int70 == 1);
+        org.junit.Assert.assertNull(constantDesc74);
+        org.junit.Assert.assertNull(constantDesc76);
+        org.junit.Assert.assertTrue("'" + int77 + "' != '" + 0 + "'", int77 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass79);
+        org.junit.Assert.assertNull(constantDesc80);
+        org.junit.Assert.assertNotNull(wildcardClass81);
+    }
+
+    @Test
+    public void test1036() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1036");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.Comparable<java.lang.String>> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.Comparable<java.lang.String>>((int) ' ');
+    }
+
+    @Test
+    public void test1037() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1037");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache1.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc6 = serializableLruCache1.get((java.io.Serializable) ' ');
+        int int7 = serializableLruCache1.size();
+        java.io.Serializable serializable8 = null;
+        boolean boolean9 = serializableLruCache1.containsKey(serializable8);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache11 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean13 = serializableLruCache11.containsKey((java.io.Serializable) 10);
+        java.lang.constant.ConstantDesc constantDesc15 = serializableLruCache11.get((java.io.Serializable) '#');
+        serializableLruCache11.put((java.io.Serializable) (-1.0f), (java.lang.constant.ConstantDesc) "");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache20 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache20.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc25 = serializableLruCache20.get((java.io.Serializable) ' ');
+        serializableLruCache20.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.constant.ConstantDesc constantDesc30 = serializableLruCache20.get((java.io.Serializable) 1);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache32 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass33 = annotatedElementLruCache32.getClass();
+        java.lang.constant.ConstantDesc constantDesc34 = serializableLruCache20.get((java.io.Serializable) wildcardClass33);
+        serializableLruCache11.put((java.io.Serializable) wildcardClass33, (java.lang.constant.ConstantDesc) 0.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache38 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean40 = serializableLruCache38.containsKey((java.io.Serializable) 10);
+        boolean boolean42 = serializableLruCache38.containsKey((java.io.Serializable) 1.0d);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache44 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean46 = serializableLruCache44.containsKey((java.io.Serializable) 10);
+        boolean boolean48 = serializableLruCache44.containsKey((java.io.Serializable) 1.0d);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache50 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass51 = annotatedElementLruCache50.getClass();
+        java.lang.constant.ConstantDesc constantDesc52 = serializableLruCache44.get((java.io.Serializable) wildcardClass51);
+        java.lang.constant.ConstantDesc constantDesc53 = serializableLruCache38.get((java.io.Serializable) wildcardClass51);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache55 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        java.lang.constant.ConstantDesc constantDesc57 = serializableLruCache55.get((java.io.Serializable) 0);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache59 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        java.lang.Object obj60 = new java.lang.Object();
+        java.lang.Class<?> wildcardClass61 = obj60.getClass();
+        serializableLruCache59.put((java.io.Serializable) wildcardClass61, (java.lang.constant.ConstantDesc) 1.0f);
+        boolean boolean64 = serializableLruCache55.containsKey((java.io.Serializable) 1.0f);
+        serializableLruCache55.put((java.io.Serializable) 1.0d, (java.lang.constant.ConstantDesc) 10);
+        java.lang.Class<?> wildcardClass68 = serializableLruCache55.getClass();
+        boolean boolean69 = serializableLruCache38.containsKey((java.io.Serializable) wildcardClass68);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache71 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache73 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc75 = serializableLruCache73.get((java.io.Serializable) (byte) 10);
+        int int76 = serializableLruCache73.size();
+        serializableLruCache73.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 0L);
+        java.lang.Class<?> wildcardClass80 = serializableLruCache73.getClass();
+        serializableLruCache71.put((java.io.Serializable) wildcardClass80, (java.lang.constant.ConstantDesc) 1.0d);
+        boolean boolean83 = serializableLruCache38.containsKey((java.io.Serializable) wildcardClass80);
+        java.lang.constant.ConstantDesc constantDesc84 = serializableLruCache11.get((java.io.Serializable) wildcardClass80);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache86 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) 'a');
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache88 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (byte) 100);
+        java.lang.Class<?> wildcardClass89 = serializableLruCache88.getClass();
+        java.lang.constant.ConstantDesc constantDesc90 = serializableLruCache86.get((java.io.Serializable) wildcardClass89);
+        boolean boolean91 = serializableLruCache11.containsKey((java.io.Serializable) wildcardClass89);
+        boolean boolean92 = serializableLruCache1.containsKey((java.io.Serializable) boolean91);
+        org.junit.Assert.assertNull(constantDesc6);
+        org.junit.Assert.assertTrue("'" + int7 + "' != '" + 1 + "'", int7 == 1);
+        org.junit.Assert.assertTrue("'" + boolean9 + "' != '" + false + "'", boolean9 == false);
+        org.junit.Assert.assertTrue("'" + boolean13 + "' != '" + false + "'", boolean13 == false);
+        org.junit.Assert.assertNull(constantDesc15);
+        org.junit.Assert.assertNull(constantDesc25);
+        org.junit.Assert.assertNull(constantDesc30);
+        org.junit.Assert.assertNotNull(wildcardClass33);
+        org.junit.Assert.assertNull(constantDesc34);
+        org.junit.Assert.assertTrue("'" + boolean40 + "' != '" + false + "'", boolean40 == false);
+        org.junit.Assert.assertTrue("'" + boolean42 + "' != '" + false + "'", boolean42 == false);
+        org.junit.Assert.assertTrue("'" + boolean46 + "' != '" + false + "'", boolean46 == false);
+        org.junit.Assert.assertTrue("'" + boolean48 + "' != '" + false + "'", boolean48 == false);
+        org.junit.Assert.assertNotNull(wildcardClass51);
+        org.junit.Assert.assertNull(constantDesc52);
+        org.junit.Assert.assertNull(constantDesc53);
+        org.junit.Assert.assertNull(constantDesc57);
+        org.junit.Assert.assertNotNull(wildcardClass61);
+        org.junit.Assert.assertTrue("'" + boolean64 + "' != '" + false + "'", boolean64 == false);
+        org.junit.Assert.assertNotNull(wildcardClass68);
+        org.junit.Assert.assertTrue("'" + boolean69 + "' != '" + false + "'", boolean69 == false);
+        org.junit.Assert.assertNull(constantDesc75);
+        org.junit.Assert.assertTrue("'" + int76 + "' != '" + 0 + "'", int76 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass80);
+        org.junit.Assert.assertTrue("'" + boolean83 + "' != '" + false + "'", boolean83 == false);
+        org.junit.Assert.assertEquals("'" + constantDesc84 + "' != '" + 0.0f + "'", constantDesc84, 0.0f);
+        org.junit.Assert.assertNotNull(wildcardClass89);
+        org.junit.Assert.assertNull(constantDesc90);
+        org.junit.Assert.assertTrue("'" + boolean91 + "' != '" + true + "'", boolean91 == true);
+        org.junit.Assert.assertTrue("'" + boolean92 + "' != '" + false + "'", boolean92 == false);
+    }
+
+    @Test
+    public void test1038() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1038");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc3 = serializableLruCache1.get((java.io.Serializable) (byte) 10);
+        boolean boolean5 = serializableLruCache1.containsKey((java.io.Serializable) (-1));
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache7 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc9 = serializableLruCache7.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc11 = serializableLruCache7.get((java.io.Serializable) (short) 100);
+        int int12 = serializableLruCache7.size();
+        java.lang.Class<?> wildcardClass13 = serializableLruCache7.getClass();
+        serializableLruCache1.put((java.io.Serializable) wildcardClass13, (java.lang.constant.ConstantDesc) (-1));
+        boolean boolean17 = serializableLruCache1.containsKey((java.io.Serializable) 1.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache19 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache21 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc23 = serializableLruCache21.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc25 = serializableLruCache21.get((java.io.Serializable) false);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache27 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean29 = serializableLruCache27.containsKey((java.io.Serializable) 1.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache31 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc33 = serializableLruCache31.get((java.io.Serializable) (byte) 10);
+        int int34 = serializableLruCache31.size();
+        serializableLruCache31.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 0L);
+        java.lang.Class<?> wildcardClass38 = serializableLruCache31.getClass();
+        java.lang.constant.ConstantDesc constantDesc39 = serializableLruCache27.get((java.io.Serializable) wildcardClass38);
+        java.lang.constant.ConstantDesc constantDesc40 = serializableLruCache21.get((java.io.Serializable) wildcardClass38);
+        java.lang.constant.ConstantDesc constantDesc41 = serializableLruCache19.get((java.io.Serializable) wildcardClass38);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache43 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(1);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache45 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache45.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc50 = serializableLruCache45.get((java.io.Serializable) ' ');
+        serializableLruCache45.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.constant.ConstantDesc constantDesc55 = serializableLruCache45.get((java.io.Serializable) 1);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache57 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass58 = annotatedElementLruCache57.getClass();
+        java.lang.constant.ConstantDesc constantDesc59 = serializableLruCache45.get((java.io.Serializable) wildcardClass58);
+        java.lang.constant.ConstantDesc constantDesc60 = serializableLruCache43.get((java.io.Serializable) wildcardClass58);
+        java.lang.constant.ConstantDesc constantDesc61 = serializableLruCache19.get((java.io.Serializable) wildcardClass58);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache63 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc65 = serializableLruCache63.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc67 = serializableLruCache63.get((java.io.Serializable) (short) 100);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache69 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache69.put((java.io.Serializable) 1.0d, (java.lang.constant.ConstantDesc) "");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache74 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean76 = serializableLruCache74.containsKey((java.io.Serializable) 10);
+        boolean boolean78 = serializableLruCache74.containsKey((java.io.Serializable) 1.0d);
+        java.io.Serializable serializable79 = null;
+        boolean boolean80 = serializableLruCache74.containsKey(serializable79);
+        java.lang.Class<?> wildcardClass81 = serializableLruCache74.getClass();
+        java.lang.constant.ConstantDesc constantDesc82 = serializableLruCache69.get((java.io.Serializable) wildcardClass81);
+        serializableLruCache63.put((java.io.Serializable) wildcardClass81, (java.lang.constant.ConstantDesc) (-1.0d));
+        boolean boolean85 = serializableLruCache19.containsKey((java.io.Serializable) wildcardClass81);
+        boolean boolean86 = serializableLruCache1.containsKey((java.io.Serializable) wildcardClass81);
+        org.junit.Assert.assertNull(constantDesc3);
+        org.junit.Assert.assertTrue("'" + boolean5 + "' != '" + false + "'", boolean5 == false);
+        org.junit.Assert.assertNull(constantDesc9);
+        org.junit.Assert.assertNull(constantDesc11);
+        org.junit.Assert.assertTrue("'" + int12 + "' != '" + 0 + "'", int12 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass13);
+        org.junit.Assert.assertTrue("'" + boolean17 + "' != '" + false + "'", boolean17 == false);
+        org.junit.Assert.assertNull(constantDesc23);
+        org.junit.Assert.assertNull(constantDesc25);
+        org.junit.Assert.assertTrue("'" + boolean29 + "' != '" + false + "'", boolean29 == false);
+        org.junit.Assert.assertNull(constantDesc33);
+        org.junit.Assert.assertTrue("'" + int34 + "' != '" + 0 + "'", int34 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass38);
+        org.junit.Assert.assertNull(constantDesc39);
+        org.junit.Assert.assertNull(constantDesc40);
+        org.junit.Assert.assertNull(constantDesc41);
+        org.junit.Assert.assertNull(constantDesc50);
+        org.junit.Assert.assertNull(constantDesc55);
+        org.junit.Assert.assertNotNull(wildcardClass58);
+        org.junit.Assert.assertNull(constantDesc59);
+        org.junit.Assert.assertNull(constantDesc60);
+        org.junit.Assert.assertNull(constantDesc61);
+        org.junit.Assert.assertNull(constantDesc65);
+        org.junit.Assert.assertNull(constantDesc67);
+        org.junit.Assert.assertTrue("'" + boolean76 + "' != '" + false + "'", boolean76 == false);
+        org.junit.Assert.assertTrue("'" + boolean78 + "' != '" + false + "'", boolean78 == false);
+        org.junit.Assert.assertTrue("'" + boolean80 + "' != '" + false + "'", boolean80 == false);
+        org.junit.Assert.assertNotNull(wildcardClass81);
+        org.junit.Assert.assertNull(constantDesc82);
+        org.junit.Assert.assertTrue("'" + boolean85 + "' != '" + false + "'", boolean85 == false);
+        org.junit.Assert.assertTrue("'" + boolean86 + "' != '" + true + "'", boolean86 == true);
+    }
+
+    @Test
+    public void test1039() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1039");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        java.lang.Object obj2 = new java.lang.Object();
+        java.lang.Class<?> wildcardClass3 = obj2.getClass();
+        serializableLruCache1.put((java.io.Serializable) wildcardClass3, (java.lang.constant.ConstantDesc) 1.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache7 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        java.lang.Object obj8 = new java.lang.Object();
+        java.lang.Class<?> wildcardClass9 = obj8.getClass();
+        serializableLruCache7.put((java.io.Serializable) wildcardClass9, (java.lang.constant.ConstantDesc) 1.0f);
+        java.lang.constant.ConstantDesc constantDesc12 = serializableLruCache1.get((java.io.Serializable) 1.0f);
+        boolean boolean14 = serializableLruCache1.containsKey((java.io.Serializable) 0.0d);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache16 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc18 = serializableLruCache16.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc20 = serializableLruCache16.get((java.io.Serializable) (short) 100);
+        int int21 = serializableLruCache16.size();
+        java.lang.Object obj22 = new java.lang.Object();
+        java.lang.Class<?> wildcardClass23 = obj22.getClass();
+        java.lang.constant.ConstantDesc constantDesc24 = serializableLruCache16.get((java.io.Serializable) wildcardClass23);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache26 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean28 = serializableLruCache26.containsKey((java.io.Serializable) 10);
+        boolean boolean30 = serializableLruCache26.containsKey((java.io.Serializable) 1.0d);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache32 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean34 = serializableLruCache32.containsKey((java.io.Serializable) 10);
+        boolean boolean36 = serializableLruCache32.containsKey((java.io.Serializable) 1.0d);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache38 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass39 = annotatedElementLruCache38.getClass();
+        java.lang.constant.ConstantDesc constantDesc40 = serializableLruCache32.get((java.io.Serializable) wildcardClass39);
+        java.lang.constant.ConstantDesc constantDesc41 = serializableLruCache26.get((java.io.Serializable) wildcardClass39);
+        serializableLruCache16.put((java.io.Serializable) wildcardClass39, (java.lang.constant.ConstantDesc) 10L);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache45 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc47 = serializableLruCache45.get((java.io.Serializable) (byte) 10);
+        boolean boolean49 = serializableLruCache45.containsKey((java.io.Serializable) (-1));
+        serializableLruCache45.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 1);
+        boolean boolean54 = serializableLruCache45.containsKey((java.io.Serializable) 10.0f);
+        boolean boolean56 = serializableLruCache45.containsKey((java.io.Serializable) 10.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache58 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        java.lang.constant.ConstantDesc constantDesc60 = serializableLruCache58.get((java.io.Serializable) 0);
+        java.lang.constant.ConstantDesc constantDesc62 = serializableLruCache58.get((java.io.Serializable) (byte) 100);
+        java.lang.constant.ConstantDesc constantDesc64 = serializableLruCache58.get((java.io.Serializable) 1.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache66 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean68 = serializableLruCache66.containsKey((java.io.Serializable) 10);
+        boolean boolean70 = serializableLruCache66.containsKey((java.io.Serializable) 1.0d);
+        java.lang.Class<?> wildcardClass71 = serializableLruCache66.getClass();
+        serializableLruCache58.put((java.io.Serializable) wildcardClass71, (java.lang.constant.ConstantDesc) 1L);
+        java.lang.Class<?> wildcardClass74 = serializableLruCache58.getClass();
+        boolean boolean75 = serializableLruCache45.containsKey((java.io.Serializable) wildcardClass74);
+        serializableLruCache16.put((java.io.Serializable) wildcardClass74, (java.lang.constant.ConstantDesc) 100L);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache79 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        java.lang.constant.ConstantDesc constantDesc81 = serializableLruCache79.get((java.io.Serializable) 0);
+        java.lang.constant.ConstantDesc constantDesc83 = serializableLruCache79.get((java.io.Serializable) (byte) 100);
+        java.lang.constant.ConstantDesc constantDesc85 = serializableLruCache79.get((java.io.Serializable) 1.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache87 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean89 = serializableLruCache87.containsKey((java.io.Serializable) 10);
+        boolean boolean91 = serializableLruCache87.containsKey((java.io.Serializable) 1.0d);
+        java.lang.Class<?> wildcardClass92 = serializableLruCache87.getClass();
+        serializableLruCache79.put((java.io.Serializable) wildcardClass92, (java.lang.constant.ConstantDesc) 1L);
+        java.lang.Class<?> wildcardClass95 = serializableLruCache79.getClass();
+        java.lang.constant.ConstantDesc constantDesc96 = serializableLruCache16.get((java.io.Serializable) wildcardClass95);
+        java.lang.Class<?> wildcardClass97 = serializableLruCache16.getClass();
+        java.lang.constant.ConstantDesc constantDesc98 = serializableLruCache1.get((java.io.Serializable) wildcardClass97);
+        org.junit.Assert.assertNotNull(wildcardClass3);
+        org.junit.Assert.assertNotNull(wildcardClass9);
+        org.junit.Assert.assertNull(constantDesc12);
+        org.junit.Assert.assertTrue("'" + boolean14 + "' != '" + false + "'", boolean14 == false);
+        org.junit.Assert.assertNull(constantDesc18);
+        org.junit.Assert.assertNull(constantDesc20);
+        org.junit.Assert.assertTrue("'" + int21 + "' != '" + 0 + "'", int21 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass23);
+        org.junit.Assert.assertNull(constantDesc24);
+        org.junit.Assert.assertTrue("'" + boolean28 + "' != '" + false + "'", boolean28 == false);
+        org.junit.Assert.assertTrue("'" + boolean30 + "' != '" + false + "'", boolean30 == false);
+        org.junit.Assert.assertTrue("'" + boolean34 + "' != '" + false + "'", boolean34 == false);
+        org.junit.Assert.assertTrue("'" + boolean36 + "' != '" + false + "'", boolean36 == false);
+        org.junit.Assert.assertNotNull(wildcardClass39);
+        org.junit.Assert.assertNull(constantDesc40);
+        org.junit.Assert.assertNull(constantDesc41);
+        org.junit.Assert.assertNull(constantDesc47);
+        org.junit.Assert.assertTrue("'" + boolean49 + "' != '" + false + "'", boolean49 == false);
+        org.junit.Assert.assertTrue("'" + boolean54 + "' != '" + false + "'", boolean54 == false);
+        org.junit.Assert.assertTrue("'" + boolean56 + "' != '" + false + "'", boolean56 == false);
+        org.junit.Assert.assertNull(constantDesc60);
+        org.junit.Assert.assertNull(constantDesc62);
+        org.junit.Assert.assertNull(constantDesc64);
+        org.junit.Assert.assertTrue("'" + boolean68 + "' != '" + false + "'", boolean68 == false);
+        org.junit.Assert.assertTrue("'" + boolean70 + "' != '" + false + "'", boolean70 == false);
+        org.junit.Assert.assertNotNull(wildcardClass71);
+        org.junit.Assert.assertNotNull(wildcardClass74);
+        org.junit.Assert.assertTrue("'" + boolean75 + "' != '" + false + "'", boolean75 == false);
+        org.junit.Assert.assertNull(constantDesc81);
+        org.junit.Assert.assertNull(constantDesc83);
+        org.junit.Assert.assertNull(constantDesc85);
+        org.junit.Assert.assertTrue("'" + boolean89 + "' != '" + false + "'", boolean89 == false);
+        org.junit.Assert.assertTrue("'" + boolean91 + "' != '" + false + "'", boolean91 == false);
+        org.junit.Assert.assertNotNull(wildcardClass92);
+        org.junit.Assert.assertNotNull(wildcardClass95);
+        org.junit.Assert.assertEquals("'" + constantDesc96 + "' != '" + 100L + "'", constantDesc96, 100L);
+        org.junit.Assert.assertNotNull(wildcardClass97);
+        org.junit.Assert.assertNull(constantDesc98);
+    }
+
+    @Test
+    public void test1040() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1040");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache1.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc6 = serializableLruCache1.get((java.io.Serializable) ' ');
+        serializableLruCache1.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.constant.ConstantDesc constantDesc11 = serializableLruCache1.get((java.io.Serializable) 1);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache13 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass14 = annotatedElementLruCache13.getClass();
+        java.lang.constant.ConstantDesc constantDesc15 = serializableLruCache1.get((java.io.Serializable) wildcardClass14);
+        serializableLruCache1.put((java.io.Serializable) (-1.0f), (java.lang.constant.ConstantDesc) "");
+        int int19 = serializableLruCache1.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache21 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc23 = serializableLruCache21.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc25 = serializableLruCache21.get((java.io.Serializable) (short) 100);
+        int int26 = serializableLruCache21.size();
+        java.lang.Object obj27 = new java.lang.Object();
+        java.lang.Class<?> wildcardClass28 = obj27.getClass();
+        java.lang.constant.ConstantDesc constantDesc29 = serializableLruCache21.get((java.io.Serializable) wildcardClass28);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache31 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean33 = serializableLruCache31.containsKey((java.io.Serializable) 10);
+        boolean boolean35 = serializableLruCache31.containsKey((java.io.Serializable) 1.0d);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache37 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass38 = annotatedElementLruCache37.getClass();
+        java.lang.constant.ConstantDesc constantDesc39 = serializableLruCache31.get((java.io.Serializable) wildcardClass38);
+        java.lang.Class<?> wildcardClass40 = serializableLruCache31.getClass();
+        serializableLruCache21.put((java.io.Serializable) wildcardClass40, (java.lang.constant.ConstantDesc) 1);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache44 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean46 = serializableLruCache44.containsKey((java.io.Serializable) 1.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache48 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean50 = serializableLruCache48.containsKey((java.io.Serializable) 10);
+        boolean boolean52 = serializableLruCache48.containsKey((java.io.Serializable) 1.0d);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache54 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass55 = annotatedElementLruCache54.getClass();
+        java.lang.constant.ConstantDesc constantDesc56 = serializableLruCache48.get((java.io.Serializable) wildcardClass55);
+        boolean boolean57 = serializableLruCache44.containsKey((java.io.Serializable) wildcardClass55);
+        serializableLruCache21.put((java.io.Serializable) boolean57, (java.lang.constant.ConstantDesc) "");
+        java.lang.Class<?> wildcardClass60 = serializableLruCache21.getClass();
+        java.lang.constant.ConstantDesc constantDesc61 = serializableLruCache1.get((java.io.Serializable) wildcardClass60);
+        org.junit.Assert.assertNull(constantDesc6);
+        org.junit.Assert.assertNull(constantDesc11);
+        org.junit.Assert.assertNotNull(wildcardClass14);
+        org.junit.Assert.assertNull(constantDesc15);
+        org.junit.Assert.assertTrue("'" + int19 + "' != '" + 3 + "'", int19 == 3);
+        org.junit.Assert.assertNull(constantDesc23);
+        org.junit.Assert.assertNull(constantDesc25);
+        org.junit.Assert.assertTrue("'" + int26 + "' != '" + 0 + "'", int26 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass28);
+        org.junit.Assert.assertNull(constantDesc29);
+        org.junit.Assert.assertTrue("'" + boolean33 + "' != '" + false + "'", boolean33 == false);
+        org.junit.Assert.assertTrue("'" + boolean35 + "' != '" + false + "'", boolean35 == false);
+        org.junit.Assert.assertNotNull(wildcardClass38);
+        org.junit.Assert.assertNull(constantDesc39);
+        org.junit.Assert.assertNotNull(wildcardClass40);
+        org.junit.Assert.assertTrue("'" + boolean46 + "' != '" + false + "'", boolean46 == false);
+        org.junit.Assert.assertTrue("'" + boolean50 + "' != '" + false + "'", boolean50 == false);
+        org.junit.Assert.assertTrue("'" + boolean52 + "' != '" + false + "'", boolean52 == false);
+        org.junit.Assert.assertNotNull(wildcardClass55);
+        org.junit.Assert.assertNull(constantDesc56);
+        org.junit.Assert.assertTrue("'" + boolean57 + "' != '" + false + "'", boolean57 == false);
+        org.junit.Assert.assertNotNull(wildcardClass60);
+        org.junit.Assert.assertNull(constantDesc61);
+    }
+
+    @Test
+    public void test1041() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1041");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc3 = serializableLruCache1.get((java.io.Serializable) (byte) 10);
+        boolean boolean5 = serializableLruCache1.containsKey((java.io.Serializable) (-1));
+        serializableLruCache1.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 1);
+        boolean boolean10 = serializableLruCache1.containsKey((java.io.Serializable) 10.0f);
+        boolean boolean12 = serializableLruCache1.containsKey((java.io.Serializable) 10.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache14 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache14.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc19 = serializableLruCache14.get((java.io.Serializable) ' ');
+        int int20 = serializableLruCache14.size();
+        java.lang.constant.ConstantDesc constantDesc22 = serializableLruCache14.get((java.io.Serializable) 100L);
+        java.lang.constant.ConstantDesc constantDesc24 = serializableLruCache14.get((java.io.Serializable) (short) 10);
+        java.lang.Class<?> wildcardClass25 = serializableLruCache14.getClass();
+        serializableLruCache1.put((java.io.Serializable) wildcardClass25, (java.lang.constant.ConstantDesc) (-1));
+        int int28 = serializableLruCache1.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache30 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc32 = serializableLruCache30.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc34 = serializableLruCache30.get((java.io.Serializable) false);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache36 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean38 = serializableLruCache36.containsKey((java.io.Serializable) 1.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache40 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc42 = serializableLruCache40.get((java.io.Serializable) (byte) 10);
+        int int43 = serializableLruCache40.size();
+        serializableLruCache40.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 0L);
+        java.lang.Class<?> wildcardClass47 = serializableLruCache40.getClass();
+        java.lang.constant.ConstantDesc constantDesc48 = serializableLruCache36.get((java.io.Serializable) wildcardClass47);
+        java.lang.constant.ConstantDesc constantDesc49 = serializableLruCache30.get((java.io.Serializable) wildcardClass47);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache51 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass52 = annotatedElementLruCache51.getClass();
+        boolean boolean53 = serializableLruCache30.containsKey((java.io.Serializable) wildcardClass52);
+        serializableLruCache1.put((java.io.Serializable) boolean53, (java.lang.constant.ConstantDesc) 0);
+        org.junit.Assert.assertNull(constantDesc3);
+        org.junit.Assert.assertTrue("'" + boolean5 + "' != '" + false + "'", boolean5 == false);
+        org.junit.Assert.assertTrue("'" + boolean10 + "' != '" + false + "'", boolean10 == false);
+        org.junit.Assert.assertTrue("'" + boolean12 + "' != '" + false + "'", boolean12 == false);
+        org.junit.Assert.assertNull(constantDesc19);
+        org.junit.Assert.assertTrue("'" + int20 + "' != '" + 1 + "'", int20 == 1);
+        org.junit.Assert.assertNull(constantDesc22);
+        org.junit.Assert.assertNull(constantDesc24);
+        org.junit.Assert.assertNotNull(wildcardClass25);
+        org.junit.Assert.assertTrue("'" + int28 + "' != '" + 2 + "'", int28 == 2);
+        org.junit.Assert.assertNull(constantDesc32);
+        org.junit.Assert.assertNull(constantDesc34);
+        org.junit.Assert.assertTrue("'" + boolean38 + "' != '" + false + "'", boolean38 == false);
+        org.junit.Assert.assertNull(constantDesc42);
+        org.junit.Assert.assertTrue("'" + int43 + "' != '" + 0 + "'", int43 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass47);
+        org.junit.Assert.assertNull(constantDesc48);
+        org.junit.Assert.assertNull(constantDesc49);
+        org.junit.Assert.assertNotNull(wildcardClass52);
+        org.junit.Assert.assertTrue("'" + boolean53 + "' != '" + false + "'", boolean53 == false);
+    }
+
+    @Test
+    public void test1042() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1042");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc3 = serializableLruCache1.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc5 = serializableLruCache1.get((java.io.Serializable) (short) 100);
+        serializableLruCache1.put((java.io.Serializable) (byte) -1, (java.lang.constant.ConstantDesc) 10L);
+        int int9 = serializableLruCache1.size();
+        int int10 = serializableLruCache1.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache12 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc14 = serializableLruCache12.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc16 = serializableLruCache12.get((java.io.Serializable) (short) 100);
+        serializableLruCache12.put((java.io.Serializable) 10.0f, (java.lang.constant.ConstantDesc) (-1.0d));
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache21 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache21.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc26 = serializableLruCache21.get((java.io.Serializable) ' ');
+        serializableLruCache21.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.constant.ConstantDesc constantDesc31 = serializableLruCache21.get((java.io.Serializable) 1L);
+        int int32 = serializableLruCache21.size();
+        java.io.Serializable serializable33 = null;
+        boolean boolean34 = serializableLruCache21.containsKey(serializable33);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache36 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache36.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc41 = serializableLruCache36.get((java.io.Serializable) ' ');
+        serializableLruCache36.put((java.io.Serializable) (byte) 0, (java.lang.constant.ConstantDesc) 100.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache46 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc48 = serializableLruCache46.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc50 = serializableLruCache46.get((java.io.Serializable) false);
+        boolean boolean52 = serializableLruCache46.containsKey((java.io.Serializable) 1);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache54 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        boolean boolean56 = serializableLruCache54.containsKey((java.io.Serializable) "");
+        java.lang.constant.ConstantDesc constantDesc58 = serializableLruCache54.get((java.io.Serializable) (-1));
+        serializableLruCache54.put((java.io.Serializable) 10.0f, (java.lang.constant.ConstantDesc) (-1.0f));
+        java.lang.Class<?> wildcardClass62 = serializableLruCache54.getClass();
+        java.lang.constant.ConstantDesc constantDesc63 = serializableLruCache46.get((java.io.Serializable) wildcardClass62);
+        java.lang.constant.ConstantDesc constantDesc64 = serializableLruCache36.get((java.io.Serializable) wildcardClass62);
+        serializableLruCache21.put((java.io.Serializable) wildcardClass62, (java.lang.constant.ConstantDesc) 0.0d);
+        boolean boolean67 = serializableLruCache12.containsKey((java.io.Serializable) wildcardClass62);
+        boolean boolean68 = serializableLruCache1.containsKey((java.io.Serializable) wildcardClass62);
+        org.junit.Assert.assertNull(constantDesc3);
+        org.junit.Assert.assertNull(constantDesc5);
+        org.junit.Assert.assertTrue("'" + int9 + "' != '" + 1 + "'", int9 == 1);
+        org.junit.Assert.assertTrue("'" + int10 + "' != '" + 1 + "'", int10 == 1);
+        org.junit.Assert.assertNull(constantDesc14);
+        org.junit.Assert.assertNull(constantDesc16);
+        org.junit.Assert.assertNull(constantDesc26);
+        org.junit.Assert.assertNull(constantDesc31);
+        org.junit.Assert.assertTrue("'" + int32 + "' != '" + 2 + "'", int32 == 2);
+        org.junit.Assert.assertTrue("'" + boolean34 + "' != '" + false + "'", boolean34 == false);
+        org.junit.Assert.assertNull(constantDesc41);
+        org.junit.Assert.assertNull(constantDesc48);
+        org.junit.Assert.assertNull(constantDesc50);
+        org.junit.Assert.assertTrue("'" + boolean52 + "' != '" + false + "'", boolean52 == false);
+        org.junit.Assert.assertTrue("'" + boolean56 + "' != '" + false + "'", boolean56 == false);
+        org.junit.Assert.assertNull(constantDesc58);
+        org.junit.Assert.assertNotNull(wildcardClass62);
+        org.junit.Assert.assertNull(constantDesc63);
+        org.junit.Assert.assertNull(constantDesc64);
+        org.junit.Assert.assertTrue("'" + boolean67 + "' != '" + false + "'", boolean67 == false);
+        org.junit.Assert.assertTrue("'" + boolean68 + "' != '" + false + "'", boolean68 == false);
+    }
+
+    @Test
+    public void test1043() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1043");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache1.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc6 = serializableLruCache1.get((java.io.Serializable) ' ');
+        serializableLruCache1.put((java.io.Serializable) (-1.0f), (java.lang.constant.ConstantDesc) 10L);
+        int int10 = serializableLruCache1.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache12 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc14 = serializableLruCache12.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc16 = serializableLruCache12.get((java.io.Serializable) (short) 100);
+        serializableLruCache12.put((java.io.Serializable) 10.0f, (java.lang.constant.ConstantDesc) (-1.0d));
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache21 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache23 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc25 = serializableLruCache23.get((java.io.Serializable) (byte) 10);
+        int int26 = serializableLruCache23.size();
+        serializableLruCache23.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 0L);
+        java.lang.Class<?> wildcardClass30 = serializableLruCache23.getClass();
+        serializableLruCache21.put((java.io.Serializable) wildcardClass30, (java.lang.constant.ConstantDesc) 1.0d);
+        boolean boolean33 = serializableLruCache12.containsKey((java.io.Serializable) wildcardClass30);
+        int int34 = serializableLruCache12.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache36 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (byte) 100);
+        com.viktor.lab4.LruCache<com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>, java.lang.Comparable<java.lang.String>> serializableLruCacheLruCache38 = new com.viktor.lab4.LruCache<com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>, java.lang.Comparable<java.lang.String>>((int) ' ');
+        java.lang.Class<?> wildcardClass39 = serializableLruCacheLruCache38.getClass();
+        boolean boolean40 = serializableLruCache36.containsKey((java.io.Serializable) wildcardClass39);
+        boolean boolean41 = serializableLruCache12.containsKey((java.io.Serializable) wildcardClass39);
+        serializableLruCache12.put((java.io.Serializable) (-1.0d), (java.lang.constant.ConstantDesc) 0);
+        int int45 = serializableLruCache12.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache47 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc49 = serializableLruCache47.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc51 = serializableLruCache47.get((java.io.Serializable) (short) 100);
+        serializableLruCache47.put((java.io.Serializable) 10.0f, (java.lang.constant.ConstantDesc) (-1.0d));
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache56 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache58 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc60 = serializableLruCache58.get((java.io.Serializable) (byte) 10);
+        int int61 = serializableLruCache58.size();
+        serializableLruCache58.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 0L);
+        java.lang.Class<?> wildcardClass65 = serializableLruCache58.getClass();
+        serializableLruCache56.put((java.io.Serializable) wildcardClass65, (java.lang.constant.ConstantDesc) 1.0d);
+        boolean boolean68 = serializableLruCache47.containsKey((java.io.Serializable) wildcardClass65);
+        int int69 = serializableLruCache47.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache71 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache71.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc76 = serializableLruCache71.get((java.io.Serializable) ' ');
+        serializableLruCache71.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.Class<?> wildcardClass80 = serializableLruCache71.getClass();
+        serializableLruCache47.put((java.io.Serializable) wildcardClass80, (java.lang.constant.ConstantDesc) 0);
+        boolean boolean83 = serializableLruCache12.containsKey((java.io.Serializable) wildcardClass80);
+        serializableLruCache1.put((java.io.Serializable) wildcardClass80, (java.lang.constant.ConstantDesc) "hi!");
+        org.junit.Assert.assertNull(constantDesc6);
+        org.junit.Assert.assertTrue("'" + int10 + "' != '" + 2 + "'", int10 == 2);
+        org.junit.Assert.assertNull(constantDesc14);
+        org.junit.Assert.assertNull(constantDesc16);
+        org.junit.Assert.assertNull(constantDesc25);
+        org.junit.Assert.assertTrue("'" + int26 + "' != '" + 0 + "'", int26 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass30);
+        org.junit.Assert.assertTrue("'" + boolean33 + "' != '" + false + "'", boolean33 == false);
+        org.junit.Assert.assertTrue("'" + int34 + "' != '" + 1 + "'", int34 == 1);
+        org.junit.Assert.assertNotNull(wildcardClass39);
+        org.junit.Assert.assertTrue("'" + boolean40 + "' != '" + false + "'", boolean40 == false);
+        org.junit.Assert.assertTrue("'" + boolean41 + "' != '" + false + "'", boolean41 == false);
+        org.junit.Assert.assertTrue("'" + int45 + "' != '" + 2 + "'", int45 == 2);
+        org.junit.Assert.assertNull(constantDesc49);
+        org.junit.Assert.assertNull(constantDesc51);
+        org.junit.Assert.assertNull(constantDesc60);
+        org.junit.Assert.assertTrue("'" + int61 + "' != '" + 0 + "'", int61 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass65);
+        org.junit.Assert.assertTrue("'" + boolean68 + "' != '" + false + "'", boolean68 == false);
+        org.junit.Assert.assertTrue("'" + int69 + "' != '" + 1 + "'", int69 == 1);
+        org.junit.Assert.assertNull(constantDesc76);
+        org.junit.Assert.assertNotNull(wildcardClass80);
+        org.junit.Assert.assertTrue("'" + boolean83 + "' != '" + false + "'", boolean83 == false);
+    }
+
+    @Test
+    public void test1044() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1044");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc3 = serializableLruCache1.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc5 = serializableLruCache1.get((java.io.Serializable) (short) 100);
+        serializableLruCache1.put((java.io.Serializable) 10.0f, (java.lang.constant.ConstantDesc) (-1.0d));
+        int int9 = serializableLruCache1.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache11 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache11.put((java.io.Serializable) 1.0d, (java.lang.constant.ConstantDesc) "");
+        serializableLruCache11.put((java.io.Serializable) 0, (java.lang.constant.ConstantDesc) 1L);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache19 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc21 = serializableLruCache19.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc23 = serializableLruCache19.get((java.io.Serializable) (short) 100);
+        int int24 = serializableLruCache19.size();
+        java.lang.Object obj25 = new java.lang.Object();
+        java.lang.Class<?> wildcardClass26 = obj25.getClass();
+        java.lang.constant.ConstantDesc constantDesc27 = serializableLruCache19.get((java.io.Serializable) wildcardClass26);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache29 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean31 = serializableLruCache29.containsKey((java.io.Serializable) 10);
+        boolean boolean33 = serializableLruCache29.containsKey((java.io.Serializable) 1.0d);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache35 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass36 = annotatedElementLruCache35.getClass();
+        java.lang.constant.ConstantDesc constantDesc37 = serializableLruCache29.get((java.io.Serializable) wildcardClass36);
+        java.lang.Class<?> wildcardClass38 = serializableLruCache29.getClass();
+        serializableLruCache19.put((java.io.Serializable) wildcardClass38, (java.lang.constant.ConstantDesc) 1);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache42 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean44 = serializableLruCache42.containsKey((java.io.Serializable) 1.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache46 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean48 = serializableLruCache46.containsKey((java.io.Serializable) 10);
+        boolean boolean50 = serializableLruCache46.containsKey((java.io.Serializable) 1.0d);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache52 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass53 = annotatedElementLruCache52.getClass();
+        java.lang.constant.ConstantDesc constantDesc54 = serializableLruCache46.get((java.io.Serializable) wildcardClass53);
+        boolean boolean55 = serializableLruCache42.containsKey((java.io.Serializable) wildcardClass53);
+        serializableLruCache19.put((java.io.Serializable) boolean55, (java.lang.constant.ConstantDesc) "");
+        java.lang.Class<?> wildcardClass58 = serializableLruCache19.getClass();
+        boolean boolean59 = serializableLruCache11.containsKey((java.io.Serializable) wildcardClass58);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache61 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc63 = serializableLruCache61.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc65 = serializableLruCache61.get((java.io.Serializable) (short) 100);
+        serializableLruCache61.put((java.io.Serializable) 10.0f, (java.lang.constant.ConstantDesc) (-1.0d));
+        int int69 = serializableLruCache61.size();
+        com.viktor.lab4.LruCache<com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>, java.lang.Comparable<java.lang.String>> serializableLruCacheLruCache71 = new com.viktor.lab4.LruCache<com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>, java.lang.Comparable<java.lang.String>>((int) ' ');
+        java.lang.Class<?> wildcardClass72 = serializableLruCacheLruCache71.getClass();
+        serializableLruCache61.put((java.io.Serializable) wildcardClass72, (java.lang.constant.ConstantDesc) 100L);
+        boolean boolean75 = serializableLruCache11.containsKey((java.io.Serializable) wildcardClass72);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache77 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(1);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache79 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache79.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc84 = serializableLruCache79.get((java.io.Serializable) ' ');
+        serializableLruCache79.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.constant.ConstantDesc constantDesc89 = serializableLruCache79.get((java.io.Serializable) 1);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache91 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass92 = annotatedElementLruCache91.getClass();
+        java.lang.constant.ConstantDesc constantDesc93 = serializableLruCache79.get((java.io.Serializable) wildcardClass92);
+        java.lang.constant.ConstantDesc constantDesc94 = serializableLruCache77.get((java.io.Serializable) wildcardClass92);
+        boolean boolean95 = serializableLruCache11.containsKey((java.io.Serializable) wildcardClass92);
+        java.lang.Class<?> wildcardClass96 = serializableLruCache11.getClass();
+        boolean boolean97 = serializableLruCache1.containsKey((java.io.Serializable) wildcardClass96);
+        int int98 = serializableLruCache1.size();
+        int int99 = serializableLruCache1.size();
+        org.junit.Assert.assertNull(constantDesc3);
+        org.junit.Assert.assertNull(constantDesc5);
+        org.junit.Assert.assertTrue("'" + int9 + "' != '" + 1 + "'", int9 == 1);
+        org.junit.Assert.assertNull(constantDesc21);
+        org.junit.Assert.assertNull(constantDesc23);
+        org.junit.Assert.assertTrue("'" + int24 + "' != '" + 0 + "'", int24 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass26);
+        org.junit.Assert.assertNull(constantDesc27);
+        org.junit.Assert.assertTrue("'" + boolean31 + "' != '" + false + "'", boolean31 == false);
+        org.junit.Assert.assertTrue("'" + boolean33 + "' != '" + false + "'", boolean33 == false);
+        org.junit.Assert.assertNotNull(wildcardClass36);
+        org.junit.Assert.assertNull(constantDesc37);
+        org.junit.Assert.assertNotNull(wildcardClass38);
+        org.junit.Assert.assertTrue("'" + boolean44 + "' != '" + false + "'", boolean44 == false);
+        org.junit.Assert.assertTrue("'" + boolean48 + "' != '" + false + "'", boolean48 == false);
+        org.junit.Assert.assertTrue("'" + boolean50 + "' != '" + false + "'", boolean50 == false);
+        org.junit.Assert.assertNotNull(wildcardClass53);
+        org.junit.Assert.assertNull(constantDesc54);
+        org.junit.Assert.assertTrue("'" + boolean55 + "' != '" + false + "'", boolean55 == false);
+        org.junit.Assert.assertNotNull(wildcardClass58);
+        org.junit.Assert.assertTrue("'" + boolean59 + "' != '" + false + "'", boolean59 == false);
+        org.junit.Assert.assertNull(constantDesc63);
+        org.junit.Assert.assertNull(constantDesc65);
+        org.junit.Assert.assertTrue("'" + int69 + "' != '" + 1 + "'", int69 == 1);
+        org.junit.Assert.assertNotNull(wildcardClass72);
+        org.junit.Assert.assertTrue("'" + boolean75 + "' != '" + false + "'", boolean75 == false);
+        org.junit.Assert.assertNull(constantDesc84);
+        org.junit.Assert.assertNull(constantDesc89);
+        org.junit.Assert.assertNotNull(wildcardClass92);
+        org.junit.Assert.assertNull(constantDesc93);
+        org.junit.Assert.assertNull(constantDesc94);
+        org.junit.Assert.assertTrue("'" + boolean95 + "' != '" + false + "'", boolean95 == false);
+        org.junit.Assert.assertNotNull(wildcardClass96);
+        org.junit.Assert.assertTrue("'" + boolean97 + "' != '" + false + "'", boolean97 == false);
+        org.junit.Assert.assertTrue("'" + int98 + "' != '" + 1 + "'", int98 == 1);
+        org.junit.Assert.assertTrue("'" + int99 + "' != '" + 1 + "'", int99 == 1);
+    }
+
+    @Test
+    public void test1045() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1045");
+        com.viktor.lab4.LruCache<java.lang.invoke.TypeDescriptor.OfField<java.lang.Class<?>>, com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>> wildcardClassOfFieldLruCache1 = new com.viktor.lab4.LruCache<java.lang.invoke.TypeDescriptor.OfField<java.lang.Class<?>>, com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>>((int) 'a');
+    }
+
+    @Test
+    public void test1046() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1046");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache1.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc6 = serializableLruCache1.get((java.io.Serializable) ' ');
+        int int7 = serializableLruCache1.size();
+        serializableLruCache1.put((java.io.Serializable) (short) 1, (java.lang.constant.ConstantDesc) (-1.0d));
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache12 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc14 = serializableLruCache12.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc16 = serializableLruCache12.get((java.io.Serializable) (short) 100);
+        serializableLruCache12.put((java.io.Serializable) 10.0f, (java.lang.constant.ConstantDesc) (-1.0d));
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache21 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache23 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc25 = serializableLruCache23.get((java.io.Serializable) (byte) 10);
+        int int26 = serializableLruCache23.size();
+        serializableLruCache23.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 0L);
+        java.lang.Class<?> wildcardClass30 = serializableLruCache23.getClass();
+        serializableLruCache21.put((java.io.Serializable) wildcardClass30, (java.lang.constant.ConstantDesc) 1.0d);
+        boolean boolean33 = serializableLruCache12.containsKey((java.io.Serializable) wildcardClass30);
+        java.lang.constant.ConstantDesc constantDesc34 = serializableLruCache1.get((java.io.Serializable) boolean33);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache36 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc38 = serializableLruCache36.get((java.io.Serializable) (byte) 10);
+        int int39 = serializableLruCache36.size();
+        java.io.Serializable serializable40 = null;
+        java.lang.constant.ConstantDesc constantDesc41 = serializableLruCache36.get(serializable40);
+        boolean boolean43 = serializableLruCache36.containsKey((java.io.Serializable) 0);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache45 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache47 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc49 = serializableLruCache47.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc51 = serializableLruCache47.get((java.io.Serializable) false);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache53 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean55 = serializableLruCache53.containsKey((java.io.Serializable) 1.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache57 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc59 = serializableLruCache57.get((java.io.Serializable) (byte) 10);
+        int int60 = serializableLruCache57.size();
+        serializableLruCache57.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 0L);
+        java.lang.Class<?> wildcardClass64 = serializableLruCache57.getClass();
+        java.lang.constant.ConstantDesc constantDesc65 = serializableLruCache53.get((java.io.Serializable) wildcardClass64);
+        java.lang.constant.ConstantDesc constantDesc66 = serializableLruCache47.get((java.io.Serializable) wildcardClass64);
+        java.lang.constant.ConstantDesc constantDesc67 = serializableLruCache45.get((java.io.Serializable) wildcardClass64);
+        java.lang.Class<?> wildcardClass68 = serializableLruCache45.getClass();
+        boolean boolean69 = serializableLruCache36.containsKey((java.io.Serializable) wildcardClass68);
+        java.lang.constant.ConstantDesc constantDesc70 = serializableLruCache1.get((java.io.Serializable) boolean69);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache72 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (byte) 1);
+        int int73 = serializableLruCache72.size();
+        java.lang.Class<?> wildcardClass74 = serializableLruCache72.getClass();
+        java.lang.constant.ConstantDesc constantDesc75 = serializableLruCache1.get((java.io.Serializable) wildcardClass74);
+        org.junit.Assert.assertNull(constantDesc6);
+        org.junit.Assert.assertTrue("'" + int7 + "' != '" + 1 + "'", int7 == 1);
+        org.junit.Assert.assertNull(constantDesc14);
+        org.junit.Assert.assertNull(constantDesc16);
+        org.junit.Assert.assertNull(constantDesc25);
+        org.junit.Assert.assertTrue("'" + int26 + "' != '" + 0 + "'", int26 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass30);
+        org.junit.Assert.assertTrue("'" + boolean33 + "' != '" + false + "'", boolean33 == false);
+        org.junit.Assert.assertNull(constantDesc34);
+        org.junit.Assert.assertNull(constantDesc38);
+        org.junit.Assert.assertTrue("'" + int39 + "' != '" + 0 + "'", int39 == 0);
+        org.junit.Assert.assertNull(constantDesc41);
+        org.junit.Assert.assertTrue("'" + boolean43 + "' != '" + false + "'", boolean43 == false);
+        org.junit.Assert.assertNull(constantDesc49);
+        org.junit.Assert.assertNull(constantDesc51);
+        org.junit.Assert.assertTrue("'" + boolean55 + "' != '" + false + "'", boolean55 == false);
+        org.junit.Assert.assertNull(constantDesc59);
+        org.junit.Assert.assertTrue("'" + int60 + "' != '" + 0 + "'", int60 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass64);
+        org.junit.Assert.assertNull(constantDesc65);
+        org.junit.Assert.assertNull(constantDesc66);
+        org.junit.Assert.assertNull(constantDesc67);
+        org.junit.Assert.assertNotNull(wildcardClass68);
+        org.junit.Assert.assertTrue("'" + boolean69 + "' != '" + false + "'", boolean69 == false);
+        org.junit.Assert.assertNull(constantDesc70);
+        org.junit.Assert.assertTrue("'" + int73 + "' != '" + 0 + "'", int73 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass74);
+        org.junit.Assert.assertNull(constantDesc75);
+    }
+
+    @Test
+    public void test1047() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1047");
+        com.viktor.lab4.LruCache<java.lang.constant.ConstantDesc, java.lang.invoke.TypeDescriptor> constantDescLruCache1 = new com.viktor.lab4.LruCache<java.lang.constant.ConstantDesc, java.lang.invoke.TypeDescriptor>((int) (byte) 100);
+        java.lang.Class<?> wildcardClass2 = constantDescLruCache1.getClass();
+        org.junit.Assert.assertNotNull(wildcardClass2);
+    }
+
+    @Test
+    public void test1048() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1048");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc3 = serializableLruCache1.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc5 = serializableLruCache1.get((java.io.Serializable) (short) 100);
+        int int6 = serializableLruCache1.size();
+        java.lang.Object obj7 = new java.lang.Object();
+        java.lang.Class<?> wildcardClass8 = obj7.getClass();
+        java.lang.constant.ConstantDesc constantDesc9 = serializableLruCache1.get((java.io.Serializable) wildcardClass8);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache11 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache11.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc16 = serializableLruCache11.get((java.io.Serializable) ' ');
+        serializableLruCache11.put((java.io.Serializable) (byte) 0, (java.lang.constant.ConstantDesc) 100.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache21 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc23 = serializableLruCache21.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc25 = serializableLruCache21.get((java.io.Serializable) false);
+        boolean boolean27 = serializableLruCache21.containsKey((java.io.Serializable) 1);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache29 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        boolean boolean31 = serializableLruCache29.containsKey((java.io.Serializable) "");
+        java.lang.constant.ConstantDesc constantDesc33 = serializableLruCache29.get((java.io.Serializable) (-1));
+        serializableLruCache29.put((java.io.Serializable) 10.0f, (java.lang.constant.ConstantDesc) (-1.0f));
+        java.lang.Class<?> wildcardClass37 = serializableLruCache29.getClass();
+        java.lang.constant.ConstantDesc constantDesc38 = serializableLruCache21.get((java.io.Serializable) wildcardClass37);
+        java.lang.constant.ConstantDesc constantDesc39 = serializableLruCache11.get((java.io.Serializable) wildcardClass37);
+        java.lang.constant.ConstantDesc constantDesc40 = serializableLruCache1.get((java.io.Serializable) wildcardClass37);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache42 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache42.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc47 = serializableLruCache42.get((java.io.Serializable) ' ');
+        serializableLruCache42.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.constant.ConstantDesc constantDesc52 = serializableLruCache42.get((java.io.Serializable) 1L);
+        int int53 = serializableLruCache42.size();
+        int int54 = serializableLruCache42.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache56 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache56.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc61 = serializableLruCache56.get((java.io.Serializable) ' ');
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache63 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean65 = serializableLruCache63.containsKey((java.io.Serializable) 1.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache67 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc69 = serializableLruCache67.get((java.io.Serializable) (byte) 10);
+        int int70 = serializableLruCache67.size();
+        serializableLruCache67.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 0L);
+        java.lang.Class<?> wildcardClass74 = serializableLruCache67.getClass();
+        java.lang.constant.ConstantDesc constantDesc75 = serializableLruCache63.get((java.io.Serializable) wildcardClass74);
+        boolean boolean76 = serializableLruCache56.containsKey((java.io.Serializable) wildcardClass74);
+        java.lang.constant.ConstantDesc constantDesc77 = serializableLruCache42.get((java.io.Serializable) boolean76);
+        java.lang.constant.ConstantDesc constantDesc79 = serializableLruCache42.get((java.io.Serializable) "hi!");
+        java.lang.Class<?> wildcardClass80 = serializableLruCache42.getClass();
+        serializableLruCache1.put((java.io.Serializable) wildcardClass80, (java.lang.constant.ConstantDesc) 0);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache84 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc86 = serializableLruCache84.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc88 = serializableLruCache84.get((java.io.Serializable) (short) 100);
+        int int89 = serializableLruCache84.size();
+        java.lang.Object obj90 = new java.lang.Object();
+        java.lang.Class<?> wildcardClass91 = obj90.getClass();
+        java.lang.constant.ConstantDesc constantDesc92 = serializableLruCache84.get((java.io.Serializable) wildcardClass91);
+        int int93 = serializableLruCache84.size();
+        int int94 = serializableLruCache84.size();
+        java.lang.Class<?> wildcardClass95 = serializableLruCache84.getClass();
+        boolean boolean96 = serializableLruCache1.containsKey((java.io.Serializable) wildcardClass95);
+        org.junit.Assert.assertNull(constantDesc3);
+        org.junit.Assert.assertNull(constantDesc5);
+        org.junit.Assert.assertTrue("'" + int6 + "' != '" + 0 + "'", int6 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass8);
+        org.junit.Assert.assertNull(constantDesc9);
+        org.junit.Assert.assertNull(constantDesc16);
+        org.junit.Assert.assertNull(constantDesc23);
+        org.junit.Assert.assertNull(constantDesc25);
+        org.junit.Assert.assertTrue("'" + boolean27 + "' != '" + false + "'", boolean27 == false);
+        org.junit.Assert.assertTrue("'" + boolean31 + "' != '" + false + "'", boolean31 == false);
+        org.junit.Assert.assertNull(constantDesc33);
+        org.junit.Assert.assertNotNull(wildcardClass37);
+        org.junit.Assert.assertNull(constantDesc38);
+        org.junit.Assert.assertNull(constantDesc39);
+        org.junit.Assert.assertNull(constantDesc40);
+        org.junit.Assert.assertNull(constantDesc47);
+        org.junit.Assert.assertNull(constantDesc52);
+        org.junit.Assert.assertTrue("'" + int53 + "' != '" + 2 + "'", int53 == 2);
+        org.junit.Assert.assertTrue("'" + int54 + "' != '" + 2 + "'", int54 == 2);
+        org.junit.Assert.assertNull(constantDesc61);
+        org.junit.Assert.assertTrue("'" + boolean65 + "' != '" + false + "'", boolean65 == false);
+        org.junit.Assert.assertNull(constantDesc69);
+        org.junit.Assert.assertTrue("'" + int70 + "' != '" + 0 + "'", int70 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass74);
+        org.junit.Assert.assertNull(constantDesc75);
+        org.junit.Assert.assertTrue("'" + boolean76 + "' != '" + false + "'", boolean76 == false);
+        org.junit.Assert.assertNull(constantDesc77);
+        org.junit.Assert.assertNull(constantDesc79);
+        org.junit.Assert.assertNotNull(wildcardClass80);
+        org.junit.Assert.assertNull(constantDesc86);
+        org.junit.Assert.assertNull(constantDesc88);
+        org.junit.Assert.assertTrue("'" + int89 + "' != '" + 0 + "'", int89 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass91);
+        org.junit.Assert.assertNull(constantDesc92);
+        org.junit.Assert.assertTrue("'" + int93 + "' != '" + 0 + "'", int93 == 0);
+        org.junit.Assert.assertTrue("'" + int94 + "' != '" + 0 + "'", int94 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass95);
+        org.junit.Assert.assertTrue("'" + boolean96 + "' != '" + true + "'", boolean96 == true);
+    }
+
+    @Test
+    public void test1049() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1049");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache1.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc6 = serializableLruCache1.get((java.io.Serializable) ' ');
+        serializableLruCache1.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.constant.ConstantDesc constantDesc11 = serializableLruCache1.get((java.io.Serializable) 1);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache13 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        java.lang.Object obj14 = new java.lang.Object();
+        java.lang.Class<?> wildcardClass15 = obj14.getClass();
+        serializableLruCache13.put((java.io.Serializable) wildcardClass15, (java.lang.constant.ConstantDesc) 1.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache19 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc21 = serializableLruCache19.get((java.io.Serializable) (byte) 10);
+        boolean boolean23 = serializableLruCache19.containsKey((java.io.Serializable) (-1));
+        serializableLruCache19.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 1);
+        boolean boolean28 = serializableLruCache19.containsKey((java.io.Serializable) 10.0f);
+        boolean boolean30 = serializableLruCache19.containsKey((java.io.Serializable) 10.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache32 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache32.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc37 = serializableLruCache32.get((java.io.Serializable) ' ');
+        int int38 = serializableLruCache32.size();
+        java.lang.constant.ConstantDesc constantDesc40 = serializableLruCache32.get((java.io.Serializable) 100L);
+        java.lang.constant.ConstantDesc constantDesc42 = serializableLruCache32.get((java.io.Serializable) (short) 10);
+        java.lang.Class<?> wildcardClass43 = serializableLruCache32.getClass();
+        serializableLruCache19.put((java.io.Serializable) wildcardClass43, (java.lang.constant.ConstantDesc) (-1));
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache47 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc49 = serializableLruCache47.get((java.io.Serializable) (byte) 10);
+        boolean boolean51 = serializableLruCache47.containsKey((java.io.Serializable) (-1));
+        serializableLruCache47.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 1);
+        java.lang.constant.ConstantDesc constantDesc56 = serializableLruCache47.get((java.io.Serializable) (byte) -1);
+        java.lang.Class<?> wildcardClass57 = serializableLruCache47.getClass();
+        java.lang.constant.ConstantDesc constantDesc58 = serializableLruCache19.get((java.io.Serializable) wildcardClass57);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache60 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache60.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc65 = serializableLruCache60.get((java.io.Serializable) ' ');
+        serializableLruCache60.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.constant.ConstantDesc constantDesc70 = serializableLruCache60.get((java.io.Serializable) 1);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache72 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache72.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        boolean boolean77 = serializableLruCache72.containsKey((java.io.Serializable) (-1.0f));
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache79 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        java.lang.Class<?> wildcardClass80 = serializableLruCache79.getClass();
+        boolean boolean81 = serializableLruCache72.containsKey((java.io.Serializable) wildcardClass80);
+        serializableLruCache60.put((java.io.Serializable) wildcardClass80, (java.lang.constant.ConstantDesc) 10L);
+        serializableLruCache19.put((java.io.Serializable) wildcardClass80, (java.lang.constant.ConstantDesc) (-1.0d));
+        serializableLruCache13.put((java.io.Serializable) (-1.0d), (java.lang.constant.ConstantDesc) (-1.0d));
+        java.lang.Class<?> wildcardClass88 = serializableLruCache13.getClass();
+        java.lang.constant.ConstantDesc constantDesc89 = serializableLruCache1.get((java.io.Serializable) wildcardClass88);
+        org.junit.Assert.assertNull(constantDesc6);
+        org.junit.Assert.assertNull(constantDesc11);
+        org.junit.Assert.assertNotNull(wildcardClass15);
+        org.junit.Assert.assertNull(constantDesc21);
+        org.junit.Assert.assertTrue("'" + boolean23 + "' != '" + false + "'", boolean23 == false);
+        org.junit.Assert.assertTrue("'" + boolean28 + "' != '" + false + "'", boolean28 == false);
+        org.junit.Assert.assertTrue("'" + boolean30 + "' != '" + false + "'", boolean30 == false);
+        org.junit.Assert.assertNull(constantDesc37);
+        org.junit.Assert.assertTrue("'" + int38 + "' != '" + 1 + "'", int38 == 1);
+        org.junit.Assert.assertNull(constantDesc40);
+        org.junit.Assert.assertNull(constantDesc42);
+        org.junit.Assert.assertNotNull(wildcardClass43);
+        org.junit.Assert.assertNull(constantDesc49);
+        org.junit.Assert.assertTrue("'" + boolean51 + "' != '" + false + "'", boolean51 == false);
+        org.junit.Assert.assertNull(constantDesc56);
+        org.junit.Assert.assertNotNull(wildcardClass57);
+        org.junit.Assert.assertEquals("'" + constantDesc58 + "' != '" + (-1) + "'", constantDesc58, (-1));
+        org.junit.Assert.assertNull(constantDesc65);
+        org.junit.Assert.assertNull(constantDesc70);
+        org.junit.Assert.assertTrue("'" + boolean77 + "' != '" + false + "'", boolean77 == false);
+        org.junit.Assert.assertNotNull(wildcardClass80);
+        org.junit.Assert.assertTrue("'" + boolean81 + "' != '" + false + "'", boolean81 == false);
+        org.junit.Assert.assertNotNull(wildcardClass88);
+        org.junit.Assert.assertNull(constantDesc89);
+    }
+
+    @Test
+    public void test1050() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1050");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc3 = serializableLruCache1.get((java.io.Serializable) (byte) 10);
+        boolean boolean5 = serializableLruCache1.containsKey((java.io.Serializable) (-1));
+        serializableLruCache1.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 1);
+        boolean boolean10 = serializableLruCache1.containsKey((java.io.Serializable) 10.0f);
+        serializableLruCache1.put((java.io.Serializable) (-1L), (java.lang.constant.ConstantDesc) 0L);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache15 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (byte) 1);
+        int int16 = serializableLruCache15.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache18 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache18.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc23 = serializableLruCache18.get((java.io.Serializable) ' ');
+        serializableLruCache18.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.constant.ConstantDesc constantDesc28 = serializableLruCache18.get((java.io.Serializable) 1);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache30 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass31 = annotatedElementLruCache30.getClass();
+        java.lang.constant.ConstantDesc constantDesc32 = serializableLruCache18.get((java.io.Serializable) wildcardClass31);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache34 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc36 = serializableLruCache34.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc38 = serializableLruCache34.get((java.io.Serializable) (short) 100);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache40 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache40.put((java.io.Serializable) 1.0d, (java.lang.constant.ConstantDesc) "");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache45 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean47 = serializableLruCache45.containsKey((java.io.Serializable) 10);
+        boolean boolean49 = serializableLruCache45.containsKey((java.io.Serializable) 1.0d);
+        java.io.Serializable serializable50 = null;
+        boolean boolean51 = serializableLruCache45.containsKey(serializable50);
+        java.lang.Class<?> wildcardClass52 = serializableLruCache45.getClass();
+        java.lang.constant.ConstantDesc constantDesc53 = serializableLruCache40.get((java.io.Serializable) wildcardClass52);
+        serializableLruCache34.put((java.io.Serializable) wildcardClass52, (java.lang.constant.ConstantDesc) (-1.0d));
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache57 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc59 = serializableLruCache57.get((java.io.Serializable) (byte) 10);
+        boolean boolean61 = serializableLruCache57.containsKey((java.io.Serializable) (-1));
+        serializableLruCache57.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 1);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache66 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache68 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc70 = serializableLruCache68.get((java.io.Serializable) (byte) 10);
+        int int71 = serializableLruCache68.size();
+        serializableLruCache68.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 0L);
+        java.lang.Class<?> wildcardClass75 = serializableLruCache68.getClass();
+        serializableLruCache66.put((java.io.Serializable) wildcardClass75, (java.lang.constant.ConstantDesc) 1.0d);
+        java.lang.constant.ConstantDesc constantDesc78 = serializableLruCache57.get((java.io.Serializable) wildcardClass75);
+        serializableLruCache34.put((java.io.Serializable) wildcardClass75, (java.lang.constant.ConstantDesc) (-1));
+        boolean boolean81 = serializableLruCache18.containsKey((java.io.Serializable) wildcardClass75);
+        java.lang.constant.ConstantDesc constantDesc83 = null;
+        serializableLruCache18.put((java.io.Serializable) (short) 0, constantDesc83);
+        int int85 = serializableLruCache18.size();
+        java.lang.Class<?> wildcardClass86 = serializableLruCache18.getClass();
+        serializableLruCache15.put((java.io.Serializable) wildcardClass86, (java.lang.constant.ConstantDesc) 0.0f);
+        boolean boolean89 = serializableLruCache1.containsKey((java.io.Serializable) 0.0f);
+        int int90 = serializableLruCache1.size();
+        int int91 = serializableLruCache1.size();
+        org.junit.Assert.assertNull(constantDesc3);
+        org.junit.Assert.assertTrue("'" + boolean5 + "' != '" + false + "'", boolean5 == false);
+        org.junit.Assert.assertTrue("'" + boolean10 + "' != '" + false + "'", boolean10 == false);
+        org.junit.Assert.assertTrue("'" + int16 + "' != '" + 0 + "'", int16 == 0);
+        org.junit.Assert.assertNull(constantDesc23);
+        org.junit.Assert.assertNull(constantDesc28);
+        org.junit.Assert.assertNotNull(wildcardClass31);
+        org.junit.Assert.assertNull(constantDesc32);
+        org.junit.Assert.assertNull(constantDesc36);
+        org.junit.Assert.assertNull(constantDesc38);
+        org.junit.Assert.assertTrue("'" + boolean47 + "' != '" + false + "'", boolean47 == false);
+        org.junit.Assert.assertTrue("'" + boolean49 + "' != '" + false + "'", boolean49 == false);
+        org.junit.Assert.assertTrue("'" + boolean51 + "' != '" + false + "'", boolean51 == false);
+        org.junit.Assert.assertNotNull(wildcardClass52);
+        org.junit.Assert.assertNull(constantDesc53);
+        org.junit.Assert.assertNull(constantDesc59);
+        org.junit.Assert.assertTrue("'" + boolean61 + "' != '" + false + "'", boolean61 == false);
+        org.junit.Assert.assertNull(constantDesc70);
+        org.junit.Assert.assertTrue("'" + int71 + "' != '" + 0 + "'", int71 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass75);
+        org.junit.Assert.assertNull(constantDesc78);
+        org.junit.Assert.assertTrue("'" + boolean81 + "' != '" + false + "'", boolean81 == false);
+        org.junit.Assert.assertTrue("'" + int85 + "' != '" + 3 + "'", int85 == 3);
+        org.junit.Assert.assertNotNull(wildcardClass86);
+        org.junit.Assert.assertTrue("'" + boolean89 + "' != '" + false + "'", boolean89 == false);
+        org.junit.Assert.assertTrue("'" + int90 + "' != '" + 2 + "'", int90 == 2);
+        org.junit.Assert.assertTrue("'" + int91 + "' != '" + 2 + "'", int91 == 2);
+    }
+
+    @Test
+    public void test1051() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1051");
+        // The following exception was thrown during execution in test generation
+        try {
+            com.viktor.lab4.LruCache<java.lang.reflect.GenericDeclaration, com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>> genericDeclarationLruCache1 = new com.viktor.lab4.LruCache<java.lang.reflect.GenericDeclaration, com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>>(0);
+            org.junit.Assert.fail("Expected exception of type java.lang.IllegalArgumentException; message: capacity must be > 0");
+        } catch (java.lang.IllegalArgumentException e) {
+            // Expected exception.
+        }
+    }
+
+    @Test
+    public void test1052() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1052");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache1.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc6 = serializableLruCache1.get((java.io.Serializable) ' ');
+        serializableLruCache1.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.constant.ConstantDesc constantDesc11 = serializableLruCache1.get((java.io.Serializable) 1);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache13 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass14 = annotatedElementLruCache13.getClass();
+        java.lang.constant.ConstantDesc constantDesc15 = serializableLruCache1.get((java.io.Serializable) wildcardClass14);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache17 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache17.put((java.io.Serializable) 1.0d, (java.lang.constant.ConstantDesc) "");
+        int int21 = serializableLruCache17.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache23 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        java.lang.Class<?> wildcardClass24 = serializableLruCache23.getClass();
+        java.lang.constant.ConstantDesc constantDesc25 = serializableLruCache17.get((java.io.Serializable) wildcardClass24);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache27 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc29 = serializableLruCache27.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc31 = serializableLruCache27.get((java.io.Serializable) false);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache33 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean35 = serializableLruCache33.containsKey((java.io.Serializable) 1.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache37 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc39 = serializableLruCache37.get((java.io.Serializable) (byte) 10);
+        int int40 = serializableLruCache37.size();
+        serializableLruCache37.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 0L);
+        java.lang.Class<?> wildcardClass44 = serializableLruCache37.getClass();
+        java.lang.constant.ConstantDesc constantDesc45 = serializableLruCache33.get((java.io.Serializable) wildcardClass44);
+        java.lang.constant.ConstantDesc constantDesc46 = serializableLruCache27.get((java.io.Serializable) wildcardClass44);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache48 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass49 = annotatedElementLruCache48.getClass();
+        boolean boolean50 = serializableLruCache27.containsKey((java.io.Serializable) wildcardClass49);
+        boolean boolean51 = serializableLruCache17.containsKey((java.io.Serializable) wildcardClass49);
+        com.viktor.lab4.LruCache<java.lang.Object, java.io.Serializable> objLruCache53 = new com.viktor.lab4.LruCache<java.lang.Object, java.io.Serializable>(10);
+        java.lang.Class<?> wildcardClass54 = objLruCache53.getClass();
+        serializableLruCache17.put((java.io.Serializable) wildcardClass54, (java.lang.constant.ConstantDesc) 100L);
+        boolean boolean57 = serializableLruCache1.containsKey((java.io.Serializable) wildcardClass54);
+        int int58 = serializableLruCache1.size();
+        int int59 = serializableLruCache1.size();
+        org.junit.Assert.assertNull(constantDesc6);
+        org.junit.Assert.assertNull(constantDesc11);
+        org.junit.Assert.assertNotNull(wildcardClass14);
+        org.junit.Assert.assertNull(constantDesc15);
+        org.junit.Assert.assertTrue("'" + int21 + "' != '" + 1 + "'", int21 == 1);
+        org.junit.Assert.assertNotNull(wildcardClass24);
+        org.junit.Assert.assertNull(constantDesc25);
+        org.junit.Assert.assertNull(constantDesc29);
+        org.junit.Assert.assertNull(constantDesc31);
+        org.junit.Assert.assertTrue("'" + boolean35 + "' != '" + false + "'", boolean35 == false);
+        org.junit.Assert.assertNull(constantDesc39);
+        org.junit.Assert.assertTrue("'" + int40 + "' != '" + 0 + "'", int40 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass44);
+        org.junit.Assert.assertNull(constantDesc45);
+        org.junit.Assert.assertNull(constantDesc46);
+        org.junit.Assert.assertNotNull(wildcardClass49);
+        org.junit.Assert.assertTrue("'" + boolean50 + "' != '" + false + "'", boolean50 == false);
+        org.junit.Assert.assertTrue("'" + boolean51 + "' != '" + false + "'", boolean51 == false);
+        org.junit.Assert.assertNotNull(wildcardClass54);
+        org.junit.Assert.assertTrue("'" + boolean57 + "' != '" + false + "'", boolean57 == false);
+        org.junit.Assert.assertTrue("'" + int58 + "' != '" + 2 + "'", int58 == 2);
+        org.junit.Assert.assertTrue("'" + int59 + "' != '" + 2 + "'", int59 == 2);
+    }
+
+    @Test
+    public void test1053() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1053");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache1.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc6 = serializableLruCache1.get((java.io.Serializable) ' ');
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache8 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache8.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc13 = serializableLruCache8.get((java.io.Serializable) ' ');
+        serializableLruCache8.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.Class<?> wildcardClass17 = serializableLruCache8.getClass();
+        boolean boolean18 = serializableLruCache1.containsKey((java.io.Serializable) wildcardClass17);
+        int int19 = serializableLruCache1.size();
+        java.io.Serializable serializable20 = null;
+        serializableLruCache1.put(serializable20, (java.lang.constant.ConstantDesc) 10);
+        org.junit.Assert.assertNull(constantDesc6);
+        org.junit.Assert.assertNull(constantDesc13);
+        org.junit.Assert.assertNotNull(wildcardClass17);
+        org.junit.Assert.assertTrue("'" + boolean18 + "' != '" + false + "'", boolean18 == false);
+        org.junit.Assert.assertTrue("'" + int19 + "' != '" + 1 + "'", int19 == 1);
+    }
+
+    @Test
+    public void test1054() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1054");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 100);
+        int int2 = serializableLruCache1.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache4 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc6 = serializableLruCache4.get((java.io.Serializable) (byte) 10);
+        int int7 = serializableLruCache4.size();
+        serializableLruCache4.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 0L);
+        int int11 = serializableLruCache4.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache13 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (byte) 10);
+        int int14 = serializableLruCache13.size();
+        java.lang.Class<?> wildcardClass15 = serializableLruCache13.getClass();
+        serializableLruCache4.put((java.io.Serializable) wildcardClass15, (java.lang.constant.ConstantDesc) 1.0f);
+        boolean boolean18 = serializableLruCache1.containsKey((java.io.Serializable) 1.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache20 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache22 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.Class<?> wildcardClass23 = serializableLruCache22.getClass();
+        java.lang.constant.ConstantDesc constantDesc24 = serializableLruCache20.get((java.io.Serializable) wildcardClass23);
+        serializableLruCache1.put((java.io.Serializable) wildcardClass23, (java.lang.constant.ConstantDesc) 10.0d);
+        java.lang.Class<?> wildcardClass27 = serializableLruCache1.getClass();
+        org.junit.Assert.assertTrue("'" + int2 + "' != '" + 0 + "'", int2 == 0);
+        org.junit.Assert.assertNull(constantDesc6);
+        org.junit.Assert.assertTrue("'" + int7 + "' != '" + 0 + "'", int7 == 0);
+        org.junit.Assert.assertTrue("'" + int11 + "' != '" + 1 + "'", int11 == 1);
+        org.junit.Assert.assertTrue("'" + int14 + "' != '" + 0 + "'", int14 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass15);
+        org.junit.Assert.assertTrue("'" + boolean18 + "' != '" + false + "'", boolean18 == false);
+        org.junit.Assert.assertNotNull(wildcardClass23);
+        org.junit.Assert.assertNull(constantDesc24);
+        org.junit.Assert.assertNotNull(wildcardClass27);
+    }
+
+    @Test
+    public void test1055() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1055");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        boolean boolean3 = serializableLruCache1.containsKey((java.io.Serializable) "");
+        java.io.Serializable serializable4 = null;
+        java.lang.constant.ConstantDesc constantDesc5 = serializableLruCache1.get(serializable4);
+        serializableLruCache1.put((java.io.Serializable) 100, (java.lang.constant.ConstantDesc) 0.0d);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache10 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean12 = serializableLruCache10.containsKey((java.io.Serializable) 10);
+        boolean boolean14 = serializableLruCache10.containsKey((java.io.Serializable) 1.0d);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache16 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean18 = serializableLruCache16.containsKey((java.io.Serializable) 10);
+        boolean boolean20 = serializableLruCache16.containsKey((java.io.Serializable) 1.0d);
+        com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence> annotatedElementLruCache22 = new com.viktor.lab4.LruCache<java.lang.reflect.AnnotatedElement, java.lang.CharSequence>((int) (byte) 10);
+        java.lang.Class<?> wildcardClass23 = annotatedElementLruCache22.getClass();
+        java.lang.constant.ConstantDesc constantDesc24 = serializableLruCache16.get((java.io.Serializable) wildcardClass23);
+        java.lang.constant.ConstantDesc constantDesc25 = serializableLruCache10.get((java.io.Serializable) wildcardClass23);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache27 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        java.lang.constant.ConstantDesc constantDesc29 = serializableLruCache27.get((java.io.Serializable) 0);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache31 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        java.lang.Object obj32 = new java.lang.Object();
+        java.lang.Class<?> wildcardClass33 = obj32.getClass();
+        serializableLruCache31.put((java.io.Serializable) wildcardClass33, (java.lang.constant.ConstantDesc) 1.0f);
+        boolean boolean36 = serializableLruCache27.containsKey((java.io.Serializable) 1.0f);
+        serializableLruCache27.put((java.io.Serializable) 1.0d, (java.lang.constant.ConstantDesc) 10);
+        java.lang.Class<?> wildcardClass40 = serializableLruCache27.getClass();
+        boolean boolean41 = serializableLruCache10.containsKey((java.io.Serializable) wildcardClass40);
+        boolean boolean42 = serializableLruCache1.containsKey((java.io.Serializable) wildcardClass40);
+        int int43 = serializableLruCache1.size();
+        org.junit.Assert.assertTrue("'" + boolean3 + "' != '" + false + "'", boolean3 == false);
+        org.junit.Assert.assertNull(constantDesc5);
+        org.junit.Assert.assertTrue("'" + boolean12 + "' != '" + false + "'", boolean12 == false);
+        org.junit.Assert.assertTrue("'" + boolean14 + "' != '" + false + "'", boolean14 == false);
+        org.junit.Assert.assertTrue("'" + boolean18 + "' != '" + false + "'", boolean18 == false);
+        org.junit.Assert.assertTrue("'" + boolean20 + "' != '" + false + "'", boolean20 == false);
+        org.junit.Assert.assertNotNull(wildcardClass23);
+        org.junit.Assert.assertNull(constantDesc24);
+        org.junit.Assert.assertNull(constantDesc25);
+        org.junit.Assert.assertNull(constantDesc29);
+        org.junit.Assert.assertNotNull(wildcardClass33);
+        org.junit.Assert.assertTrue("'" + boolean36 + "' != '" + false + "'", boolean36 == false);
+        org.junit.Assert.assertNotNull(wildcardClass40);
+        org.junit.Assert.assertTrue("'" + boolean41 + "' != '" + false + "'", boolean41 == false);
+        org.junit.Assert.assertTrue("'" + boolean42 + "' != '" + false + "'", boolean42 == false);
+        org.junit.Assert.assertTrue("'" + int43 + "' != '" + 1 + "'", int43 == 1);
+    }
+
+    @Test
+    public void test1056() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1056");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc3 = serializableLruCache1.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc5 = serializableLruCache1.get((java.io.Serializable) (short) 100);
+        serializableLruCache1.put((java.io.Serializable) 10.0f, (java.lang.constant.ConstantDesc) (-1.0d));
+        int int9 = serializableLruCache1.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache11 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        boolean boolean13 = serializableLruCache11.containsKey((java.io.Serializable) "");
+        java.lang.constant.ConstantDesc constantDesc15 = serializableLruCache11.get((java.io.Serializable) (-1));
+        serializableLruCache11.put((java.io.Serializable) 10.0f, (java.lang.constant.ConstantDesc) (-1.0f));
+        java.lang.Class<?> wildcardClass19 = serializableLruCache11.getClass();
+        boolean boolean20 = serializableLruCache1.containsKey((java.io.Serializable) wildcardClass19);
+        int int21 = serializableLruCache1.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache23 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc25 = serializableLruCache23.get((java.io.Serializable) (byte) 10);
+        boolean boolean27 = serializableLruCache23.containsKey((java.io.Serializable) (-1));
+        serializableLruCache23.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 1);
+        boolean boolean32 = serializableLruCache23.containsKey((java.io.Serializable) 10.0f);
+        boolean boolean34 = serializableLruCache23.containsKey((java.io.Serializable) 10.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache36 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache36.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc41 = serializableLruCache36.get((java.io.Serializable) ' ');
+        int int42 = serializableLruCache36.size();
+        java.lang.constant.ConstantDesc constantDesc44 = serializableLruCache36.get((java.io.Serializable) 100L);
+        java.lang.constant.ConstantDesc constantDesc46 = serializableLruCache36.get((java.io.Serializable) (short) 10);
+        java.lang.Class<?> wildcardClass47 = serializableLruCache36.getClass();
+        serializableLruCache23.put((java.io.Serializable) wildcardClass47, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.constant.ConstantDesc constantDesc50 = serializableLruCache1.get((java.io.Serializable) (-1));
+        int int51 = serializableLruCache1.size();
+        java.lang.Class<?> wildcardClass52 = serializableLruCache1.getClass();
+        org.junit.Assert.assertNull(constantDesc3);
+        org.junit.Assert.assertNull(constantDesc5);
+        org.junit.Assert.assertTrue("'" + int9 + "' != '" + 1 + "'", int9 == 1);
+        org.junit.Assert.assertTrue("'" + boolean13 + "' != '" + false + "'", boolean13 == false);
+        org.junit.Assert.assertNull(constantDesc15);
+        org.junit.Assert.assertNotNull(wildcardClass19);
+        org.junit.Assert.assertTrue("'" + boolean20 + "' != '" + false + "'", boolean20 == false);
+        org.junit.Assert.assertTrue("'" + int21 + "' != '" + 1 + "'", int21 == 1);
+        org.junit.Assert.assertNull(constantDesc25);
+        org.junit.Assert.assertTrue("'" + boolean27 + "' != '" + false + "'", boolean27 == false);
+        org.junit.Assert.assertTrue("'" + boolean32 + "' != '" + false + "'", boolean32 == false);
+        org.junit.Assert.assertTrue("'" + boolean34 + "' != '" + false + "'", boolean34 == false);
+        org.junit.Assert.assertNull(constantDesc41);
+        org.junit.Assert.assertTrue("'" + int42 + "' != '" + 1 + "'", int42 == 1);
+        org.junit.Assert.assertNull(constantDesc44);
+        org.junit.Assert.assertNull(constantDesc46);
+        org.junit.Assert.assertNotNull(wildcardClass47);
+        org.junit.Assert.assertNull(constantDesc50);
+        org.junit.Assert.assertTrue("'" + int51 + "' != '" + 1 + "'", int51 == 1);
+        org.junit.Assert.assertNotNull(wildcardClass52);
+    }
+
+    @Test
+    public void test1057() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1057");
+        // The following exception was thrown during execution in test generation
+        try {
+            com.viktor.lab4.LruCache<com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>, java.lang.reflect.Type> serializableLruCacheLruCache1 = new com.viktor.lab4.LruCache<com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>, java.lang.reflect.Type>((int) (byte) -1);
+            org.junit.Assert.fail("Expected exception of type java.lang.IllegalArgumentException; message: capacity must be > 0");
+        } catch (java.lang.IllegalArgumentException e) {
+            // Expected exception.
+        }
+    }
+
+    @Test
+    public void test1058() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1058");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        boolean boolean3 = serializableLruCache1.containsKey((java.io.Serializable) "");
+        java.lang.constant.ConstantDesc constantDesc5 = serializableLruCache1.get((java.io.Serializable) (-1));
+        serializableLruCache1.put((java.io.Serializable) 10.0f, (java.lang.constant.ConstantDesc) (-1.0f));
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache10 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        int int11 = serializableLruCache10.size();
+        java.lang.Class<?> wildcardClass12 = serializableLruCache10.getClass();
+        serializableLruCache1.put((java.io.Serializable) wildcardClass12, (java.lang.constant.ConstantDesc) 0.0d);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache16 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc18 = serializableLruCache16.get((java.io.Serializable) (byte) 10);
+        boolean boolean20 = serializableLruCache16.containsKey((java.io.Serializable) (-1));
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache22 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc24 = serializableLruCache22.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc26 = serializableLruCache22.get((java.io.Serializable) (short) 100);
+        int int27 = serializableLruCache22.size();
+        java.lang.Class<?> wildcardClass28 = serializableLruCache22.getClass();
+        serializableLruCache16.put((java.io.Serializable) wildcardClass28, (java.lang.constant.ConstantDesc) (-1));
+        boolean boolean31 = serializableLruCache1.containsKey((java.io.Serializable) wildcardClass28);
+        int int32 = serializableLruCache1.size();
+        java.lang.Class<?> wildcardClass33 = serializableLruCache1.getClass();
+        org.junit.Assert.assertTrue("'" + boolean3 + "' != '" + false + "'", boolean3 == false);
+        org.junit.Assert.assertNull(constantDesc5);
+        org.junit.Assert.assertTrue("'" + int11 + "' != '" + 0 + "'", int11 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass12);
+        org.junit.Assert.assertNull(constantDesc18);
+        org.junit.Assert.assertTrue("'" + boolean20 + "' != '" + false + "'", boolean20 == false);
+        org.junit.Assert.assertNull(constantDesc24);
+        org.junit.Assert.assertNull(constantDesc26);
+        org.junit.Assert.assertTrue("'" + int27 + "' != '" + 0 + "'", int27 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass28);
+        org.junit.Assert.assertTrue("'" + boolean31 + "' != '" + true + "'", boolean31 == true);
+        org.junit.Assert.assertTrue("'" + int32 + "' != '" + 2 + "'", int32 == 2);
+        org.junit.Assert.assertNotNull(wildcardClass33);
+    }
+
+    @Test
+    public void test1059() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1059");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean3 = serializableLruCache1.containsKey((java.io.Serializable) 10);
+        int int4 = serializableLruCache1.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache6 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc8 = serializableLruCache6.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc10 = serializableLruCache6.get((java.io.Serializable) false);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache12 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.Class<?> wildcardClass13 = serializableLruCache12.getClass();
+        boolean boolean14 = serializableLruCache6.containsKey((java.io.Serializable) wildcardClass13);
+        java.lang.constant.ConstantDesc constantDesc15 = serializableLruCache1.get((java.io.Serializable) boolean14);
+        int int16 = serializableLruCache1.size();
+        serializableLruCache1.put((java.io.Serializable) (byte) -1, (java.lang.constant.ConstantDesc) "hi!");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache21 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc23 = serializableLruCache21.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc25 = serializableLruCache21.get((java.io.Serializable) (short) 100);
+        serializableLruCache21.put((java.io.Serializable) (byte) -1, (java.lang.constant.ConstantDesc) 10L);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache30 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc32 = serializableLruCache30.get((java.io.Serializable) (byte) 10);
+        boolean boolean34 = serializableLruCache30.containsKey((java.io.Serializable) (-1));
+        serializableLruCache30.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 1);
+        boolean boolean39 = serializableLruCache30.containsKey((java.io.Serializable) 10.0f);
+        boolean boolean41 = serializableLruCache30.containsKey((java.io.Serializable) 10.0f);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache43 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc45 = serializableLruCache43.get((java.io.Serializable) (byte) 10);
+        java.lang.constant.ConstantDesc constantDesc47 = serializableLruCache43.get((java.io.Serializable) false);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache49 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc51 = serializableLruCache49.get((java.io.Serializable) (byte) 10);
+        boolean boolean53 = serializableLruCache49.containsKey((java.io.Serializable) (-1));
+        serializableLruCache49.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 1);
+        boolean boolean58 = serializableLruCache49.containsKey((java.io.Serializable) 10.0f);
+        java.lang.Class<?> wildcardClass59 = serializableLruCache49.getClass();
+        java.lang.constant.ConstantDesc constantDesc60 = serializableLruCache43.get((java.io.Serializable) wildcardClass59);
+        serializableLruCache30.put((java.io.Serializable) wildcardClass59, (java.lang.constant.ConstantDesc) 1);
+        boolean boolean63 = serializableLruCache21.containsKey((java.io.Serializable) wildcardClass59);
+        boolean boolean64 = serializableLruCache1.containsKey((java.io.Serializable) boolean63);
+        int int65 = serializableLruCache1.size();
+        java.lang.Class<?> wildcardClass66 = serializableLruCache1.getClass();
+        org.junit.Assert.assertTrue("'" + boolean3 + "' != '" + false + "'", boolean3 == false);
+        org.junit.Assert.assertTrue("'" + int4 + "' != '" + 0 + "'", int4 == 0);
+        org.junit.Assert.assertNull(constantDesc8);
+        org.junit.Assert.assertNull(constantDesc10);
+        org.junit.Assert.assertNotNull(wildcardClass13);
+        org.junit.Assert.assertTrue("'" + boolean14 + "' != '" + false + "'", boolean14 == false);
+        org.junit.Assert.assertNull(constantDesc15);
+        org.junit.Assert.assertTrue("'" + int16 + "' != '" + 0 + "'", int16 == 0);
+        org.junit.Assert.assertNull(constantDesc23);
+        org.junit.Assert.assertNull(constantDesc25);
+        org.junit.Assert.assertNull(constantDesc32);
+        org.junit.Assert.assertTrue("'" + boolean34 + "' != '" + false + "'", boolean34 == false);
+        org.junit.Assert.assertTrue("'" + boolean39 + "' != '" + false + "'", boolean39 == false);
+        org.junit.Assert.assertTrue("'" + boolean41 + "' != '" + false + "'", boolean41 == false);
+        org.junit.Assert.assertNull(constantDesc45);
+        org.junit.Assert.assertNull(constantDesc47);
+        org.junit.Assert.assertNull(constantDesc51);
+        org.junit.Assert.assertTrue("'" + boolean53 + "' != '" + false + "'", boolean53 == false);
+        org.junit.Assert.assertTrue("'" + boolean58 + "' != '" + false + "'", boolean58 == false);
+        org.junit.Assert.assertNotNull(wildcardClass59);
+        org.junit.Assert.assertNull(constantDesc60);
+        org.junit.Assert.assertTrue("'" + boolean63 + "' != '" + false + "'", boolean63 == false);
+        org.junit.Assert.assertTrue("'" + boolean64 + "' != '" + false + "'", boolean64 == false);
+        org.junit.Assert.assertTrue("'" + int65 + "' != '" + 1 + "'", int65 == 1);
+        org.junit.Assert.assertNotNull(wildcardClass66);
+    }
+
+    @Test
+    public void test1060() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest2.test1060");
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache1 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        serializableLruCache1.put((java.io.Serializable) '#', (java.lang.constant.ConstantDesc) 1L);
+        java.lang.constant.ConstantDesc constantDesc6 = serializableLruCache1.get((java.io.Serializable) ' ');
+        serializableLruCache1.put((java.io.Serializable) 1.0f, (java.lang.constant.ConstantDesc) (-1));
+        java.lang.constant.ConstantDesc constantDesc11 = serializableLruCache1.get((java.io.Serializable) 1);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache13 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache15 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc17 = serializableLruCache15.get((java.io.Serializable) (byte) 10);
+        int int18 = serializableLruCache15.size();
+        serializableLruCache15.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 0L);
+        java.lang.Class<?> wildcardClass22 = serializableLruCache15.getClass();
+        serializableLruCache13.put((java.io.Serializable) wildcardClass22, (java.lang.constant.ConstantDesc) 1.0d);
+        java.lang.Class<?> wildcardClass25 = serializableLruCache13.getClass();
+        java.lang.constant.ConstantDesc constantDesc26 = serializableLruCache1.get((java.io.Serializable) wildcardClass25);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache28 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.Class<?> wildcardClass29 = serializableLruCache28.getClass();
+        boolean boolean30 = serializableLruCache1.containsKey((java.io.Serializable) wildcardClass29);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache32 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc34 = serializableLruCache32.get((java.io.Serializable) (byte) 10);
+        int int35 = serializableLruCache32.size();
+        serializableLruCache32.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 0L);
+        int int39 = serializableLruCache32.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache41 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (byte) 10);
+        int int42 = serializableLruCache41.size();
+        java.lang.Class<?> wildcardClass43 = serializableLruCache41.getClass();
+        serializableLruCache32.put((java.io.Serializable) wildcardClass43, (java.lang.constant.ConstantDesc) 1.0f);
+        int int46 = serializableLruCache32.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache48 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) (short) 10);
+        boolean boolean50 = serializableLruCache48.containsKey((java.io.Serializable) 10);
+        java.lang.constant.ConstantDesc constantDesc52 = serializableLruCache48.get((java.io.Serializable) '#');
+        serializableLruCache48.put((java.io.Serializable) (-1.0f), (java.lang.constant.ConstantDesc) "");
+        int int56 = serializableLruCache48.size();
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache58 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc60 = serializableLruCache58.get((java.io.Serializable) (byte) 10);
+        boolean boolean62 = serializableLruCache58.containsKey((java.io.Serializable) (-1));
+        serializableLruCache58.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 1);
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache67 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>((int) '#');
+        com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc> serializableLruCache69 = new com.viktor.lab4.LruCache<java.io.Serializable, java.lang.constant.ConstantDesc>(100);
+        java.lang.constant.ConstantDesc constantDesc71 = serializableLruCache69.get((java.io.Serializable) (byte) 10);
+        int int72 = serializableLruCache69.size();
+        serializableLruCache69.put((java.io.Serializable) (short) 100, (java.lang.constant.ConstantDesc) 0L);
+        java.lang.Class<?> wildcardClass76 = serializableLruCache69.getClass();
+        serializableLruCache67.put((java.io.Serializable) wildcardClass76, (java.lang.constant.ConstantDesc) 1.0d);
+        java.lang.constant.ConstantDesc constantDesc79 = serializableLruCache58.get((java.io.Serializable) wildcardClass76);
+        serializableLruCache48.put((java.io.Serializable) wildcardClass76, (java.lang.constant.ConstantDesc) (-1.0d));
+        boolean boolean82 = serializableLruCache32.containsKey((java.io.Serializable) wildcardClass76);
+        serializableLruCache1.put((java.io.Serializable) wildcardClass76, (java.lang.constant.ConstantDesc) 1L);
+        org.junit.Assert.assertNull(constantDesc6);
+        org.junit.Assert.assertNull(constantDesc11);
+        org.junit.Assert.assertNull(constantDesc17);
+        org.junit.Assert.assertTrue("'" + int18 + "' != '" + 0 + "'", int18 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass22);
+        org.junit.Assert.assertNotNull(wildcardClass25);
+        org.junit.Assert.assertNull(constantDesc26);
+        org.junit.Assert.assertNotNull(wildcardClass29);
+        org.junit.Assert.assertTrue("'" + boolean30 + "' != '" + false + "'", boolean30 == false);
+        org.junit.Assert.assertNull(constantDesc34);
+        org.junit.Assert.assertTrue("'" + int35 + "' != '" + 0 + "'", int35 == 0);
+        org.junit.Assert.assertTrue("'" + int39 + "' != '" + 1 + "'", int39 == 1);
+        org.junit.Assert.assertTrue("'" + int42 + "' != '" + 0 + "'", int42 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass43);
+        org.junit.Assert.assertTrue("'" + int46 + "' != '" + 2 + "'", int46 == 2);
+        org.junit.Assert.assertTrue("'" + boolean50 + "' != '" + false + "'", boolean50 == false);
+        org.junit.Assert.assertNull(constantDesc52);
+        org.junit.Assert.assertTrue("'" + int56 + "' != '" + 1 + "'", int56 == 1);
+        org.junit.Assert.assertNull(constantDesc60);
+        org.junit.Assert.assertTrue("'" + boolean62 + "' != '" + false + "'", boolean62 == false);
+        org.junit.Assert.assertNull(constantDesc71);
+        org.junit.Assert.assertTrue("'" + int72 + "' != '" + 0 + "'", int72 == 0);
+        org.junit.Assert.assertNotNull(wildcardClass76);
+        org.junit.Assert.assertNull(constantDesc79);
+        org.junit.Assert.assertTrue("'" + boolean82 + "' != '" + true + "'", boolean82 == true);
+    }
+}
+
