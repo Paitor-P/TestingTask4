@@ -16,14 +16,18 @@ repositories {
     mavenCentral()
 }
 
+configurations.register("jacocoRuntime")
+
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation("junit:junit:4.13.2")
     testImplementation(files("tools/evosuite-1.2.0.jar"))
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    implementation("junit:junit:4.13.2")
     implementation("org.jacoco:org.jacoco.core:0.8.12")
-    implementation("org.jacoco:org.jacoco.agent:0.8.12")
+    implementation("org.jacoco:org.jacoco.agent:0.8.12:runtime")
+    add("jacocoRuntime", "org.jacoco:org.jacoco.agent:0.8.12:runtime")
 }
 
 val generatedTestsDir = providers.gradleProperty("generatedTestsDir")
@@ -43,6 +47,7 @@ configurations.named("generatedTestImplementation") {
 configurations.named("generatedTestRuntimeOnly") {
     extendsFrom(configurations["testRuntimeOnly"])
 }
+
 
 tasks.withType<JavaCompile>().configureEach {
     options.release.set(17)
@@ -96,7 +101,7 @@ tasks.register<JacocoReport>("jacocoGeneratedTestReport") {
 
 tasks.register("printJacocoAgentPath") {
     doLast {
-        println(configurations["jacocoAgent"].singleFile.absolutePath)
+        println(configurations["jacocoRuntime"].singleFile.absolutePath)
     }
 }
 

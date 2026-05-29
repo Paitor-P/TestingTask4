@@ -77,29 +77,20 @@ Results:
 - JaCoCo HTML: `build\reports\jacoco\generated\html\index.html`
 - PIT HTML: `build\reports\pitest\generated\index.html`
 
-## Collect Spectral Traces (JaCoCo per-test)
+## Collect + Compare Spectral Traces (Python)
 
-Script: `scripts\collect-spectra.ps1`
-
-```powershell
-# PowerShell
-Set-Location C:\Users\user\Documents\Polytech\Testing\Lab4up
-.\scripts\collect-spectra.ps1 -Tools EvoSuite,Randoop -BudgetsSec 30,60,120 -Runs 1,2,3
-```
-
-Results:
-- Traces: `reports\traces\evosuite_all_traces.csv`, `reports\traces\randoop_all_traces.csv`
-- CSV columns: `program_class`, `generation_time_sec`, `seed`, `test_name`, `coverage_vector`
-
-## Compare Spectral Traces (Python)
-
-Script: `py\compare_traces.py`
+Script: `py\trace_similarity.py`
 
 ```powershell
 # PowerShell
 Set-Location C:\Users\user\Documents\Polytech\Testing\Lab4up
-python .\py\compare_traces.py --evosuite .\reports\traces\evosuite_all_traces.csv --randoop .\reports\traces\randoop_all_traces.csv --out .\reports\trace_similarity.csv
+python .\py\trace_similarity.py --classes LongestIncreasingSubsequence,LruCache --times 30,60 --tools EvoSuite,Randoop
 ```
 
 Results:
 - Similarity table: `reports\trace_similarity.csv`
+- Traces cache: `reports\traces\evosuite_all_traces.csv`, `reports\traces\randoop_all_traces.csv`
+
+## Trace Comparison Notes
+
+Comparison is done per pair of `program_class` + `generation_time_sec` only. Seeds are объединены: все тесты каждого инструмента в группе сравниваются между собой. For each EvoSuite test we take the max Jaccard vs Randoop tests, then average these maxima for the group.

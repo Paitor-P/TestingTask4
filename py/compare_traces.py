@@ -27,7 +27,7 @@ class GroupResult:
 def parse_vectors(series: pd.Series) -> list[np.ndarray]:
     vectors: list[np.ndarray] = []
     for value in series.fillna(""):
-        raw = str(value).strip()
+        raw = str(value).strip().strip('"')
         if not raw:
             vectors.append(np.array([], dtype=np.int8))
             continue
@@ -132,4 +132,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
