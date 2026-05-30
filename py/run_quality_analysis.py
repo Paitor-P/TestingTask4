@@ -46,6 +46,10 @@ def _format_filter(label: str, values: list | None) -> str:
     return f"{label}-{joined}"
 
 
+def _build_analysis_dir(repo: str, tool: str, case: str, budget: int, run: int, seed: int) -> str:
+    return os.path.join(repo, "build", "analysis-out", tool, case, str(budget), f"run{run}-seed{seed}")
+
+
 def parse_generation_summary(summary_path: str) -> Dict[str, Optional[float]]:
     """Parse generation summary CSV and extract elapsed times."""
     gen_map = {}
@@ -238,6 +242,7 @@ def execute_gradle_analysis(params: Dict) -> Dict:
     repo = params['repo']
     gradle_cmd = params['gradle_cmd']
     work_dir = params['work_dir']
+    build_dir = params['build_dir']
     target_class = params['target_class']
     pit_tests_pattern = params['pit_tests_pattern']
 
@@ -249,7 +254,8 @@ def execute_gradle_analysis(params: Dict) -> Dict:
         "pitest",
         f"-PgeneratedTestsDir={work_dir}",
         f"-PpitTargetClass={target_class}",
-        f"-PpitTargetTests={pit_tests_pattern}"
+        f"-PpitTargetTests={pit_tests_pattern}",
+        f"-PbuildDir={build_dir}",
     ]
 
     status = "OK"
@@ -277,9 +283,9 @@ def execute_gradle_analysis(params: Dict) -> Dict:
     elapsed_analysis = round((datetime.now() - started).total_seconds(), 3)
 
     # Collect metrics after gradle execution
-    jacoco_xml = os.path.join(repo, "build/reports/jacoco/generated/jacocoGeneratedTestReport.xml")
-    pit_xml = os.path.join(repo, "build/reports/pitest/generated/mutations.xml")
-    test_results_dir = os.path.join(repo, "build/test-results/generatedTest")
+    jacoco_xml = os.path.join(build_dir, "reports/jacoco/generated/jacocoGeneratedTestReport.xml")
+    pit_xml = os.path.join(build_dir, "reports/pitest/generated/mutations.xml")
+    test_results_dir = os.path.join(build_dir, "test-results/generatedTest")
 
     coverage = get_jacoco_metrics(jacoco_xml, target_class)
     pit = get_pit_metrics(pit_xml)
@@ -516,6 +522,7 @@ def main():
                         repo,
                         f"build/analysis-work/{tool}/{class_simple}/{budget}/run{run}-seed{seed}"
                     )
+                    build_dir = _build_analysis_dir(repo, tool, class_simple, budget, run, seed)
 
                     # Prepare working directory before parallel execution
                     prepare_working_test_dir(tool, str(run_dir), work_dir)
@@ -527,6 +534,7 @@ def main():
                             'repo': repo,
                             'gradle_cmd': args.gradle_cmd,
                             'work_dir': work_dir,
+                            'build_dir': build_dir,
                             'target_class': target_class,
                             'pit_tests_pattern': pit_tests_pattern
                         }
@@ -540,16 +548,17 @@ def main():
                             'seed': seed,
                             'java_files': java_files,
                             'run_dir': run_dir,
-                            'work_dir': work_dir
+                            'work_dir': work_dir,
+                            'build_dir': build_dir
                         }
                     else:
                         # If skipping execution, add record immediately
                         gen_key = f"{tool}|{class_simple}|{budget}|{run}"
                         gen_elapsed = generation_map.get(gen_key)
 
-                        jacoco_xml = os.path.join(repo, "build/reports/jacoco/generated/jacocoGeneratedTestReport.xml")
-                        pit_xml = os.path.join(repo, "build/reports/pitest/generated/mutations.xml")
-                        test_results_dir = os.path.join(repo, "build/test-results/generatedTest")
+                        jacoco_xml = os.path.join(build_dir, "reports/jacoco/generated/jacocoGeneratedTestReport.xml")
+                        pit_xml = os.path.join(build_dir, "reports/pitest/generated/mutations.xml")
+                        test_results_dir = os.path.join(build_dir, "test-results/generatedTest")
 
                         coverage = get_jacoco_metrics(jacoco_xml, target_class)
                         pit = get_pit_metrics(pit_xml)
@@ -841,4 +850,3 @@ def main():
 
 if __name__ == '__main__':
     sys.exit(main())
-

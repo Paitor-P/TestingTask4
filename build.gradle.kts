@@ -33,6 +33,11 @@ dependencies {
 val generatedTestsDir = providers.gradleProperty("generatedTestsDir")
     .orElse(layout.buildDirectory.dir("empty-generated-tests").map { it.asFile.absolutePath })
 
+val customBuildDir = providers.gradleProperty("buildDir").orNull
+if (customBuildDir != null) {
+    buildDir = file(customBuildDir)
+}
+
 sourceSets {
     create("generatedTest") {
         java.srcDir(generatedTestsDir)
