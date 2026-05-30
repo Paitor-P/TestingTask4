@@ -13,6 +13,17 @@ import numpy as np
 import pandas as pd
 
 
+def _sanitize_token(value: str) -> str:
+    return re.sub(r"[^A-Za-z0-9._-]+", "", value)
+
+
+def _format_filter(label: str, values: list | None) -> str:
+    if not values:
+        return f"{label}-all"
+    joined = "-".join(_sanitize_token(str(v)) for v in values)
+    return f"{label}-{joined}"
+
+
 REQUIRED_COLUMNS = [
     "program_class",
     "generation_time_sec",
@@ -32,6 +43,7 @@ class GroupResult:
     evosuite_tests: int
     randoop_tests: int
     mean_max_jaccard: float
+    mean_max_dice: float
 
 
 @dataclass
@@ -44,6 +56,11 @@ class AggregateResult:
     stddev: float | None
     ci_lower: float | None
     ci_upper: float | None
+    mean_max_dice: float
+    variance_dice: float | None
+    stddev_dice: float | None
+    ci_lower_dice: float | None
+    ci_upper_dice: float | None
 
 
 @dataclass
@@ -155,25 +172,46 @@ def jaccard_cross(a: np.ndarray, b: np.ndarray) -> np.ndarray:
         return np.where(union == 0, 0.0, intersection / union)
 
 
+def dice_cross(a: np.ndarray, b: np.ndarray) -> np.ndarray:
+    if a.size == 0 or b.size == 0:
+        return np.zeros((a.shape[0], b.shape[0]), dtype=float)
+    a_bin = a.astype(bool).astype(np.int8)
+    b_bin = b.astype(bool).astype(np.int8)
+    intersection = a_bin @ b_bin.T
+    sum_a = a_bin.sum(axis=1, keepdims=True)
+    sum_b = b_bin.sum(axis=1, keepdims=True).T
+    denom = sum_a + sum_b
+    with np.errstate(divide="ignore", invalid="ignore"):
+        return np.where(denom == 0, 0.0, (2 * intersection) / denom)
+
+
+def build_group_matrices(evo: pd.DataFrame, ran: pd.DataFrame) -> tuple[np.ndarray, np.ndarray]:
+    vectors_evo = parse_vectors(evo["coverage_vector"]) if not evo.empty else []
+    vectors_ran = parse_vectors(ran["coverage_vector"]) if not ran.empty else []
+    return stack_vectors(vectors_evo), stack_vectors(vectors_ran)
+
+
 def compute_group_similarity(
     program_class: str,
     generation_time_sec: int,
     run_id: int,
-    evo: pd.DataFrame,
-    ran: pd.DataFrame,
+    mat_evo: np.ndarray,
+    mat_ran: np.ndarray,
 ) -> GroupResult:
-    vectors_evo = parse_vectors(evo["coverage_vector"]) if not evo.empty else []
-    vectors_ran = parse_vectors(ran["coverage_vector"]) if not ran.empty else []
-
-    mat_evo = stack_vectors(vectors_evo)
-    mat_ran = stack_vectors(vectors_ran)
-
-    cross = jaccard_cross(mat_evo, mat_ran)
     if mat_evo.shape[0] == 0:
-        mean_max = float("nan")
+        mean_max_jaccard = float("nan")
+        mean_max_dice = float("nan")
     else:
-        max_per_row = cross.max(axis=1) if mat_ran.shape[0] > 0 else np.zeros(mat_evo.shape[0])
-        mean_max = float(np.mean(max_per_row))
+        if mat_ran.shape[0] == 0:
+            max_per_row_j = np.zeros(mat_evo.shape[0])
+            max_per_row_d = np.zeros(mat_evo.shape[0])
+        else:
+            jaccard = jaccard_cross(mat_evo, mat_ran)
+            dice = dice_cross(mat_evo, mat_ran)
+            max_per_row_j = jaccard.max(axis=1)
+            max_per_row_d = dice.max(axis=1)
+        mean_max_jaccard = float(np.mean(max_per_row_j))
+        mean_max_dice = float(np.mean(max_per_row_d))
 
     return GroupResult(
         program_class=program_class,
@@ -181,7 +219,8 @@ def compute_group_similarity(
         run=int(run_id),
         evosuite_tests=int(mat_evo.shape[0]),
         randoop_tests=int(mat_ran.shape[0]),
-        mean_max_jaccard=mean_max,
+        mean_max_jaccard=mean_max_jaccard,
+        mean_max_dice=mean_max_dice,
     )
 
 
@@ -189,15 +228,9 @@ def compute_exclusive_lines(
     program_class: str,
     generation_time_sec: int,
     run_id: int,
-    evo: pd.DataFrame,
-    ran: pd.DataFrame,
+    mat_evo: np.ndarray,
+    mat_ran: np.ndarray,
 ) -> ExclusiveResult:
-    vectors_evo = parse_vectors(evo["coverage_vector"]) if not evo.empty else []
-    vectors_ran = parse_vectors(ran["coverage_vector"]) if not ran.empty else []
-
-    mat_evo = stack_vectors(vectors_evo)
-    mat_ran = stack_vectors(vectors_ran)
-
     total_lines = int(mat_evo.shape[1] if mat_evo.size else mat_ran.shape[1])
     if mat_evo.size == 0:
         evo_union = np.zeros(total_lines, dtype=np.int8)
@@ -415,8 +448,9 @@ def compare_traces(
             f"[compare] class={program_class} time={generation_time} "
             f"run={run_id} evo={len(evo_group)} ran={len(ran_group)}"
         )
-        results.append(compute_group_similarity(program_class, generation_time, run_id, evo_group, ran_group))
-        exclusive_records.append(compute_exclusive_lines(program_class, generation_time, run_id, evo_group, ran_group))
+        mat_evo, mat_ran = build_group_matrices(evo_group, ran_group)
+        results.append(compute_group_similarity(program_class, generation_time, run_id, mat_evo, mat_ran))
+        exclusive_records.append(compute_exclusive_lines(program_class, generation_time, run_id, mat_evo, mat_ran))
 
     detail_df = pd.DataFrame([r.__dict__ for r in results]).sort_values(
         ["program_class", "generation_time_sec", "run"]
@@ -429,7 +463,9 @@ def compare_traces(
     agg_records: list[AggregateResult] = []
     for (program_class, generation_time), group in detail_df.groupby(["program_class", "generation_time_sec"]):
         values = group["mean_max_jaccard"].tolist()
+        dice_values = group["mean_max_dice"].tolist()
         stats = calc_confidence_interval(values)
+        dice_stats = calc_confidence_interval(dice_values)
         agg_records.append(
             AggregateResult(
                 program_class=program_class,
@@ -440,6 +476,11 @@ def compare_traces(
                 stddev=stats["stddev"],
                 ci_lower=stats["ci_lower"],
                 ci_upper=stats["ci_upper"],
+                mean_max_dice=dice_stats["mean"],
+                variance_dice=dice_stats["variance"],
+                stddev_dice=dice_stats["stddev"],
+                ci_lower_dice=dice_stats["ci_lower"],
+                ci_upper_dice=dice_stats["ci_upper"],
             )
         )
 
@@ -516,6 +557,20 @@ def main() -> None:
     classes = split_csv_arg(args.classes)
     times = [int(x) for x in split_csv_arg(args.times) or []] or None
     runs = [int(x) for x in split_csv_arg(args.runs) or []] or None
+
+    out_path = out_path.with_name(
+        out_path.stem
+        + "__"
+        + "__".join(
+            [
+                _format_filter("tools", tools),
+                _format_filter("classes", classes),
+                _format_filter("times", times),
+                _format_filter("runs", runs),
+            ]
+        )
+        + out_path.suffix
+    )
 
     if "EvoSuite" not in tools or "Randoop" not in tools:
         raise ValueError("Both EvoSuite and Randoop are required for comparison.")

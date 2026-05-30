@@ -35,6 +35,17 @@ from statistics import stdev, variance
 import math
 
 
+def _sanitize_token(value: str) -> str:
+    return re.sub(r"[^A-Za-z0-9._-]+", "", value)
+
+
+def _format_filter(label: str, values: list | None) -> str:
+    if not values:
+        return f"{label}-all"
+    joined = "-".join(_sanitize_token(str(v)) for v in values)
+    return f"{label}-{joined}"
+
+
 def parse_generation_summary(summary_path: str) -> Dict[str, Optional[float]]:
     """Parse generation summary CSV and extract elapsed times."""
     gen_map = {}
@@ -332,6 +343,21 @@ def calc_confidence_interval(values: list, confidence: float = 0.95) -> Dict:
     }
 
 
+def build_output_paths(reports_dir: str, args: argparse.Namespace) -> tuple[str, str]:
+    parts = [
+        _format_filter("tools", args.tools),
+        _format_filter("cases", args.cases),
+        _format_filter("budgets", args.budgets),
+        _format_filter("runs", args.runs),
+    ]
+    if args.skip_execution:
+        parts.append("skip-exec")
+    suffix = "__" + "__".join(parts)
+    summary_csv = os.path.join(reports_dir, f"summary-quality{suffix}.csv")
+    agg_csv = os.path.join(reports_dir, f"summary-quality-aggregated{suffix}.csv")
+    return summary_csv, agg_csv
+
+
 def main():
     parser = argparse.ArgumentParser(
         description='Analyze quality of generated tests using JaCoCo and PIT',
@@ -400,8 +426,7 @@ def main():
     raw_dir = os.path.join(reports_dir, "raw")
     Path(raw_dir).mkdir(parents=True, exist_ok=True)
 
-    summary_csv = os.path.join(reports_dir, "summary-quality.csv")
-    agg_csv = os.path.join(reports_dir, "summary-quality-aggregated.csv")
+    summary_csv, agg_csv = build_output_paths(reports_dir, args)
 
     generation_map = parse_generation_summary(os.path.join(generated_root, "generation-summary.csv"))
     records = []
@@ -697,6 +722,7 @@ def main():
     for (tool, case, budget), rows in aggregated.items():
         line_coverages = [r['lineCoveragePct'] for r in rows if r['lineCoveragePct'] is not None]
         branch_coverages = [r['branchCoveragePct'] for r in rows if r['branchCoveragePct'] is not None]
+        instruction_coverages = [r['instructionCoveragePct'] for r in rows if r['instructionCoveragePct'] is not None]
         mutation_scores = [r['mutationScorePct'] for r in rows if r['mutationScorePct'] is not None]
         tests_executed = [r['testsExecuted'] for r in rows if r['testsExecuted'] is not None]
 
@@ -704,6 +730,7 @@ def main():
         tests_stats = calc_confidence_interval(tests_executed)
         line_stats = calc_confidence_interval(line_coverages)
         branch_stats = calc_confidence_interval(branch_coverages)
+        instruction_stats = calc_confidence_interval(instruction_coverages)
         mutation_stats = calc_confidence_interval(mutation_scores)
 
         agg_records.append({
@@ -726,6 +753,11 @@ def main():
             'branchStddev': branch_stats['stddev'],
             'branchCI_lower': branch_stats['ci_lower'],
             'branchCI_upper': branch_stats['ci_upper'],
+            'meanInstructionCoveragePct': instruction_stats['mean'],
+            'instructionVariance': instruction_stats['variance'],
+            'instructionStddev': instruction_stats['stddev'],
+            'instructionCI_lower': instruction_stats['ci_lower'],
+            'instructionCI_upper': instruction_stats['ci_upper'],
             'meanMutationScorePct': mutation_stats['mean'],
             'mutationVariance': mutation_stats['variance'],
             'mutationStddev': mutation_stats['stddev'],
@@ -741,6 +773,7 @@ def main():
             'meanTestsExecuted', 'testsVariance', 'testsStddev', 'testsCI_lower', 'testsCI_upper',
             'meanLineCoveragePct', 'lineVariance', 'lineStddev', 'lineCI_lower', 'lineCI_upper',
             'meanBranchCoveragePct', 'branchVariance', 'branchStddev', 'branchCI_lower', 'branchCI_upper',
+            'meanInstructionCoveragePct', 'instructionVariance', 'instructionStddev', 'instructionCI_lower', 'instructionCI_upper',
             'meanMutationScorePct', 'mutationVariance', 'mutationStddev', 'mutationCI_lower', 'mutationCI_upper'
         ]
 
@@ -773,6 +806,13 @@ def main():
         # branchStddev: Standard deviation of branch coverage
         # branchCI_lower: 95% CI lower bound for branch coverage
         # branchCI_upper: 95% CI upper bound for branch coverage
+        #
+        # Instruction Coverage Statistics (JaCoCo):
+        # meanInstructionCoveragePct: Average instruction coverage percentage
+        # instructionVariance: Variance of instruction coverage
+        # instructionStddev: Standard deviation of instruction coverage
+        # instructionCI_lower: 95% CI lower bound for instruction coverage
+        # instructionCI_upper: 95% CI upper bound for instruction coverage
         #
         # Mutation Score Statistics (PIT):
         # meanMutationScorePct: Average mutation score (killed/total)
