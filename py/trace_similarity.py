@@ -8,6 +8,7 @@ import math
 from dataclasses import dataclass
 from pathlib import Path
 from statistics import stdev, variance
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import numpy as np
 import pandas as pd
@@ -22,6 +23,10 @@ def _format_filter(label: str, values: list | None) -> str:
         return f"{label}-all"
     joined = "-".join(_sanitize_token(str(v)) for v in values)
     return f"{label}-{joined}"
+
+
+def _safe_token(value: str) -> str:
+    return re.sub(r"[^A-Za-z0-9._-]+", "_", value)
 
 
 REQUIRED_COLUMNS = [
@@ -265,6 +270,41 @@ def validate_columns(df: pd.DataFrame, source: str) -> None:
         raise ValueError(f"{source} missing columns: {missing}")
 
 
+def run_trace_method(
+    java_exe: str,
+    classpath: str,
+    jacoco_agent: str,
+    target_class: str,
+    test_class: str,
+    test_method: str,
+    destfile: Path,
+) -> str | None:
+    jacoco_args = (
+        f"destfile={destfile},append=false,dumponexit=false,includes={target_class.replace('.', '/') + '*'}"
+    )
+    result = subprocess.run(
+        [
+            java_exe,
+            f"-javaagent:{jacoco_agent}={jacoco_args}",
+            "-cp",
+            classpath + f"{os.pathsep}{jacoco_agent}",
+            "com.viktor.lab4.trace.TraceCollector",
+            "--targetClass",
+            target_class,
+            "--testClass",
+            test_class,
+            "--testMethod",
+            test_method,
+        ],
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode != 0:
+        return None
+    vector_line = result.stdout.splitlines()[-1].strip() if result.stdout else ""
+    return vector_line or None
+
+
 def collect_traces(
     repo: Path,
     generated_root: Path,
@@ -275,6 +315,7 @@ def collect_traces(
     runs: list[int] | None,
     gradle_cmd: str,
     java_exe: str,
+    collect_workers: int,
 ) -> None:
     ensure_main_classes(gradle_cmd, repo)
     traces_dir.mkdir(parents=True, exist_ok=True)
@@ -338,7 +379,10 @@ def collect_traces(
                         if not java_files:
                             continue
 
-                        print(f"[collect] class={class_simple} time={budget} run={run_id} seed={seed} tests={len(java_files)}")
+                        print(
+                            f"[collect] class={class_simple} time={budget} "
+                            f"run={run_id} seed={seed} tests={len(java_files)}"
+                        )
 
                         work_dir = repo / "build" / "analysis-work" / tool / class_simple / str(budget) / run_dir.name
                         prepare_working_test_dir(tool, run_dir, work_dir)
@@ -360,29 +404,38 @@ def collect_traces(
                         )
                         jacoco_agent = run_cmd([gradle_cmd, "-q", "printJacocoAgentPath"], cwd=repo)
 
-                        include_pattern = target_class.replace(".", "/") + "*"
-                        jacoco_args = f"destfile={repo / 'build' / 'jacoco' / 'trace.exec'},append=false,dumponexit=false,includes={include_pattern}"
+                        # Use per-method trace exec to avoid collisions under parallel execution.
+                        trace_tmp = work_dir / "_trace_tmp"
+                        trace_tmp.mkdir(parents=True, exist_ok=True)
 
+                        tasks: list[tuple[str, str, Path]] = []
                         for test_class in get_test_class_fqns(work_dir):
                             methods = get_test_methods(java_exe, classpath + f"{os.pathsep}{jacoco_agent}", test_class)
                             for method in methods:
-                                vector = run_cmd(
-                                    [
-                                        java_exe,
-                                        f"-javaagent:{jacoco_agent}={jacoco_args}",
-                                        "-cp",
-                                        classpath + f"{os.pathsep}{jacoco_agent}",
-                                        "com.viktor.lab4.trace.TraceCollector",
-                                        "--targetClass",
-                                        target_class,
-                                        "--testClass",
-                                        test_class,
-                                        "--testMethod",
-                                        method,
-                                    ],
-                                    cwd=repo,
-                                )
-                                vector_line = vector.splitlines()[-1].strip() if vector else ""
+                                token = _safe_token(f"{test_class}__{method}")
+                                destfile = trace_tmp / f"trace_{token}.exec"
+                                tasks.append((test_class, method, destfile))
+
+                        if not tasks:
+                            continue
+
+                        with ThreadPoolExecutor(max_workers=max(1, collect_workers)) as executor:
+                            futures = {
+                                executor.submit(
+                                    run_trace_method,
+                                    java_exe,
+                                    classpath,
+                                    jacoco_agent,
+                                    target_class,
+                                    test_class,
+                                    method,
+                                    destfile,
+                                ): (test_class, method)
+                                for (test_class, method, destfile) in tasks
+                            }
+                            for future in as_completed(futures):
+                                test_class, method = futures[future]
+                                vector_line = future.result()
                                 if not vector_line:
                                     continue
                                 writer.writerow(
@@ -542,6 +595,12 @@ def main() -> None:
     parser.add_argument("--gradle", default=".\\gradlew.bat", help="Gradle wrapper path.")
     parser.add_argument("--java", default="java", help="Java executable.")
     parser.add_argument("--skip-collect", action="store_true", help="Skip collection; use existing traces.")
+    parser.add_argument(
+        "--collect-workers",
+        type=int,
+        default=os.cpu_count() or 2,
+        help="Parallel workers for collect stage.",
+    )
     args = parser.parse_args()
 
     repo = Path(args.project_root).resolve() if args.project_root else Path(__file__).resolve().parents[1]
@@ -586,6 +645,7 @@ def main() -> None:
             runs=runs,
             gradle_cmd=str(gradle_path),
             java_exe=args.java,
+            collect_workers=args.collect_workers,
         )
 
     result, aggregated, exclusive = compare_traces(traces_dir, classes, times)
