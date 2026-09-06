@@ -1,12 +1,15 @@
-from pathlib import Path
+"""Export the Markdown research report to DOCX."""
+
+import re
 
 from docx import Document
 
+from analysis_support import REPORTS_DIR
+
 
 def main() -> None:
-    repo = Path(__file__).resolve().parents[1]
-    md_path = repo / "reports" / "REPORT.md"
-    docx_path = repo / "reports" / "REPORT.docx"
+    md_path = REPORTS_DIR / "REPORT.md"
+    docx_path = REPORTS_DIR / "REPORT.docx"
 
     text = md_path.read_text(encoding="utf-8")
     doc = Document()
@@ -27,10 +30,17 @@ def main() -> None:
             doc.add_heading(line[4:].strip(), level=3)
             continue
 
-        # Keep markdown table rows and bullets as plain text for fidelity.
-        p = doc.add_paragraph(line)
-        if line.startswith("- ") or line[:2].isdigit() and line[1:3] == ". ":
-            p.style = "List Bullet"
+        if line.startswith("- "):
+            doc.add_paragraph(line[2:], style="List Bullet")
+            continue
+
+        numbered_item = re.match(r"\d+\.\s+(.*)", line)
+        if numbered_item:
+            doc.add_paragraph(numbered_item.group(1), style="List Number")
+            continue
+
+        # Markdown tables remain plain text; richer conversion is outside this exporter.
+        doc.add_paragraph(line)
 
     doc.save(docx_path)
     print(f"DOCX generated: {docx_path}")

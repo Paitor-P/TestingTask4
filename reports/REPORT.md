@@ -129,11 +129,11 @@ Unit-тест — это автоматизированная проверка �
 | `src/main/java/...` | Исходный код тестируемых классов |
 | `tools/evosuite-1.2.0.jar` | Jar-файл генератора EvoSuite |
 | `tools/randoop-all-4.3.3.jar` | Jar-файл генератора Randoop |
-| `generated-tests/` | Результаты генерации тестов (по инструментам/классам/бюджетам/прогонам) |
-| `scripts/run-all-generators.ps1` | Массовая генерация тестов с разными бюджетами и seed |
-| `scripts/run-quality-analysis.ps1` | Прогон тестов + JaCoCo + PIT, сбор метрик в CSV |
-| `reports/summary-quality.csv` | Подробная таблица качества по всем прогонам |
-| `reports/summary-quality-aggregated.csv` | Агрегированные (усреднённые) метрики по группам |
+| `src/generatedTest/suites/` | Результаты генерации тестов (по инструментам/классам/бюджетам/прогонам) |
+| `scripts/generate_test_suites.py` | Массовая генерация тестов с разными бюджетами и seed |
+| `scripts/analyze_test_quality.py` | Прогон тестов + JaCoCo + PIT, сбор метрик в CSV |
+| `reports/data/quality/quality_runs__...csv` | Подробная таблица качества по всем прогонам |
+| `reports/data/quality/quality_summary__...csv` | Агрегированные метрики по группам |
 
 Отдельно стоит отметить, что в проекте используется sourceSet `generatedTest`. Это решение позволяет отделить «сгенерированные» тесты от тестов разработчика и прогонять их отдельной задачей (`generatedTest`), что важно для корректной организации экспериментов.
 
@@ -421,10 +421,10 @@ Randoop чувствителен к корректности сгенериро�
 
 Для воспроизводимости эксперимента подготовлены два основных скрипта:
 
-1. `scripts/run-all-generators.ps1` — создаёт структуру каталогов `generated-tests/<Tool>/<Class>/<Budget>/runX-seedY` и запускает генераторы (EvoSuite или Randoop) с заданными бюджетами времени и seed.
+1. `scripts/generate_test_suites.py` — создаёт структуру каталогов `src/generatedTest/suites/<Tool>/<Class>/<Budget>/runX-seedY` и запускает генераторы (EvoSuite или Randoop) с заданными бюджетами времени и seed.
 
-2. `scripts/run-quality-analysis.ps1` — для каждого сгенерированного набора:
-   - копирует тесты в рабочий каталог `build/analysis-work/...` (при необходимости удаляя или адаптируя элементы EvoSuite-обвязки);
+2. `scripts/analyze_test_quality.py` — для каждого сгенерированного набора:
+   - копирует тесты в рабочий каталог `build/analysis/work/...` (при необходимости удаляя или адаптируя элементы EvoSuite-обвязки);
    - выполняет Gradle pipeline `cleanGeneratedAnalysis`, `generatedTest`, `jacocoGeneratedTestReport`, `pitest`;
    - извлекает метрики из `jacocoGeneratedTestReport.xml` и `mutations.xml` и сохраняет их в CSV-файлы.
 
@@ -469,7 +469,7 @@ cd C:\Users\user\Documents\Polytech\Testing\Lab4_3
 \.\scripts\run-all-generators.ps1
 ```
 
-Ожидаемый результат: заполнение каталога `generated-tests/` и файл `generated-tests/generation-summary.csv`.
+Ожидаемый результат: заполнение каталога `src/generatedTest/suites/` и файл `reports/data/generation_runs.csv`.
 
 При необходимости можно запускать выборочно:
 
@@ -487,17 +487,17 @@ cd C:\Users\user\Documents\Polytech\Testing\Lab4_3
 
 Ожидаемый результат:
 
-- сформирован `reports/summary-quality.csv` (детально);
-- сформирован `reports/summary-quality-aggregated.csv` (усреднение);
+- сформирован `reports/data/quality/quality_runs__...csv` (детально);
+- сформирован `reports/data/quality/quality_summary__...csv` (усреднение);
 - в `build/reports/jacoco/generated/html/` доступен HTML-отчёт JaCoCo;
 - в `build/reports/pitest/generated/` доступен HTML-отчёт PIT.
 
 ## 10.6 Генерация итогового Word-отчёта
 
-Текст отчёта хранится в `reports/REPORT.md`, а преобразование в Word выполняется скриптом `scripts/generate-report-docx.py`:
+Текст отчёта хранится в `reports/REPORT.md`, а преобразование в Word выполняется скриптом `scripts/export_report_docx.py`:
 
 ```powershell
-python .\scripts\generate-report-docx.py
+python .\scripts\export_report_docx.py
 ```
 
 Результат: файл `reports/REPORT.docx`.
@@ -517,7 +517,7 @@ python .\scripts\generate-report-docx.py
 
 ## 11.2 Агрегированные значения по инструментам
 
-Для получения интегрального сравнения полезно усреднить показатели по всем классам и бюджетам. Итоговый вывод в работе формулируется на основе `reports/summary-quality-aggregated.csv`.
+Для получения интегрального сравнения полезно усреднить показатели по всем классам и бюджетам. Итоговый вывод в работе формулируется на основе `reports/data/quality/quality_summary__...csv`.
 
 Качественно наблюдается следующая тенденция:
 
@@ -621,7 +621,7 @@ java -version
 
 ```powershell
 python -m pip install python-docx
-python .\scripts\generate-report-docx.py
+python .\scripts\export_report_docx.py
 ```
 
 Результат будет сохранён в `reports/REPORT.docx`.
