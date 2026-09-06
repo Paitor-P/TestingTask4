@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    id("idea")
     id("jacoco")
     id("info.solidsoft.pitest") version "1.15.0"
 }
@@ -16,6 +17,10 @@ repositories {
     mavenCentral()
 }
 
+jacoco {
+    toolVersion = "0.8.12"
+}
+
 configurations.register("jacocoRuntime")
 
 dependencies {
@@ -30,17 +35,20 @@ dependencies {
     add("jacocoRuntime", "org.jacoco:org.jacoco.agent:0.8.12:runtime")
 }
 
+// Each experiment contains duplicate test class names; compile one suite at a time.
+val generatedSuite = providers.gradleProperty("generatedSuite")
+    .orElse("Randoop/LongestIncreasingSubsequence/30/run1-seed101")
 val generatedTestsDir = providers.gradleProperty("generatedTestsDir")
-    .orElse(layout.buildDirectory.dir("empty-generated-tests").map { it.asFile.absolutePath })
+    .orElse(generatedSuite.map { "src/generatedTest/suites/$it" })
 
 val customBuildDir = providers.gradleProperty("buildDir").orNull
 if (customBuildDir != null) {
-    buildDir = file(customBuildDir)
+    layout.buildDirectory.set(file(customBuildDir))
 }
 
 sourceSets {
     create("generatedTest") {
-        java.srcDir(generatedTestsDir)
+        java.setSrcDirs(listOf(generatedTestsDir.get()))
         compileClasspath += sourceSets["main"].output + configurations["testRuntimeClasspath"]
         runtimeClasspath += output + compileClasspath
     }
@@ -64,7 +72,7 @@ tasks.test {
 }
 
 val generatedTest = tasks.register<Test>("generatedTest") {
-    description = "Runs generated tests from -PgeneratedTestsDir"
+    description = "Runs one suite selected by -PgeneratedSuite or -PgeneratedTestsDir"
     group = "verification"
     testClassesDirs = sourceSets["generatedTest"].output.classesDirs
     classpath = sourceSets["generatedTest"].runtimeClasspath
@@ -140,4 +148,12 @@ pitest {
             "--add-opens=java.base/java.util=ALL-UNNAMED"
         )
     )
+}
+
+// Persist test-root semantics in IntelliJ; reports and Python environments are not sources.
+idea {
+    module {
+        testSources.from(sourceSets["generatedTest"].java.srcDirs)
+        excludeDirs.addAll(listOf(file("scripts/.venv"), file("reports")))
+    }
 }

@@ -42,9 +42,14 @@ class GroupResult:
     program_class: str
     generation_time_sec: int
     run: int
+    seed: int
     evosuite_tests: int
     randoop_tests: int
+    evosuite_to_randoop_jaccard: float
+    randoop_to_evosuite_jaccard: float
     mean_max_jaccard: float
+    evosuite_to_randoop_dice: float
+    randoop_to_evosuite_dice: float
     mean_max_dice: float
 
 
@@ -71,6 +76,7 @@ class ExclusiveResult:
     program_class: str
     generation_time_sec: int
     run: int
+    seed: int
     total_lines: int
     covered_by_any: int
     shared_lines: int
@@ -199,31 +205,47 @@ def compute_group_similarity(
     program_class: str,
     generation_time_sec: int,
     run_id: int,
+    seed: int,
     mat_evo: np.ndarray,
     mat_ran: np.ndarray,
 ) -> GroupResult:
-    if mat_evo.shape[0] == 0:
-        mean_max_jaccard = float("nan")
-        mean_max_dice = float("nan")
-    else:
-        if mat_ran.shape[0] == 0:
-            max_per_row_j = np.zeros(mat_evo.shape[0])
-            max_per_row_d = np.zeros(mat_evo.shape[0])
+    evo_count, ran_count = mat_evo.shape[0], mat_ran.shape[0]
+    if evo_count == 0 and ran_count == 0:
+        evo_to_ran_jaccard = ran_to_evo_jaccard = float("nan")
+        evo_to_ran_dice = ran_to_evo_dice = float("nan")
+        mean_max_jaccard = mean_max_dice = float("nan")
+    elif evo_count == 0 or ran_count == 0:
+        # A missing suite has no matching test in the other suite.  Similarity is
+        # zero; the absent-to-present directional diagnostic is undefined.
+        if evo_count == 0:
+            evo_to_ran_jaccard = evo_to_ran_dice = float("nan")
+            ran_to_evo_jaccard = ran_to_evo_dice = 0.0
         else:
-            jaccard = jaccard_cross(mat_evo, mat_ran)
-            dice = dice_cross(mat_evo, mat_ran)
-            max_per_row_j = jaccard.max(axis=1)
-            max_per_row_d = dice.max(axis=1)
-        mean_max_jaccard = float(np.mean(max_per_row_j))
-        mean_max_dice = float(np.mean(max_per_row_d))
+            evo_to_ran_jaccard = evo_to_ran_dice = 0.0
+            ran_to_evo_jaccard = ran_to_evo_dice = float("nan")
+        mean_max_jaccard = mean_max_dice = 0.0
+    else:
+        jaccard = jaccard_cross(mat_evo, mat_ran)
+        dice = dice_cross(mat_evo, mat_ran)
+        evo_to_ran_jaccard = float(np.mean(jaccard.max(axis=1)))
+        ran_to_evo_jaccard = float(np.mean(jaccard.max(axis=0)))
+        evo_to_ran_dice = float(np.mean(dice.max(axis=1)))
+        ran_to_evo_dice = float(np.mean(dice.max(axis=0)))
+        mean_max_jaccard = (evo_to_ran_jaccard + ran_to_evo_jaccard) / 2
+        mean_max_dice = (evo_to_ran_dice + ran_to_evo_dice) / 2
 
     return GroupResult(
         program_class=program_class,
         generation_time_sec=int(generation_time_sec),
         run=int(run_id),
-        evosuite_tests=int(mat_evo.shape[0]),
-        randoop_tests=int(mat_ran.shape[0]),
+        seed=int(seed),
+        evosuite_tests=int(evo_count),
+        randoop_tests=int(ran_count),
+        evosuite_to_randoop_jaccard=evo_to_ran_jaccard,
+        randoop_to_evosuite_jaccard=ran_to_evo_jaccard,
         mean_max_jaccard=mean_max_jaccard,
+        evosuite_to_randoop_dice=evo_to_ran_dice,
+        randoop_to_evosuite_dice=ran_to_evo_dice,
         mean_max_dice=mean_max_dice,
     )
 
@@ -232,6 +254,7 @@ def compute_exclusive_lines(
     program_class: str,
     generation_time_sec: int,
     run_id: int,
+    seed: int,
     mat_evo: np.ndarray,
     mat_ran: np.ndarray,
 ) -> ExclusiveResult:
@@ -255,6 +278,7 @@ def compute_exclusive_lines(
         program_class=program_class,
         generation_time_sec=int(generation_time_sec),
         run=int(run_id),
+        seed=int(seed),
         total_lines=total_lines,
         covered_by_any=covered_any,
         shared_lines=shared,
@@ -453,23 +477,25 @@ def compare_traces(
     print(f"[compare] evo_rows={len(evo)} randoop_rows={len(ran)}")
 
     keys = ["program_class", "generation_time_sec", run_col]
+    if run_col != "seed":
+        keys.append("seed")
     results: list[GroupResult] = []
     exclusive_records: list[ExclusiveResult] = []
 
     evo_keys = {tuple(row) for row in evo[keys].drop_duplicates().itertuples(index=False, name=None)}
     ran_keys = {tuple(row) for row in ran[keys].drop_duplicates().itertuples(index=False, name=None)}
 
-    for (program_class, generation_time, run_id) in sorted(evo_keys | ran_keys):
-        evo_group = evo[
-            (evo["program_class"] == program_class)
-            & (evo["generation_time_sec"] == generation_time)
-            & (evo[run_col] == run_id)
-        ]
-        ran_group = ran[
-            (ran["program_class"] == program_class)
-            & (ran["generation_time_sec"] == generation_time)
-            & (ran[run_col] == run_id)
-        ]
+    for key in sorted(evo_keys | ran_keys):
+        key_values = dict(zip(keys, key))
+        program_class = str(key_values["program_class"])
+        generation_time = int(key_values["generation_time_sec"])
+        run_id = int(key_values[run_col])
+        seed = int(key_values["seed"])
+        evo_group = evo.copy()
+        ran_group = ran.copy()
+        for column, value in key_values.items():
+            evo_group = evo_group[evo_group[column] == value]
+            ran_group = ran_group[ran_group[column] == value]
         if evo_group.empty and ran_group.empty:
             continue
         print(
@@ -477,15 +503,15 @@ def compare_traces(
             f"run={run_id} evo={len(evo_group)} ran={len(ran_group)}"
         )
         mat_evo, mat_ran = build_group_matrices(evo_group, ran_group)
-        results.append(compute_group_similarity(program_class, generation_time, run_id, mat_evo, mat_ran))
-        exclusive_records.append(compute_exclusive_lines(program_class, generation_time, run_id, mat_evo, mat_ran))
+        results.append(compute_group_similarity(program_class, generation_time, run_id, seed, mat_evo, mat_ran))
+        exclusive_records.append(compute_exclusive_lines(program_class, generation_time, run_id, seed, mat_evo, mat_ran))
 
     detail_df = pd.DataFrame([r.__dict__ for r in results]).sort_values(
-        ["program_class", "generation_time_sec", "run"]
+        ["program_class", "generation_time_sec", "run", "seed"]
     )
 
     exclusive_df = pd.DataFrame([r.__dict__ for r in exclusive_records]).sort_values(
-        ["program_class", "generation_time_sec", "run"]
+        ["program_class", "generation_time_sec", "run", "seed"]
     )
 
     agg_records: list[AggregateResult] = []
@@ -558,16 +584,22 @@ def main() -> None:
     if not gradle_path.is_absolute():
         gradle_path = (repo / gradle_path).resolve()
 
-    tools = split_csv_arg(args.tools) or experiment.tools
-    classes = split_csv_arg(args.classes) or experiment.cases
-    times = [int(x) for x in split_csv_arg(args.budgets) or []] or experiment.budgets
-    runs = [int(x) for x in split_csv_arg(args.runs) or []] or None
+    requested_tools = split_csv_arg(args.tools)
+    requested_classes = split_csv_arg(args.classes)
+    requested_budgets = split_csv_arg(args.budgets)
+    requested_runs = split_csv_arg(args.runs)
+    tools = requested_tools or experiment.tools
+    classes = requested_classes or experiment.cases
+    times = [int(x) for x in requested_budgets or []] or experiment.budgets
+    runs = [int(x) for x in requested_runs or []] or None
 
     filters = [
+        # Both generators are always required; keep their names in the default
+        # filename so the report builder can select the comparison unambiguously.
         filter_token("tools", tools),
-        filter_token("classes", classes),
-        filter_token("budgets", times),
-        filter_token("runs", runs),
+        filter_token("classes", requested_classes),
+        filter_token("budgets", requested_budgets),
+        filter_token("runs", requested_runs),
     ]
     out_path = filtered_csv_path(out_path.parent, out_path.stem, filters)
 

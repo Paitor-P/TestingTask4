@@ -1,1 +1,1 @@
-rootProject.name = "Lab4_3"
+rootProject.name = "unit-test-generation-research"

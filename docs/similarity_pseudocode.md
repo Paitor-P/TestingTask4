@@ -1,16 +1,10 @@
 # Псевдокод расчёта метрик сходства (Жаккар, Сёренсен–Дайс)
 
 Идея: каждый тест имеет бинарный вектор покрытия `coverage_vector` (0/1). Для каждой группы
-`(program_class, generation_time_sec, run)` сравниваются все тесты EvoSuite со всеми тестами Randoop.
-Итоговая метрика группы — это среднее по EvoSuite‑тестам от их **максимального** сходства с любым Randoop‑тестом.
-
-Это направленная метрика покрытия одного набора другим. Она отвечает на вопрос
-«насколько хорошо для каждого теста EvoSuite находится аналог среди тестов
-Randoop». Хотя Жаккар и Дайс симметричны для одной пары, операция «максимум для
-каждого теста, затем среднее» не симметрична для наборов разного размера.
-Перестановка EvoSuite и Randoop поэтому может дать другое значение. Для
-симметричной оценки можно отдельно вычислить оба направления и усреднить их,
-но текущий отчёт этого не делает.
+`(program_class, generation_time_sec, run, seed)` сравниваются все тесты EvoSuite со всеми тестами Randoop.
+Итоговая метрика — среднее двух направлений: «лучший Randoop для каждого
+EvoSuite-теста» и «лучший EvoSuite для каждого Randoop-теста». Поэтому
+перестановка инструментов не меняет итоговое значение.
 
 ## Метрики для пары тестов (два бинарных вектора)
 Пусть `A` и `B` — множества покрытых элементов (позиции с 1), либо бинарные векторы.
@@ -47,39 +41,31 @@ function compute_group_similarity(EvoSuiteTests, RandoopTests):
     E = [parse_vector(t.coverage_vector) for t in EvoSuiteTests]   # E = векторы EvoSuite
     R = [parse_vector(t.coverage_vector) for t in RandoopTests]    # R = векторы Randoop
 
-    if E is empty:
-        return NaN, NaN        # в проекте так и делается
+    if E is empty and R is empty:
+        return NaN, NaN
+    if E is empty or R is empty:
+        return 0, 0
 
-    if R is empty:
-        maxJ = [0 for each e in E]    # maxJ = максимум Жаккара для каждого e
-        maxD = [0 for each e in E]    # maxD = максимум Дайса для каждого e
-    else:
-        maxJ = []
-        maxD = []
-        for each e in E:              # e = текущий тест EvoSuite
-            bestJ = 0                 # bestJ = лучший Жаккар для e
-            bestD = 0                 # bestD = лучший Дайс для e
-            for each r in R:          # r = текущий тест Randoop
-                bestJ = max(bestJ, jaccard(e, r))
-                bestD = max(bestD, dice(e, r))
-            maxJ.append(bestJ)        # список максимумов по e
-            maxD.append(bestD)
+    E_to_R_J = average(max(jaccard(e, r) for each r in R) for each e in E)
+    R_to_E_J = average(max(jaccard(r, e) for each e in E) for each r in R)
+    E_to_R_D = average(max(dice(e, r)    for each r in R) for each e in E)
+    R_to_E_D = average(max(dice(r, e)    for each e in E) for each r in R)
 
-    mean_max_jaccard = average(maxJ)  # итог по группе (Жаккар)
-    mean_max_dice    = average(maxD)  # итог по группе (Дайс)
+    mean_max_jaccard = (E_to_R_J + R_to_E_J) / 2
+    mean_max_dice    = (E_to_R_D + R_to_E_D) / 2
     return mean_max_jaccard, mean_max_dice
 ```
 
 ## Пошаговое описание расчёта (словами)
-1. Для каждой группы `(program_class, generation_time_sec, run)` берутся тесты EvoSuite и Randoop.
+1. Для каждой группы `(program_class, generation_time_sec, run, seed)` берутся тесты EvoSuite и Randoop.
 2. У каждого теста строка `coverage_vector` превращается в бинарный вектор: непустые элементы — это покрытые позиции (1), остальные — 0.
 3. Для каждой пары тестов `(e из EvoSuite, r из Randoop)` считается:
    - число общих покрытых позиций (`|A ∩ B|`);
    - количество покрытых позиций в каждом тесте (`|A|` и `|B|`);
    - коэффициенты Жаккара и Сёренсена–Дайса по формулам из раздела выше.
-4. Для каждого EvoSuite‑теста выбирается **максимальное** сходство с любым Randoop‑тестом (отдельно для Жаккара и для Дайса).
-5. Итоговая метрика группы — это среднее значение этих максимумов по всем EvoSuite‑тестам.
-6. Если у группы нет EvoSuite‑тестов, результат помечается как `NaN`. Если нет Randoop‑тестов, все максимумы считаются равными 0.
+4. Для каждого EvoSuite‑теста выбирается **максимальное** сходство с любым Randoop‑тестом, а затем выполняется обратный расчёт для каждого Randoop‑теста.
+5. Итоговая метрика группы — среднее значений двух направлений. Поля `evosuite_to_randoop_*` и `randoop_to_evosuite_*` остаются в детальном CSV для диагностики.
+6. Если оба набора отсутствуют, результат помечается как `NaN`; если отсутствует один набор, итоговая схожесть равна 0.
 
 ## Агрегация запусков
 
