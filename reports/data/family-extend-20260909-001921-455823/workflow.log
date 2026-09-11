@@ -1,0 +1,5 @@
+
+RUN: powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\setup_llm.ps1 -SkipModelPull
+NAME                ID              SIZE      MODIFIED     
+qwen2.5-coder:3b    f72c60cabf62    1.9 GB    34 hours ago    
+Local endpoint: http://127.0.0.1:11435. Run this script again after a reboot.

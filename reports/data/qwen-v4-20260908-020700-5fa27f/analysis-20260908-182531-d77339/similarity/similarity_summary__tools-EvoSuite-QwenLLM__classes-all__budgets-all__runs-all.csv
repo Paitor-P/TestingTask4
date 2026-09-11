@@ -1,0 +1,5 @@
+tool_a,tool_b,program_class,tool_a_budget_sec,runs,samples,mean_max_jaccard,variance,stddev,ci_lower,ci_upper,mean_max_dice,variance_dice,stddev_dice,ci_lower_dice,ci_upper_dice,tool_b_budget_sec
+EvoSuite,QwenLLM,LongestIncreasingSubsequence,120,1,1,0.996429,,,,,0.998148,,,,,1800
+EvoSuite,QwenLLM,LruCache,120,1,1,0.762207,,,,,0.84549,,,,,1800
+EvoSuite,QwenLLM,PricingEngine,120,1,1,0.715107,,,,,0.753253,,,,,1800
+EvoSuite,QwenLLM,SimpleJsonParser,120,1,1,0.8125,,,,,0.876488,,,,,1800

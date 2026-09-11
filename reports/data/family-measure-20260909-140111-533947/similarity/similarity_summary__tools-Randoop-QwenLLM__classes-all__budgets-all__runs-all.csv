@@ -1,0 +1,5 @@
+tool_a,tool_b,program_class,tool_a_budget_sec,runs,samples,mean_max_jaccard,variance,stddev,ci_lower,ci_upper,mean_max_dice,variance_dice,stddev_dice,ci_lower_dice,ci_upper_dice,tool_b_budget_sec
+Randoop,QwenLLM,LongestIncreasingSubsequence,120,3,3,0.920155,0.004928,0.0702,0.745755,1.094554,0.937134,0.002949,0.054307,0.802217,1.072051,1800
+Randoop,QwenLLM,LruCache,120,3,3,0.911041,0.004769,0.069059,0.739475,1.082608,0.946251,0.001552,0.039398,0.848372,1.04413,1800
+Randoop,QwenLLM,PricingEngine,120,3,3,0.6384,0.012694,0.112667,0.358498,0.918301,0.738217,0.008186,0.090474,0.513449,0.962985,1800
+Randoop,QwenLLM,SimpleJsonParser,120,3,3,0.342338,0.000117,0.010803,0.315501,0.369175,0.490418,0.000124,0.011124,0.462783,0.518054,1800

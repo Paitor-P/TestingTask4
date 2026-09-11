@@ -1,0 +1,40 @@
+﻿{
+    "finishedAt":  "2026-09-08T03:31:37.8880039+03:00",
+    "exitCode":  0,
+    "outputRoot":  "C:\\Users\\user\\Documents\\Polytech\\Testing\\Lab4up\\src\\generatedTest\\qwen-v4-20260908-020700-5fa27f",
+    "logFile":  "C:\\Users\\user\\Documents\\Polytech\\Testing\\Lab4up\\reports\\data\\qwen-v4-20260908-020700-5fa27f\\generation.log",
+    "runs":  [
+                 {
+                     "target":  "com.viktor.lab4.LongestIncreasingSubsequence",
+                     "status":  "OK",
+                     "accepted":  10,
+                     "stopReason":  "accepted_test_quota",
+                     "elapsedSec":  671.9982021000033,
+                     "metadata":  "C:\\Users\\user\\Documents\\Polytech\\Testing\\Lab4up\\src\\generatedTest\\qwen-v4-20260908-020700-5fa27f\\QwenLLM\\LongestIncreasingSubsequence\\1800\\run1-seed101\\llm-run.json"
+                 },
+                 {
+                     "target":  "com.viktor.lab4.LruCache",
+                     "status":  "OK",
+                     "accepted":  10,
+                     "stopReason":  "accepted_test_quota",
+                     "elapsedSec":  793.4026442000031,
+                     "metadata":  "C:\\Users\\user\\Documents\\Polytech\\Testing\\Lab4up\\src\\generatedTest\\qwen-v4-20260908-020700-5fa27f\\QwenLLM\\LruCache\\1800\\run1-seed101\\llm-run.json"
+                 },
+                 {
+                     "target":  "com.viktor.lab4.PricingEngine",
+                     "status":  "OK",
+                     "accepted":  5,
+                     "stopReason":  "time_limit",
+                     "elapsedSec":  1800.032298799997,
+                     "metadata":  "C:\\Users\\user\\Documents\\Polytech\\Testing\\Lab4up\\src\\generatedTest\\qwen-v4-20260908-020700-5fa27f\\QwenLLM\\PricingEngine\\1800\\run1-seed101\\llm-run.json"
+                 },
+                 {
+                     "target":  "com.viktor.lab4.SimpleJsonParser",
+                     "status":  "OK",
+                     "accepted":  4,
+                     "stopReason":  "time_limit",
+                     "elapsedSec":  1800.0198664000054,
+                     "metadata":  "C:\\Users\\user\\Documents\\Polytech\\Testing\\Lab4up\\src\\generatedTest\\qwen-v4-20260908-020700-5fa27f\\QwenLLM\\SimpleJsonParser\\1800\\run1-seed101\\llm-run.json"
+                 }
+             ]
+}

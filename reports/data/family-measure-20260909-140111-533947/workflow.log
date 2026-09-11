@@ -1,0 +1,182 @@
+
+RUN: C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\.venv\Scripts\python.exe -u C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\analyze_test_quality.py --tools EvoSuite --budgets 120 --seeds 101 202 303 --scope class-family --generated-tests-root C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\suites --report-root C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\family-measure-20260909-140111-533947
+============================================================
+Active filters:
+  Tools: ['EvoSuite']
+  Cases: ['LongestIncreasingSubsequence', 'LruCache', 'PricingEngine', 'SimpleJsonParser']
+  Budgets (sec): [120]
+  Runs: ALL
+============================================================
+
+
+Test collection summary:
+  Total matching filters: 12
+  Will process: 12 tasks
+
+Executing 12 Gradle analysis tasks sequentially...
+  [1/12] EvoSuite/LongestIncreasingSubsequence/120/run1 - OK
+  [2/12] EvoSuite/LongestIncreasingSubsequence/120/run2 - OK
+  [3/12] EvoSuite/LongestIncreasingSubsequence/120/run3 - OK
+  [4/12] EvoSuite/LruCache/120/run1 - OK
+  [5/12] EvoSuite/LruCache/120/run2 - OK
+  [6/12] EvoSuite/LruCache/120/run3 - OK
+  [7/12] EvoSuite/PricingEngine/120/run1 - OK
+  [8/12] EvoSuite/PricingEngine/120/run2 - OK
+  [9/12] EvoSuite/PricingEngine/120/run3 - OK
+  [10/12] EvoSuite/SimpleJsonParser/120/run1 - OK
+  [11/12] EvoSuite/SimpleJsonParser/120/run2 - OK
+  [12/12] EvoSuite/SimpleJsonParser/120/run3 - OK
+
+Done.
+Detailed:   C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\family-measure-20260909-140111-533947\quality\quality_runs__tools-EvoSuite__cases-all__budgets-120__runs-all__seeds-101-202-303.csv
+Aggregated: C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\family-measure-20260909-140111-533947\quality\quality_summary__tools-EvoSuite__cases-all__budgets-120__runs-all__seeds-101-202-303.csv
+
+RUN: C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\.venv\Scripts\python.exe -u C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\analyze_test_quality.py --tools Randoop --budgets 120 --seeds 101 202 303 --scope class-family --generated-tests-root C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\suites --report-root C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\family-measure-20260909-140111-533947
+============================================================
+Active filters:
+  Tools: ['Randoop']
+  Cases: ['LongestIncreasingSubsequence', 'LruCache', 'PricingEngine', 'SimpleJsonParser']
+  Budgets (sec): [120]
+  Runs: ALL
+============================================================
+
+
+Test collection summary:
+  Total matching filters: 12
+  Will process: 12 tasks
+
+Executing 12 Gradle analysis tasks sequentially...
+  [1/12] Randoop/LongestIncreasingSubsequence/120/run1 - OK
+  [2/12] Randoop/LongestIncreasingSubsequence/120/run2 - OK
+  [3/12] Randoop/LongestIncreasingSubsequence/120/run3 - OK
+  [4/12] Randoop/LruCache/120/run1 - OK
+  [5/12] Randoop/LruCache/120/run2 - OK
+  [6/12] Randoop/LruCache/120/run3 - OK
+  [7/12] Randoop/PricingEngine/120/run1 - OK
+  [8/12] Randoop/PricingEngine/120/run2 - OK
+  [9/12] Randoop/PricingEngine/120/run3 - OK
+  [10/12] Randoop/SimpleJsonParser/120/run1 - OK
+  [11/12] Randoop/SimpleJsonParser/120/run2 - OK
+  [12/12] Randoop/SimpleJsonParser/120/run3 - OK
+
+Done.
+Detailed:   C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\family-measure-20260909-140111-533947\quality\quality_runs__tools-Randoop__cases-all__budgets-120__runs-all__seeds-101-202-303.csv
+Aggregated: C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\family-measure-20260909-140111-533947\quality\quality_summary__tools-Randoop__cases-all__budgets-120__runs-all__seeds-101-202-303.csv
+
+RUN: C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\.venv\Scripts\python.exe -u C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\analyze_test_quality.py --tools QwenLLM --budgets 1800 --seeds 101 202 303 --scope class-family --generated-tests-root C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f --report-root C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\family-measure-20260909-140111-533947
+============================================================
+Active filters:
+  Tools: ['QwenLLM']
+  Cases: ['LongestIncreasingSubsequence', 'LruCache', 'PricingEngine', 'SimpleJsonParser']
+  Budgets (sec): [1800]
+  Runs: ALL
+============================================================
+
+
+Test collection summary:
+  Total matching filters: 12
+  Will process: 12 tasks
+
+Executing 12 Gradle analysis tasks sequentially...
+  [1/12] QwenLLM/LongestIncreasingSubsequence/1800/run1 - OK
+  [2/12] QwenLLM/LongestIncreasingSubsequence/1800/run2 - OK
+  [3/12] QwenLLM/LongestIncreasingSubsequence/1800/run3 - OK
+  [4/12] QwenLLM/LruCache/1800/run1 - OK
+  [5/12] QwenLLM/LruCache/1800/run2 - OK
+  [6/12] QwenLLM/LruCache/1800/run3 - OK
+  [7/12] QwenLLM/PricingEngine/1800/run1 - OK
+  [8/12] QwenLLM/PricingEngine/1800/run2 - OK
+  [9/12] QwenLLM/PricingEngine/1800/run3 - OK
+  [10/12] QwenLLM/SimpleJsonParser/1800/run1 - OK
+  [11/12] QwenLLM/SimpleJsonParser/1800/run2 - OK
+  [12/12] QwenLLM/SimpleJsonParser/1800/run3 - OK
+
+Done.
+Detailed:   C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\family-measure-20260909-140111-533947\quality\quality_runs__tools-QwenLLM__cases-all__budgets-1800__runs-all__seeds-101-202-303.csv
+Aggregated: C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\family-measure-20260909-140111-533947\quality\quality_summary__tools-QwenLLM__cases-all__budgets-1800__runs-all__seeds-101-202-303.csv
+
+RUN: C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\.venv\Scripts\python.exe -u C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\analyze_trace_similarity.py --tools EvoSuite --collect-only --scope class-family --budgets 120 --seeds 101,202,303 --generated-tests C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\suites --traces-dir C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\family-measure-20260909-140111-533947\traces --java C:\Users\user\.jdks\jbr-17.0.14\bin\java.exe
+[collect] tool=EvoSuite
+[collect] class=LongestIncreasingSubsequence time=120 run=1 seed=101 tests=2
+[collect] class=LongestIncreasingSubsequence time=120 run=2 seed=202 tests=2
+[collect] class=LongestIncreasingSubsequence time=120 run=3 seed=303 tests=2
+[collect] class=LruCache time=120 run=1 seed=101 tests=2
+[collect] class=LruCache time=120 run=2 seed=202 tests=2
+[collect] class=LruCache time=120 run=3 seed=303 tests=2
+[collect] class=PricingEngine time=120 run=1 seed=101 tests=2
+[collect] class=PricingEngine time=120 run=2 seed=202 tests=2
+[collect] class=PricingEngine time=120 run=3 seed=303 tests=2
+[collect] class=SimpleJsonParser time=120 run=1 seed=101 tests=2
+[collect] class=SimpleJsonParser time=120 run=2 seed=202 tests=2
+[collect] class=SimpleJsonParser time=120 run=3 seed=303 tests=2
+
+RUN: C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\.venv\Scripts\python.exe -u C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\analyze_trace_similarity.py --tools Randoop --collect-only --scope class-family --budgets 120 --seeds 101,202,303 --generated-tests C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\suites --traces-dir C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\family-measure-20260909-140111-533947\traces --java C:\Users\user\.jdks\jbr-17.0.14\bin\java.exe
+[collect] tool=Randoop
+[collect] class=LongestIncreasingSubsequence time=120 run=1 seed=101 tests=7
+[collect] class=LongestIncreasingSubsequence time=120 run=2 seed=202 tests=7
+[collect] class=LongestIncreasingSubsequence time=120 run=3 seed=303 tests=4
+[collect] class=LruCache time=120 run=1 seed=101 tests=3
+[collect] class=LruCache time=120 run=2 seed=202 tests=4
+[collect] class=LruCache time=120 run=3 seed=303 tests=2
+[collect] class=PricingEngine time=120 run=1 seed=101 tests=3
+[collect] class=PricingEngine time=120 run=2 seed=202 tests=3
+[collect] class=PricingEngine time=120 run=3 seed=303 tests=4
+[collect] class=SimpleJsonParser time=120 run=1 seed=101 tests=2
+[collect] class=SimpleJsonParser time=120 run=2 seed=202 tests=2
+[collect] class=SimpleJsonParser time=120 run=3 seed=303 tests=2
+
+RUN: C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\.venv\Scripts\python.exe -u C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\analyze_trace_similarity.py --tools QwenLLM --collect-only --scope class-family --budgets 1800 --seeds 101,202,303 --generated-tests C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f --traces-dir C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\family-measure-20260909-140111-533947\traces --java C:\Users\user\.jdks\jbr-17.0.14\bin\java.exe
+[collect] tool=QwenLLM
+[collect] class=LongestIncreasingSubsequence time=1800 run=1 seed=101 tests=10
+[collect] class=LongestIncreasingSubsequence time=1800 run=2 seed=202 tests=10
+[collect] class=LongestIncreasingSubsequence time=1800 run=3 seed=303 tests=10
+[collect] class=LruCache time=1800 run=1 seed=101 tests=10
+[collect] class=LruCache time=1800 run=2 seed=202 tests=10
+[collect] class=LruCache time=1800 run=3 seed=303 tests=8
+[collect] class=PricingEngine time=1800 run=1 seed=101 tests=5
+[collect] class=PricingEngine time=1800 run=2 seed=202 tests=5
+[collect] class=PricingEngine time=1800 run=3 seed=303 tests=7
+[collect] class=SimpleJsonParser time=1800 run=1 seed=101 tests=4
+[collect] class=SimpleJsonParser time=1800 run=2 seed=202 tests=4
+[collect] class=SimpleJsonParser time=1800 run=3 seed=303 tests=6
+
+RUN: C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\.venv\Scripts\python.exe -u C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\analyze_trace_similarity.py --tools EvoSuite,Randoop,QwenLLM --skip-collect --scope class-family --traces-dir C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\family-measure-20260909-140111-533947\traces --out C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\family-measure-20260909-140111-533947\similarity\similarity_runs.csv
+[compare] evo_rows=156 randoop_rows=12127
+[compare] class=LongestIncreasingSubsequence time=120 run=1 evo=4 ran=2571
+[compare] class=LongestIncreasingSubsequence time=120 run=2 evo=4 ran=2583
+[compare] class=LongestIncreasingSubsequence time=120 run=3 evo=3 ran=1309
+[compare] class=LruCache time=120 run=1 evo=9 ran=992
+[compare] class=LruCache time=120 run=2 evo=10 ran=1285
+[compare] class=LruCache time=120 run=3 evo=8 ran=333
+[compare] class=PricingEngine time=120 run=1 evo=23 ran=925
+[compare] class=PricingEngine time=120 run=2 evo=23 ran=999
+[compare] class=PricingEngine time=120 run=3 evo=23 ran=1118
+[compare] class=SimpleJsonParser time=120 run=1 evo=16 ran=4
+[compare] class=SimpleJsonParser time=120 run=2 evo=16 ran=4
+[compare] class=SimpleJsonParser time=120 run=3 evo=17 ran=4
+[compare] evo_rows=156 randoop_rows=89
+[compare] class=LongestIncreasingSubsequence time=120 run=1 evo=4 ran=10
+[compare] class=LongestIncreasingSubsequence time=120 run=2 evo=4 ran=10
+[compare] class=LongestIncreasingSubsequence time=120 run=3 evo=3 ran=10
+[compare] class=LruCache time=120 run=1 evo=9 ran=10
+[compare] class=LruCache time=120 run=2 evo=10 ran=10
+[compare] class=LruCache time=120 run=3 evo=8 ran=8
+[compare] class=PricingEngine time=120 run=1 evo=23 ran=5
+[compare] class=PricingEngine time=120 run=2 evo=23 ran=5
+[compare] class=PricingEngine time=120 run=3 evo=23 ran=7
+[compare] class=SimpleJsonParser time=120 run=1 evo=16 ran=4
+[compare] class=SimpleJsonParser time=120 run=2 evo=16 ran=4
+[compare] class=SimpleJsonParser time=120 run=3 evo=17 ran=6
+[compare] evo_rows=12127 randoop_rows=89
+[compare] class=LongestIncreasingSubsequence time=120 run=1 evo=2571 ran=10
+[compare] class=LongestIncreasingSubsequence time=120 run=2 evo=2583 ran=10
+[compare] class=LongestIncreasingSubsequence time=120 run=3 evo=1309 ran=10
+[compare] class=LruCache time=120 run=1 evo=992 ran=10
+[compare] class=LruCache time=120 run=2 evo=1285 ran=10
+[compare] class=LruCache time=120 run=3 evo=333 ran=8
+[compare] class=PricingEngine time=120 run=1 evo=925 ran=5
+[compare] class=PricingEngine time=120 run=2 evo=999 ran=5
+[compare] class=PricingEngine time=120 run=3 evo=1118 ran=7
+[compare] class=SimpleJsonParser time=120 run=1 evo=4 ran=4
+[compare] class=SimpleJsonParser time=120 run=2 evo=4 ran=4
+[compare] class=SimpleJsonParser time=120 run=3 evo=4 ran=6

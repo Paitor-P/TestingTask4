@@ -1,0 +1,5 @@
+case,budgetSec,run,seed,status,protocol,budgetKind,stopReason,targetAcceptedTests,quotaMet,attempts,acceptedCandidates,repairAttempts,rejectedCandidates,timedOutCandidates,elapsedSec,completedOutputTokens,modelDigest
+LongestIncreasingSubsequence,1800,run1-seed101,101,OK,qwen-focused-repair-v4,safety_ceiling,accepted_test_quota,10,True,28,10,15,18,0,671.9982021000033,6799,f72c60cabf6237b07f6e632b2c48d533cef25eda2efbd34bed21c5e9c01e6225
+LruCache,1800,run1-seed101,101,OK,qwen-focused-repair-v4,safety_ceiling,accepted_test_quota,10,True,31,10,17,21,0,793.4026442000031,7557,f72c60cabf6237b07f6e632b2c48d533cef25eda2efbd34bed21c5e9c01e6225
+PricingEngine,1800,run1-seed101,101,OK,qwen-focused-repair-v4,safety_ceiling,time_limit,10,False,60,5,42,54,1,1800.032298799997,13214,f72c60cabf6237b07f6e632b2c48d533cef25eda2efbd34bed21c5e9c01e6225
+SimpleJsonParser,1800,run1-seed101,101,OK,qwen-focused-repair-v4,safety_ceiling,time_limit,10,False,56,4,39,51,1,1800.0198664000054,9733,f72c60cabf6237b07f6e632b2c48d533cef25eda2efbd34bed21c5e9c01e6225

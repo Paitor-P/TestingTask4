@@ -1,0 +1,5 @@
+tool_a,tool_b,program_class,tool_a_budget_sec,runs,samples,mean_max_jaccard,variance,stddev,ci_lower,ci_upper,mean_max_dice,variance_dice,stddev_dice,ci_lower_dice,ci_upper_dice,tool_b_budget_sec
+EvoSuite,QwenLLM,LongestIncreasingSubsequence,120,10,10,0.993571,0.000277,0.01665,0.981662,1.005481,0.994259,0.000263,0.016225,0.982653,1.005865,1800
+EvoSuite,QwenLLM,LruCache,120,10,10,0.888986,0.001513,0.038902,0.861159,0.916813,0.936808,0.000849,0.029132,0.91597,0.957647,1800
+EvoSuite,QwenLLM,PricingEngine,120,10,10,0.753211,0.010727,0.103569,0.679128,0.827295,0.811898,0.011804,0.108647,0.734182,0.889614,1800
+EvoSuite,QwenLLM,SimpleJsonParser,120,9,9,0.786836,0.001509,0.038842,0.756979,0.816693,0.861402,0.000971,0.031156,0.837454,0.885351,1800

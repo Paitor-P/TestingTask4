@@ -1,0 +1,2593 @@
+
+RUN: powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\setup_llm.ps1 -SkipModelPull
+NAME                ID              SIZE      MODIFIED   
+qwen2.5-coder:3b    f72c60cabf62    1.9 GB    2 days ago    
+Local endpoint: http://127.0.0.1:11435. Run this script again after a reboot.
+
+RUN: C:\Users\user\Documents\Polytech\Testing\Lab4up\gradlew.bat --no-daemon classes
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+
+[Incubating] Problems report is available at: file:///C:/Users/user/Documents/Polytech/Testing/Lab4up/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 4s
+2 actionable tasks: 2 up-to-date
+
+RUN: C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\.venv\Scripts\python.exe -u C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\generate_test_suites.py --tools QwenLLM --seeds 404 --target-classes com.viktor.lab4.LongestIncreasingSubsequence com.viktor.lab4.LruCache com.viktor.lab4.PricingEngine com.viktor.lab4.SimpleJsonParser --skip-build --java-exe C:\Users\user\.jdks\jbr-17.0.14\bin\java.exe --output-root C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f
+Tool = QwenLLM
+target = com.viktor.lab4.LongestIncreasingSubsequence
+budget = 1800, seed = 404
+  Qwen candidate 1: GENERATE started; accepted=0/10
+  Qwen candidate 1: REJECTED; accepted=0/10; elapsed=15s; Compilation failed
+  Qwen candidate 2: REPAIR started; accepted=0/10
+  Qwen candidate 2: ACCEPTED; accepted=1/10; elapsed=34s
+  Qwen candidate 3: GENERATE started; accepted=1/10
+  Qwen candidate 3: REJECTED; accepted=1/10; elapsed=46s; Compilation failed
+  Qwen candidate 4: REPAIR started; accepted=1/10
+  Qwen candidate 4: ACCEPTED; accepted=2/10; elapsed=60s
+  Qwen candidate 5: GENERATE started; accepted=2/10
+  Qwen candidate 5: ACCEPTED; accepted=3/10; elapsed=73s
+  Qwen candidate 6: GENERATE started; accepted=3/10
+  Qwen candidate 6: ACCEPTED; accepted=4/10; elapsed=87s
+  Qwen candidate 7: GENERATE started; accepted=4/10
+  Qwen candidate 7: ACCEPTED; accepted=5/10; elapsed=98s
+  Qwen candidate 8: GENERATE started; accepted=5/10
+  Qwen candidate 8: ACCEPTED; accepted=6/10; elapsed=121s
+  Qwen candidate 9: GENERATE started; accepted=6/10
+  Qwen candidate 9: REJECTED; accepted=6/10; elapsed=135s; Compilation failed
+  Qwen candidate 10: REPAIR started; accepted=6/10
+  Qwen candidate 10: REJECTED; accepted=6/10; elapsed=151s; Wrong or missing test class
+  Qwen candidate 11: REPAIR started; accepted=6/10
+  Qwen candidate 11: ACCEPTED; accepted=7/10; elapsed=166s
+  Qwen candidate 12: GENERATE started; accepted=7/10
+  Qwen candidate 12: ACCEPTED; accepted=8/10; elapsed=179s
+  Qwen candidate 13: GENERATE started; accepted=8/10
+  Qwen candidate 13: ACCEPTED; accepted=9/10; elapsed=192s
+  Qwen candidate 14: GENERATE started; accepted=9/10
+  Qwen candidate 14: ACCEPTED; accepted=10/10; elapsed=206s
+RUN FINISHED: com.viktor.lab4.LongestIncreasingSubsequence; status=OK; accepted=10/10; stop=accepted_test_quota; elapsed=205.7s
+Metadata: C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f\QwenLLM\LongestIncreasingSubsequence\1800\run4-seed404\llm-run.json
+target = com.viktor.lab4.LruCache
+budget = 1800, seed = 404
+  Qwen candidate 1: GENERATE started; accepted=0/10
+  Qwen candidate 1: REJECTED; accepted=0/10; elapsed=17s; Compilation failed
+  Qwen candidate 2: REPAIR started; accepted=0/10
+  Qwen candidate 2: REJECTED; accepted=0/10; elapsed=43s; Compilation failed
+  Qwen candidate 3: REPAIR started; accepted=0/10
+  Qwen candidate 3: REJECTED; accepted=0/10; elapsed=66s; Compilation failed
+  Qwen candidate 4: REPAIR started; accepted=0/10
+  Qwen candidate 4: REJECTED; accepted=0/10; elapsed=89s; Compilation failed
+  Qwen candidate 5: GENERATE started; accepted=0/10
+  Qwen candidate 5: REJECTED; accepted=0/10; elapsed=105s; Compilation failed
+  Qwen candidate 6: REPAIR started; accepted=0/10
+  Qwen candidate 6: ACCEPTED; accepted=1/10; elapsed=130s
+  Qwen candidate 7: GENERATE started; accepted=1/10
+  Qwen candidate 7: REJECTED; accepted=1/10; elapsed=144s; JUnit validation failed
+  Qwen candidate 8: REPAIR started; accepted=1/10
+  Qwen candidate 8: REJECTED; accepted=1/10; elapsed=160s; JUnit validation failed
+  Qwen candidate 9: REPAIR started; accepted=1/10
+  Qwen candidate 9: REJECTED; accepted=1/10; elapsed=174s; JUnit validation failed
+  Qwen candidate 10: REPAIR started; accepted=1/10
+  Qwen candidate 10: REJECTED; accepted=1/10; elapsed=188s; JUnit validation failed
+  Qwen candidate 11: GENERATE started; accepted=1/10
+  Qwen candidate 11: ACCEPTED; accepted=2/10; elapsed=211s
+  Qwen candidate 12: GENERATE started; accepted=2/10
+  Qwen candidate 12: REJECTED; accepted=2/10; elapsed=237s; JUnit validation failed
+  Qwen candidate 13: REPAIR started; accepted=2/10
+  Qwen candidate 13: REJECTED; accepted=2/10; elapsed=268s; JUnit validation failed
+  Qwen candidate 14: REPAIR started; accepted=2/10
+  Qwen candidate 14: REJECTED; accepted=2/10; elapsed=311s; JUnit validation failed
+  Qwen candidate 15: REPAIR started; accepted=2/10
+  Qwen candidate 15: REJECTED; accepted=2/10; elapsed=358s; JUnit validation failed
+  Qwen candidate 16: GENERATE started; accepted=2/10
+  Qwen candidate 16: REJECTED; accepted=2/10; elapsed=381s; Compilation failed
+  Qwen candidate 17: REPAIR started; accepted=2/10
+  Qwen candidate 17: REJECTED; accepted=2/10; elapsed=412s; Compilation failed
+  Qwen candidate 18: REPAIR started; accepted=2/10
+  Qwen candidate 18: REJECTED; accepted=2/10; elapsed=440s; Compilation failed
+  Qwen candidate 19: REPAIR started; accepted=2/10
+  Qwen candidate 19: REJECTED; accepted=2/10; elapsed=466s; Compilation failed
+  Qwen candidate 20: GENERATE started; accepted=2/10
+  Qwen candidate 20: ACCEPTED; accepted=3/10; elapsed=489s
+  Qwen candidate 21: GENERATE started; accepted=3/10
+  Qwen candidate 21: REJECTED; accepted=3/10; elapsed=501s; Compilation failed
+  Qwen candidate 22: REPAIR started; accepted=3/10
+  Qwen candidate 22: REJECTED; accepted=3/10; elapsed=517s; Compilation failed
+  Qwen candidate 23: REPAIR started; accepted=3/10
+  Qwen candidate 23: REJECTED; accepted=3/10; elapsed=530s; Compilation failed
+  Qwen candidate 24: REPAIR started; accepted=3/10
+  Qwen candidate 24: REJECTED; accepted=3/10; elapsed=548s; Compilation failed
+  Qwen candidate 25: GENERATE started; accepted=3/10
+  Qwen candidate 25: REJECTED; accepted=3/10; elapsed=563s; JUnit validation failed
+  Qwen candidate 26: REPAIR started; accepted=3/10
+  Qwen candidate 26: ACCEPTED; accepted=4/10; elapsed=579s
+  Qwen candidate 27: GENERATE started; accepted=4/10
+  Qwen candidate 27: REJECTED; accepted=4/10; elapsed=598s; Compilation failed
+  Qwen candidate 28: REPAIR started; accepted=4/10
+  Qwen candidate 28: REJECTED; accepted=4/10; elapsed=628s; Compilation failed
+  Qwen candidate 29: REPAIR started; accepted=4/10
+  Qwen candidate 29: REJECTED; accepted=4/10; elapsed=656s; Compilation failed
+  Qwen candidate 30: REPAIR started; accepted=4/10
+  Qwen candidate 30: REJECTED; accepted=4/10; elapsed=690s; Compilation failed
+  Qwen candidate 31: GENERATE started; accepted=4/10
+  Qwen candidate 31: ACCEPTED; accepted=5/10; elapsed=705s
+  Qwen candidate 32: GENERATE started; accepted=5/10
+  Qwen candidate 32: REJECTED; accepted=5/10; elapsed=726s; JUnit validation failed
+  Qwen candidate 33: REPAIR started; accepted=5/10
+  Qwen candidate 33: REJECTED; accepted=5/10; elapsed=753s; JUnit validation failed
+  Qwen candidate 34: REPAIR started; accepted=5/10
+  Qwen candidate 34: REJECTED; accepted=5/10; elapsed=788s; JUnit validation failed
+  Qwen candidate 35: REPAIR started; accepted=5/10
+  Qwen candidate 35: REJECTED; accepted=5/10; elapsed=824s; Wrong or missing test class
+  Qwen candidate 36: GENERATE started; accepted=5/10
+  Qwen candidate 36: REJECTED; accepted=5/10; elapsed=846s; Compilation failed
+  Qwen candidate 37: REPAIR started; accepted=5/10
+  Qwen candidate 37: REJECTED; accepted=5/10; elapsed=873s; Compilation failed
+  Qwen candidate 38: REPAIR started; accepted=5/10
+  Qwen candidate 38: REJECTED; accepted=5/10; elapsed=899s; Compilation failed
+  Qwen candidate 39: REPAIR started; accepted=5/10
+  Qwen candidate 39: REJECTED; accepted=5/10; elapsed=924s; Compilation failed
+  Qwen candidate 40: GENERATE started; accepted=5/10
+  Qwen candidate 40: ACCEPTED; accepted=6/10; elapsed=938s
+  Qwen candidate 41: GENERATE started; accepted=6/10
+  Qwen candidate 41: ACCEPTED; accepted=7/10; elapsed=951s
+  Qwen candidate 42: GENERATE started; accepted=7/10
+  Qwen candidate 42: REJECTED; accepted=7/10; elapsed=976s; Compilation failed
+  Qwen candidate 43: REPAIR started; accepted=7/10
+  Qwen candidate 43: ACCEPTED; accepted=8/10; elapsed=1030s
+  Qwen candidate 44: GENERATE started; accepted=8/10
+  Qwen candidate 44: ACCEPTED; accepted=9/10; elapsed=1051s
+  Qwen candidate 45: GENERATE started; accepted=9/10
+  Qwen candidate 45: ACCEPTED; accepted=10/10; elapsed=1073s
+RUN FINISHED: com.viktor.lab4.LruCache; status=OK; accepted=10/10; stop=accepted_test_quota; elapsed=1072.6s
+Metadata: C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f\QwenLLM\LruCache\1800\run4-seed404\llm-run.json
+target = com.viktor.lab4.PricingEngine
+budget = 1800, seed = 404
+  Qwen candidate 1: GENERATE started; accepted=0/10
+  Qwen candidate 1: REJECTED; accepted=0/10; elapsed=24s; JUnit validation failed
+  Qwen candidate 2: REPAIR started; accepted=0/10
+  Qwen candidate 2: REJECTED; accepted=0/10; elapsed=53s; JUnit validation failed
+  Qwen candidate 3: REPAIR started; accepted=0/10
+  Qwen candidate 3: REJECTED; accepted=0/10; elapsed=79s; JUnit validation failed
+  Qwen candidate 4: REPAIR started; accepted=0/10
+  Qwen candidate 4: REJECTED; accepted=0/10; elapsed=105s; JUnit validation failed
+  Qwen candidate 5: GENERATE started; accepted=0/10
+  Qwen candidate 5: REJECTED; accepted=0/10; elapsed=129s; Compilation failed
+  Qwen candidate 6: REPAIR started; accepted=0/10
+  Qwen candidate 6: REJECTED; accepted=0/10; elapsed=163s; JUnit validation failed
+  Qwen candidate 7: REPAIR started; accepted=0/10
+  Qwen candidate 7: REJECTED; accepted=0/10; elapsed=195s; Wrong or missing test class
+  Qwen candidate 8: REPAIR started; accepted=0/10
+  Qwen candidate 8: REJECTED; accepted=0/10; elapsed=222s; Wrong or missing test class
+  Qwen candidate 9: GENERATE started; accepted=0/10
+  Qwen candidate 9: ACCEPTED; accepted=1/10; elapsed=243s
+  Qwen candidate 10: GENERATE started; accepted=1/10
+  Qwen candidate 10: REJECTED; accepted=1/10; elapsed=267s; JUnit validation failed
+  Qwen candidate 11: REPAIR started; accepted=1/10
+  Qwen candidate 11: REJECTED; accepted=1/10; elapsed=298s; JUnit validation failed
+  Qwen candidate 12: REPAIR started; accepted=1/10
+  Qwen candidate 12: REJECTED; accepted=1/10; elapsed=329s; JUnit validation failed
+  Qwen candidate 13: REPAIR started; accepted=1/10
+  Qwen candidate 13: REJECTED; accepted=1/10; elapsed=357s; JUnit validation failed
+  Qwen candidate 14: GENERATE started; accepted=1/10
+  Qwen candidate 14: REJECTED; accepted=1/10; elapsed=385s; Compilation failed
+  Qwen candidate 15: REPAIR started; accepted=1/10
+  Qwen candidate 15: REJECTED; accepted=1/10; elapsed=431s; JUnit validation failed
+  Qwen candidate 16: REPAIR started; accepted=1/10
+  Qwen candidate 16: REJECTED; accepted=1/10; elapsed=476s; Wrong or missing test class
+  Qwen candidate 17: REPAIR started; accepted=1/10
+  Qwen candidate 17: REJECTED; accepted=1/10; elapsed=520s; Wrong or missing test class
+  Qwen candidate 18: GENERATE started; accepted=1/10
+  Qwen candidate 18: REJECTED; accepted=1/10; elapsed=545s; Compilation failed
+  Qwen candidate 19: REPAIR started; accepted=1/10
+  Qwen candidate 19: REJECTED; accepted=1/10; elapsed=572s; Compilation failed
+  Qwen candidate 20: REPAIR started; accepted=1/10
+  Qwen candidate 20: REJECTED; accepted=1/10; elapsed=606s; Compilation failed
+  Qwen candidate 21: REPAIR started; accepted=1/10
+  Qwen candidate 21: REJECTED; accepted=1/10; elapsed=637s; Wrong or missing test class
+  Qwen candidate 22: GENERATE started; accepted=1/10
+  Qwen candidate 22: REJECTED; accepted=1/10; elapsed=662s; JUnit validation failed
+  Qwen candidate 23: REPAIR started; accepted=1/10
+  Qwen candidate 23: REJECTED; accepted=1/10; elapsed=691s; JUnit validation failed
+  Qwen candidate 24: REPAIR started; accepted=1/10
+  Qwen candidate 24: REJECTED; accepted=1/10; elapsed=717s; JUnit validation failed
+  Qwen candidate 25: REPAIR started; accepted=1/10
+  Qwen candidate 25: REJECTED; accepted=1/10; elapsed=796s; Compilation failed
+  Qwen candidate 26: GENERATE started; accepted=1/10
+  Qwen candidate 26: REJECTED; accepted=1/10; elapsed=819s; Compilation failed
+  Qwen candidate 27: REPAIR started; accepted=1/10
+  Qwen candidate 27: REJECTED; accepted=1/10; elapsed=845s; JUnit validation failed
+  Qwen candidate 28: REPAIR started; accepted=1/10
+  Qwen candidate 28: REJECTED; accepted=1/10; elapsed=872s; JUnit validation failed
+  Qwen candidate 29: REPAIR started; accepted=1/10
+  Qwen candidate 29: REJECTED; accepted=1/10; elapsed=897s; JUnit validation failed
+  Qwen candidate 30: GENERATE started; accepted=1/10
+  Qwen candidate 30: ACCEPTED; accepted=2/10; elapsed=919s
+  Qwen candidate 31: GENERATE started; accepted=2/10
+  Qwen candidate 31: REJECTED; accepted=2/10; elapsed=943s; Compilation failed
+  Qwen candidate 32: REPAIR started; accepted=2/10
+  Qwen candidate 32: REJECTED; accepted=2/10; elapsed=972s; JUnit validation failed
+  Qwen candidate 33: REPAIR started; accepted=2/10
+  Qwen candidate 33: REJECTED; accepted=2/10; elapsed=999s; JUnit validation failed
+  Qwen candidate 34: REPAIR started; accepted=2/10
+  Qwen candidate 34: REJECTED; accepted=2/10; elapsed=1062s; JUnit validation failed
+  Qwen candidate 35: GENERATE started; accepted=2/10
+  Qwen candidate 35: REJECTED; accepted=2/10; elapsed=1089s; JUnit validation failed
+  Qwen candidate 36: REPAIR started; accepted=2/10
+  Qwen candidate 36: REJECTED; accepted=2/10; elapsed=1120s; JUnit validation failed
+  Qwen candidate 37: REPAIR started; accepted=2/10
+  Qwen candidate 37: REJECTED; accepted=2/10; elapsed=1150s; JUnit validation failed
+  Qwen candidate 38: REPAIR started; accepted=2/10
+  Qwen candidate 38: REJECTED; accepted=2/10; elapsed=1180s; JUnit validation failed
+  Qwen candidate 39: GENERATE started; accepted=2/10
+  Qwen candidate 39: REJECTED; accepted=2/10; elapsed=1203s; Compilation failed
+  Qwen candidate 40: REPAIR started; accepted=2/10
+  Qwen candidate 40: REJECTED; accepted=2/10; elapsed=1230s; Compilation failed
+  Qwen candidate 41: REPAIR started; accepted=2/10
+  Qwen candidate 41: REJECTED; accepted=2/10; elapsed=1264s; JUnit validation failed
+  Qwen candidate 42: REPAIR started; accepted=2/10
+  Qwen candidate 42: REJECTED; accepted=2/10; elapsed=1291s; Wrong or missing test class
+  Qwen candidate 43: GENERATE started; accepted=2/10
+  Qwen candidate 43: REJECTED; accepted=2/10; elapsed=1329s; JUnit validation failed
+  Qwen candidate 44: REPAIR started; accepted=2/10
+  Qwen candidate 44: REJECTED; accepted=2/10; elapsed=1379s; JUnit validation failed
+  Qwen candidate 45: REPAIR started; accepted=2/10
+  Qwen candidate 45: REJECTED; accepted=2/10; elapsed=1426s; Wrong or missing test class
+  Qwen candidate 46: REPAIR started; accepted=2/10
+  Qwen candidate 46: REJECTED; accepted=2/10; elapsed=1473s; JUnit validation failed
+  Qwen candidate 47: GENERATE started; accepted=2/10
+  Qwen candidate 47: REJECTED; accepted=2/10; elapsed=1504s; JUnit validation failed
+  Qwen candidate 48: REPAIR started; accepted=2/10
+  Qwen candidate 48: REJECTED; accepted=2/10; elapsed=1540s; JUnit validation failed
+  Qwen candidate 49: REPAIR started; accepted=2/10
+  Qwen candidate 49: REJECTED; accepted=2/10; elapsed=1580s; JUnit validation failed
+  Qwen candidate 50: REPAIR started; accepted=2/10
+  Qwen candidate 50: REJECTED; accepted=2/10; elapsed=1622s; JUnit validation failed
+  Qwen candidate 51: GENERATE started; accepted=2/10
+  Qwen candidate 51: ACCEPTED; accepted=3/10; elapsed=1645s
+  Qwen candidate 52: GENERATE started; accepted=3/10
+  Qwen candidate 52: REJECTED; accepted=3/10; elapsed=1671s; JUnit validation failed
+  Qwen candidate 53: REPAIR started; accepted=3/10
+  Qwen candidate 53: REJECTED; accepted=3/10; elapsed=1710s; JUnit validation failed
+  Qwen candidate 54: REPAIR started; accepted=3/10
+  Qwen candidate 54: REJECTED; accepted=3/10; elapsed=1748s; Wrong or missing test class
+  Qwen candidate 55: REPAIR started; accepted=3/10
+  Qwen candidate 55: REJECTED; accepted=3/10; elapsed=1778s; JUnit validation failed
+  Qwen candidate 56: GENERATE started; accepted=3/10
+  Qwen candidate 56: TIMEOUT; accepted=3/10; elapsed=1800s; timed out
+RUN FINISHED: com.viktor.lab4.PricingEngine; status=OK; accepted=3/10; stop=time_limit; elapsed=1800.0s
+Metadata: C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f\QwenLLM\PricingEngine\1800\run4-seed404\llm-run.json
+target = com.viktor.lab4.SimpleJsonParser
+budget = 1800, seed = 404
+  Qwen candidate 1: GENERATE started; accepted=0/10
+  Qwen candidate 1: REJECTED; accepted=0/10; elapsed=28s; Compilation failed
+  Qwen candidate 2: REPAIR started; accepted=0/10
+  Qwen candidate 2: REJECTED; accepted=0/10; elapsed=63s; Compilation failed
+  Qwen candidate 3: REPAIR started; accepted=0/10
+  Qwen candidate 3: REJECTED; accepted=0/10; elapsed=96s; Compilation failed
+  Qwen candidate 4: REPAIR started; accepted=0/10
+  Qwen candidate 4: REJECTED; accepted=0/10; elapsed=129s; JUnit validation failed
+  Qwen candidate 5: GENERATE started; accepted=0/10
+  Qwen candidate 5: REJECTED; accepted=0/10; elapsed=152s; Compilation failed
+  Qwen candidate 6: REPAIR started; accepted=0/10
+  Qwen candidate 6: REJECTED; accepted=0/10; elapsed=241s; Output token limit reached
+  Qwen candidate 7: REPAIR started; accepted=0/10
+  Qwen candidate 7: REJECTED; accepted=0/10; elapsed=347s; Wrong or missing test class
+  Qwen candidate 8: REPAIR started; accepted=0/10
+  Qwen candidate 8: REJECTED; accepted=0/10; elapsed=399s; Compilation failed
+  Qwen candidate 9: GENERATE started; accepted=0/10
+  Qwen candidate 9: REJECTED; accepted=0/10; elapsed=426s; Compilation failed
+  Qwen candidate 10: REPAIR started; accepted=0/10
+  Qwen candidate 10: REJECTED; accepted=0/10; elapsed=457s; Compilation failed
+  Qwen candidate 11: REPAIR started; accepted=0/10
+  Qwen candidate 11: REJECTED; accepted=0/10; elapsed=487s; Compilation failed
+  Qwen candidate 12: REPAIR started; accepted=0/10
+  Qwen candidate 12: REJECTED; accepted=0/10; elapsed=524s; Compilation failed
+  Qwen candidate 13: GENERATE started; accepted=0/10
+  Qwen candidate 13: REJECTED; accepted=0/10; elapsed=548s; Compilation failed
+  Qwen candidate 14: REPAIR started; accepted=0/10
+  Qwen candidate 14: REJECTED; accepted=0/10; elapsed=580s; Compilation failed
+  Qwen candidate 15: REPAIR started; accepted=0/10
+  Qwen candidate 15: REJECTED; accepted=0/10; elapsed=613s; Wrong or missing test class
+  Qwen candidate 16: REPAIR started; accepted=0/10
+  Qwen candidate 16: REJECTED; accepted=0/10; elapsed=645s; Wrong or missing test class
+  Qwen candidate 17: GENERATE started; accepted=0/10
+  Qwen candidate 17: REJECTED; accepted=0/10; elapsed=674s; Compilation failed
+  Qwen candidate 18: REPAIR started; accepted=0/10
+  Qwen candidate 18: REJECTED; accepted=0/10; elapsed=720s; JUnit validation failed
+  Qwen candidate 19: REPAIR started; accepted=0/10
+  Qwen candidate 19: REJECTED; accepted=0/10; elapsed=766s; Wrong or missing test class
+  Qwen candidate 20: REPAIR started; accepted=0/10
+  Qwen candidate 20: REJECTED; accepted=0/10; elapsed=799s; Wrong or missing test class
+  Qwen candidate 21: GENERATE started; accepted=0/10
+  Qwen candidate 21: REJECTED; accepted=0/10; elapsed=823s; Compilation failed
+  Qwen candidate 22: REPAIR started; accepted=0/10
+  Qwen candidate 22: REJECTED; accepted=0/10; elapsed=856s; JUnit validation failed
+  Qwen candidate 23: REPAIR started; accepted=0/10
+  Qwen candidate 23: REJECTED; accepted=0/10; elapsed=883s; Wrong or missing test class
+  Qwen candidate 24: REPAIR started; accepted=0/10
+  Qwen candidate 24: REJECTED; accepted=0/10; elapsed=907s; JUnit validation failed
+  Qwen candidate 25: GENERATE started; accepted=0/10
+  Qwen candidate 25: REJECTED; accepted=0/10; elapsed=940s; Compilation failed
+  Qwen candidate 26: REPAIR started; accepted=0/10
+  Qwen candidate 26: REJECTED; accepted=0/10; elapsed=985s; Compilation failed
+  Qwen candidate 27: REPAIR started; accepted=0/10
+  Qwen candidate 27: REJECTED; accepted=0/10; elapsed=1026s; Compilation failed
+  Qwen candidate 28: REPAIR started; accepted=0/10
+  Qwen candidate 28: REJECTED; accepted=0/10; elapsed=1082s; JUnit validation failed
+  Qwen candidate 29: GENERATE started; accepted=0/10
+  Qwen candidate 29: REJECTED; accepted=0/10; elapsed=1105s; Compilation failed
+  Qwen candidate 30: REPAIR started; accepted=0/10
+  Qwen candidate 30: REJECTED; accepted=0/10; elapsed=1131s; Compilation failed
+  Qwen candidate 31: REPAIR started; accepted=0/10
+  Qwen candidate 31: REJECTED; accepted=0/10; elapsed=1156s; JUnit validation failed
+  Qwen candidate 32: REPAIR started; accepted=0/10
+  Qwen candidate 32: REJECTED; accepted=0/10; elapsed=1180s; JUnit validation failed
+  Qwen candidate 33: GENERATE started; accepted=0/10
+  Qwen candidate 33: REJECTED; accepted=0/10; elapsed=1204s; Compilation failed
+  Qwen candidate 34: REPAIR started; accepted=0/10
+  Qwen candidate 34: REJECTED; accepted=0/10; elapsed=1236s; Wrong or missing test class
+  Qwen candidate 35: REPAIR started; accepted=0/10
+  Qwen candidate 35: REJECTED; accepted=0/10; elapsed=1267s; JUnit validation failed
+  Qwen candidate 36: REPAIR started; accepted=0/10
+  Qwen candidate 36: REJECTED; accepted=0/10; elapsed=1312s; Wrong or missing test class
+  Qwen candidate 37: GENERATE started; accepted=0/10
+  Qwen candidate 37: REJECTED; accepted=0/10; elapsed=1340s; Compilation failed
+  Qwen candidate 38: REPAIR started; accepted=0/10
+  Qwen candidate 38: REJECTED; accepted=0/10; elapsed=1376s; JUnit validation failed
+  Qwen candidate 39: REPAIR started; accepted=0/10
+  Qwen candidate 39: REJECTED; accepted=0/10; elapsed=1406s; JUnit validation failed
+  Qwen candidate 40: REPAIR started; accepted=0/10
+  Qwen candidate 40: REJECTED; accepted=0/10; elapsed=1436s; JUnit validation failed
+  Qwen candidate 41: GENERATE started; accepted=0/10
+  Qwen candidate 41: REJECTED; accepted=0/10; elapsed=1460s; Compilation failed
+  Qwen candidate 42: REPAIR started; accepted=0/10
+  Qwen candidate 42: REJECTED; accepted=0/10; elapsed=1496s; Compilation failed
+  Qwen candidate 43: REPAIR started; accepted=0/10
+  Qwen candidate 43: REJECTED; accepted=0/10; elapsed=1522s; Wrong or missing test class
+  Qwen candidate 44: REPAIR started; accepted=0/10
+  Qwen candidate 44: REJECTED; accepted=0/10; elapsed=1546s; Compilation failed
+  Qwen candidate 45: GENERATE started; accepted=0/10
+  Qwen candidate 45: REJECTED; accepted=0/10; elapsed=1575s; Compilation failed
+  Qwen candidate 46: REPAIR started; accepted=0/10
+  Qwen candidate 46: REJECTED; accepted=0/10; elapsed=1678s; Output token limit reached
+  Qwen candidate 47: REPAIR started; accepted=0/10
+  Qwen candidate 47: REJECTED; accepted=0/10; elapsed=1788s; Output token limit reached
+  Qwen candidate 48: REPAIR started; accepted=0/10
+  Qwen candidate 48: TIMEOUT; accepted=0/10; elapsed=1800s; timed out
+RUN FINISHED: com.viktor.lab4.SimpleJsonParser; status=EMPTY; accepted=0/10; stop=time_limit; elapsed=1800.0s
+Metadata: C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f\QwenLLM\SimpleJsonParser\1800\run4-seed404\llm-run.json
+
+Done. Summary: C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\generation_runs.csv
+GENERATION FINISHED: OK=3, EMPTY=1, FAIL=0
+
+RUN: C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\.venv\Scripts\python.exe -u C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\generate_test_suites.py --tools QwenLLM --seeds 505 --target-classes com.viktor.lab4.LongestIncreasingSubsequence com.viktor.lab4.LruCache com.viktor.lab4.PricingEngine com.viktor.lab4.SimpleJsonParser --skip-build --java-exe C:\Users\user\.jdks\jbr-17.0.14\bin\java.exe --output-root C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f
+Tool = QwenLLM
+target = com.viktor.lab4.LongestIncreasingSubsequence
+budget = 1800, seed = 505
+  Qwen candidate 1: GENERATE started; accepted=0/10
+  Qwen candidate 1: ACCEPTED; accepted=1/10; elapsed=8s
+  Qwen candidate 2: GENERATE started; accepted=1/10
+  Qwen candidate 2: ACCEPTED; accepted=2/10; elapsed=19s
+  Qwen candidate 3: GENERATE started; accepted=2/10
+  Qwen candidate 3: ACCEPTED; accepted=3/10; elapsed=30s
+  Qwen candidate 4: GENERATE started; accepted=3/10
+  Qwen candidate 4: REJECTED; accepted=3/10; elapsed=44s; Compilation failed
+  Qwen candidate 5: REPAIR started; accepted=3/10
+  Qwen candidate 5: ACCEPTED; accepted=4/10; elapsed=61s
+  Qwen candidate 6: GENERATE started; accepted=4/10
+  Qwen candidate 6: ACCEPTED; accepted=5/10; elapsed=70s
+  Qwen candidate 7: GENERATE started; accepted=5/10
+  Qwen candidate 7: ACCEPTED; accepted=6/10; elapsed=81s
+  Qwen candidate 8: GENERATE started; accepted=6/10
+  Qwen candidate 8: REJECTED; accepted=6/10; elapsed=100s; Compilation failed
+  Qwen candidate 9: REPAIR started; accepted=6/10
+  Qwen candidate 9: ACCEPTED; accepted=7/10; elapsed=119s
+  Qwen candidate 10: GENERATE started; accepted=7/10
+  Qwen candidate 10: ACCEPTED; accepted=8/10; elapsed=131s
+  Qwen candidate 11: GENERATE started; accepted=8/10
+  Qwen candidate 11: ACCEPTED; accepted=9/10; elapsed=144s
+  Qwen candidate 12: GENERATE started; accepted=9/10
+  Qwen candidate 12: REJECTED; accepted=9/10; elapsed=155s; Compilation failed
+  Qwen candidate 13: REPAIR started; accepted=9/10
+  Qwen candidate 13: ACCEPTED; accepted=10/10; elapsed=182s
+RUN FINISHED: com.viktor.lab4.LongestIncreasingSubsequence; status=OK; accepted=10/10; stop=accepted_test_quota; elapsed=182.0s
+Metadata: C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f\QwenLLM\LongestIncreasingSubsequence\1800\run5-seed505\llm-run.json
+target = com.viktor.lab4.LruCache
+budget = 1800, seed = 505
+  Qwen candidate 1: GENERATE started; accepted=0/10
+  Qwen candidate 1: REJECTED; accepted=0/10; elapsed=16s; JUnit validation failed
+  Qwen candidate 2: REPAIR started; accepted=0/10
+  Qwen candidate 2: REJECTED; accepted=0/10; elapsed=40s; JUnit validation failed
+  Qwen candidate 3: REPAIR started; accepted=0/10
+  Qwen candidate 3: REJECTED; accepted=0/10; elapsed=62s; JUnit validation failed
+  Qwen candidate 4: REPAIR started; accepted=0/10
+  Qwen candidate 4: REJECTED; accepted=0/10; elapsed=84s; JUnit validation failed
+  Qwen candidate 5: GENERATE started; accepted=0/10
+  Qwen candidate 5: ACCEPTED; accepted=1/10; elapsed=91s
+  Qwen candidate 6: GENERATE started; accepted=1/10
+  Qwen candidate 6: ACCEPTED; accepted=2/10; elapsed=106s
+  Qwen candidate 7: GENERATE started; accepted=2/10
+  Qwen candidate 7: ACCEPTED; accepted=3/10; elapsed=122s
+  Qwen candidate 8: GENERATE started; accepted=3/10
+  Qwen candidate 8: REJECTED; accepted=3/10; elapsed=143s; JUnit validation failed
+  Qwen candidate 9: REPAIR started; accepted=3/10
+  Qwen candidate 9: REJECTED; accepted=3/10; elapsed=163s; JUnit validation failed
+  Qwen candidate 10: REPAIR started; accepted=3/10
+  Qwen candidate 10: REJECTED; accepted=3/10; elapsed=184s; JUnit validation failed
+  Qwen candidate 11: REPAIR started; accepted=3/10
+  Qwen candidate 11: REJECTED; accepted=3/10; elapsed=209s; JUnit validation failed
+  Qwen candidate 12: GENERATE started; accepted=3/10
+  Qwen candidate 12: ACCEPTED; accepted=4/10; elapsed=226s
+  Qwen candidate 13: GENERATE started; accepted=4/10
+  Qwen candidate 13: REJECTED; accepted=4/10; elapsed=244s; Compilation failed
+  Qwen candidate 14: REPAIR started; accepted=4/10
+  Qwen candidate 14: REJECTED; accepted=4/10; elapsed=266s; Compilation failed
+  Qwen candidate 15: REPAIR started; accepted=4/10
+  Qwen candidate 15: REJECTED; accepted=4/10; elapsed=287s; Compilation failed
+  Qwen candidate 16: REPAIR started; accepted=4/10
+  Qwen candidate 16: REJECTED; accepted=4/10; elapsed=312s; Compilation failed
+  Qwen candidate 17: GENERATE started; accepted=4/10
+  Qwen candidate 17: REJECTED; accepted=4/10; elapsed=338s; Compilation failed
+  Qwen candidate 18: REPAIR started; accepted=4/10
+  Qwen candidate 18: REJECTED; accepted=4/10; elapsed=357s; Compilation failed
+  Qwen candidate 19: REPAIR started; accepted=4/10
+  Qwen candidate 19: REJECTED; accepted=4/10; elapsed=369s; Compilation failed
+  Qwen candidate 20: REPAIR started; accepted=4/10
+  Qwen candidate 20: REJECTED; accepted=4/10; elapsed=387s; Compilation failed
+  Qwen candidate 21: GENERATE started; accepted=4/10
+  Qwen candidate 21: ACCEPTED; accepted=5/10; elapsed=397s
+  Qwen candidate 22: GENERATE started; accepted=5/10
+  Qwen candidate 22: REJECTED; accepted=5/10; elapsed=421s; Compilation failed
+  Qwen candidate 23: REPAIR started; accepted=5/10
+  Qwen candidate 23: REJECTED; accepted=5/10; elapsed=458s; Compilation failed
+  Qwen candidate 24: REPAIR started; accepted=5/10
+  Qwen candidate 24: REJECTED; accepted=5/10; elapsed=495s; Compilation failed
+  Qwen candidate 25: REPAIR started; accepted=5/10
+  Qwen candidate 25: REJECTED; accepted=5/10; elapsed=551s; Compilation failed
+  Qwen candidate 26: GENERATE started; accepted=5/10
+  Qwen candidate 26: ACCEPTED; accepted=6/10; elapsed=573s
+  Qwen candidate 27: GENERATE started; accepted=6/10
+  Qwen candidate 27: REJECTED; accepted=6/10; elapsed=599s; JUnit validation failed
+  Qwen candidate 28: REPAIR started; accepted=6/10
+  Qwen candidate 28: REJECTED; accepted=6/10; elapsed=628s; JUnit validation failed
+  Qwen candidate 29: REPAIR started; accepted=6/10
+  Qwen candidate 29: REJECTED; accepted=6/10; elapsed=666s; JUnit validation failed
+  Qwen candidate 30: REPAIR started; accepted=6/10
+  Qwen candidate 30: REJECTED; accepted=6/10; elapsed=706s; JUnit validation failed
+  Qwen candidate 31: GENERATE started; accepted=6/10
+  Qwen candidate 31: ACCEPTED; accepted=7/10; elapsed=733s
+  Qwen candidate 32: GENERATE started; accepted=7/10
+  Qwen candidate 32: ACCEPTED; accepted=8/10; elapsed=745s
+  Qwen candidate 33: GENERATE started; accepted=8/10
+  Qwen candidate 33: ACCEPTED; accepted=9/10; elapsed=759s
+  Qwen candidate 34: GENERATE started; accepted=9/10
+  Qwen candidate 34: ACCEPTED; accepted=10/10; elapsed=779s
+RUN FINISHED: com.viktor.lab4.LruCache; status=OK; accepted=10/10; stop=accepted_test_quota; elapsed=779.4s
+Metadata: C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f\QwenLLM\LruCache\1800\run5-seed505\llm-run.json
+target = com.viktor.lab4.PricingEngine
+budget = 1800, seed = 505
+  Qwen candidate 1: GENERATE started; accepted=0/10
+  Qwen candidate 1: REJECTED; accepted=0/10; elapsed=15s; JUnit validation failed
+  Qwen candidate 2: REPAIR started; accepted=0/10
+  Qwen candidate 2: REJECTED; accepted=0/10; elapsed=36s; JUnit validation failed
+  Qwen candidate 3: REPAIR started; accepted=0/10
+  Qwen candidate 3: ACCEPTED; accepted=1/10; elapsed=59s
+  Qwen candidate 4: GENERATE started; accepted=1/10
+  Qwen candidate 4: REJECTED; accepted=1/10; elapsed=81s; Compilation failed
+  Qwen candidate 5: REPAIR started; accepted=1/10
+  Qwen candidate 5: REJECTED; accepted=1/10; elapsed=107s; JUnit validation failed
+  Qwen candidate 6: REPAIR started; accepted=1/10
+  Qwen candidate 6: REJECTED; accepted=1/10; elapsed=127s; JUnit validation failed
+  Qwen candidate 7: REPAIR started; accepted=1/10
+  Qwen candidate 7: REJECTED; accepted=1/10; elapsed=143s; JUnit validation failed
+  Qwen candidate 8: GENERATE started; accepted=1/10
+  Qwen candidate 8: REJECTED; accepted=1/10; elapsed=167s; Compilation failed
+  Qwen candidate 9: REPAIR started; accepted=1/10
+  Qwen candidate 9: REJECTED; accepted=1/10; elapsed=199s; Compilation failed
+  Qwen candidate 10: REPAIR started; accepted=1/10
+  Qwen candidate 10: REJECTED; accepted=1/10; elapsed=227s; Compilation failed
+  Qwen candidate 11: REPAIR started; accepted=1/10
+  Qwen candidate 11: REJECTED; accepted=1/10; elapsed=244s; Compilation failed
+  Qwen candidate 12: GENERATE started; accepted=1/10
+  Qwen candidate 12: REJECTED; accepted=1/10; elapsed=266s; Compilation failed
+  Qwen candidate 13: REPAIR started; accepted=1/10
+  Qwen candidate 13: REJECTED; accepted=1/10; elapsed=289s; Compilation failed
+  Qwen candidate 14: REPAIR started; accepted=1/10
+  Qwen candidate 14: REJECTED; accepted=1/10; elapsed=325s; Wrong or missing test class
+  Qwen candidate 15: REPAIR started; accepted=1/10
+  Qwen candidate 15: REJECTED; accepted=1/10; elapsed=350s; Compilation failed
+  Qwen candidate 16: GENERATE started; accepted=1/10
+  Qwen candidate 16: REJECTED; accepted=1/10; elapsed=373s; JUnit validation failed
+  Qwen candidate 17: REPAIR started; accepted=1/10
+  Qwen candidate 17: REJECTED; accepted=1/10; elapsed=387s; JUnit validation failed
+  Qwen candidate 18: REPAIR started; accepted=1/10
+  Qwen candidate 18: REJECTED; accepted=1/10; elapsed=411s; JUnit validation failed
+  Qwen candidate 19: REPAIR started; accepted=1/10
+  Qwen candidate 19: REJECTED; accepted=1/10; elapsed=425s; JUnit validation failed
+  Qwen candidate 20: GENERATE started; accepted=1/10
+  Qwen candidate 20: REJECTED; accepted=1/10; elapsed=450s; Compilation failed
+  Qwen candidate 21: REPAIR started; accepted=1/10
+  Qwen candidate 21: REJECTED; accepted=1/10; elapsed=481s; Compilation failed
+  Qwen candidate 22: REPAIR started; accepted=1/10
+  Qwen candidate 22: REJECTED; accepted=1/10; elapsed=529s; Wrong or missing test class
+  Qwen candidate 23: REPAIR started; accepted=1/10
+  Qwen candidate 23: REJECTED; accepted=1/10; elapsed=553s; Wrong or missing test class
+  Qwen candidate 24: GENERATE started; accepted=1/10
+  Qwen candidate 24: REJECTED; accepted=1/10; elapsed=578s; JUnit validation failed
+  Qwen candidate 25: REPAIR started; accepted=1/10
+  Qwen candidate 25: REJECTED; accepted=1/10; elapsed=594s; JUnit validation failed
+  Qwen candidate 26: REPAIR started; accepted=1/10
+  Qwen candidate 26: REJECTED; accepted=1/10; elapsed=620s; JUnit validation failed
+  Qwen candidate 27: REPAIR started; accepted=1/10
+  Qwen candidate 27: REJECTED; accepted=1/10; elapsed=636s; JUnit validation failed
+  Qwen candidate 28: GENERATE started; accepted=1/10
+  Qwen candidate 28: REJECTED; accepted=1/10; elapsed=657s; Compilation failed
+  Qwen candidate 29: REPAIR started; accepted=1/10
+  Qwen candidate 29: REJECTED; accepted=1/10; elapsed=678s; JUnit validation failed
+  Qwen candidate 30: REPAIR started; accepted=1/10
+  Qwen candidate 30: REJECTED; accepted=1/10; elapsed=709s; Wrong or missing test class
+  Qwen candidate 31: REPAIR started; accepted=1/10
+  Qwen candidate 31: REJECTED; accepted=1/10; elapsed=793s; Output token limit reached
+  Qwen candidate 32: GENERATE started; accepted=1/10
+  Qwen candidate 32: REJECTED; accepted=1/10; elapsed=817s; Compilation failed
+  Qwen candidate 33: REPAIR started; accepted=1/10
+  Qwen candidate 33: REJECTED; accepted=1/10; elapsed=838s; Compilation failed
+  Qwen candidate 34: REPAIR started; accepted=1/10
+  Qwen candidate 34: REJECTED; accepted=1/10; elapsed=861s; Wrong or missing test class
+  Qwen candidate 35: REPAIR started; accepted=1/10
+  Qwen candidate 35: REJECTED; accepted=1/10; elapsed=915s; Wrong or missing test class
+  Qwen candidate 36: GENERATE started; accepted=1/10
+  Qwen candidate 36: REJECTED; accepted=1/10; elapsed=937s; JUnit validation failed
+  Qwen candidate 37: REPAIR started; accepted=1/10
+  Qwen candidate 37: REJECTED; accepted=1/10; elapsed=949s; JUnit validation failed
+  Qwen candidate 38: REPAIR started; accepted=1/10
+  Qwen candidate 38: REJECTED; accepted=1/10; elapsed=962s; JUnit validation failed
+  Qwen candidate 39: REPAIR started; accepted=1/10
+  Qwen candidate 39: REJECTED; accepted=1/10; elapsed=984s; JUnit validation failed
+  Qwen candidate 40: GENERATE started; accepted=1/10
+  Qwen candidate 40: REJECTED; accepted=1/10; elapsed=1006s; Compilation failed
+  Qwen candidate 41: REPAIR started; accepted=1/10
+  Qwen candidate 41: REJECTED; accepted=1/10; elapsed=1023s; Compilation failed
+  Qwen candidate 42: REPAIR started; accepted=1/10
+  Qwen candidate 42: REJECTED; accepted=1/10; elapsed=1041s; Wrong or missing test class
+  Qwen candidate 43: REPAIR started; accepted=1/10
+  Qwen candidate 43: REJECTED; accepted=1/10; elapsed=1065s; JUnit validation failed
+  Qwen candidate 44: GENERATE started; accepted=1/10
+  Qwen candidate 44: REJECTED; accepted=1/10; elapsed=1087s; Compilation failed
+  Qwen candidate 45: REPAIR started; accepted=1/10
+  Qwen candidate 45: REJECTED; accepted=1/10; elapsed=1101s; JUnit validation failed
+  Qwen candidate 46: REPAIR started; accepted=1/10
+  Qwen candidate 46: REJECTED; accepted=1/10; elapsed=1130s; JUnit validation failed
+  Qwen candidate 47: REPAIR started; accepted=1/10
+  Qwen candidate 47: REJECTED; accepted=1/10; elapsed=1172s; Wrong or missing test class
+  Qwen candidate 48: GENERATE started; accepted=1/10
+  Qwen candidate 48: REJECTED; accepted=1/10; elapsed=1194s; JUnit validation failed
+  Qwen candidate 49: REPAIR started; accepted=1/10
+  Qwen candidate 49: REJECTED; accepted=1/10; elapsed=1209s; JUnit validation failed
+  Qwen candidate 50: REPAIR started; accepted=1/10
+  Qwen candidate 50: REJECTED; accepted=1/10; elapsed=1251s; JUnit validation failed
+  Qwen candidate 51: REPAIR started; accepted=1/10
+  Qwen candidate 51: REJECTED; accepted=1/10; elapsed=1312s; Wrong or missing test class
+  Qwen candidate 52: GENERATE started; accepted=1/10
+  Qwen candidate 52: REJECTED; accepted=1/10; elapsed=1334s; JUnit validation failed
+  Qwen candidate 53: REPAIR started; accepted=1/10
+  Qwen candidate 53: REJECTED; accepted=1/10; elapsed=1346s; JUnit validation failed
+  Qwen candidate 54: REPAIR started; accepted=1/10
+  Qwen candidate 54: REJECTED; accepted=1/10; elapsed=1360s; JUnit validation failed
+  Qwen candidate 55: REPAIR started; accepted=1/10
+  Qwen candidate 55: REJECTED; accepted=1/10; elapsed=1374s; JUnit validation failed
+  Qwen candidate 56: GENERATE started; accepted=1/10
+  Qwen candidate 56: REJECTED; accepted=1/10; elapsed=1436s; Compilation failed
+  Qwen candidate 57: REPAIR started; accepted=1/10
+  Qwen candidate 57: REJECTED; accepted=1/10; elapsed=1528s; Compilation failed
+  Qwen candidate 58: REPAIR started; accepted=1/10
+  Qwen candidate 58: REJECTED; accepted=1/10; elapsed=1621s; Wrong or missing test class
+  Qwen candidate 59: REPAIR started; accepted=1/10
+  Qwen candidate 59: REJECTED; accepted=1/10; elapsed=1707s; Wrong or missing test class
+  Qwen candidate 60: GENERATE started; accepted=1/10
+  Qwen candidate 60: REJECTED; accepted=1/10; elapsed=1733s; JUnit validation failed
+  Qwen candidate 61: REPAIR started; accepted=1/10
+  Qwen candidate 61: REJECTED; accepted=1/10; elapsed=1780s; JUnit validation failed
+  Qwen candidate 62: REPAIR started; accepted=1/10
+  Qwen candidate 62: TIMEOUT; accepted=1/10; elapsed=1800s; timed out
+RUN FINISHED: com.viktor.lab4.PricingEngine; status=OK; accepted=1/10; stop=time_limit; elapsed=1800.0s
+Metadata: C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f\QwenLLM\PricingEngine\1800\run5-seed505\llm-run.json
+target = com.viktor.lab4.SimpleJsonParser
+budget = 1800, seed = 505
+  Qwen candidate 1: GENERATE started; accepted=0/10
+  Qwen candidate 1: REJECTED; accepted=0/10; elapsed=9s; Compilation failed
+  Qwen candidate 2: REPAIR started; accepted=0/10
+  Qwen candidate 2: REJECTED; accepted=0/10; elapsed=21s; JUnit validation failed
+  Qwen candidate 3: REPAIR started; accepted=0/10
+  Qwen candidate 3: REJECTED; accepted=0/10; elapsed=33s; JUnit validation failed
+  Qwen candidate 4: REPAIR started; accepted=0/10
+  Qwen candidate 4: REJECTED; accepted=0/10; elapsed=44s; JUnit validation failed
+  Qwen candidate 5: GENERATE started; accepted=0/10
+  Qwen candidate 5: REJECTED; accepted=0/10; elapsed=52s; Compilation failed
+  Qwen candidate 6: REPAIR started; accepted=0/10
+  Qwen candidate 6: REJECTED; accepted=0/10; elapsed=63s; JUnit validation failed
+  Qwen candidate 7: REPAIR started; accepted=0/10
+  Qwen candidate 7: REJECTED; accepted=0/10; elapsed=75s; JUnit validation failed
+  Qwen candidate 8: REPAIR started; accepted=0/10
+  Qwen candidate 8: REJECTED; accepted=0/10; elapsed=86s; JUnit validation failed
+  Qwen candidate 9: GENERATE started; accepted=0/10
+  Qwen candidate 9: REJECTED; accepted=0/10; elapsed=94s; Compilation failed
+  Qwen candidate 10: REPAIR started; accepted=0/10
+  Qwen candidate 10: ACCEPTED; accepted=1/10; elapsed=105s
+  Qwen candidate 11: GENERATE started; accepted=1/10
+  Qwen candidate 11: REJECTED; accepted=1/10; elapsed=130s; JUnit validation failed
+  Qwen candidate 12: REPAIR started; accepted=1/10
+  Qwen candidate 12: REJECTED; accepted=1/10; elapsed=140s; JUnit validation failed
+  Qwen candidate 13: REPAIR started; accepted=1/10
+  Qwen candidate 13: REJECTED; accepted=1/10; elapsed=174s; JUnit validation failed
+  Qwen candidate 14: REPAIR started; accepted=1/10
+  Qwen candidate 14: REJECTED; accepted=1/10; elapsed=194s; JUnit validation failed
+  Qwen candidate 15: GENERATE started; accepted=1/10
+  Qwen candidate 15: REJECTED; accepted=1/10; elapsed=221s; JUnit validation failed
+  Qwen candidate 16: REPAIR started; accepted=1/10
+  Qwen candidate 16: REJECTED; accepted=1/10; elapsed=234s; JUnit validation failed
+  Qwen candidate 17: REPAIR started; accepted=1/10
+  Qwen candidate 17: REJECTED; accepted=1/10; elapsed=265s; Compilation failed
+  Qwen candidate 18: REPAIR started; accepted=1/10
+  Qwen candidate 18: REJECTED; accepted=1/10; elapsed=277s; Compilation failed
+  Qwen candidate 19: GENERATE started; accepted=1/10
+  Qwen candidate 19: REJECTED; accepted=1/10; elapsed=303s; Compilation failed
+  Qwen candidate 20: REPAIR started; accepted=1/10
+  Qwen candidate 20: REJECTED; accepted=1/10; elapsed=317s; Compilation failed
+  Qwen candidate 21: REPAIR started; accepted=1/10
+  Qwen candidate 21: REJECTED; accepted=1/10; elapsed=356s; Compilation failed
+  Qwen candidate 22: REPAIR started; accepted=1/10
+  Qwen candidate 22: REJECTED; accepted=1/10; elapsed=383s; Wrong or missing test class
+  Qwen candidate 23: GENERATE started; accepted=1/10
+  Qwen candidate 23: ACCEPTED; accepted=2/10; elapsed=410s
+  Qwen candidate 24: GENERATE started; accepted=2/10
+  Qwen candidate 24: REJECTED; accepted=2/10; elapsed=435s; Compilation failed
+  Qwen candidate 25: REPAIR started; accepted=2/10
+  Qwen candidate 25: REJECTED; accepted=2/10; elapsed=466s; Compilation failed
+  Qwen candidate 26: REPAIR started; accepted=2/10
+  Qwen candidate 26: REJECTED; accepted=2/10; elapsed=478s; Wrong or missing test class
+  Qwen candidate 27: REPAIR started; accepted=2/10
+  Qwen candidate 27: REJECTED; accepted=2/10; elapsed=488s; Compilation failed
+  Qwen candidate 28: GENERATE started; accepted=2/10
+  Qwen candidate 28: ACCEPTED; accepted=3/10; elapsed=515s
+  Qwen candidate 29: GENERATE started; accepted=3/10
+  Qwen candidate 29: REJECTED; accepted=3/10; elapsed=539s; JUnit validation failed
+  Qwen candidate 30: REPAIR started; accepted=3/10
+  Qwen candidate 30: REJECTED; accepted=3/10; elapsed=547s; JUnit validation failed
+  Qwen candidate 31: REPAIR started; accepted=3/10
+  Qwen candidate 31: ACCEPTED; accepted=4/10; elapsed=566s
+  Qwen candidate 32: GENERATE started; accepted=4/10
+  Qwen candidate 32: ACCEPTED; accepted=5/10; elapsed=594s
+  Qwen candidate 33: GENERATE started; accepted=5/10
+  Qwen candidate 33: REJECTED; accepted=5/10; elapsed=622s; Compilation failed
+  Qwen candidate 34: REPAIR started; accepted=5/10
+  Qwen candidate 34: REJECTED; accepted=5/10; elapsed=645s; JUnit validation failed
+  Qwen candidate 35: REPAIR started; accepted=5/10
+  Qwen candidate 35: REJECTED; accepted=5/10; elapsed=669s; Wrong or missing test class
+  Qwen candidate 36: REPAIR started; accepted=5/10
+  Qwen candidate 36: REJECTED; accepted=5/10; elapsed=695s; Return exactly ONE @Test method in this candidate
+  Qwen candidate 37: GENERATE started; accepted=5/10
+  Qwen candidate 37: REJECTED; accepted=5/10; elapsed=725s; Compilation failed
+  Qwen candidate 38: REPAIR started; accepted=5/10
+  Qwen candidate 38: REJECTED; accepted=5/10; elapsed=744s; Wrong or missing test class
+  Qwen candidate 39: REPAIR started; accepted=5/10
+  Qwen candidate 39: REJECTED; accepted=5/10; elapsed=759s; Compilation failed
+  Qwen candidate 40: REPAIR started; accepted=5/10
+  Qwen candidate 40: REJECTED; accepted=5/10; elapsed=788s; Compilation failed
+  Qwen candidate 41: GENERATE started; accepted=5/10
+  Qwen candidate 41: REJECTED; accepted=5/10; elapsed=812s; Compilation failed
+  Qwen candidate 42: REPAIR started; accepted=5/10
+  Qwen candidate 42: REJECTED; accepted=5/10; elapsed=821s; Wrong or missing test class
+  Qwen candidate 43: REPAIR started; accepted=5/10
+  Qwen candidate 43: REJECTED; accepted=5/10; elapsed=830s; JUnit validation failed
+  Qwen candidate 44: REPAIR started; accepted=5/10
+  Qwen candidate 44: REJECTED; accepted=5/10; elapsed=839s; Wrong or missing test class
+  Qwen candidate 45: GENERATE started; accepted=5/10
+  Qwen candidate 45: ACCEPTED; accepted=6/10; elapsed=865s
+  Qwen candidate 46: GENERATE started; accepted=6/10
+  Qwen candidate 46: ACCEPTED; accepted=7/10; elapsed=890s
+  Qwen candidate 47: GENERATE started; accepted=7/10
+  Qwen candidate 47: REJECTED; accepted=7/10; elapsed=917s; Compilation failed
+  Qwen candidate 48: REPAIR started; accepted=7/10
+  Qwen candidate 48: REJECTED; accepted=7/10; elapsed=951s; Compilation failed
+  Qwen candidate 49: REPAIR started; accepted=7/10
+  Qwen candidate 49: REJECTED; accepted=7/10; elapsed=1045s; Output token limit reached
+  Qwen candidate 50: REPAIR started; accepted=7/10
+  Qwen candidate 50: REJECTED; accepted=7/10; elapsed=1106s; Wrong or missing package
+  Qwen candidate 51: GENERATE started; accepted=7/10
+  Qwen candidate 51: REJECTED; accepted=7/10; elapsed=1135s; Compilation failed
+  Qwen candidate 52: REPAIR started; accepted=7/10
+  Qwen candidate 52: REJECTED; accepted=7/10; elapsed=1171s; Compilation failed
+  Qwen candidate 53: REPAIR started; accepted=7/10
+  Qwen candidate 53: REJECTED; accepted=7/10; elapsed=1209s; Compilation failed
+  Qwen candidate 54: REPAIR started; accepted=7/10
+  Qwen candidate 54: REJECTED; accepted=7/10; elapsed=1249s; Wrong or missing test class
+  Qwen candidate 55: GENERATE started; accepted=7/10
+  Qwen candidate 55: REJECTED; accepted=7/10; elapsed=1274s; Compilation failed
+  Qwen candidate 56: REPAIR started; accepted=7/10
+  Qwen candidate 56: REJECTED; accepted=7/10; elapsed=1300s; Wrong or missing test class
+  Qwen candidate 57: REPAIR started; accepted=7/10
+  Qwen candidate 57: REJECTED; accepted=7/10; elapsed=1341s; Compilation failed
+  Qwen candidate 58: REPAIR started; accepted=7/10
+  Qwen candidate 58: REJECTED; accepted=7/10; elapsed=1380s; Wrong or missing test class
+  Qwen candidate 59: GENERATE started; accepted=7/10
+  Qwen candidate 59: REJECTED; accepted=7/10; elapsed=1404s; Compilation failed
+  Qwen candidate 60: REPAIR started; accepted=7/10
+  Qwen candidate 60: REJECTED; accepted=7/10; elapsed=1432s; Compilation failed
+  Qwen candidate 61: REPAIR started; accepted=7/10
+  Qwen candidate 61: REJECTED; accepted=7/10; elapsed=1456s; Wrong or missing test class
+  Qwen candidate 62: REPAIR started; accepted=7/10
+  Qwen candidate 62: REJECTED; accepted=7/10; elapsed=1479s; Compilation failed
+  Qwen candidate 63: GENERATE started; accepted=7/10
+  Qwen candidate 63: REJECTED; accepted=7/10; elapsed=1505s; Compilation failed
+  Qwen candidate 64: REPAIR started; accepted=7/10
+  Qwen candidate 64: ACCEPTED; accepted=8/10; elapsed=1537s
+  Qwen candidate 65: GENERATE started; accepted=8/10
+  Qwen candidate 65: REJECTED; accepted=8/10; elapsed=1563s; Compilation failed
+  Qwen candidate 66: REPAIR started; accepted=8/10
+  Qwen candidate 66: REJECTED; accepted=8/10; elapsed=1593s; Compilation failed
+  Qwen candidate 67: REPAIR started; accepted=8/10
+  Qwen candidate 67: REJECTED; accepted=8/10; elapsed=1619s; Compilation failed
+  Qwen candidate 68: REPAIR started; accepted=8/10
+  Qwen candidate 68: REJECTED; accepted=8/10; elapsed=1646s; Wrong or missing test class
+  Qwen candidate 69: GENERATE started; accepted=8/10
+  Qwen candidate 69: REJECTED; accepted=8/10; elapsed=1671s; Compilation failed
+  Qwen candidate 70: REPAIR started; accepted=8/10
+  Qwen candidate 70: REJECTED; accepted=8/10; elapsed=1706s; Compilation failed
+  Qwen candidate 71: REPAIR started; accepted=8/10
+  Qwen candidate 71: REJECTED; accepted=8/10; elapsed=1736s; Wrong or missing test class
+  Qwen candidate 72: REPAIR started; accepted=8/10
+  Qwen candidate 72: TIMEOUT; accepted=8/10; elapsed=1800s; timed out
+RUN FINISHED: com.viktor.lab4.SimpleJsonParser; status=OK; accepted=8/10; stop=time_limit; elapsed=1800.0s
+Metadata: C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f\QwenLLM\SimpleJsonParser\1800\run5-seed505\llm-run.json
+
+Done. Summary: C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\generation_runs.csv
+GENERATION FINISHED: OK=4, EMPTY=0, FAIL=0
+
+RUN: C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\.venv\Scripts\python.exe -u C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\generate_test_suites.py --tools QwenLLM --seeds 606 --target-classes com.viktor.lab4.LongestIncreasingSubsequence com.viktor.lab4.LruCache com.viktor.lab4.PricingEngine com.viktor.lab4.SimpleJsonParser --skip-build --java-exe C:\Users\user\.jdks\jbr-17.0.14\bin\java.exe --output-root C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f
+Tool = QwenLLM
+target = com.viktor.lab4.LongestIncreasingSubsequence
+budget = 1800, seed = 606
+  Qwen candidate 1: GENERATE started; accepted=0/10
+  Qwen candidate 1: ACCEPTED; accepted=1/10; elapsed=15s
+  Qwen candidate 2: GENERATE started; accepted=1/10
+  Qwen candidate 2: REJECTED; accepted=1/10; elapsed=28s; Compilation failed
+  Qwen candidate 3: REPAIR started; accepted=1/10
+  Qwen candidate 3: ACCEPTED; accepted=2/10; elapsed=44s
+  Qwen candidate 4: GENERATE started; accepted=2/10
+  Qwen candidate 4: ACCEPTED; accepted=3/10; elapsed=58s
+  Qwen candidate 5: GENERATE started; accepted=3/10
+  Qwen candidate 5: ACCEPTED; accepted=4/10; elapsed=72s
+  Qwen candidate 6: GENERATE started; accepted=4/10
+  Qwen candidate 6: ACCEPTED; accepted=5/10; elapsed=85s
+  Qwen candidate 7: GENERATE started; accepted=5/10
+  Qwen candidate 7: REJECTED; accepted=5/10; elapsed=107s; Compilation failed
+  Qwen candidate 8: REPAIR started; accepted=5/10
+  Qwen candidate 8: REJECTED; accepted=5/10; elapsed=135s; Compilation failed
+  Qwen candidate 9: REPAIR started; accepted=5/10
+  Qwen candidate 9: ACCEPTED; accepted=6/10; elapsed=162s
+  Qwen candidate 10: GENERATE started; accepted=6/10
+  Qwen candidate 10: ACCEPTED; accepted=7/10; elapsed=177s
+  Qwen candidate 11: GENERATE started; accepted=7/10
+  Qwen candidate 11: REJECTED; accepted=7/10; elapsed=189s; Compilation failed
+  Qwen candidate 12: REPAIR started; accepted=7/10
+  Qwen candidate 12: ACCEPTED; accepted=8/10; elapsed=204s
+  Qwen candidate 13: GENERATE started; accepted=8/10
+  Qwen candidate 13: ACCEPTED; accepted=9/10; elapsed=218s
+  Qwen candidate 14: GENERATE started; accepted=9/10
+  Qwen candidate 14: ACCEPTED; accepted=10/10; elapsed=233s
+RUN FINISHED: com.viktor.lab4.LongestIncreasingSubsequence; status=OK; accepted=10/10; stop=accepted_test_quota; elapsed=233.4s
+Metadata: C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f\QwenLLM\LongestIncreasingSubsequence\1800\run6-seed606\llm-run.json
+target = com.viktor.lab4.LruCache
+budget = 1800, seed = 606
+  Qwen candidate 1: GENERATE started; accepted=0/10
+  Qwen candidate 1: REJECTED; accepted=0/10; elapsed=25s; Compilation failed
+  Qwen candidate 2: REPAIR started; accepted=0/10
+  Qwen candidate 2: REJECTED; accepted=0/10; elapsed=63s; JUnit validation failed
+  Qwen candidate 3: REPAIR started; accepted=0/10
+  Qwen candidate 3: REJECTED; accepted=0/10; elapsed=93s; JUnit validation failed
+  Qwen candidate 4: REPAIR started; accepted=0/10
+  Qwen candidate 4: REJECTED; accepted=0/10; elapsed=143s; Compilation failed
+  Qwen candidate 5: GENERATE started; accepted=0/10
+  Qwen candidate 5: ACCEPTED; accepted=1/10; elapsed=158s
+  Qwen candidate 6: GENERATE started; accepted=1/10
+  Qwen candidate 6: REJECTED; accepted=1/10; elapsed=175s; JUnit validation failed
+  Qwen candidate 7: REPAIR started; accepted=1/10
+  Qwen candidate 7: REJECTED; accepted=1/10; elapsed=196s; JUnit validation failed
+  Qwen candidate 8: REPAIR started; accepted=1/10
+  Qwen candidate 8: REJECTED; accepted=1/10; elapsed=214s; JUnit validation failed
+  Qwen candidate 9: REPAIR started; accepted=1/10
+  Qwen candidate 9: REJECTED; accepted=1/10; elapsed=233s; JUnit validation failed
+  Qwen candidate 10: GENERATE started; accepted=1/10
+  Qwen candidate 10: REJECTED; accepted=1/10; elapsed=258s; Compilation failed
+  Qwen candidate 11: REPAIR started; accepted=1/10
+  Qwen candidate 11: REJECTED; accepted=1/10; elapsed=305s; Compilation failed
+  Qwen candidate 12: REPAIR started; accepted=1/10
+  Qwen candidate 12: REJECTED; accepted=1/10; elapsed=351s; Wrong or missing test class
+  Qwen candidate 13: REPAIR started; accepted=1/10
+  Qwen candidate 13: REJECTED; accepted=1/10; elapsed=387s; Compilation failed
+  Qwen candidate 14: GENERATE started; accepted=1/10
+  Qwen candidate 14: REJECTED; accepted=1/10; elapsed=407s; Compilation failed
+  Qwen candidate 15: REPAIR started; accepted=1/10
+  Qwen candidate 15: REJECTED; accepted=1/10; elapsed=440s; Wrong or missing test class
+  Qwen candidate 16: REPAIR started; accepted=1/10
+  Qwen candidate 16: REJECTED; accepted=1/10; elapsed=459s; Wrong or missing test class
+  Qwen candidate 17: REPAIR started; accepted=1/10
+  Qwen candidate 17: REJECTED; accepted=1/10; elapsed=477s; Compilation failed
+  Qwen candidate 18: GENERATE started; accepted=1/10
+  Qwen candidate 18: ACCEPTED; accepted=2/10; elapsed=496s
+  Qwen candidate 19: GENERATE started; accepted=2/10
+  Qwen candidate 19: REJECTED; accepted=2/10; elapsed=521s; JUnit validation failed
+  Qwen candidate 20: REPAIR started; accepted=2/10
+  Qwen candidate 20: REJECTED; accepted=2/10; elapsed=561s; JUnit validation failed
+  Qwen candidate 21: REPAIR started; accepted=2/10
+  Qwen candidate 21: REJECTED; accepted=2/10; elapsed=593s; JUnit validation failed
+  Qwen candidate 22: REPAIR started; accepted=2/10
+  Qwen candidate 22: REJECTED; accepted=2/10; elapsed=622s; JUnit validation failed
+  Qwen candidate 23: GENERATE started; accepted=2/10
+  Qwen candidate 23: REJECTED; accepted=2/10; elapsed=635s; Compilation failed
+  Qwen candidate 24: REPAIR started; accepted=2/10
+  Qwen candidate 24: REJECTED; accepted=2/10; elapsed=657s; Compilation failed
+  Qwen candidate 25: REPAIR started; accepted=2/10
+  Qwen candidate 25: REJECTED; accepted=2/10; elapsed=676s; Compilation failed
+  Qwen candidate 26: REPAIR started; accepted=2/10
+  Qwen candidate 26: REJECTED; accepted=2/10; elapsed=692s; Compilation failed
+  Qwen candidate 27: GENERATE started; accepted=2/10
+  Qwen candidate 27: ACCEPTED; accepted=3/10; elapsed=707s
+  Qwen candidate 28: GENERATE started; accepted=3/10
+  Qwen candidate 28: REJECTED; accepted=3/10; elapsed=725s; Compilation failed
+  Qwen candidate 29: REPAIR started; accepted=3/10
+  Qwen candidate 29: REJECTED; accepted=3/10; elapsed=754s; Compilation failed
+  Qwen candidate 30: REPAIR started; accepted=3/10
+  Qwen candidate 30: REJECTED; accepted=3/10; elapsed=780s; Compilation failed
+  Qwen candidate 31: REPAIR started; accepted=3/10
+  Qwen candidate 31: REJECTED; accepted=3/10; elapsed=806s; Compilation failed
+  Qwen candidate 32: GENERATE started; accepted=3/10
+  Qwen candidate 32: REJECTED; accepted=3/10; elapsed=820s; Compilation failed
+  Qwen candidate 33: REPAIR started; accepted=3/10
+  Qwen candidate 33: REJECTED; accepted=3/10; elapsed=846s; Compilation failed
+  Qwen candidate 34: REPAIR started; accepted=3/10
+  Qwen candidate 34: REJECTED; accepted=3/10; elapsed=871s; Wrong or missing test class
+  Qwen candidate 35: REPAIR started; accepted=3/10
+  Qwen candidate 35: REJECTED; accepted=3/10; elapsed=896s; Compilation failed
+  Qwen candidate 36: GENERATE started; accepted=3/10
+  Qwen candidate 36: REJECTED; accepted=3/10; elapsed=917s; Compilation failed
+  Qwen candidate 37: REPAIR started; accepted=3/10
+  Qwen candidate 37: REJECTED; accepted=3/10; elapsed=950s; Compilation failed
+  Qwen candidate 38: REPAIR started; accepted=3/10
+  Qwen candidate 38: REJECTED; accepted=3/10; elapsed=989s; Compilation failed
+  Qwen candidate 39: REPAIR started; accepted=3/10
+  Qwen candidate 39: REJECTED; accepted=3/10; elapsed=1030s; Compilation failed
+  Qwen candidate 40: GENERATE started; accepted=3/10
+  Qwen candidate 40: ACCEPTED; accepted=4/10; elapsed=1052s
+  Qwen candidate 41: GENERATE started; accepted=4/10
+  Qwen candidate 41: ACCEPTED; accepted=5/10; elapsed=1066s
+  Qwen candidate 42: GENERATE started; accepted=5/10
+  Qwen candidate 42: ACCEPTED; accepted=6/10; elapsed=1079s
+  Qwen candidate 43: GENERATE started; accepted=6/10
+  Qwen candidate 43: REJECTED; accepted=6/10; elapsed=1099s; JUnit validation failed
+  Qwen candidate 44: REPAIR started; accepted=6/10
+  Qwen candidate 44: REJECTED; accepted=6/10; elapsed=1130s; JUnit validation failed
+  Qwen candidate 45: REPAIR started; accepted=6/10
+  Qwen candidate 45: REJECTED; accepted=6/10; elapsed=1155s; JUnit validation failed
+  Qwen candidate 46: REPAIR started; accepted=6/10
+  Qwen candidate 46: REJECTED; accepted=6/10; elapsed=1178s; JUnit validation failed
+  Qwen candidate 47: GENERATE started; accepted=6/10
+  Qwen candidate 47: REJECTED; accepted=6/10; elapsed=1192s; Compilation failed
+  Qwen candidate 48: REPAIR started; accepted=6/10
+  Qwen candidate 48: ACCEPTED; accepted=7/10; elapsed=1210s
+  Qwen candidate 49: GENERATE started; accepted=7/10
+  Qwen candidate 49: REJECTED; accepted=7/10; elapsed=1232s; Compilation failed
+  Qwen candidate 50: REPAIR started; accepted=7/10
+  Qwen candidate 50: REJECTED; accepted=7/10; elapsed=1266s; Compilation failed
+  Qwen candidate 51: REPAIR started; accepted=7/10
+  Qwen candidate 51: REJECTED; accepted=7/10; elapsed=1298s; Compilation failed
+  Qwen candidate 52: REPAIR started; accepted=7/10
+  Qwen candidate 52: ACCEPTED; accepted=8/10; elapsed=1339s
+  Qwen candidate 53: GENERATE started; accepted=8/10
+  Qwen candidate 53: ACCEPTED; accepted=9/10; elapsed=1362s
+  Qwen candidate 54: GENERATE started; accepted=9/10
+  Qwen candidate 54: REJECTED; accepted=9/10; elapsed=1376s; JUnit validation failed
+  Qwen candidate 55: REPAIR started; accepted=9/10
+  Qwen candidate 55: ACCEPTED; accepted=10/10; elapsed=1402s
+RUN FINISHED: com.viktor.lab4.LruCache; status=OK; accepted=10/10; stop=accepted_test_quota; elapsed=1401.9s
+Metadata: C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f\QwenLLM\LruCache\1800\run6-seed606\llm-run.json
+target = com.viktor.lab4.PricingEngine
+budget = 1800, seed = 606
+  Qwen candidate 1: GENERATE started; accepted=0/10
+  Qwen candidate 1: REJECTED; accepted=0/10; elapsed=24s; JUnit validation failed
+  Qwen candidate 2: REPAIR started; accepted=0/10
+  Qwen candidate 2: REJECTED; accepted=0/10; elapsed=54s; JUnit validation failed
+  Qwen candidate 3: REPAIR started; accepted=0/10
+  Qwen candidate 3: REJECTED; accepted=0/10; elapsed=82s; JUnit validation failed
+  Qwen candidate 4: REPAIR started; accepted=0/10
+  Qwen candidate 4: REJECTED; accepted=0/10; elapsed=168s; Output token limit reached
+  Qwen candidate 5: GENERATE started; accepted=0/10
+  Qwen candidate 5: REJECTED; accepted=0/10; elapsed=190s; Compilation failed
+  Qwen candidate 6: REPAIR started; accepted=0/10
+  Qwen candidate 6: REJECTED; accepted=0/10; elapsed=225s; Compilation failed
+  Qwen candidate 7: REPAIR started; accepted=0/10
+  Qwen candidate 7: REJECTED; accepted=0/10; elapsed=262s; Wrong or missing test class
+  Qwen candidate 8: REPAIR started; accepted=0/10
+  Qwen candidate 8: REJECTED; accepted=0/10; elapsed=296s; Compilation failed
+  Qwen candidate 9: GENERATE started; accepted=0/10
+  Qwen candidate 9: REJECTED; accepted=0/10; elapsed=321s; Compilation failed
+  Qwen candidate 10: REPAIR started; accepted=0/10
+  Qwen candidate 10: REJECTED; accepted=0/10; elapsed=353s; Compilation failed
+  Qwen candidate 11: REPAIR started; accepted=0/10
+  Qwen candidate 11: REJECTED; accepted=0/10; elapsed=390s; Wrong or missing test class
+  Qwen candidate 12: REPAIR started; accepted=0/10
+  Qwen candidate 12: REJECTED; accepted=0/10; elapsed=427s; Wrong or missing test class
+  Qwen candidate 13: GENERATE started; accepted=0/10
+  Qwen candidate 13: REJECTED; accepted=0/10; elapsed=450s; Compilation failed
+  Qwen candidate 14: REPAIR started; accepted=0/10
+  Qwen candidate 14: REJECTED; accepted=0/10; elapsed=476s; JUnit validation failed
+  Qwen candidate 15: REPAIR started; accepted=0/10
+  Qwen candidate 15: REJECTED; accepted=0/10; elapsed=501s; JUnit validation failed
+  Qwen candidate 16: REPAIR started; accepted=0/10
+  Qwen candidate 16: REJECTED; accepted=0/10; elapsed=530s; JUnit validation failed
+  Qwen candidate 17: GENERATE started; accepted=0/10
+  Qwen candidate 17: REJECTED; accepted=0/10; elapsed=552s; JUnit validation failed
+  Qwen candidate 18: REPAIR started; accepted=0/10
+  Qwen candidate 18: REJECTED; accepted=0/10; elapsed=577s; JUnit validation failed
+  Qwen candidate 19: REPAIR started; accepted=0/10
+  Qwen candidate 19: REJECTED; accepted=0/10; elapsed=601s; JUnit validation failed
+  Qwen candidate 20: REPAIR started; accepted=0/10
+  Qwen candidate 20: REJECTED; accepted=0/10; elapsed=625s; JUnit validation failed
+  Qwen candidate 21: GENERATE started; accepted=0/10
+  Qwen candidate 21: REJECTED; accepted=0/10; elapsed=651s; JUnit validation failed
+  Qwen candidate 22: REPAIR started; accepted=0/10
+  Qwen candidate 22: REJECTED; accepted=0/10; elapsed=680s; JUnit validation failed
+  Qwen candidate 23: REPAIR started; accepted=0/10
+  Qwen candidate 23: REJECTED; accepted=0/10; elapsed=711s; JUnit validation failed
+  Qwen candidate 24: REPAIR started; accepted=0/10
+  Qwen candidate 24: REJECTED; accepted=0/10; elapsed=739s; JUnit validation failed
+  Qwen candidate 25: GENERATE started; accepted=0/10
+  Qwen candidate 25: REJECTED; accepted=0/10; elapsed=763s; JUnit validation failed
+  Qwen candidate 26: REPAIR started; accepted=0/10
+  Qwen candidate 26: REJECTED; accepted=0/10; elapsed=790s; JUnit validation failed
+  Qwen candidate 27: REPAIR started; accepted=0/10
+  Qwen candidate 27: REJECTED; accepted=0/10; elapsed=823s; JUnit validation failed
+  Qwen candidate 28: REPAIR started; accepted=0/10
+  Qwen candidate 28: REJECTED; accepted=0/10; elapsed=892s; JUnit validation failed
+  Qwen candidate 29: GENERATE started; accepted=0/10
+  Qwen candidate 29: REJECTED; accepted=0/10; elapsed=914s; Compilation failed
+  Qwen candidate 30: REPAIR started; accepted=0/10
+  Qwen candidate 30: REJECTED; accepted=0/10; elapsed=939s; JUnit validation failed
+  Qwen candidate 31: REPAIR started; accepted=0/10
+  Qwen candidate 31: REJECTED; accepted=0/10; elapsed=962s; JUnit validation failed
+  Qwen candidate 32: REPAIR started; accepted=0/10
+  Qwen candidate 32: REJECTED; accepted=0/10; elapsed=984s; Compilation failed
+  Qwen candidate 33: GENERATE started; accepted=0/10
+  Qwen candidate 33: REJECTED; accepted=0/10; elapsed=1008s; Compilation failed
+  Qwen candidate 34: REPAIR started; accepted=0/10
+  Qwen candidate 34: REJECTED; accepted=0/10; elapsed=1034s; Wrong or missing test class
+  Qwen candidate 35: REPAIR started; accepted=0/10
+  Qwen candidate 35: ACCEPTED; accepted=1/10; elapsed=1061s
+  Qwen candidate 36: GENERATE started; accepted=1/10
+  Qwen candidate 36: REJECTED; accepted=1/10; elapsed=1088s; Compilation failed
+  Qwen candidate 37: REPAIR started; accepted=1/10
+  Qwen candidate 37: REJECTED; accepted=1/10; elapsed=1131s; Compilation failed
+  Qwen candidate 38: REPAIR started; accepted=1/10
+  Qwen candidate 38: REJECTED; accepted=1/10; elapsed=1175s; Compilation failed
+  Qwen candidate 39: REPAIR started; accepted=1/10
+  Qwen candidate 39: REJECTED; accepted=1/10; elapsed=1259s; Wrong or missing test class
+  Qwen candidate 40: GENERATE started; accepted=1/10
+  Qwen candidate 40: REJECTED; accepted=1/10; elapsed=1284s; Compilation failed
+  Qwen candidate 41: REPAIR started; accepted=1/10
+  Qwen candidate 41: REJECTED; accepted=1/10; elapsed=1320s; Compilation failed
+  Qwen candidate 42: REPAIR started; accepted=1/10
+  Qwen candidate 42: ACCEPTED; accepted=2/10; elapsed=1359s
+  Qwen candidate 43: GENERATE started; accepted=2/10
+  Qwen candidate 43: REJECTED; accepted=2/10; elapsed=1389s; Compilation failed
+  Qwen candidate 44: REPAIR started; accepted=2/10
+  Qwen candidate 44: REJECTED; accepted=2/10; elapsed=1425s; JUnit validation failed
+  Qwen candidate 45: REPAIR started; accepted=2/10
+  Qwen candidate 45: REJECTED; accepted=2/10; elapsed=1464s; JUnit validation failed
+  Qwen candidate 46: REPAIR started; accepted=2/10
+  Qwen candidate 46: REJECTED; accepted=2/10; elapsed=1500s; JUnit validation failed
+  Qwen candidate 47: GENERATE started; accepted=2/10
+  Qwen candidate 47: REJECTED; accepted=2/10; elapsed=1525s; Compilation failed
+  Qwen candidate 48: REPAIR started; accepted=2/10
+  Qwen candidate 48: ACCEPTED; accepted=3/10; elapsed=1553s
+  Qwen candidate 49: GENERATE started; accepted=3/10
+  Qwen candidate 49: REJECTED; accepted=3/10; elapsed=1577s; JUnit validation failed
+  Qwen candidate 50: REPAIR started; accepted=3/10
+  Qwen candidate 50: REJECTED; accepted=3/10; elapsed=1605s; JUnit validation failed
+  Qwen candidate 51: REPAIR started; accepted=3/10
+  Qwen candidate 51: ACCEPTED; accepted=4/10; elapsed=1631s
+  Qwen candidate 52: GENERATE started; accepted=4/10
+  Qwen candidate 52: ACCEPTED; accepted=5/10; elapsed=1655s
+  Qwen candidate 53: GENERATE started; accepted=5/10
+  Qwen candidate 53: REJECTED; accepted=5/10; elapsed=1682s; Compilation failed
+  Qwen candidate 54: REPAIR started; accepted=5/10
+  Qwen candidate 54: REJECTED; accepted=5/10; elapsed=1722s; JUnit validation failed
+  Qwen candidate 55: REPAIR started; accepted=5/10
+  Qwen candidate 55: REJECTED; accepted=5/10; elapsed=1757s; Wrong or missing test class
+  Qwen candidate 56: REPAIR started; accepted=5/10
+  Qwen candidate 56: REJECTED; accepted=5/10; elapsed=1788s; JUnit validation failed
+  Qwen candidate 57: GENERATE started; accepted=5/10
+  Qwen candidate 57: TIMEOUT; accepted=5/10; elapsed=1800s; timed out
+RUN FINISHED: com.viktor.lab4.PricingEngine; status=OK; accepted=5/10; stop=time_limit; elapsed=1800.0s
+Metadata: C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f\QwenLLM\PricingEngine\1800\run6-seed606\llm-run.json
+target = com.viktor.lab4.SimpleJsonParser
+budget = 1800, seed = 606
+  Qwen candidate 1: GENERATE started; accepted=0/10
+  Qwen candidate 1: REJECTED; accepted=0/10; elapsed=29s; Compilation failed
+  Qwen candidate 2: REPAIR started; accepted=0/10
+  Qwen candidate 2: REJECTED; accepted=0/10; elapsed=66s; JUnit validation failed
+  Qwen candidate 3: REPAIR started; accepted=0/10
+  Qwen candidate 3: REJECTED; accepted=0/10; elapsed=96s; JUnit validation failed
+  Qwen candidate 4: REPAIR started; accepted=0/10
+  Qwen candidate 4: REJECTED; accepted=0/10; elapsed=138s; JUnit validation failed
+  Qwen candidate 5: GENERATE started; accepted=0/10
+  Qwen candidate 5: REJECTED; accepted=0/10; elapsed=162s; Compilation failed
+  Qwen candidate 6: REPAIR started; accepted=0/10
+  Qwen candidate 6: REJECTED; accepted=0/10; elapsed=197s; Compilation failed
+  Qwen candidate 7: REPAIR started; accepted=0/10
+  Qwen candidate 7: REJECTED; accepted=0/10; elapsed=233s; Wrong or missing test class
+  Qwen candidate 8: REPAIR started; accepted=0/10
+  Qwen candidate 8: REJECTED; accepted=0/10; elapsed=296s; Return exactly ONE @Test method in this candidate
+  Qwen candidate 9: GENERATE started; accepted=0/10
+  Qwen candidate 9: ACCEPTED; accepted=1/10; elapsed=323s
+  Qwen candidate 10: GENERATE started; accepted=1/10
+  Qwen candidate 10: ACCEPTED; accepted=2/10; elapsed=347s
+  Qwen candidate 11: GENERATE started; accepted=2/10
+  Qwen candidate 11: REJECTED; accepted=2/10; elapsed=373s; Compilation failed
+  Qwen candidate 12: REPAIR started; accepted=2/10
+  Qwen candidate 12: REJECTED; accepted=2/10; elapsed=406s; Compilation failed
+  Qwen candidate 13: REPAIR started; accepted=2/10
+  Qwen candidate 13: REJECTED; accepted=2/10; elapsed=447s; Wrong or missing test class
+  Qwen candidate 14: REPAIR started; accepted=2/10
+  Qwen candidate 14: REJECTED; accepted=2/10; elapsed=499s; Wrong or missing test class
+  Qwen candidate 15: GENERATE started; accepted=2/10
+  Qwen candidate 15: ACCEPTED; accepted=3/10; elapsed=526s
+  Qwen candidate 16: GENERATE started; accepted=3/10
+  Qwen candidate 16: ACCEPTED; accepted=4/10; elapsed=551s
+  Qwen candidate 17: GENERATE started; accepted=4/10
+  Qwen candidate 17: REJECTED; accepted=4/10; elapsed=578s; JUnit validation failed
+  Qwen candidate 18: REPAIR started; accepted=4/10
+  Qwen candidate 18: REJECTED; accepted=4/10; elapsed=607s; JUnit validation failed
+  Qwen candidate 19: REPAIR started; accepted=4/10
+  Qwen candidate 19: REJECTED; accepted=4/10; elapsed=635s; JUnit validation failed
+  Qwen candidate 20: REPAIR started; accepted=4/10
+  Qwen candidate 20: REJECTED; accepted=4/10; elapsed=663s; JUnit validation failed
+  Qwen candidate 21: GENERATE started; accepted=4/10
+  Qwen candidate 21: REJECTED; accepted=4/10; elapsed=700s; JUnit validation failed
+  Qwen candidate 22: REPAIR started; accepted=4/10
+  Qwen candidate 22: REJECTED; accepted=4/10; elapsed=745s; JUnit validation failed
+  Qwen candidate 23: REPAIR started; accepted=4/10
+  Qwen candidate 23: REJECTED; accepted=4/10; elapsed=789s; JUnit validation failed
+  Qwen candidate 24: REPAIR started; accepted=4/10
+  Qwen candidate 24: REJECTED; accepted=4/10; elapsed=841s; JUnit validation failed
+  Qwen candidate 25: GENERATE started; accepted=4/10
+  Qwen candidate 25: REJECTED; accepted=4/10; elapsed=867s; Compilation failed
+  Qwen candidate 26: REPAIR started; accepted=4/10
+  Qwen candidate 26: REJECTED; accepted=4/10; elapsed=898s; Compilation failed
+  Qwen candidate 27: REPAIR started; accepted=4/10
+  Qwen candidate 27: REJECTED; accepted=4/10; elapsed=927s; Compilation failed
+  Qwen candidate 28: REPAIR started; accepted=4/10
+  Qwen candidate 28: REJECTED; accepted=4/10; elapsed=958s; Compilation failed
+  Qwen candidate 29: GENERATE started; accepted=4/10
+  Qwen candidate 29: ACCEPTED; accepted=5/10; elapsed=986s
+  Qwen candidate 30: GENERATE started; accepted=5/10
+  Qwen candidate 30: REJECTED; accepted=5/10; elapsed=1044s; JUnit validation failed
+  Qwen candidate 31: REPAIR started; accepted=5/10
+  Qwen candidate 31: REJECTED; accepted=5/10; elapsed=1127s; JUnit validation failed
+  Qwen candidate 32: REPAIR started; accepted=5/10
+  Qwen candidate 32: REJECTED; accepted=5/10; elapsed=1206s; Wrong or missing test class
+  Qwen candidate 33: REPAIR started; accepted=5/10
+  Qwen candidate 33: REJECTED; accepted=5/10; elapsed=1289s; JUnit validation failed
+  Qwen candidate 34: GENERATE started; accepted=5/10
+  Qwen candidate 34: ACCEPTED; accepted=6/10; elapsed=1314s
+  Qwen candidate 35: GENERATE started; accepted=6/10
+  Qwen candidate 35: REJECTED; accepted=6/10; elapsed=1338s; Compilation failed
+  Qwen candidate 36: REPAIR started; accepted=6/10
+  Qwen candidate 36: REJECTED; accepted=6/10; elapsed=1366s; Compilation failed
+  Qwen candidate 37: REPAIR started; accepted=6/10
+  Qwen candidate 37: REJECTED; accepted=6/10; elapsed=1391s; Compilation failed
+  Qwen candidate 38: REPAIR started; accepted=6/10
+  Qwen candidate 38: REJECTED; accepted=6/10; elapsed=1417s; Compilation failed
+  Qwen candidate 39: GENERATE started; accepted=6/10
+  Qwen candidate 39: ACCEPTED; accepted=7/10; elapsed=1443s
+  Qwen candidate 40: GENERATE started; accepted=7/10
+  Qwen candidate 40: ACCEPTED; accepted=8/10; elapsed=1466s
+  Qwen candidate 41: GENERATE started; accepted=8/10
+  Qwen candidate 41: REJECTED; accepted=8/10; elapsed=1492s; Compilation failed
+  Qwen candidate 42: REPAIR started; accepted=8/10
+  Qwen candidate 42: ACCEPTED; accepted=9/10; elapsed=1526s
+  Qwen candidate 43: GENERATE started; accepted=9/10
+  Qwen candidate 43: REJECTED; accepted=9/10; elapsed=1552s; Compilation failed
+  Qwen candidate 44: REPAIR started; accepted=9/10
+  Qwen candidate 44: REJECTED; accepted=9/10; elapsed=1593s; Compilation failed
+  Qwen candidate 45: REPAIR started; accepted=9/10
+  Qwen candidate 45: REJECTED; accepted=9/10; elapsed=1634s; Compilation failed
+  Qwen candidate 46: REPAIR started; accepted=9/10
+  Qwen candidate 46: REJECTED; accepted=9/10; elapsed=1674s; Wrong or missing test class
+  Qwen candidate 47: GENERATE started; accepted=9/10
+  Qwen candidate 47: ACCEPTED; accepted=10/10; elapsed=1699s
+RUN FINISHED: com.viktor.lab4.SimpleJsonParser; status=OK; accepted=10/10; stop=accepted_test_quota; elapsed=1698.8s
+Metadata: C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f\QwenLLM\SimpleJsonParser\1800\run6-seed606\llm-run.json
+
+Done. Summary: C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\generation_runs.csv
+GENERATION FINISHED: OK=4, EMPTY=0, FAIL=0
+
+RUN: C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\.venv\Scripts\python.exe -u C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\generate_test_suites.py --tools QwenLLM --seeds 707 --target-classes com.viktor.lab4.LongestIncreasingSubsequence com.viktor.lab4.LruCache com.viktor.lab4.PricingEngine com.viktor.lab4.SimpleJsonParser --skip-build --java-exe C:\Users\user\.jdks\jbr-17.0.14\bin\java.exe --output-root C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f
+Tool = QwenLLM
+target = com.viktor.lab4.LongestIncreasingSubsequence
+budget = 1800, seed = 707
+  Qwen candidate 1: GENERATE started; accepted=0/10
+  Qwen candidate 1: ACCEPTED; accepted=1/10; elapsed=8s
+  Qwen candidate 2: GENERATE started; accepted=1/10
+  Qwen candidate 2: ACCEPTED; accepted=2/10; elapsed=14s
+  Qwen candidate 3: GENERATE started; accepted=2/10
+  Qwen candidate 3: ACCEPTED; accepted=3/10; elapsed=28s
+  Qwen candidate 4: GENERATE started; accepted=3/10
+  Qwen candidate 4: ACCEPTED; accepted=4/10; elapsed=39s
+  Qwen candidate 5: GENERATE started; accepted=4/10
+  Qwen candidate 5: REJECTED; accepted=4/10; elapsed=51s; Compilation failed
+  Qwen candidate 6: REPAIR started; accepted=4/10
+  Qwen candidate 6: ACCEPTED; accepted=5/10; elapsed=72s
+  Qwen candidate 7: GENERATE started; accepted=5/10
+  Qwen candidate 7: ACCEPTED; accepted=6/10; elapsed=79s
+  Qwen candidate 8: GENERATE started; accepted=6/10
+  Qwen candidate 8: REJECTED; accepted=6/10; elapsed=92s; Compilation failed
+  Qwen candidate 9: REPAIR started; accepted=6/10
+  Qwen candidate 9: ACCEPTED; accepted=7/10; elapsed=104s
+  Qwen candidate 10: GENERATE started; accepted=7/10
+  Qwen candidate 10: REJECTED; accepted=7/10; elapsed=113s; Compilation failed
+  Qwen candidate 11: REPAIR started; accepted=7/10
+  Qwen candidate 11: ACCEPTED; accepted=8/10; elapsed=128s
+  Qwen candidate 12: GENERATE started; accepted=8/10
+  Qwen candidate 12: ACCEPTED; accepted=9/10; elapsed=142s
+  Qwen candidate 13: GENERATE started; accepted=9/10
+  Qwen candidate 13: ACCEPTED; accepted=10/10; elapsed=152s
+RUN FINISHED: com.viktor.lab4.LongestIncreasingSubsequence; status=OK; accepted=10/10; stop=accepted_test_quota; elapsed=152.5s
+Metadata: C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f\QwenLLM\LongestIncreasingSubsequence\1800\run7-seed707\llm-run.json
+target = com.viktor.lab4.LruCache
+budget = 1800, seed = 707
+  Qwen candidate 1: GENERATE started; accepted=0/10
+  Qwen candidate 1: ACCEPTED; accepted=1/10; elapsed=15s
+  Qwen candidate 2: GENERATE started; accepted=1/10
+  Qwen candidate 2: REJECTED; accepted=1/10; elapsed=36s; JUnit validation failed
+  Qwen candidate 3: REPAIR started; accepted=1/10
+  Qwen candidate 3: REJECTED; accepted=1/10; elapsed=56s; JUnit validation failed
+  Qwen candidate 4: REPAIR started; accepted=1/10
+  Qwen candidate 4: REJECTED; accepted=1/10; elapsed=82s; JUnit validation failed
+  Qwen candidate 5: REPAIR started; accepted=1/10
+  Qwen candidate 5: REJECTED; accepted=1/10; elapsed=114s; JUnit validation failed
+  Qwen candidate 6: GENERATE started; accepted=1/10
+  Qwen candidate 6: REJECTED; accepted=1/10; elapsed=122s; JUnit validation failed
+  Qwen candidate 7: REPAIR started; accepted=1/10
+  Qwen candidate 7: REJECTED; accepted=1/10; elapsed=133s; JUnit validation failed
+  Qwen candidate 8: REPAIR started; accepted=1/10
+  Qwen candidate 8: REJECTED; accepted=1/10; elapsed=145s; JUnit validation failed
+  Qwen candidate 9: REPAIR started; accepted=1/10
+  Qwen candidate 9: REJECTED; accepted=1/10; elapsed=156s; JUnit validation failed
+  Qwen candidate 10: GENERATE started; accepted=1/10
+  Qwen candidate 10: ACCEPTED; accepted=2/10; elapsed=169s
+  Qwen candidate 11: GENERATE started; accepted=2/10
+  Qwen candidate 11: ACCEPTED; accepted=3/10; elapsed=183s
+  Qwen candidate 12: GENERATE started; accepted=3/10
+  Qwen candidate 12: ACCEPTED; accepted=4/10; elapsed=202s
+  Qwen candidate 13: GENERATE started; accepted=4/10
+  Qwen candidate 13: REJECTED; accepted=4/10; elapsed=221s; JUnit validation failed
+  Qwen candidate 14: REPAIR started; accepted=4/10
+  Qwen candidate 14: REJECTED; accepted=4/10; elapsed=248s; JUnit validation failed
+  Qwen candidate 15: REPAIR started; accepted=4/10
+  Qwen candidate 15: REJECTED; accepted=4/10; elapsed=266s; JUnit validation failed
+  Qwen candidate 16: REPAIR started; accepted=4/10
+  Qwen candidate 16: REJECTED; accepted=4/10; elapsed=284s; JUnit validation failed
+  Qwen candidate 17: GENERATE started; accepted=4/10
+  Qwen candidate 17: ACCEPTED; accepted=5/10; elapsed=298s
+  Qwen candidate 18: GENERATE started; accepted=5/10
+  Qwen candidate 18: ACCEPTED; accepted=6/10; elapsed=309s
+  Qwen candidate 19: GENERATE started; accepted=6/10
+  Qwen candidate 19: REJECTED; accepted=6/10; elapsed=323s; Compilation failed
+  Qwen candidate 20: REPAIR started; accepted=6/10
+  Qwen candidate 20: REJECTED; accepted=6/10; elapsed=341s; Compilation failed
+  Qwen candidate 21: REPAIR started; accepted=6/10
+  Qwen candidate 21: REJECTED; accepted=6/10; elapsed=365s; Compilation failed
+  Qwen candidate 22: REPAIR started; accepted=6/10
+  Qwen candidate 22: REJECTED; accepted=6/10; elapsed=390s; Wrong or missing test class
+  Qwen candidate 23: GENERATE started; accepted=6/10
+  Qwen candidate 23: ACCEPTED; accepted=7/10; elapsed=407s
+  Qwen candidate 24: GENERATE started; accepted=7/10
+  Qwen candidate 24: ACCEPTED; accepted=8/10; elapsed=426s
+  Qwen candidate 25: GENERATE started; accepted=8/10
+  Qwen candidate 25: REJECTED; accepted=8/10; elapsed=450s; Compilation failed
+  Qwen candidate 26: REPAIR started; accepted=8/10
+  Qwen candidate 26: ACCEPTED; accepted=9/10; elapsed=478s
+  Qwen candidate 27: GENERATE started; accepted=9/10
+  Qwen candidate 27: ACCEPTED; accepted=10/10; elapsed=488s
+RUN FINISHED: com.viktor.lab4.LruCache; status=OK; accepted=10/10; stop=accepted_test_quota; elapsed=488.4s
+Metadata: C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f\QwenLLM\LruCache\1800\run7-seed707\llm-run.json
+target = com.viktor.lab4.PricingEngine
+budget = 1800, seed = 707
+  Qwen candidate 1: GENERATE started; accepted=0/10
+  Qwen candidate 1: REJECTED; accepted=0/10; elapsed=11s; JUnit validation failed
+  Qwen candidate 2: REPAIR started; accepted=0/10
+  Qwen candidate 2: REJECTED; accepted=0/10; elapsed=27s; JUnit validation failed
+  Qwen candidate 3: REPAIR started; accepted=0/10
+  Qwen candidate 3: REJECTED; accepted=0/10; elapsed=42s; JUnit validation failed
+  Qwen candidate 4: REPAIR started; accepted=0/10
+  Qwen candidate 4: REJECTED; accepted=0/10; elapsed=60s; JUnit validation failed
+  Qwen candidate 5: GENERATE started; accepted=0/10
+  Qwen candidate 5: REJECTED; accepted=0/10; elapsed=69s; Compilation failed
+  Qwen candidate 6: REPAIR started; accepted=0/10
+  Qwen candidate 6: REJECTED; accepted=0/10; elapsed=83s; JUnit validation failed
+  Qwen candidate 7: REPAIR started; accepted=0/10
+  Qwen candidate 7: ACCEPTED; accepted=1/10; elapsed=100s
+  Qwen candidate 8: GENERATE started; accepted=1/10
+  Qwen candidate 8: ACCEPTED; accepted=2/10; elapsed=124s
+  Qwen candidate 9: GENERATE started; accepted=2/10
+  Qwen candidate 9: REJECTED; accepted=2/10; elapsed=163s; JUnit validation failed
+  Qwen candidate 10: REPAIR started; accepted=2/10
+  Qwen candidate 10: REJECTED; accepted=2/10; elapsed=199s; JUnit validation failed
+  Qwen candidate 11: REPAIR started; accepted=2/10
+  Qwen candidate 11: REJECTED; accepted=2/10; elapsed=236s; JUnit validation failed
+  Qwen candidate 12: REPAIR started; accepted=2/10
+  Qwen candidate 12: REJECTED; accepted=2/10; elapsed=272s; JUnit validation failed
+  Qwen candidate 13: GENERATE started; accepted=2/10
+  Qwen candidate 13: REJECTED; accepted=2/10; elapsed=295s; Compilation failed
+  Qwen candidate 14: REPAIR started; accepted=2/10
+  Qwen candidate 14: REJECTED; accepted=2/10; elapsed=320s; Compilation failed
+  Qwen candidate 15: REPAIR started; accepted=2/10
+  Qwen candidate 15: REJECTED; accepted=2/10; elapsed=345s; Wrong or missing test class
+  Qwen candidate 16: REPAIR started; accepted=2/10
+  Qwen candidate 16: REJECTED; accepted=2/10; elapsed=374s; Compilation failed
+  Qwen candidate 17: GENERATE started; accepted=2/10
+  Qwen candidate 17: REJECTED; accepted=2/10; elapsed=399s; JUnit validation failed
+  Qwen candidate 18: REPAIR started; accepted=2/10
+  Qwen candidate 18: REJECTED; accepted=2/10; elapsed=458s; Return exactly ONE @Test method in this candidate
+  Qwen candidate 19: REPAIR started; accepted=2/10
+  Qwen candidate 19: REJECTED; accepted=2/10; elapsed=483s; Wrong or missing test class
+  Qwen candidate 20: REPAIR started; accepted=2/10
+  Qwen candidate 20: REJECTED; accepted=2/10; elapsed=498s; JUnit validation failed
+  Qwen candidate 21: GENERATE started; accepted=2/10
+  Qwen candidate 21: REJECTED; accepted=2/10; elapsed=520s; Compilation failed
+  Qwen candidate 22: REPAIR started; accepted=2/10
+  Qwen candidate 22: REJECTED; accepted=2/10; elapsed=532s; Wrong or missing test class
+  Qwen candidate 23: REPAIR started; accepted=2/10
+  Qwen candidate 23: REJECTED; accepted=2/10; elapsed=545s; JUnit validation failed
+  Qwen candidate 24: REPAIR started; accepted=2/10
+  Qwen candidate 24: REJECTED; accepted=2/10; elapsed=563s; JUnit validation failed
+  Qwen candidate 25: GENERATE started; accepted=2/10
+  Qwen candidate 25: REJECTED; accepted=2/10; elapsed=584s; Compilation failed
+  Qwen candidate 26: REPAIR started; accepted=2/10
+  Qwen candidate 26: REJECTED; accepted=2/10; elapsed=596s; Compilation failed
+  Qwen candidate 27: REPAIR started; accepted=2/10
+  Qwen candidate 27: REJECTED; accepted=2/10; elapsed=617s; JUnit validation failed
+  Qwen candidate 28: REPAIR started; accepted=2/10
+  Qwen candidate 28: REJECTED; accepted=2/10; elapsed=639s; Wrong or missing test class
+  Qwen candidate 29: GENERATE started; accepted=2/10
+  Qwen candidate 29: ACCEPTED; accepted=3/10; elapsed=660s
+  Qwen candidate 30: GENERATE started; accepted=3/10
+  Qwen candidate 30: REJECTED; accepted=3/10; elapsed=683s; Compilation failed
+  Qwen candidate 31: REPAIR started; accepted=3/10
+  Qwen candidate 31: REJECTED; accepted=3/10; elapsed=708s; Compilation failed
+  Qwen candidate 32: REPAIR started; accepted=3/10
+  Qwen candidate 32: REJECTED; accepted=3/10; elapsed=743s; Wrong or missing test class
+  Qwen candidate 33: REPAIR started; accepted=3/10
+  Qwen candidate 33: REJECTED; accepted=3/10; elapsed=787s; Compilation failed
+  Qwen candidate 34: GENERATE started; accepted=3/10
+  Qwen candidate 34: REJECTED; accepted=3/10; elapsed=814s; Compilation failed
+  Qwen candidate 35: REPAIR started; accepted=3/10
+  Qwen candidate 35: REJECTED; accepted=3/10; elapsed=835s; JUnit validation failed
+  Qwen candidate 36: REPAIR started; accepted=3/10
+  Qwen candidate 36: REJECTED; accepted=3/10; elapsed=867s; JUnit validation failed
+  Qwen candidate 37: REPAIR started; accepted=3/10
+  Qwen candidate 37: REJECTED; accepted=3/10; elapsed=889s; JUnit validation failed
+  Qwen candidate 38: GENERATE started; accepted=3/10
+  Qwen candidate 38: REJECTED; accepted=3/10; elapsed=913s; Compilation failed
+  Qwen candidate 39: REPAIR started; accepted=3/10
+  Qwen candidate 39: REJECTED; accepted=3/10; elapsed=930s; JUnit validation failed
+  Qwen candidate 40: REPAIR started; accepted=3/10
+  Qwen candidate 40: REJECTED; accepted=3/10; elapsed=957s; JUnit validation failed
+  Qwen candidate 41: REPAIR started; accepted=3/10
+  Qwen candidate 41: REJECTED; accepted=3/10; elapsed=974s; JUnit validation failed
+  Qwen candidate 42: GENERATE started; accepted=3/10
+  Qwen candidate 42: REJECTED; accepted=3/10; elapsed=997s; JUnit validation failed
+  Qwen candidate 43: REPAIR started; accepted=3/10
+  Qwen candidate 43: REJECTED; accepted=3/10; elapsed=1023s; JUnit validation failed
+  Qwen candidate 44: REPAIR started; accepted=3/10
+  Qwen candidate 44: REJECTED; accepted=3/10; elapsed=1044s; JUnit validation failed
+  Qwen candidate 45: REPAIR started; accepted=3/10
+  Qwen candidate 45: REJECTED; accepted=3/10; elapsed=1060s; Wrong or missing test class
+  Qwen candidate 46: GENERATE started; accepted=3/10
+  Qwen candidate 46: REJECTED; accepted=3/10; elapsed=1081s; Compilation failed
+  Qwen candidate 47: REPAIR started; accepted=3/10
+  Qwen candidate 47: REJECTED; accepted=3/10; elapsed=1106s; JUnit validation failed
+  Qwen candidate 48: REPAIR started; accepted=3/10
+  Qwen candidate 48: ACCEPTED; accepted=4/10; elapsed=1119s
+  Qwen candidate 49: GENERATE started; accepted=4/10
+  Qwen candidate 49: ACCEPTED; accepted=5/10; elapsed=1141s
+  Qwen candidate 50: GENERATE started; accepted=5/10
+  Qwen candidate 50: REJECTED; accepted=5/10; elapsed=1165s; JUnit validation failed
+  Qwen candidate 51: REPAIR started; accepted=5/10
+  Qwen candidate 51: REJECTED; accepted=5/10; elapsed=1180s; JUnit validation failed
+  Qwen candidate 52: REPAIR started; accepted=5/10
+  Qwen candidate 52: ACCEPTED; accepted=6/10; elapsed=1206s
+  Qwen candidate 53: GENERATE started; accepted=6/10
+  Qwen candidate 53: REJECTED; accepted=6/10; elapsed=1231s; Compilation failed
+  Qwen candidate 54: REPAIR started; accepted=6/10
+  Qwen candidate 54: REJECTED; accepted=6/10; elapsed=1246s; Wrong or missing test class
+  Qwen candidate 55: REPAIR started; accepted=6/10
+  Qwen candidate 55: REJECTED; accepted=6/10; elapsed=1261s; JUnit validation failed
+  Qwen candidate 56: REPAIR started; accepted=6/10
+  Qwen candidate 56: REJECTED; accepted=6/10; elapsed=1278s; JUnit validation failed
+  Qwen candidate 57: GENERATE started; accepted=6/10
+  Qwen candidate 57: REJECTED; accepted=6/10; elapsed=1298s; Compilation failed
+  Qwen candidate 58: REPAIR started; accepted=6/10
+  Qwen candidate 58: REJECTED; accepted=6/10; elapsed=1340s; JUnit validation failed
+  Qwen candidate 59: REPAIR started; accepted=6/10
+  Qwen candidate 59: REJECTED; accepted=6/10; elapsed=1387s; Wrong or missing test class
+  Qwen candidate 60: REPAIR started; accepted=6/10
+  Qwen candidate 60: REJECTED; accepted=6/10; elapsed=1440s; JUnit validation failed
+  Qwen candidate 61: GENERATE started; accepted=6/10
+  Qwen candidate 61: REJECTED; accepted=6/10; elapsed=1465s; JUnit validation failed
+  Qwen candidate 62: REPAIR started; accepted=6/10
+  Qwen candidate 62: REJECTED; accepted=6/10; elapsed=1494s; JUnit validation failed
+  Qwen candidate 63: REPAIR started; accepted=6/10
+  Qwen candidate 63: REJECTED; accepted=6/10; elapsed=1521s; JUnit validation failed
+  Qwen candidate 64: REPAIR started; accepted=6/10
+  Qwen candidate 64: ACCEPTED; accepted=7/10; elapsed=1548s
+  Qwen candidate 65: GENERATE started; accepted=7/10
+  Qwen candidate 65: REJECTED; accepted=7/10; elapsed=1584s; Compilation failed
+  Qwen candidate 66: REPAIR started; accepted=7/10
+  Qwen candidate 66: REJECTED; accepted=7/10; elapsed=1633s; JUnit validation failed
+  Qwen candidate 67: REPAIR started; accepted=7/10
+  Qwen candidate 67: REJECTED; accepted=7/10; elapsed=1674s; JUnit validation failed
+  Qwen candidate 68: REPAIR started; accepted=7/10
+  Qwen candidate 68: REJECTED; accepted=7/10; elapsed=1715s; JUnit validation failed
+  Qwen candidate 69: GENERATE started; accepted=7/10
+  Qwen candidate 69: REJECTED; accepted=7/10; elapsed=1737s; Compilation failed
+  Qwen candidate 70: REPAIR started; accepted=7/10
+  Qwen candidate 70: ACCEPTED; accepted=8/10; elapsed=1764s
+  Qwen candidate 71: GENERATE started; accepted=8/10
+  Qwen candidate 71: REJECTED; accepted=8/10; elapsed=1786s; Compilation failed
+  Qwen candidate 72: REPAIR started; accepted=8/10
+  Qwen candidate 72: TIMEOUT; accepted=8/10; elapsed=1800s; timed out
+RUN FINISHED: com.viktor.lab4.PricingEngine; status=OK; accepted=8/10; stop=time_limit; elapsed=1800.0s
+Metadata: C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f\QwenLLM\PricingEngine\1800\run7-seed707\llm-run.json
+target = com.viktor.lab4.SimpleJsonParser
+budget = 1800, seed = 707
+  Qwen candidate 1: GENERATE started; accepted=0/10
+  Qwen candidate 1: ACCEPTED; accepted=1/10; elapsed=10s
+  Qwen candidate 2: GENERATE started; accepted=1/10
+  Qwen candidate 2: REJECTED; accepted=1/10; elapsed=32s; Compilation failed
+  Qwen candidate 3: REPAIR started; accepted=1/10
+  Qwen candidate 3: REJECTED; accepted=1/10; elapsed=42s; Compilation failed
+  Qwen candidate 4: REPAIR started; accepted=1/10
+  Qwen candidate 4: REJECTED; accepted=1/10; elapsed=53s; Compilation failed
+  Qwen candidate 5: REPAIR started; accepted=1/10
+  Qwen candidate 5: REJECTED; accepted=1/10; elapsed=88s; Compilation failed
+  Qwen candidate 6: GENERATE started; accepted=1/10
+  Qwen candidate 6: REJECTED; accepted=1/10; elapsed=112s; Compilation failed
+  Qwen candidate 7: REPAIR started; accepted=1/10
+  Qwen candidate 7: ACCEPTED; accepted=2/10; elapsed=123s
+  Qwen candidate 8: GENERATE started; accepted=2/10
+  Qwen candidate 8: ACCEPTED; accepted=3/10; elapsed=146s
+  Qwen candidate 9: GENERATE started; accepted=3/10
+  Qwen candidate 9: REJECTED; accepted=3/10; elapsed=171s; Compilation failed
+  Qwen candidate 10: REPAIR started; accepted=3/10
+  Qwen candidate 10: REJECTED; accepted=3/10; elapsed=202s; Compilation failed
+  Qwen candidate 11: REPAIR started; accepted=3/10
+  Qwen candidate 11: REJECTED; accepted=3/10; elapsed=231s; Compilation failed
+  Qwen candidate 12: REPAIR started; accepted=3/10
+  Qwen candidate 12: REJECTED; accepted=3/10; elapsed=259s; Compilation failed
+  Qwen candidate 13: GENERATE started; accepted=3/10
+  Qwen candidate 13: REJECTED; accepted=3/10; elapsed=283s; Compilation failed
+  Qwen candidate 14: REPAIR started; accepted=3/10
+  Qwen candidate 14: REJECTED; accepted=3/10; elapsed=295s; Compilation failed
+  Qwen candidate 15: REPAIR started; accepted=3/10
+  Qwen candidate 15: REJECTED; accepted=3/10; elapsed=321s; Compilation failed
+  Qwen candidate 16: REPAIR started; accepted=3/10
+  Qwen candidate 16: REJECTED; accepted=3/10; elapsed=349s; Compilation failed
+  Qwen candidate 17: GENERATE started; accepted=3/10
+  Qwen candidate 17: REJECTED; accepted=3/10; elapsed=374s; JUnit validation failed
+  Qwen candidate 18: REPAIR started; accepted=3/10
+  Qwen candidate 18: REJECTED; accepted=3/10; elapsed=386s; JUnit validation failed
+  Qwen candidate 19: REPAIR started; accepted=3/10
+  Qwen candidate 19: REJECTED; accepted=3/10; elapsed=398s; JUnit validation failed
+  Qwen candidate 20: REPAIR started; accepted=3/10
+  Qwen candidate 20: REJECTED; accepted=3/10; elapsed=410s; JUnit validation failed
+  Qwen candidate 21: GENERATE started; accepted=3/10
+  Qwen candidate 21: REJECTED; accepted=3/10; elapsed=434s; Compilation failed
+  Qwen candidate 22: REPAIR started; accepted=3/10
+  Qwen candidate 22: REJECTED; accepted=3/10; elapsed=446s; JUnit validation failed
+  Qwen candidate 23: REPAIR started; accepted=3/10
+  Qwen candidate 23: REJECTED; accepted=3/10; elapsed=458s; JUnit validation failed
+  Qwen candidate 24: REPAIR started; accepted=3/10
+  Qwen candidate 24: REJECTED; accepted=3/10; elapsed=470s; JUnit validation failed
+  Qwen candidate 25: GENERATE started; accepted=3/10
+  Qwen candidate 25: ACCEPTED; accepted=4/10; elapsed=494s
+  Qwen candidate 26: GENERATE started; accepted=4/10
+  Qwen candidate 26: REJECTED; accepted=4/10; elapsed=521s; Compilation failed
+  Qwen candidate 27: REPAIR started; accepted=4/10
+  Qwen candidate 27: REJECTED; accepted=4/10; elapsed=542s; JUnit validation failed
+  Qwen candidate 28: REPAIR started; accepted=4/10
+  Qwen candidate 28: REJECTED; accepted=4/10; elapsed=569s; Wrong or missing test class
+  Qwen candidate 29: REPAIR started; accepted=4/10
+  Qwen candidate 29: REJECTED; accepted=4/10; elapsed=611s; Wrong or missing test class
+  Qwen candidate 30: GENERATE started; accepted=4/10
+  Qwen candidate 30: REJECTED; accepted=4/10; elapsed=634s; Compilation failed
+  Qwen candidate 31: REPAIR started; accepted=4/10
+  Qwen candidate 31: REJECTED; accepted=4/10; elapsed=647s; Compilation failed
+  Qwen candidate 32: REPAIR started; accepted=4/10
+  Qwen candidate 32: ACCEPTED; accepted=5/10; elapsed=660s
+  Qwen candidate 33: GENERATE started; accepted=5/10
+  Qwen candidate 33: REJECTED; accepted=5/10; elapsed=684s; JUnit validation failed
+  Qwen candidate 34: REPAIR started; accepted=5/10
+  Qwen candidate 34: REJECTED; accepted=5/10; elapsed=710s; JUnit validation failed
+  Qwen candidate 35: REPAIR started; accepted=5/10
+  Qwen candidate 35: REJECTED; accepted=5/10; elapsed=734s; JUnit validation failed
+  Qwen candidate 36: REPAIR started; accepted=5/10
+  Qwen candidate 36: REJECTED; accepted=5/10; elapsed=743s; JUnit validation failed
+  Qwen candidate 37: GENERATE started; accepted=5/10
+  Qwen candidate 37: REJECTED; accepted=5/10; elapsed=768s; Compilation failed
+  Qwen candidate 38: REPAIR started; accepted=5/10
+  Qwen candidate 38: REJECTED; accepted=5/10; elapsed=782s; Compilation failed
+  Qwen candidate 39: REPAIR started; accepted=5/10
+  Qwen candidate 39: REJECTED; accepted=5/10; elapsed=812s; Compilation failed
+  Qwen candidate 40: REPAIR started; accepted=5/10
+  Qwen candidate 40: REJECTED; accepted=5/10; elapsed=851s; Compilation failed
+  Qwen candidate 41: GENERATE started; accepted=5/10
+  Qwen candidate 41: REJECTED; accepted=5/10; elapsed=873s; Compilation failed
+  Qwen candidate 42: REPAIR started; accepted=5/10
+  Qwen candidate 42: REJECTED; accepted=5/10; elapsed=881s; Wrong or missing test class
+  Qwen candidate 43: REPAIR started; accepted=5/10
+  Qwen candidate 43: REJECTED; accepted=5/10; elapsed=902s; Compilation failed
+  Qwen candidate 44: REPAIR started; accepted=5/10
+  Qwen candidate 44: REJECTED; accepted=5/10; elapsed=911s; JUnit validation failed
+  Qwen candidate 45: GENERATE started; accepted=5/10
+  Qwen candidate 45: ACCEPTED; accepted=6/10; elapsed=936s
+  Qwen candidate 46: GENERATE started; accepted=6/10
+  Qwen candidate 46: REJECTED; accepted=6/10; elapsed=966s; Compilation failed
+  Qwen candidate 47: REPAIR started; accepted=6/10
+  Qwen candidate 47: REJECTED; accepted=6/10; elapsed=1004s; Compilation failed
+  Qwen candidate 48: REPAIR started; accepted=6/10
+  Qwen candidate 48: REJECTED; accepted=6/10; elapsed=1046s; JUnit validation failed
+  Qwen candidate 49: REPAIR started; accepted=6/10
+  Qwen candidate 49: REJECTED; accepted=6/10; elapsed=1112s; Wrong or missing test class
+  Qwen candidate 50: GENERATE started; accepted=6/10
+  Qwen candidate 50: ACCEPTED; accepted=7/10; elapsed=1138s
+  Qwen candidate 51: GENERATE started; accepted=7/10
+  Qwen candidate 51: ACCEPTED; accepted=8/10; elapsed=1161s
+  Qwen candidate 52: GENERATE started; accepted=8/10
+  Qwen candidate 52: REJECTED; accepted=8/10; elapsed=1189s; Compilation failed
+  Qwen candidate 53: REPAIR started; accepted=8/10
+  Qwen candidate 53: REJECTED; accepted=8/10; elapsed=1230s; JUnit validation failed
+  Qwen candidate 54: REPAIR started; accepted=8/10
+  Qwen candidate 54: REJECTED; accepted=8/10; elapsed=1264s; JUnit validation failed
+  Qwen candidate 55: REPAIR started; accepted=8/10
+  Qwen candidate 55: REJECTED; accepted=8/10; elapsed=1297s; JUnit validation failed
+  Qwen candidate 56: GENERATE started; accepted=8/10
+  Qwen candidate 56: REJECTED; accepted=8/10; elapsed=1320s; Compilation failed
+  Qwen candidate 57: REPAIR started; accepted=8/10
+  Qwen candidate 57: REJECTED; accepted=8/10; elapsed=1346s; Compilation failed
+  Qwen candidate 58: REPAIR started; accepted=8/10
+  Qwen candidate 58: REJECTED; accepted=8/10; elapsed=1377s; Compilation failed
+  Qwen candidate 59: REPAIR started; accepted=8/10
+  Qwen candidate 59: REJECTED; accepted=8/10; elapsed=1411s; Compilation failed
+  Qwen candidate 60: GENERATE started; accepted=8/10
+  Qwen candidate 60: ACCEPTED; accepted=9/10; elapsed=1436s
+  Qwen candidate 61: GENERATE started; accepted=9/10
+  Qwen candidate 61: ACCEPTED; accepted=10/10; elapsed=1459s
+RUN FINISHED: com.viktor.lab4.SimpleJsonParser; status=OK; accepted=10/10; stop=accepted_test_quota; elapsed=1459.0s
+Metadata: C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f\QwenLLM\SimpleJsonParser\1800\run7-seed707\llm-run.json
+
+Done. Summary: C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\generation_runs.csv
+GENERATION FINISHED: OK=4, EMPTY=0, FAIL=0
+
+RUN: C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\.venv\Scripts\python.exe -u C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\generate_test_suites.py --tools QwenLLM --seeds 808 --target-classes com.viktor.lab4.LongestIncreasingSubsequence com.viktor.lab4.LruCache com.viktor.lab4.PricingEngine com.viktor.lab4.SimpleJsonParser --skip-build --java-exe C:\Users\user\.jdks\jbr-17.0.14\bin\java.exe --output-root C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f
+Tool = QwenLLM
+target = com.viktor.lab4.LongestIncreasingSubsequence
+budget = 1800, seed = 808
+  Qwen candidate 1: GENERATE started; accepted=0/10
+  Qwen candidate 1: REJECTED; accepted=0/10; elapsed=7s; Compilation failed
+  Qwen candidate 2: REPAIR started; accepted=0/10
+  Qwen candidate 2: ACCEPTED; accepted=1/10; elapsed=35s
+  Qwen candidate 3: GENERATE started; accepted=1/10
+  Qwen candidate 3: ACCEPTED; accepted=2/10; elapsed=44s
+  Qwen candidate 4: GENERATE started; accepted=2/10
+  Qwen candidate 4: ACCEPTED; accepted=3/10; elapsed=52s
+  Qwen candidate 5: GENERATE started; accepted=3/10
+  Qwen candidate 5: ACCEPTED; accepted=4/10; elapsed=64s
+  Qwen candidate 6: GENERATE started; accepted=4/10
+  Qwen candidate 6: REJECTED; accepted=4/10; elapsed=98s; Compilation failed
+  Qwen candidate 7: REPAIR started; accepted=4/10
+  Qwen candidate 7: REJECTED; accepted=4/10; elapsed=140s; Wrong or missing test class
+  Qwen candidate 8: REPAIR started; accepted=4/10
+  Qwen candidate 8: ACCEPTED; accepted=5/10; elapsed=158s
+  Qwen candidate 9: GENERATE started; accepted=5/10
+  Qwen candidate 9: REJECTED; accepted=5/10; elapsed=172s; Compilation failed
+  Qwen candidate 10: REPAIR started; accepted=5/10
+  Qwen candidate 10: REJECTED; accepted=5/10; elapsed=190s; JUnit validation failed
+  Qwen candidate 11: REPAIR started; accepted=5/10
+  Qwen candidate 11: REJECTED; accepted=5/10; elapsed=207s; JUnit validation failed
+  Qwen candidate 12: REPAIR started; accepted=5/10
+  Qwen candidate 12: REJECTED; accepted=5/10; elapsed=224s; JUnit validation failed
+  Qwen candidate 13: GENERATE started; accepted=5/10
+  Qwen candidate 13: ACCEPTED; accepted=6/10; elapsed=235s
+  Qwen candidate 14: GENERATE started; accepted=6/10
+  Qwen candidate 14: ACCEPTED; accepted=7/10; elapsed=247s
+  Qwen candidate 15: GENERATE started; accepted=7/10
+  Qwen candidate 15: ACCEPTED; accepted=8/10; elapsed=260s
+  Qwen candidate 16: GENERATE started; accepted=8/10
+  Qwen candidate 16: REJECTED; accepted=8/10; elapsed=274s; Compilation failed
+  Qwen candidate 17: REPAIR started; accepted=8/10
+  Qwen candidate 17: REJECTED; accepted=8/10; elapsed=296s; Compilation failed
+  Qwen candidate 18: REPAIR started; accepted=8/10
+  Qwen candidate 18: REJECTED; accepted=8/10; elapsed=311s; Wrong or missing test class
+  Qwen candidate 19: REPAIR started; accepted=8/10
+  Qwen candidate 19: ACCEPTED; accepted=9/10; elapsed=325s
+  Qwen candidate 20: GENERATE started; accepted=9/10
+  Qwen candidate 20: REJECTED; accepted=9/10; elapsed=339s; JUnit validation failed
+  Qwen candidate 21: REPAIR started; accepted=9/10
+  Qwen candidate 21: REJECTED; accepted=9/10; elapsed=359s; JUnit validation failed
+  Qwen candidate 22: REPAIR started; accepted=9/10
+  Qwen candidate 22: REJECTED; accepted=9/10; elapsed=375s; JUnit validation failed
+  Qwen candidate 23: REPAIR started; accepted=9/10
+  Qwen candidate 23: ACCEPTED; accepted=10/10; elapsed=390s
+RUN FINISHED: com.viktor.lab4.LongestIncreasingSubsequence; status=OK; accepted=10/10; stop=accepted_test_quota; elapsed=389.7s
+Metadata: C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f\QwenLLM\LongestIncreasingSubsequence\1800\run8-seed808\llm-run.json
+target = com.viktor.lab4.LruCache
+budget = 1800, seed = 808
+  Qwen candidate 1: GENERATE started; accepted=0/10
+  Qwen candidate 1: REJECTED; accepted=0/10; elapsed=21s; Compilation failed
+  Qwen candidate 2: REPAIR started; accepted=0/10
+  Qwen candidate 2: REJECTED; accepted=0/10; elapsed=65s; JUnit validation failed
+  Qwen candidate 3: REPAIR started; accepted=0/10
+  Qwen candidate 3: REJECTED; accepted=0/10; elapsed=100s; Wrong or missing test class
+  Qwen candidate 4: REPAIR started; accepted=0/10
+  Qwen candidate 4: REJECTED; accepted=0/10; elapsed=132s; Compilation failed
+  Qwen candidate 5: GENERATE started; accepted=0/10
+  Qwen candidate 5: REJECTED; accepted=0/10; elapsed=153s; Compilation failed
+  Qwen candidate 6: REPAIR started; accepted=0/10
+  Qwen candidate 6: REJECTED; accepted=0/10; elapsed=182s; Compilation failed
+  Qwen candidate 7: REPAIR started; accepted=0/10
+  Qwen candidate 7: REJECTED; accepted=0/10; elapsed=206s; Wrong or missing test class
+  Qwen candidate 8: REPAIR started; accepted=0/10
+  Qwen candidate 8: REJECTED; accepted=0/10; elapsed=228s; Compilation failed
+  Qwen candidate 9: GENERATE started; accepted=0/10
+  Qwen candidate 9: REJECTED; accepted=0/10; elapsed=245s; Compilation failed
+  Qwen candidate 10: REPAIR started; accepted=0/10
+  Qwen candidate 10: REJECTED; accepted=0/10; elapsed=269s; Compilation failed
+  Qwen candidate 11: REPAIR started; accepted=0/10
+  Qwen candidate 11: REJECTED; accepted=0/10; elapsed=292s; Compilation failed
+  Qwen candidate 12: REPAIR started; accepted=0/10
+  Qwen candidate 12: ACCEPTED; accepted=1/10; elapsed=334s
+  Qwen candidate 13: GENERATE started; accepted=1/10
+  Qwen candidate 13: REJECTED; accepted=1/10; elapsed=352s; Compilation failed
+  Qwen candidate 14: REPAIR started; accepted=1/10
+  Qwen candidate 14: ACCEPTED; accepted=2/10; elapsed=385s
+  Qwen candidate 15: GENERATE started; accepted=2/10
+  Qwen candidate 15: REJECTED; accepted=2/10; elapsed=405s; JUnit validation failed
+  Qwen candidate 16: REPAIR started; accepted=2/10
+  Qwen candidate 16: REJECTED; accepted=2/10; elapsed=428s; JUnit validation failed
+  Qwen candidate 17: REPAIR started; accepted=2/10
+  Qwen candidate 17: REJECTED; accepted=2/10; elapsed=458s; JUnit validation failed
+  Qwen candidate 18: REPAIR started; accepted=2/10
+  Qwen candidate 18: REJECTED; accepted=2/10; elapsed=490s; JUnit validation failed
+  Qwen candidate 19: GENERATE started; accepted=2/10
+  Qwen candidate 19: REJECTED; accepted=2/10; elapsed=509s; Compilation failed
+  Qwen candidate 20: REPAIR started; accepted=2/10
+  Qwen candidate 20: REJECTED; accepted=2/10; elapsed=545s; Compilation failed
+  Qwen candidate 21: REPAIR started; accepted=2/10
+  Qwen candidate 21: REJECTED; accepted=2/10; elapsed=579s; Wrong or missing test class
+  Qwen candidate 22: REPAIR started; accepted=2/10
+  Qwen candidate 22: REJECTED; accepted=2/10; elapsed=605s; JUnit validation failed
+  Qwen candidate 23: GENERATE started; accepted=2/10
+  Qwen candidate 23: REJECTED; accepted=2/10; elapsed=630s; Compilation failed
+  Qwen candidate 24: REPAIR started; accepted=2/10
+  Qwen candidate 24: REJECTED; accepted=2/10; elapsed=662s; Compilation failed
+  Qwen candidate 25: REPAIR started; accepted=2/10
+  Qwen candidate 25: REJECTED; accepted=2/10; elapsed=692s; Compilation failed
+  Qwen candidate 26: REPAIR started; accepted=2/10
+  Qwen candidate 26: REJECTED; accepted=2/10; elapsed=722s; Compilation failed
+  Qwen candidate 27: GENERATE started; accepted=2/10
+  Qwen candidate 27: ACCEPTED; accepted=3/10; elapsed=736s
+  Qwen candidate 28: GENERATE started; accepted=3/10
+  Qwen candidate 28: ACCEPTED; accepted=4/10; elapsed=749s
+  Qwen candidate 29: GENERATE started; accepted=4/10
+  Qwen candidate 29: REJECTED; accepted=4/10; elapsed=771s; Compilation failed
+  Qwen candidate 30: REPAIR started; accepted=4/10
+  Qwen candidate 30: REJECTED; accepted=4/10; elapsed=800s; Compilation failed
+  Qwen candidate 31: REPAIR started; accepted=4/10
+  Qwen candidate 31: REJECTED; accepted=4/10; elapsed=832s; Compilation failed
+  Qwen candidate 32: REPAIR started; accepted=4/10
+  Qwen candidate 32: REJECTED; accepted=4/10; elapsed=864s; Compilation failed
+  Qwen candidate 33: GENERATE started; accepted=4/10
+  Qwen candidate 33: ACCEPTED; accepted=5/10; elapsed=882s
+  Qwen candidate 34: GENERATE started; accepted=5/10
+  Qwen candidate 34: REJECTED; accepted=5/10; elapsed=903s; JUnit validation failed
+  Qwen candidate 35: REPAIR started; accepted=5/10
+  Qwen candidate 35: REJECTED; accepted=5/10; elapsed=928s; JUnit validation failed
+  Qwen candidate 36: REPAIR started; accepted=5/10
+  Qwen candidate 36: REJECTED; accepted=5/10; elapsed=968s; JUnit validation failed
+  Qwen candidate 37: REPAIR started; accepted=5/10
+  Qwen candidate 37: REJECTED; accepted=5/10; elapsed=1013s; JUnit validation failed
+  Qwen candidate 38: GENERATE started; accepted=5/10
+  Qwen candidate 38: REJECTED; accepted=5/10; elapsed=1033s; Compilation failed
+  Qwen candidate 39: REPAIR started; accepted=5/10
+  Qwen candidate 39: REJECTED; accepted=5/10; elapsed=1069s; Compilation failed
+  Qwen candidate 40: REPAIR started; accepted=5/10
+  Qwen candidate 40: ACCEPTED; accepted=6/10; elapsed=1101s
+  Qwen candidate 41: GENERATE started; accepted=6/10
+  Qwen candidate 41: ACCEPTED; accepted=7/10; elapsed=1115s
+  Qwen candidate 42: GENERATE started; accepted=7/10
+  Qwen candidate 42: ACCEPTED; accepted=8/10; elapsed=1130s
+  Qwen candidate 43: GENERATE started; accepted=8/10
+  Qwen candidate 43: ACCEPTED; accepted=9/10; elapsed=1147s
+  Qwen candidate 44: GENERATE started; accepted=9/10
+  Qwen candidate 44: REJECTED; accepted=9/10; elapsed=1164s; JUnit validation failed
+  Qwen candidate 45: REPAIR started; accepted=9/10
+  Qwen candidate 45: REJECTED; accepted=9/10; elapsed=1185s; JUnit validation failed
+  Qwen candidate 46: REPAIR started; accepted=9/10
+  Qwen candidate 46: REJECTED; accepted=9/10; elapsed=1205s; JUnit validation failed
+  Qwen candidate 47: REPAIR started; accepted=9/10
+  Qwen candidate 47: REJECTED; accepted=9/10; elapsed=1225s; JUnit validation failed
+  Qwen candidate 48: GENERATE started; accepted=9/10
+  Qwen candidate 48: REJECTED; accepted=9/10; elapsed=1249s; Compilation failed
+  Qwen candidate 49: REPAIR started; accepted=9/10
+  Qwen candidate 49: REJECTED; accepted=9/10; elapsed=1297s; Wrong or missing test class
+  Qwen candidate 50: REPAIR started; accepted=9/10
+  Qwen candidate 50: REJECTED; accepted=9/10; elapsed=1325s; Compilation failed
+  Qwen candidate 51: REPAIR started; accepted=9/10
+  Qwen candidate 51: REJECTED; accepted=9/10; elapsed=1376s; JUnit validation failed
+  Qwen candidate 52: GENERATE started; accepted=9/10
+  Qwen candidate 52: ACCEPTED; accepted=10/10; elapsed=1398s
+RUN FINISHED: com.viktor.lab4.LruCache; status=OK; accepted=10/10; stop=accepted_test_quota; elapsed=1397.6s
+Metadata: C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f\QwenLLM\LruCache\1800\run8-seed808\llm-run.json
+target = com.viktor.lab4.PricingEngine
+budget = 1800, seed = 808
+  Qwen candidate 1: GENERATE started; accepted=0/10
+  Qwen candidate 1: REJECTED; accepted=0/10; elapsed=25s; JUnit validation failed
+  Qwen candidate 2: REPAIR started; accepted=0/10
+  Qwen candidate 2: REJECTED; accepted=0/10; elapsed=56s; JUnit validation failed
+  Qwen candidate 3: REPAIR started; accepted=0/10
+  Qwen candidate 3: ACCEPTED; accepted=1/10; elapsed=113s
+  Qwen candidate 4: GENERATE started; accepted=1/10
+  Qwen candidate 4: REJECTED; accepted=1/10; elapsed=141s; JUnit validation failed
+  Qwen candidate 5: REPAIR started; accepted=1/10
+  Qwen candidate 5: REJECTED; accepted=1/10; elapsed=182s; JUnit validation failed
+  Qwen candidate 6: REPAIR started; accepted=1/10
+  Qwen candidate 6: REJECTED; accepted=1/10; elapsed=223s; Wrong or missing test class
+  Qwen candidate 7: REPAIR started; accepted=1/10
+  Qwen candidate 7: REJECTED; accepted=1/10; elapsed=263s; Wrong or missing test class
+  Qwen candidate 8: GENERATE started; accepted=1/10
+  Qwen candidate 8: REJECTED; accepted=1/10; elapsed=288s; Compilation failed
+  Qwen candidate 9: REPAIR started; accepted=1/10
+  Qwen candidate 9: REJECTED; accepted=1/10; elapsed=331s; Return exactly ONE @Test method in this candidate
+  Qwen candidate 10: REPAIR started; accepted=1/10
+  Qwen candidate 10: REJECTED; accepted=1/10; elapsed=358s; Wrong or missing test class
+  Qwen candidate 11: REPAIR started; accepted=1/10
+  Qwen candidate 11: REJECTED; accepted=1/10; elapsed=383s; Compilation failed
+  Qwen candidate 12: GENERATE started; accepted=1/10
+  Qwen candidate 12: REJECTED; accepted=1/10; elapsed=409s; Compilation failed
+  Qwen candidate 13: REPAIR started; accepted=1/10
+  Qwen candidate 13: REJECTED; accepted=1/10; elapsed=440s; JUnit validation failed
+  Qwen candidate 14: REPAIR started; accepted=1/10
+  Qwen candidate 14: REJECTED; accepted=1/10; elapsed=497s; Wrong or missing test class
+  Qwen candidate 15: REPAIR started; accepted=1/10
+  Qwen candidate 15: REJECTED; accepted=1/10; elapsed=539s; Wrong or missing test class
+  Qwen candidate 16: GENERATE started; accepted=1/10
+  Qwen candidate 16: REJECTED; accepted=1/10; elapsed=567s; Compilation failed
+  Qwen candidate 17: REPAIR started; accepted=1/10
+  Qwen candidate 17: REJECTED; accepted=1/10; elapsed=608s; JUnit validation failed
+  Qwen candidate 18: REPAIR started; accepted=1/10
+  Qwen candidate 18: REJECTED; accepted=1/10; elapsed=641s; Wrong or missing test class
+  Qwen candidate 19: REPAIR started; accepted=1/10
+  Qwen candidate 19: REJECTED; accepted=1/10; elapsed=671s; JUnit validation failed
+  Qwen candidate 20: GENERATE started; accepted=1/10
+  Qwen candidate 20: REJECTED; accepted=1/10; elapsed=697s; JUnit validation failed
+  Qwen candidate 21: REPAIR started; accepted=1/10
+  Qwen candidate 21: REJECTED; accepted=1/10; elapsed=730s; JUnit validation failed
+  Qwen candidate 22: REPAIR started; accepted=1/10
+  Qwen candidate 22: REJECTED; accepted=1/10; elapsed=765s; JUnit validation failed
+  Qwen candidate 23: REPAIR started; accepted=1/10
+  Qwen candidate 23: REJECTED; accepted=1/10; elapsed=801s; JUnit validation failed
+  Qwen candidate 24: GENERATE started; accepted=1/10
+  Qwen candidate 24: REJECTED; accepted=1/10; elapsed=825s; JUnit validation failed
+  Qwen candidate 25: REPAIR started; accepted=1/10
+  Qwen candidate 25: REJECTED; accepted=1/10; elapsed=852s; JUnit validation failed
+  Qwen candidate 26: REPAIR started; accepted=1/10
+  Qwen candidate 26: REJECTED; accepted=1/10; elapsed=877s; JUnit validation failed
+  Qwen candidate 27: REPAIR started; accepted=1/10
+  Qwen candidate 27: REJECTED; accepted=1/10; elapsed=924s; Return exactly ONE @Test method in this candidate
+  Qwen candidate 28: GENERATE started; accepted=1/10
+  Qwen candidate 28: REJECTED; accepted=1/10; elapsed=946s; Compilation failed
+  Qwen candidate 29: REPAIR started; accepted=1/10
+  Qwen candidate 29: REJECTED; accepted=1/10; elapsed=971s; JUnit validation failed
+  Qwen candidate 30: REPAIR started; accepted=1/10
+  Qwen candidate 30: REJECTED; accepted=1/10; elapsed=995s; JUnit validation failed
+  Qwen candidate 31: REPAIR started; accepted=1/10
+  Qwen candidate 31: REJECTED; accepted=1/10; elapsed=1020s; JUnit validation failed
+  Qwen candidate 32: GENERATE started; accepted=1/10
+  Qwen candidate 32: REJECTED; accepted=1/10; elapsed=1044s; Compilation failed
+  Qwen candidate 33: REPAIR started; accepted=1/10
+  Qwen candidate 33: ACCEPTED; accepted=2/10; elapsed=1072s
+  Qwen candidate 34: GENERATE started; accepted=2/10
+  Qwen candidate 34: REJECTED; accepted=2/10; elapsed=1096s; JUnit validation failed
+  Qwen candidate 35: REPAIR started; accepted=2/10
+  Qwen candidate 35: REJECTED; accepted=2/10; elapsed=1122s; JUnit validation failed
+  Qwen candidate 36: REPAIR started; accepted=2/10
+  Qwen candidate 36: ACCEPTED; accepted=3/10; elapsed=1158s
+  Qwen candidate 37: GENERATE started; accepted=3/10
+  Qwen candidate 37: REJECTED; accepted=3/10; elapsed=1187s; Compilation failed
+  Qwen candidate 38: REPAIR started; accepted=3/10
+  Qwen candidate 38: REJECTED; accepted=3/10; elapsed=1269s; Compilation failed
+  Qwen candidate 39: REPAIR started; accepted=3/10
+  Qwen candidate 39: REJECTED; accepted=3/10; elapsed=1367s; Wrong or missing test class
+  Qwen candidate 40: REPAIR started; accepted=3/10
+  Qwen candidate 40: REJECTED; accepted=3/10; elapsed=1419s; Wrong or missing test class
+  Qwen candidate 41: GENERATE started; accepted=3/10
+  Qwen candidate 41: REJECTED; accepted=3/10; elapsed=1450s; JUnit validation failed
+  Qwen candidate 42: REPAIR started; accepted=3/10
+  Qwen candidate 42: REJECTED; accepted=3/10; elapsed=1487s; JUnit validation failed
+  Qwen candidate 43: REPAIR started; accepted=3/10
+  Qwen candidate 43: REJECTED; accepted=3/10; elapsed=1531s; JUnit validation failed
+  Qwen candidate 44: REPAIR started; accepted=3/10
+  Qwen candidate 44: REJECTED; accepted=3/10; elapsed=1568s; Wrong or missing test class
+  Qwen candidate 45: GENERATE started; accepted=3/10
+  Qwen candidate 45: REJECTED; accepted=3/10; elapsed=1597s; Compilation failed
+  Qwen candidate 46: REPAIR started; accepted=3/10
+  Qwen candidate 46: REJECTED; accepted=3/10; elapsed=1643s; Compilation failed
+  Qwen candidate 47: REPAIR started; accepted=3/10
+  Qwen candidate 47: REJECTED; accepted=3/10; elapsed=1687s; Wrong or missing test class
+  Qwen candidate 48: REPAIR started; accepted=3/10
+  Qwen candidate 48: REJECTED; accepted=3/10; elapsed=1731s; Compilation failed
+  Qwen candidate 49: GENERATE started; accepted=3/10
+  Qwen candidate 49: REJECTED; accepted=3/10; elapsed=1767s; Compilation failed
+  Qwen candidate 50: REPAIR started; accepted=3/10
+  Qwen candidate 50: TIMEOUT; accepted=3/10; elapsed=1800s; timed out
+RUN FINISHED: com.viktor.lab4.PricingEngine; status=OK; accepted=3/10; stop=time_limit; elapsed=1800.0s
+Metadata: C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f\QwenLLM\PricingEngine\1800\run8-seed808\llm-run.json
+target = com.viktor.lab4.SimpleJsonParser
+budget = 1800, seed = 808
+  Qwen candidate 1: GENERATE started; accepted=0/10
+  Qwen candidate 1: REJECTED; accepted=0/10; elapsed=34s; Compilation failed
+  Qwen candidate 2: REPAIR started; accepted=0/10
+  Qwen candidate 2: REJECTED; accepted=0/10; elapsed=76s; Wrong or missing test class
+  Qwen candidate 3: REPAIR started; accepted=0/10
+  Qwen candidate 3: REJECTED; accepted=0/10; elapsed=119s; Wrong or missing test class
+  Qwen candidate 4: REPAIR started; accepted=0/10
+  Qwen candidate 4: REJECTED; accepted=0/10; elapsed=162s; JUnit validation failed
+  Qwen candidate 5: GENERATE started; accepted=0/10
+  Qwen candidate 5: REJECTED; accepted=0/10; elapsed=194s; Compilation failed
+  Qwen candidate 6: REPAIR started; accepted=0/10
+  Qwen candidate 6: REJECTED; accepted=0/10; elapsed=237s; Compilation failed
+  Qwen candidate 7: REPAIR started; accepted=0/10
+  Qwen candidate 7: REJECTED; accepted=0/10; elapsed=279s; Wrong or missing test class
+  Qwen candidate 8: REPAIR started; accepted=0/10
+  Qwen candidate 8: REJECTED; accepted=0/10; elapsed=328s; Return exactly ONE @Test method in this candidate
+  Qwen candidate 9: GENERATE started; accepted=0/10
+  Qwen candidate 9: ACCEPTED; accepted=1/10; elapsed=361s
+  Qwen candidate 10: GENERATE started; accepted=1/10
+  Qwen candidate 10: REJECTED; accepted=1/10; elapsed=396s; Compilation failed
+  Qwen candidate 11: REPAIR started; accepted=1/10
+  Qwen candidate 11: REJECTED; accepted=1/10; elapsed=444s; Compilation failed
+  Qwen candidate 12: REPAIR started; accepted=1/10
+  Qwen candidate 12: REJECTED; accepted=1/10; elapsed=498s; JUnit validation failed
+  Qwen candidate 13: REPAIR started; accepted=1/10
+  Qwen candidate 13: REJECTED; accepted=1/10; elapsed=547s; Wrong or missing test class
+  Qwen candidate 14: GENERATE started; accepted=1/10
+  Qwen candidate 14: REJECTED; accepted=1/10; elapsed=581s; Compilation failed
+  Qwen candidate 15: REPAIR started; accepted=1/10
+  Qwen candidate 15: REJECTED; accepted=1/10; elapsed=618s; Compilation failed
+  Qwen candidate 16: REPAIR started; accepted=1/10
+  Qwen candidate 16: REJECTED; accepted=1/10; elapsed=650s; Compilation failed
+  Qwen candidate 17: REPAIR started; accepted=1/10
+  Qwen candidate 17: REJECTED; accepted=1/10; elapsed=685s; Wrong or missing test class
+  Qwen candidate 18: GENERATE started; accepted=1/10
+  Qwen candidate 18: REJECTED; accepted=1/10; elapsed=709s; Compilation failed
+  Qwen candidate 19: REPAIR started; accepted=1/10
+  Qwen candidate 19: REJECTED; accepted=1/10; elapsed=736s; Compilation failed
+  Qwen candidate 20: REPAIR started; accepted=1/10
+  Qwen candidate 20: REJECTED; accepted=1/10; elapsed=759s; Wrong or missing test class
+  Qwen candidate 21: REPAIR started; accepted=1/10
+  Qwen candidate 21: REJECTED; accepted=1/10; elapsed=780s; JUnit validation failed
+  Qwen candidate 22: GENERATE started; accepted=1/10
+  Qwen candidate 22: REJECTED; accepted=1/10; elapsed=808s; Compilation failed
+  Qwen candidate 23: REPAIR started; accepted=1/10
+  Qwen candidate 23: REJECTED; accepted=1/10; elapsed=844s; Compilation failed
+  Qwen candidate 24: REPAIR started; accepted=1/10
+  Qwen candidate 24: REJECTED; accepted=1/10; elapsed=876s; JUnit validation failed
+  Qwen candidate 25: REPAIR started; accepted=1/10
+  Qwen candidate 25: REJECTED; accepted=1/10; elapsed=906s; JUnit validation failed
+  Qwen candidate 26: GENERATE started; accepted=1/10
+  Qwen candidate 26: REJECTED; accepted=1/10; elapsed=933s; Compilation failed
+  Qwen candidate 27: REPAIR started; accepted=1/10
+  Qwen candidate 27: REJECTED; accepted=1/10; elapsed=961s; Compilation failed
+  Qwen candidate 28: REPAIR started; accepted=1/10
+  Qwen candidate 28: REJECTED; accepted=1/10; elapsed=988s; Compilation failed
+  Qwen candidate 29: REPAIR started; accepted=1/10
+  Qwen candidate 29: REJECTED; accepted=1/10; elapsed=1015s; Compilation failed
+  Qwen candidate 30: GENERATE started; accepted=1/10
+  Qwen candidate 30: ACCEPTED; accepted=2/10; elapsed=1040s
+  Qwen candidate 31: GENERATE started; accepted=2/10
+  Qwen candidate 31: ACCEPTED; accepted=3/10; elapsed=1064s
+  Qwen candidate 32: GENERATE started; accepted=3/10
+  Qwen candidate 32: REJECTED; accepted=3/10; elapsed=1089s; Compilation failed
+  Qwen candidate 33: REPAIR started; accepted=3/10
+  Qwen candidate 33: REJECTED; accepted=3/10; elapsed=1129s; Compilation failed
+  Qwen candidate 34: REPAIR started; accepted=3/10
+  Qwen candidate 34: REJECTED; accepted=3/10; elapsed=1165s; Compilation failed
+  Qwen candidate 35: REPAIR started; accepted=3/10
+  Qwen candidate 35: REJECTED; accepted=3/10; elapsed=1198s; Compilation failed
+  Qwen candidate 36: GENERATE started; accepted=3/10
+  Qwen candidate 36: REJECTED; accepted=3/10; elapsed=1222s; Compilation failed
+  Qwen candidate 37: REPAIR started; accepted=3/10
+  Qwen candidate 37: REJECTED; accepted=3/10; elapsed=1251s; Compilation failed
+  Qwen candidate 38: REPAIR started; accepted=3/10
+  Qwen candidate 38: ACCEPTED; accepted=4/10; elapsed=1281s
+  Qwen candidate 39: GENERATE started; accepted=4/10
+  Qwen candidate 39: REJECTED; accepted=4/10; elapsed=1309s; Compilation failed
+  Qwen candidate 40: REPAIR started; accepted=4/10
+  Qwen candidate 40: REJECTED; accepted=4/10; elapsed=1351s; Compilation failed
+  Qwen candidate 41: REPAIR started; accepted=4/10
+  Qwen candidate 41: REJECTED; accepted=4/10; elapsed=1390s; Wrong or missing test class
+  Qwen candidate 42: REPAIR started; accepted=4/10
+  Qwen candidate 42: REJECTED; accepted=4/10; elapsed=1423s; Wrong or missing test class
+  Qwen candidate 43: GENERATE started; accepted=4/10
+  Qwen candidate 43: REJECTED; accepted=4/10; elapsed=1448s; Compilation failed
+  Qwen candidate 44: REPAIR started; accepted=4/10
+  Qwen candidate 44: REJECTED; accepted=4/10; elapsed=1476s; Compilation failed
+  Qwen candidate 45: REPAIR started; accepted=4/10
+  Qwen candidate 45: REJECTED; accepted=4/10; elapsed=1502s; Wrong or missing test class
+  Qwen candidate 46: REPAIR started; accepted=4/10
+  Qwen candidate 46: REJECTED; accepted=4/10; elapsed=1527s; JUnit validation failed
+  Qwen candidate 47: GENERATE started; accepted=4/10
+  Qwen candidate 47: REJECTED; accepted=4/10; elapsed=1551s; Compilation failed
+  Qwen candidate 48: REPAIR started; accepted=4/10
+  Qwen candidate 48: REJECTED; accepted=4/10; elapsed=1577s; Compilation failed
+  Qwen candidate 49: REPAIR started; accepted=4/10
+  Qwen candidate 49: REJECTED; accepted=4/10; elapsed=1612s; JUnit validation failed
+  Qwen candidate 50: REPAIR started; accepted=4/10
+  Qwen candidate 50: REJECTED; accepted=4/10; elapsed=1657s; Wrong or missing test class
+  Qwen candidate 51: GENERATE started; accepted=4/10
+  Qwen candidate 51: REJECTED; accepted=4/10; elapsed=1683s; Compilation failed
+  Qwen candidate 52: REPAIR started; accepted=4/10
+  Qwen candidate 52: REJECTED; accepted=4/10; elapsed=1718s; JUnit validation failed
+  Qwen candidate 53: REPAIR started; accepted=4/10
+  Qwen candidate 53: REJECTED; accepted=4/10; elapsed=1766s; Wrong or missing test class
+  Qwen candidate 54: REPAIR started; accepted=4/10
+  Qwen candidate 54: TIMEOUT; accepted=4/10; elapsed=1800s; timed out
+RUN FINISHED: com.viktor.lab4.SimpleJsonParser; status=OK; accepted=4/10; stop=time_limit; elapsed=1800.0s
+Metadata: C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f\QwenLLM\SimpleJsonParser\1800\run8-seed808\llm-run.json
+
+Done. Summary: C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\generation_runs.csv
+GENERATION FINISHED: OK=4, EMPTY=0, FAIL=0
+
+RUN: C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\.venv\Scripts\python.exe -u C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\generate_test_suites.py --tools QwenLLM --seeds 909 --target-classes com.viktor.lab4.LongestIncreasingSubsequence com.viktor.lab4.LruCache com.viktor.lab4.PricingEngine com.viktor.lab4.SimpleJsonParser --skip-build --java-exe C:\Users\user\.jdks\jbr-17.0.14\bin\java.exe --output-root C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f
+Tool = QwenLLM
+target = com.viktor.lab4.LongestIncreasingSubsequence
+budget = 1800, seed = 909
+  Qwen candidate 1: GENERATE started; accepted=0/10
+  Qwen candidate 1: REJECTED; accepted=0/10; elapsed=8s; Compilation failed
+  Qwen candidate 2: REPAIR started; accepted=0/10
+  Qwen candidate 2: ACCEPTED; accepted=1/10; elapsed=23s
+  Qwen candidate 3: GENERATE started; accepted=1/10
+  Qwen candidate 3: REJECTED; accepted=1/10; elapsed=36s; JUnit validation failed
+  Qwen candidate 4: REPAIR started; accepted=1/10
+  Qwen candidate 4: REJECTED; accepted=1/10; elapsed=75s; Compilation failed
+  Qwen candidate 5: REPAIR started; accepted=1/10
+  Qwen candidate 5: REJECTED; accepted=1/10; elapsed=134s; Wrong or missing test class
+  Qwen candidate 6: REPAIR started; accepted=1/10
+  Qwen candidate 6: REJECTED; accepted=1/10; elapsed=193s; Compilation failed
+  Qwen candidate 7: GENERATE started; accepted=1/10
+  Qwen candidate 7: ACCEPTED; accepted=2/10; elapsed=206s
+  Qwen candidate 8: GENERATE started; accepted=2/10
+  Qwen candidate 8: ACCEPTED; accepted=3/10; elapsed=226s
+  Qwen candidate 9: GENERATE started; accepted=3/10
+  Qwen candidate 9: REJECTED; accepted=3/10; elapsed=239s; Compilation failed
+  Qwen candidate 10: REPAIR started; accepted=3/10
+  Qwen candidate 10: ACCEPTED; accepted=4/10; elapsed=261s
+  Qwen candidate 11: GENERATE started; accepted=4/10
+  Qwen candidate 11: ACCEPTED; accepted=5/10; elapsed=276s
+  Qwen candidate 12: GENERATE started; accepted=5/10
+  Qwen candidate 12: ACCEPTED; accepted=6/10; elapsed=290s
+  Qwen candidate 13: GENERATE started; accepted=6/10
+  Qwen candidate 13: ACCEPTED; accepted=7/10; elapsed=301s
+  Qwen candidate 14: GENERATE started; accepted=7/10
+  Qwen candidate 14: ACCEPTED; accepted=8/10; elapsed=314s
+  Qwen candidate 15: GENERATE started; accepted=8/10
+  Qwen candidate 15: REJECTED; accepted=8/10; elapsed=327s; Compilation failed
+  Qwen candidate 16: REPAIR started; accepted=8/10
+  Qwen candidate 16: REJECTED; accepted=8/10; elapsed=353s; Compilation failed
+  Qwen candidate 17: REPAIR started; accepted=8/10
+  Qwen candidate 17: REJECTED; accepted=8/10; elapsed=379s; Compilation failed
+  Qwen candidate 18: REPAIR started; accepted=8/10
+  Qwen candidate 18: REJECTED; accepted=8/10; elapsed=406s; Compilation failed
+  Qwen candidate 19: GENERATE started; accepted=8/10
+  Qwen candidate 19: REJECTED; accepted=8/10; elapsed=419s; Compilation failed
+  Qwen candidate 20: REPAIR started; accepted=8/10
+  Qwen candidate 20: ACCEPTED; accepted=9/10; elapsed=435s
+  Qwen candidate 21: GENERATE started; accepted=9/10
+  Qwen candidate 21: REJECTED; accepted=9/10; elapsed=460s; JUnit validation failed
+  Qwen candidate 22: REPAIR started; accepted=9/10
+  Qwen candidate 22: REJECTED; accepted=9/10; elapsed=492s; JUnit validation failed
+  Qwen candidate 23: REPAIR started; accepted=9/10
+  Qwen candidate 23: REJECTED; accepted=9/10; elapsed=521s; JUnit validation failed
+  Qwen candidate 24: REPAIR started; accepted=9/10
+  Qwen candidate 24: REJECTED; accepted=9/10; elapsed=550s; JUnit validation failed
+  Qwen candidate 25: GENERATE started; accepted=9/10
+  Qwen candidate 25: REJECTED; accepted=9/10; elapsed=574s; JUnit validation failed
+  Qwen candidate 26: REPAIR started; accepted=9/10
+  Qwen candidate 26: ACCEPTED; accepted=10/10; elapsed=610s
+RUN FINISHED: com.viktor.lab4.LongestIncreasingSubsequence; status=OK; accepted=10/10; stop=accepted_test_quota; elapsed=609.7s
+Metadata: C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f\QwenLLM\LongestIncreasingSubsequence\1800\run9-seed909\llm-run.json
+target = com.viktor.lab4.LruCache
+budget = 1800, seed = 909
+  Qwen candidate 1: GENERATE started; accepted=0/10
+  Qwen candidate 1: REJECTED; accepted=0/10; elapsed=22s; JUnit validation failed
+  Qwen candidate 2: REPAIR started; accepted=0/10
+  Qwen candidate 2: REJECTED; accepted=0/10; elapsed=47s; JUnit validation failed
+  Qwen candidate 3: REPAIR started; accepted=0/10
+  Qwen candidate 3: REJECTED; accepted=0/10; elapsed=75s; JUnit validation failed
+  Qwen candidate 4: REPAIR started; accepted=0/10
+  Qwen candidate 4: REJECTED; accepted=0/10; elapsed=111s; JUnit validation failed
+  Qwen candidate 5: GENERATE started; accepted=0/10
+  Qwen candidate 5: ACCEPTED; accepted=1/10; elapsed=124s
+  Qwen candidate 6: GENERATE started; accepted=1/10
+  Qwen candidate 6: ACCEPTED; accepted=2/10; elapsed=137s
+  Qwen candidate 7: GENERATE started; accepted=2/10
+  Qwen candidate 7: ACCEPTED; accepted=3/10; elapsed=161s
+  Qwen candidate 8: GENERATE started; accepted=3/10
+  Qwen candidate 8: ACCEPTED; accepted=4/10; elapsed=180s
+  Qwen candidate 9: GENERATE started; accepted=4/10
+  Qwen candidate 9: REJECTED; accepted=4/10; elapsed=197s; Compilation failed
+  Qwen candidate 10: REPAIR started; accepted=4/10
+  Qwen candidate 10: REJECTED; accepted=4/10; elapsed=231s; JUnit validation failed
+  Qwen candidate 11: REPAIR started; accepted=4/10
+  Qwen candidate 11: REJECTED; accepted=4/10; elapsed=264s; Wrong or missing test class
+  Qwen candidate 12: REPAIR started; accepted=4/10
+  Qwen candidate 12: REJECTED; accepted=4/10; elapsed=297s; Wrong or missing test class
+  Qwen candidate 13: GENERATE started; accepted=4/10
+  Qwen candidate 13: ACCEPTED; accepted=5/10; elapsed=327s
+  Qwen candidate 14: GENERATE started; accepted=5/10
+  Qwen candidate 14: ACCEPTED; accepted=6/10; elapsed=343s
+  Qwen candidate 15: GENERATE started; accepted=6/10
+  Qwen candidate 15: ACCEPTED; accepted=7/10; elapsed=357s
+  Qwen candidate 16: GENERATE started; accepted=7/10
+  Qwen candidate 16: REJECTED; accepted=7/10; elapsed=381s; JUnit validation failed
+  Qwen candidate 17: REPAIR started; accepted=7/10
+  Qwen candidate 17: REJECTED; accepted=7/10; elapsed=411s; JUnit validation failed
+  Qwen candidate 18: REPAIR started; accepted=7/10
+  Qwen candidate 18: REJECTED; accepted=7/10; elapsed=439s; JUnit validation failed
+  Qwen candidate 19: REPAIR started; accepted=7/10
+  Qwen candidate 19: REJECTED; accepted=7/10; elapsed=467s; JUnit validation failed
+  Qwen candidate 20: GENERATE started; accepted=7/10
+  Qwen candidate 20: ACCEPTED; accepted=8/10; elapsed=487s
+  Qwen candidate 21: GENERATE started; accepted=8/10
+  Qwen candidate 21: ACCEPTED; accepted=9/10; elapsed=504s
+  Qwen candidate 22: GENERATE started; accepted=9/10
+  Qwen candidate 22: REJECTED; accepted=9/10; elapsed=522s; Compilation failed
+  Qwen candidate 23: REPAIR started; accepted=9/10
+  Qwen candidate 23: REJECTED; accepted=9/10; elapsed=558s; Compilation failed
+  Qwen candidate 24: REPAIR started; accepted=9/10
+  Qwen candidate 24: REJECTED; accepted=9/10; elapsed=591s; Wrong or missing test class
+  Qwen candidate 25: REPAIR started; accepted=9/10
+  Qwen candidate 25: REJECTED; accepted=9/10; elapsed=635s; Wrong or missing test class
+  Qwen candidate 26: GENERATE started; accepted=9/10
+  Qwen candidate 26: ACCEPTED; accepted=10/10; elapsed=648s
+RUN FINISHED: com.viktor.lab4.LruCache; status=OK; accepted=10/10; stop=accepted_test_quota; elapsed=648.2s
+Metadata: C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f\QwenLLM\LruCache\1800\run9-seed909\llm-run.json
+target = com.viktor.lab4.PricingEngine
+budget = 1800, seed = 909
+  Qwen candidate 1: GENERATE started; accepted=0/10
+  Qwen candidate 1: REJECTED; accepted=0/10; elapsed=10s; JUnit validation failed
+  Qwen candidate 2: REPAIR started; accepted=0/10
+  Qwen candidate 2: REJECTED; accepted=0/10; elapsed=24s; JUnit validation failed
+  Qwen candidate 3: REPAIR started; accepted=0/10
+  Qwen candidate 3: ACCEPTED; accepted=1/10; elapsed=38s
+  Qwen candidate 4: GENERATE started; accepted=1/10
+  Qwen candidate 4: REJECTED; accepted=1/10; elapsed=50s; Compilation failed
+  Qwen candidate 5: REPAIR started; accepted=1/10
+  Qwen candidate 5: REJECTED; accepted=1/10; elapsed=69s; Compilation failed
+  Qwen candidate 6: REPAIR started; accepted=1/10
+  Qwen candidate 6: REJECTED; accepted=1/10; elapsed=88s; Compilation failed
+  Qwen candidate 7: REPAIR started; accepted=1/10
+  Qwen candidate 7: REJECTED; accepted=1/10; elapsed=107s; JUnit validation failed
+  Qwen candidate 8: GENERATE started; accepted=1/10
+  Qwen candidate 8: ACCEPTED; accepted=2/10; elapsed=116s
+  Qwen candidate 9: GENERATE started; accepted=2/10
+  Qwen candidate 9: REJECTED; accepted=2/10; elapsed=137s; Compilation failed
+  Qwen candidate 10: REPAIR started; accepted=2/10
+  Qwen candidate 10: REJECTED; accepted=2/10; elapsed=161s; JUnit validation failed
+  Qwen candidate 11: REPAIR started; accepted=2/10
+  Qwen candidate 11: REJECTED; accepted=2/10; elapsed=195s; Wrong or missing test class
+  Qwen candidate 12: REPAIR started; accepted=2/10
+  Qwen candidate 12: REJECTED; accepted=2/10; elapsed=231s; JUnit validation failed
+  Qwen candidate 13: GENERATE started; accepted=2/10
+  Qwen candidate 13: REJECTED; accepted=2/10; elapsed=253s; Compilation failed
+  Qwen candidate 14: REPAIR started; accepted=2/10
+  Qwen candidate 14: REJECTED; accepted=2/10; elapsed=267s; JUnit validation failed
+  Qwen candidate 15: REPAIR started; accepted=2/10
+  Qwen candidate 15: REJECTED; accepted=2/10; elapsed=284s; JUnit validation failed
+  Qwen candidate 16: REPAIR started; accepted=2/10
+  Qwen candidate 16: REJECTED; accepted=2/10; elapsed=309s; JUnit validation failed
+  Qwen candidate 17: GENERATE started; accepted=2/10
+  Qwen candidate 17: REJECTED; accepted=2/10; elapsed=334s; Compilation failed
+  Qwen candidate 18: REPAIR started; accepted=2/10
+  Qwen candidate 18: REJECTED; accepted=2/10; elapsed=351s; Compilation failed
+  Qwen candidate 19: REPAIR started; accepted=2/10
+  Qwen candidate 19: REJECTED; accepted=2/10; elapsed=368s; Compilation failed
+  Qwen candidate 20: REPAIR started; accepted=2/10
+  Qwen candidate 20: REJECTED; accepted=2/10; elapsed=393s; Compilation failed
+  Qwen candidate 21: GENERATE started; accepted=2/10
+  Qwen candidate 21: REJECTED; accepted=2/10; elapsed=416s; JUnit validation failed
+  Qwen candidate 22: REPAIR started; accepted=2/10
+  Qwen candidate 22: REJECTED; accepted=2/10; elapsed=430s; JUnit validation failed
+  Qwen candidate 23: REPAIR started; accepted=2/10
+  Qwen candidate 23: REJECTED; accepted=2/10; elapsed=445s; JUnit validation failed
+  Qwen candidate 24: REPAIR started; accepted=2/10
+  Qwen candidate 24: REJECTED; accepted=2/10; elapsed=470s; JUnit validation failed
+  Qwen candidate 25: GENERATE started; accepted=2/10
+  Qwen candidate 25: REJECTED; accepted=2/10; elapsed=490s; Compilation failed
+  Qwen candidate 26: REPAIR started; accepted=2/10
+  Qwen candidate 26: REJECTED; accepted=2/10; elapsed=512s; JUnit validation failed
+  Qwen candidate 27: REPAIR started; accepted=2/10
+  Qwen candidate 27: REJECTED; accepted=2/10; elapsed=533s; Wrong or missing test class
+  Qwen candidate 28: REPAIR started; accepted=2/10
+  Qwen candidate 28: REJECTED; accepted=2/10; elapsed=569s; JUnit validation failed
+  Qwen candidate 29: GENERATE started; accepted=2/10
+  Qwen candidate 29: ACCEPTED; accepted=3/10; elapsed=591s
+  Qwen candidate 30: GENERATE started; accepted=3/10
+  Qwen candidate 30: REJECTED; accepted=3/10; elapsed=616s; Compilation failed
+  Qwen candidate 31: REPAIR started; accepted=3/10
+  Qwen candidate 31: REJECTED; accepted=3/10; elapsed=642s; JUnit validation failed
+  Qwen candidate 32: REPAIR started; accepted=3/10
+  Qwen candidate 32: REJECTED; accepted=3/10; elapsed=731s; Output token limit reached
+  Qwen candidate 33: REPAIR started; accepted=3/10
+  Qwen candidate 33: REJECTED; accepted=3/10; elapsed=824s; Output token limit reached
+  Qwen candidate 34: GENERATE started; accepted=3/10
+  Qwen candidate 34: REJECTED; accepted=3/10; elapsed=847s; Compilation failed
+  Qwen candidate 35: REPAIR started; accepted=3/10
+  Qwen candidate 35: REJECTED; accepted=3/10; elapsed=863s; JUnit validation failed
+  Qwen candidate 36: REPAIR started; accepted=3/10
+  Qwen candidate 36: REJECTED; accepted=3/10; elapsed=880s; JUnit validation failed
+  Qwen candidate 37: REPAIR started; accepted=3/10
+  Qwen candidate 37: REJECTED; accepted=3/10; elapsed=906s; JUnit validation failed
+  Qwen candidate 38: GENERATE started; accepted=3/10
+  Qwen candidate 38: REJECTED; accepted=3/10; elapsed=931s; JUnit validation failed
+  Qwen candidate 39: REPAIR started; accepted=3/10
+  Qwen candidate 39: REJECTED; accepted=3/10; elapsed=950s; JUnit validation failed
+  Qwen candidate 40: REPAIR started; accepted=3/10
+  Qwen candidate 40: REJECTED; accepted=3/10; elapsed=970s; JUnit validation failed
+  Qwen candidate 41: REPAIR started; accepted=3/10
+  Qwen candidate 41: REJECTED; accepted=3/10; elapsed=997s; JUnit validation failed
+  Qwen candidate 42: GENERATE started; accepted=3/10
+  Qwen candidate 42: REJECTED; accepted=3/10; elapsed=1021s; Compilation failed
+  Qwen candidate 43: REPAIR started; accepted=3/10
+  Qwen candidate 43: REJECTED; accepted=3/10; elapsed=1037s; Compilation failed
+  Qwen candidate 44: REPAIR started; accepted=3/10
+  Qwen candidate 44: REJECTED; accepted=3/10; elapsed=1054s; JUnit validation failed
+  Qwen candidate 45: REPAIR started; accepted=3/10
+  Qwen candidate 45: REJECTED; accepted=3/10; elapsed=1081s; Wrong or missing test class
+  Qwen candidate 46: GENERATE started; accepted=3/10
+  Qwen candidate 46: REJECTED; accepted=3/10; elapsed=1102s; JUnit validation failed
+  Qwen candidate 47: REPAIR started; accepted=3/10
+  Qwen candidate 47: REJECTED; accepted=3/10; elapsed=1114s; JUnit validation failed
+  Qwen candidate 48: REPAIR started; accepted=3/10
+  Qwen candidate 48: REJECTED; accepted=3/10; elapsed=1126s; JUnit validation failed
+  Qwen candidate 49: REPAIR started; accepted=3/10
+  Qwen candidate 49: REJECTED; accepted=3/10; elapsed=1149s; JUnit validation failed
+  Qwen candidate 50: GENERATE started; accepted=3/10
+  Qwen candidate 50: ACCEPTED; accepted=4/10; elapsed=1170s
+  Qwen candidate 51: GENERATE started; accepted=4/10
+  Qwen candidate 51: REJECTED; accepted=4/10; elapsed=1194s; JUnit validation failed
+  Qwen candidate 52: REPAIR started; accepted=4/10
+  Qwen candidate 52: ACCEPTED; accepted=5/10; elapsed=1222s
+  Qwen candidate 53: GENERATE started; accepted=5/10
+  Qwen candidate 53: REJECTED; accepted=5/10; elapsed=1245s; Compilation failed
+  Qwen candidate 54: REPAIR started; accepted=5/10
+  Qwen candidate 54: REJECTED; accepted=5/10; elapsed=1277s; Wrong or missing test class
+  Qwen candidate 55: REPAIR started; accepted=5/10
+  Qwen candidate 55: REJECTED; accepted=5/10; elapsed=1302s; JUnit validation failed
+  Qwen candidate 56: REPAIR started; accepted=5/10
+  Qwen candidate 56: REJECTED; accepted=5/10; elapsed=1332s; JUnit validation failed
+  Qwen candidate 57: GENERATE started; accepted=5/10
+  Qwen candidate 57: REJECTED; accepted=5/10; elapsed=1355s; JUnit validation failed
+  Qwen candidate 58: REPAIR started; accepted=5/10
+  Qwen candidate 58: REJECTED; accepted=5/10; elapsed=1382s; JUnit validation failed
+  Qwen candidate 59: REPAIR started; accepted=5/10
+  Qwen candidate 59: REJECTED; accepted=5/10; elapsed=1406s; JUnit validation failed
+  Qwen candidate 60: REPAIR started; accepted=5/10
+  Qwen candidate 60: REJECTED; accepted=5/10; elapsed=1431s; JUnit validation failed
+  Qwen candidate 61: GENERATE started; accepted=5/10
+  Qwen candidate 61: REJECTED; accepted=5/10; elapsed=1453s; JUnit validation failed
+  Qwen candidate 62: REPAIR started; accepted=5/10
+  Qwen candidate 62: REJECTED; accepted=5/10; elapsed=1484s; JUnit validation failed
+  Qwen candidate 63: REPAIR started; accepted=5/10
+  Qwen candidate 63: REJECTED; accepted=5/10; elapsed=1519s; Wrong or missing test class
+  Qwen candidate 64: REPAIR started; accepted=5/10
+  Qwen candidate 64: REJECTED; accepted=5/10; elapsed=1554s; Wrong or missing test class
+  Qwen candidate 65: GENERATE started; accepted=5/10
+  Qwen candidate 65: REJECTED; accepted=5/10; elapsed=1575s; JUnit validation failed
+  Qwen candidate 66: REPAIR started; accepted=5/10
+  Qwen candidate 66: REJECTED; accepted=5/10; elapsed=1600s; JUnit validation failed
+  Qwen candidate 67: REPAIR started; accepted=5/10
+  Qwen candidate 67: REJECTED; accepted=5/10; elapsed=1626s; JUnit validation failed
+  Qwen candidate 68: REPAIR started; accepted=5/10
+  Qwen candidate 68: REJECTED; accepted=5/10; elapsed=1649s; JUnit validation failed
+  Qwen candidate 69: GENERATE started; accepted=5/10
+  Qwen candidate 69: ACCEPTED; accepted=6/10; elapsed=1670s
+  Qwen candidate 70: GENERATE started; accepted=6/10
+  Qwen candidate 70: REJECTED; accepted=6/10; elapsed=1694s; JUnit validation failed
+  Qwen candidate 71: REPAIR started; accepted=6/10
+  Qwen candidate 71: REJECTED; accepted=6/10; elapsed=1746s; JUnit validation failed
+  Qwen candidate 72: REPAIR started; accepted=6/10
+  Qwen candidate 72: TIMEOUT; accepted=6/10; elapsed=1800s; timed out
+RUN FINISHED: com.viktor.lab4.PricingEngine; status=OK; accepted=6/10; stop=time_limit; elapsed=1800.0s
+Metadata: C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f\QwenLLM\PricingEngine\1800\run9-seed909\llm-run.json
+target = com.viktor.lab4.SimpleJsonParser
+budget = 1800, seed = 909
+  Qwen candidate 1: GENERATE started; accepted=0/10
+  Qwen candidate 1: REJECTED; accepted=0/10; elapsed=25s; Compilation failed
+  Qwen candidate 2: REPAIR started; accepted=0/10
+  Qwen candidate 2: REJECTED; accepted=0/10; elapsed=56s; Compilation failed
+  Qwen candidate 3: REPAIR started; accepted=0/10
+  Qwen candidate 3: REJECTED; accepted=0/10; elapsed=84s; Compilation failed
+  Qwen candidate 4: REPAIR started; accepted=0/10
+  Qwen candidate 4: REJECTED; accepted=0/10; elapsed=125s; Compilation failed
+  Qwen candidate 5: GENERATE started; accepted=0/10
+  Qwen candidate 5: REJECTED; accepted=0/10; elapsed=147s; Compilation failed
+  Qwen candidate 6: REPAIR started; accepted=0/10
+  Qwen candidate 6: REJECTED; accepted=0/10; elapsed=172s; Compilation failed
+  Qwen candidate 7: REPAIR started; accepted=0/10
+  Qwen candidate 7: REJECTED; accepted=0/10; elapsed=196s; Compilation failed
+  Qwen candidate 8: REPAIR started; accepted=0/10
+  Qwen candidate 8: REJECTED; accepted=0/10; elapsed=220s; Compilation failed
+  Qwen candidate 9: GENERATE started; accepted=0/10
+  Qwen candidate 9: REJECTED; accepted=0/10; elapsed=247s; Compilation failed
+  Qwen candidate 10: REPAIR started; accepted=0/10
+  Qwen candidate 10: REJECTED; accepted=0/10; elapsed=287s; Compilation failed
+  Qwen candidate 11: REPAIR started; accepted=0/10
+  Qwen candidate 11: REJECTED; accepted=0/10; elapsed=324s; Wrong or missing test class
+  Qwen candidate 12: REPAIR started; accepted=0/10
+  Qwen candidate 12: REJECTED; accepted=0/10; elapsed=361s; Compilation failed
+  Qwen candidate 13: GENERATE started; accepted=0/10
+  Qwen candidate 13: REJECTED; accepted=0/10; elapsed=395s; Compilation failed
+  Qwen candidate 14: REPAIR started; accepted=0/10
+  Qwen candidate 14: REJECTED; accepted=0/10; elapsed=440s; Compilation failed
+  Qwen candidate 15: REPAIR started; accepted=0/10
+  Qwen candidate 15: REJECTED; accepted=0/10; elapsed=483s; Compilation failed
+  Qwen candidate 16: REPAIR started; accepted=0/10
+  Qwen candidate 16: REJECTED; accepted=0/10; elapsed=542s; Wrong or missing test class
+  Qwen candidate 17: GENERATE started; accepted=0/10
+  Qwen candidate 17: REJECTED; accepted=0/10; elapsed=567s; Compilation failed
+  Qwen candidate 18: REPAIR started; accepted=0/10
+  Qwen candidate 18: REJECTED; accepted=0/10; elapsed=596s; Wrong or missing test class
+  Qwen candidate 19: REPAIR started; accepted=0/10
+  Qwen candidate 19: REJECTED; accepted=0/10; elapsed=621s; Compilation failed
+  Qwen candidate 20: REPAIR started; accepted=0/10
+  Qwen candidate 20: REJECTED; accepted=0/10; elapsed=652s; Compilation failed
+  Qwen candidate 21: GENERATE started; accepted=0/10
+  Qwen candidate 21: ACCEPTED; accepted=1/10; elapsed=679s
+  Qwen candidate 22: GENERATE started; accepted=1/10
+  Qwen candidate 22: REJECTED; accepted=1/10; elapsed=705s; Compilation failed
+  Qwen candidate 23: REPAIR started; accepted=1/10
+  Qwen candidate 23: REJECTED; accepted=1/10; elapsed=745s; Wrong or missing test class
+  Qwen candidate 24: REPAIR started; accepted=1/10
+  Qwen candidate 24: REJECTED; accepted=1/10; elapsed=781s; Compilation failed
+  Qwen candidate 25: REPAIR started; accepted=1/10
+  Qwen candidate 25: REJECTED; accepted=1/10; elapsed=820s; Wrong or missing test class
+  Qwen candidate 26: GENERATE started; accepted=1/10
+  Qwen candidate 26: REJECTED; accepted=1/10; elapsed=844s; Compilation failed
+  Qwen candidate 27: REPAIR started; accepted=1/10
+  Qwen candidate 27: REJECTED; accepted=1/10; elapsed=874s; Wrong or missing test class
+  Qwen candidate 28: REPAIR started; accepted=1/10
+  Qwen candidate 28: REJECTED; accepted=1/10; elapsed=898s; Compilation failed
+  Qwen candidate 29: REPAIR started; accepted=1/10
+  Qwen candidate 29: REJECTED; accepted=1/10; elapsed=922s; Compilation failed
+  Qwen candidate 30: GENERATE started; accepted=1/10
+  Qwen candidate 30: ACCEPTED; accepted=2/10; elapsed=946s
+  Qwen candidate 31: GENERATE started; accepted=2/10
+  Qwen candidate 31: REJECTED; accepted=2/10; elapsed=971s; Compilation failed
+  Qwen candidate 32: REPAIR started; accepted=2/10
+  Qwen candidate 32: REJECTED; accepted=2/10; elapsed=1020s; JUnit validation failed
+  Qwen candidate 33: REPAIR started; accepted=2/10
+  Qwen candidate 33: REJECTED; accepted=2/10; elapsed=1070s; Wrong or missing test class
+  Qwen candidate 34: REPAIR started; accepted=2/10
+  Qwen candidate 34: REJECTED; accepted=2/10; elapsed=1120s; Return exactly ONE @Test method in this candidate
+  Qwen candidate 35: GENERATE started; accepted=2/10
+  Qwen candidate 35: REJECTED; accepted=2/10; elapsed=1147s; JUnit validation failed
+  Qwen candidate 36: REPAIR started; accepted=2/10
+  Qwen candidate 36: REJECTED; accepted=2/10; elapsed=1177s; JUnit validation failed
+  Qwen candidate 37: REPAIR started; accepted=2/10
+  Qwen candidate 37: REJECTED; accepted=2/10; elapsed=1205s; JUnit validation failed
+  Qwen candidate 38: REPAIR started; accepted=2/10
+  Qwen candidate 38: REJECTED; accepted=2/10; elapsed=1236s; JUnit validation failed
+  Qwen candidate 39: GENERATE started; accepted=2/10
+  Qwen candidate 39: REJECTED; accepted=2/10; elapsed=1263s; Compilation failed
+  Qwen candidate 40: REPAIR started; accepted=2/10
+  Qwen candidate 40: REJECTED; accepted=2/10; elapsed=1294s; Compilation failed
+  Qwen candidate 41: REPAIR started; accepted=2/10
+  Qwen candidate 41: REJECTED; accepted=2/10; elapsed=1323s; Compilation failed
+  Qwen candidate 42: REPAIR started; accepted=2/10
+  Qwen candidate 42: REJECTED; accepted=2/10; elapsed=1359s; Wrong or missing test class
+  Qwen candidate 43: GENERATE started; accepted=2/10
+  Qwen candidate 43: REJECTED; accepted=2/10; elapsed=1394s; JUnit validation failed
+  Qwen candidate 44: REPAIR started; accepted=2/10
+  Qwen candidate 44: REJECTED; accepted=2/10; elapsed=1434s; JUnit validation failed
+  Qwen candidate 45: REPAIR started; accepted=2/10
+  Qwen candidate 45: REJECTED; accepted=2/10; elapsed=1484s; Wrong or missing test class
+  Qwen candidate 46: REPAIR started; accepted=2/10
+  Qwen candidate 46: REJECTED; accepted=2/10; elapsed=1535s; Wrong or missing test class
+  Qwen candidate 47: GENERATE started; accepted=2/10
+  Qwen candidate 47: REJECTED; accepted=2/10; elapsed=1561s; Compilation failed
+  Qwen candidate 48: REPAIR started; accepted=2/10
+  Qwen candidate 48: REJECTED; accepted=2/10; elapsed=1590s; Compilation failed
+  Qwen candidate 49: REPAIR started; accepted=2/10
+  Qwen candidate 49: REJECTED; accepted=2/10; elapsed=1616s; Compilation failed
+  Qwen candidate 50: REPAIR started; accepted=2/10
+  Qwen candidate 50: REJECTED; accepted=2/10; elapsed=1643s; Compilation failed
+  Qwen candidate 51: GENERATE started; accepted=2/10
+  Qwen candidate 51: ACCEPTED; accepted=3/10; elapsed=1669s
+  Qwen candidate 52: GENERATE started; accepted=3/10
+  Qwen candidate 52: REJECTED; accepted=3/10; elapsed=1697s; Compilation failed
+  Qwen candidate 53: REPAIR started; accepted=3/10
+  Qwen candidate 53: REJECTED; accepted=3/10; elapsed=1741s; Compilation failed
+  Qwen candidate 54: REPAIR started; accepted=3/10
+  Qwen candidate 54: REJECTED; accepted=3/10; elapsed=1785s; Wrong or missing test class
+  Qwen candidate 55: REPAIR started; accepted=3/10
+  Qwen candidate 55: TIMEOUT; accepted=3/10; elapsed=1800s; timed out
+RUN FINISHED: com.viktor.lab4.SimpleJsonParser; status=OK; accepted=3/10; stop=time_limit; elapsed=1800.0s
+Metadata: C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f\QwenLLM\SimpleJsonParser\1800\run9-seed909\llm-run.json
+
+Done. Summary: C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\generation_runs.csv
+GENERATION FINISHED: OK=4, EMPTY=0, FAIL=0
+
+RUN: C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\.venv\Scripts\python.exe -u C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\generate_test_suites.py --tools QwenLLM --seeds 10010 --target-classes com.viktor.lab4.LongestIncreasingSubsequence com.viktor.lab4.LruCache com.viktor.lab4.PricingEngine com.viktor.lab4.SimpleJsonParser --skip-build --java-exe C:\Users\user\.jdks\jbr-17.0.14\bin\java.exe --output-root C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f
+Tool = QwenLLM
+target = com.viktor.lab4.LongestIncreasingSubsequence
+budget = 1800, seed = 10010
+  Qwen candidate 1: GENERATE started; accepted=0/10
+  Qwen candidate 1: ACCEPTED; accepted=1/10; elapsed=15s
+  Qwen candidate 2: GENERATE started; accepted=1/10
+  Qwen candidate 2: ACCEPTED; accepted=2/10; elapsed=31s
+  Qwen candidate 3: GENERATE started; accepted=2/10
+  Qwen candidate 3: ACCEPTED; accepted=3/10; elapsed=45s
+  Qwen candidate 4: GENERATE started; accepted=3/10
+  Qwen candidate 4: REJECTED; accepted=3/10; elapsed=71s; JUnit validation failed
+  Qwen candidate 5: REPAIR started; accepted=3/10
+  Qwen candidate 5: REJECTED; accepted=3/10; elapsed=104s; JUnit validation failed
+  Qwen candidate 6: REPAIR started; accepted=3/10
+  Qwen candidate 6: REJECTED; accepted=3/10; elapsed=134s; JUnit validation failed
+  Qwen candidate 7: REPAIR started; accepted=3/10
+  Qwen candidate 7: REJECTED; accepted=3/10; elapsed=177s; JUnit validation failed
+  Qwen candidate 8: GENERATE started; accepted=3/10
+  Qwen candidate 8: REJECTED; accepted=3/10; elapsed=213s; Compilation failed
+  Qwen candidate 9: REPAIR started; accepted=3/10
+  Qwen candidate 9: ACCEPTED; accepted=4/10; elapsed=280s
+  Qwen candidate 10: GENERATE started; accepted=4/10
+  Qwen candidate 10: REJECTED; accepted=4/10; elapsed=304s; Compilation failed
+  Qwen candidate 11: REPAIR started; accepted=4/10
+  Qwen candidate 11: REJECTED; accepted=4/10; elapsed=357s; Compilation failed
+  Qwen candidate 12: REPAIR started; accepted=4/10
+  Qwen candidate 12: REJECTED; accepted=4/10; elapsed=410s; Wrong or missing test class
+  Qwen candidate 13: REPAIR started; accepted=4/10
+  Qwen candidate 13: REJECTED; accepted=4/10; elapsed=445s; Compilation failed
+  Qwen candidate 14: GENERATE started; accepted=4/10
+  Qwen candidate 14: ACCEPTED; accepted=5/10; elapsed=459s
+  Qwen candidate 15: GENERATE started; accepted=5/10
+  Qwen candidate 15: ACCEPTED; accepted=6/10; elapsed=471s
+  Qwen candidate 16: GENERATE started; accepted=6/10
+  Qwen candidate 16: ACCEPTED; accepted=7/10; elapsed=484s
+  Qwen candidate 17: GENERATE started; accepted=7/10
+  Qwen candidate 17: REJECTED; accepted=7/10; elapsed=498s; Compilation failed
+  Qwen candidate 18: REPAIR started; accepted=7/10
+  Qwen candidate 18: ACCEPTED; accepted=8/10; elapsed=517s
+  Qwen candidate 19: GENERATE started; accepted=8/10
+  Qwen candidate 19: REJECTED; accepted=8/10; elapsed=532s; Compilation failed
+  Qwen candidate 20: REPAIR started; accepted=8/10
+  Qwen candidate 20: ACCEPTED; accepted=9/10; elapsed=555s
+  Qwen candidate 21: GENERATE started; accepted=9/10
+  Qwen candidate 21: ACCEPTED; accepted=10/10; elapsed=571s
+RUN FINISHED: com.viktor.lab4.LongestIncreasingSubsequence; status=OK; accepted=10/10; stop=accepted_test_quota; elapsed=570.9s
+Metadata: C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f\QwenLLM\LongestIncreasingSubsequence\1800\run10-seed10010\llm-run.json
+target = com.viktor.lab4.LruCache
+budget = 1800, seed = 10010
+  Qwen candidate 1: GENERATE started; accepted=0/10
+  Qwen candidate 1: ACCEPTED; accepted=1/10; elapsed=22s
+  Qwen candidate 2: GENERATE started; accepted=1/10
+  Qwen candidate 2: REJECTED; accepted=1/10; elapsed=59s; Return exactly ONE @Test method in this candidate
+  Qwen candidate 3: REPAIR started; accepted=1/10
+  Qwen candidate 3: REJECTED; accepted=1/10; elapsed=85s; Wrong or missing test class
+  Qwen candidate 4: REPAIR started; accepted=1/10
+  Qwen candidate 4: REJECTED; accepted=1/10; elapsed=103s; Compilation failed
+  Qwen candidate 5: REPAIR started; accepted=1/10
+  Qwen candidate 5: REJECTED; accepted=1/10; elapsed=123s; Compilation failed
+  Qwen candidate 6: GENERATE started; accepted=1/10
+  Qwen candidate 6: REJECTED; accepted=1/10; elapsed=140s; JUnit validation failed
+  Qwen candidate 7: REPAIR started; accepted=1/10
+  Qwen candidate 7: REJECTED; accepted=1/10; elapsed=159s; JUnit validation failed
+  Qwen candidate 8: REPAIR started; accepted=1/10
+  Qwen candidate 8: REJECTED; accepted=1/10; elapsed=179s; JUnit validation failed
+  Qwen candidate 9: REPAIR started; accepted=1/10
+  Qwen candidate 9: REJECTED; accepted=1/10; elapsed=205s; JUnit validation failed
+  Qwen candidate 10: GENERATE started; accepted=1/10
+  Qwen candidate 10: ACCEPTED; accepted=2/10; elapsed=226s
+  Qwen candidate 11: GENERATE started; accepted=2/10
+  Qwen candidate 11: REJECTED; accepted=2/10; elapsed=244s; Compilation failed
+  Qwen candidate 12: REPAIR started; accepted=2/10
+  Qwen candidate 12: REJECTED; accepted=2/10; elapsed=272s; Compilation failed
+  Qwen candidate 13: REPAIR started; accepted=2/10
+  Qwen candidate 13: REJECTED; accepted=2/10; elapsed=298s; Compilation failed
+  Qwen candidate 14: REPAIR started; accepted=2/10
+  Qwen candidate 14: REJECTED; accepted=2/10; elapsed=327s; Compilation failed
+  Qwen candidate 15: GENERATE started; accepted=2/10
+  Qwen candidate 15: REJECTED; accepted=2/10; elapsed=353s; Compilation failed
+  Qwen candidate 16: REPAIR started; accepted=2/10
+  Qwen candidate 16: REJECTED; accepted=2/10; elapsed=385s; Compilation failed
+  Qwen candidate 17: REPAIR started; accepted=2/10
+  Qwen candidate 17: REJECTED; accepted=2/10; elapsed=416s; Compilation failed
+  Qwen candidate 18: REPAIR started; accepted=2/10
+  Qwen candidate 18: REJECTED; accepted=2/10; elapsed=446s; Compilation failed
+  Qwen candidate 19: GENERATE started; accepted=2/10
+  Qwen candidate 19: ACCEPTED; accepted=3/10; elapsed=467s
+  Qwen candidate 20: GENERATE started; accepted=3/10
+  Qwen candidate 20: REJECTED; accepted=3/10; elapsed=480s; Compilation failed
+  Qwen candidate 21: REPAIR started; accepted=3/10
+  Qwen candidate 21: REJECTED; accepted=3/10; elapsed=497s; Compilation failed
+  Qwen candidate 22: REPAIR started; accepted=3/10
+  Qwen candidate 22: REJECTED; accepted=3/10; elapsed=512s; Compilation failed
+  Qwen candidate 23: REPAIR started; accepted=3/10
+  Qwen candidate 23: REJECTED; accepted=3/10; elapsed=526s; Wrong or missing test class
+  Qwen candidate 24: GENERATE started; accepted=3/10
+  Qwen candidate 24: REJECTED; accepted=3/10; elapsed=541s; Compilation failed
+  Qwen candidate 25: REPAIR started; accepted=3/10
+  Qwen candidate 25: REJECTED; accepted=3/10; elapsed=575s; Compilation failed
+  Qwen candidate 26: REPAIR started; accepted=3/10
+  Qwen candidate 26: REJECTED; accepted=3/10; elapsed=635s; Wrong or missing test class
+  Qwen candidate 27: REPAIR started; accepted=3/10
+  Qwen candidate 27: REJECTED; accepted=3/10; elapsed=657s; Wrong or missing test class
+  Qwen candidate 28: GENERATE started; accepted=3/10
+  Qwen candidate 28: ACCEPTED; accepted=4/10; elapsed=677s
+  Qwen candidate 29: GENERATE started; accepted=4/10
+  Qwen candidate 29: REJECTED; accepted=4/10; elapsed=692s; Compilation failed
+  Qwen candidate 30: REPAIR started; accepted=4/10
+  Qwen candidate 30: REJECTED; accepted=4/10; elapsed=710s; Compilation failed
+  Qwen candidate 31: REPAIR started; accepted=4/10
+  Qwen candidate 31: REJECTED; accepted=4/10; elapsed=733s; Wrong or missing test class
+  Qwen candidate 32: REPAIR started; accepted=4/10
+  Qwen candidate 32: ACCEPTED; accepted=5/10; elapsed=761s
+  Qwen candidate 33: GENERATE started; accepted=5/10
+  Qwen candidate 33: REJECTED; accepted=5/10; elapsed=781s; Compilation failed
+  Qwen candidate 34: REPAIR started; accepted=5/10
+  Qwen candidate 34: REJECTED; accepted=5/10; elapsed=821s; JUnit validation failed
+  Qwen candidate 35: REPAIR started; accepted=5/10
+  Qwen candidate 35: REJECTED; accepted=5/10; elapsed=859s; Compilation failed
+  Qwen candidate 36: REPAIR started; accepted=5/10
+  Qwen candidate 36: REJECTED; accepted=5/10; elapsed=903s; Wrong or missing test class
+  Qwen candidate 37: GENERATE started; accepted=5/10
+  Qwen candidate 37: ACCEPTED; accepted=6/10; elapsed=923s
+  Qwen candidate 38: GENERATE started; accepted=6/10
+  Qwen candidate 38: REJECTED; accepted=6/10; elapsed=938s; JUnit validation failed
+  Qwen candidate 39: REPAIR started; accepted=6/10
+  Qwen candidate 39: ACCEPTED; accepted=7/10; elapsed=955s
+  Qwen candidate 40: GENERATE started; accepted=7/10
+  Qwen candidate 40: ACCEPTED; accepted=8/10; elapsed=970s
+  Qwen candidate 41: GENERATE started; accepted=8/10
+  Qwen candidate 41: ACCEPTED; accepted=9/10; elapsed=993s
+  Qwen candidate 42: GENERATE started; accepted=9/10
+  Qwen candidate 42: REJECTED; accepted=9/10; elapsed=1008s; JUnit validation failed
+  Qwen candidate 43: REPAIR started; accepted=9/10
+  Qwen candidate 43: REJECTED; accepted=9/10; elapsed=1025s; JUnit validation failed
+  Qwen candidate 44: REPAIR started; accepted=9/10
+  Qwen candidate 44: REJECTED; accepted=9/10; elapsed=1040s; JUnit validation failed
+  Qwen candidate 45: REPAIR started; accepted=9/10
+  Qwen candidate 45: REJECTED; accepted=9/10; elapsed=1056s; JUnit validation failed
+  Qwen candidate 46: GENERATE started; accepted=9/10
+  Qwen candidate 46: REJECTED; accepted=9/10; elapsed=1087s; Compilation failed
+  Qwen candidate 47: REPAIR started; accepted=9/10
+  Qwen candidate 47: REJECTED; accepted=9/10; elapsed=1146s; Compilation failed
+  Qwen candidate 48: REPAIR started; accepted=9/10
+  Qwen candidate 48: REJECTED; accepted=9/10; elapsed=1205s; Wrong or missing test class
+  Qwen candidate 49: REPAIR started; accepted=9/10
+  Qwen candidate 49: REJECTED; accepted=9/10; elapsed=1246s; Compilation failed
+  Qwen candidate 50: GENERATE started; accepted=9/10
+  Qwen candidate 50: REJECTED; accepted=9/10; elapsed=1269s; Compilation failed
+  Qwen candidate 51: REPAIR started; accepted=9/10
+  Qwen candidate 51: REJECTED; accepted=9/10; elapsed=1304s; Compilation failed
+  Qwen candidate 52: REPAIR started; accepted=9/10
+  Qwen candidate 52: REJECTED; accepted=9/10; elapsed=1338s; Wrong or missing test class
+  Qwen candidate 53: REPAIR started; accepted=9/10
+  Qwen candidate 53: REJECTED; accepted=9/10; elapsed=1369s; Wrong or missing test class
+  Qwen candidate 54: GENERATE started; accepted=9/10
+  Qwen candidate 54: ACCEPTED; accepted=10/10; elapsed=1383s
+RUN FINISHED: com.viktor.lab4.LruCache; status=OK; accepted=10/10; stop=accepted_test_quota; elapsed=1382.9s
+Metadata: C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f\QwenLLM\LruCache\1800\run10-seed10010\llm-run.json
+target = com.viktor.lab4.PricingEngine
+budget = 1800, seed = 10010
+  Qwen candidate 1: GENERATE started; accepted=0/10
+  Qwen candidate 1: REJECTED; accepted=0/10; elapsed=24s; JUnit validation failed
+  Qwen candidate 2: REPAIR started; accepted=0/10
+  Qwen candidate 2: ACCEPTED; accepted=1/10; elapsed=62s
+  Qwen candidate 3: GENERATE started; accepted=1/10
+  Qwen candidate 3: REJECTED; accepted=1/10; elapsed=85s; JUnit validation failed
+  Qwen candidate 4: REPAIR started; accepted=1/10
+  Qwen candidate 4: ACCEPTED; accepted=2/10; elapsed=110s
+  Qwen candidate 5: GENERATE started; accepted=2/10
+  Qwen candidate 5: REJECTED; accepted=2/10; elapsed=137s; Compilation failed
+  Qwen candidate 6: REPAIR started; accepted=2/10
+  Qwen candidate 6: ACCEPTED; accepted=3/10; elapsed=169s
+  Qwen candidate 7: GENERATE started; accepted=3/10
+  Qwen candidate 7: REJECTED; accepted=3/10; elapsed=196s; Compilation failed
+  Qwen candidate 8: REPAIR started; accepted=3/10
+  Qwen candidate 8: REJECTED; accepted=3/10; elapsed=232s; Compilation failed
+  Qwen candidate 9: REPAIR started; accepted=3/10
+  Qwen candidate 9: REJECTED; accepted=3/10; elapsed=265s; Compilation failed
+  Qwen candidate 10: REPAIR started; accepted=3/10
+  Qwen candidate 10: REJECTED; accepted=3/10; elapsed=313s; Compilation failed
+  Qwen candidate 11: GENERATE started; accepted=3/10
+  Qwen candidate 11: REJECTED; accepted=3/10; elapsed=348s; Compilation failed
+  Qwen candidate 12: REPAIR started; accepted=3/10
+  Qwen candidate 12: REJECTED; accepted=3/10; elapsed=400s; JUnit validation failed
+  Qwen candidate 13: REPAIR started; accepted=3/10
+  Qwen candidate 13: REJECTED; accepted=3/10; elapsed=457s; Wrong or missing test class
+  Qwen candidate 14: REPAIR started; accepted=3/10
+  Qwen candidate 14: REJECTED; accepted=3/10; elapsed=517s; JUnit validation failed
+  Qwen candidate 15: GENERATE started; accepted=3/10
+  Qwen candidate 15: REJECTED; accepted=3/10; elapsed=548s; Compilation failed
+  Qwen candidate 16: REPAIR started; accepted=3/10
+  Qwen candidate 16: REJECTED; accepted=3/10; elapsed=586s; JUnit validation failed
+  Qwen candidate 17: REPAIR started; accepted=3/10
+  Qwen candidate 17: REJECTED; accepted=3/10; elapsed=621s; JUnit validation failed
+  Qwen candidate 18: REPAIR started; accepted=3/10
+  Qwen candidate 18: REJECTED; accepted=3/10; elapsed=656s; JUnit validation failed
+  Qwen candidate 19: GENERATE started; accepted=3/10
+  Qwen candidate 19: REJECTED; accepted=3/10; elapsed=684s; Compilation failed
+  Qwen candidate 20: REPAIR started; accepted=3/10
+  Qwen candidate 20: REJECTED; accepted=3/10; elapsed=722s; JUnit validation failed
+  Qwen candidate 21: REPAIR started; accepted=3/10
+  Qwen candidate 21: REJECTED; accepted=3/10; elapsed=759s; Wrong or missing test class
+  Qwen candidate 22: REPAIR started; accepted=3/10
+  Qwen candidate 22: ACCEPTED; accepted=4/10; elapsed=799s
+  Qwen candidate 23: GENERATE started; accepted=4/10
+  Qwen candidate 23: REJECTED; accepted=4/10; elapsed=838s; Compilation failed
+  Qwen candidate 24: REPAIR started; accepted=4/10
+  Qwen candidate 24: REJECTED; accepted=4/10; elapsed=891s; Compilation failed
+  Qwen candidate 25: REPAIR started; accepted=4/10
+  Qwen candidate 25: REJECTED; accepted=4/10; elapsed=957s; Wrong or missing test class
+  Qwen candidate 26: REPAIR started; accepted=4/10
+  Qwen candidate 26: REJECTED; accepted=4/10; elapsed=1015s; Wrong or missing test class
+  Qwen candidate 27: GENERATE started; accepted=4/10
+  Qwen candidate 27: ACCEPTED; accepted=5/10; elapsed=1041s
+  Qwen candidate 28: GENERATE started; accepted=5/10
+  Qwen candidate 28: REJECTED; accepted=5/10; elapsed=1073s; JUnit validation failed
+  Qwen candidate 29: REPAIR started; accepted=5/10
+  Qwen candidate 29: REJECTED; accepted=5/10; elapsed=1110s; JUnit validation failed
+  Qwen candidate 30: REPAIR started; accepted=5/10
+  Qwen candidate 30: REJECTED; accepted=5/10; elapsed=1144s; JUnit validation failed
+  Qwen candidate 31: REPAIR started; accepted=5/10
+  Qwen candidate 31: REJECTED; accepted=5/10; elapsed=1179s; JUnit validation failed
+  Qwen candidate 32: GENERATE started; accepted=5/10
+  Qwen candidate 32: REJECTED; accepted=5/10; elapsed=1209s; Compilation failed
+  Qwen candidate 33: REPAIR started; accepted=5/10
+  Qwen candidate 33: REJECTED; accepted=5/10; elapsed=1252s; JUnit validation failed
+  Qwen candidate 34: REPAIR started; accepted=5/10
+  Qwen candidate 34: REJECTED; accepted=5/10; elapsed=1297s; JUnit validation failed
+  Qwen candidate 35: REPAIR started; accepted=5/10
+  Qwen candidate 35: REJECTED; accepted=5/10; elapsed=1340s; Wrong or missing test class
+  Qwen candidate 36: GENERATE started; accepted=5/10
+  Qwen candidate 36: REJECTED; accepted=5/10; elapsed=1388s; JUnit validation failed
+  Qwen candidate 37: REPAIR started; accepted=5/10
+  Qwen candidate 37: REJECTED; accepted=5/10; elapsed=1447s; JUnit validation failed
+  Qwen candidate 38: REPAIR started; accepted=5/10
+  Qwen candidate 38: REJECTED; accepted=5/10; elapsed=1504s; JUnit validation failed
+  Qwen candidate 39: REPAIR started; accepted=5/10
+  Qwen candidate 39: REJECTED; accepted=5/10; elapsed=1560s; JUnit validation failed
+  Qwen candidate 40: GENERATE started; accepted=5/10
+  Qwen candidate 40: REJECTED; accepted=5/10; elapsed=1592s; JUnit validation failed
+  Qwen candidate 41: REPAIR started; accepted=5/10
+  Qwen candidate 41: REJECTED; accepted=5/10; elapsed=1629s; JUnit validation failed
+  Qwen candidate 42: REPAIR started; accepted=5/10
+  Qwen candidate 42: REJECTED; accepted=5/10; elapsed=1669s; JUnit validation failed
+  Qwen candidate 43: REPAIR started; accepted=5/10
+  Qwen candidate 43: REJECTED; accepted=5/10; elapsed=1716s; JUnit validation failed
+  Qwen candidate 44: GENERATE started; accepted=5/10
+  Qwen candidate 44: REJECTED; accepted=5/10; elapsed=1744s; JUnit validation failed
+  Qwen candidate 45: REPAIR started; accepted=5/10
+  Qwen candidate 45: ACCEPTED; accepted=6/10; elapsed=1777s
+  Qwen candidate 46: GENERATE started; accepted=6/10
+  Qwen candidate 46: TIMEOUT; accepted=6/10; elapsed=1800s; timed out
+RUN FINISHED: com.viktor.lab4.PricingEngine; status=OK; accepted=6/10; stop=time_limit; elapsed=1800.0s
+Metadata: C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f\QwenLLM\PricingEngine\1800\run10-seed10010\llm-run.json
+target = com.viktor.lab4.SimpleJsonParser
+budget = 1800, seed = 10010
+  Qwen candidate 1: GENERATE started; accepted=0/10
+  Qwen candidate 1: REJECTED; accepted=0/10; elapsed=34s; Compilation failed
+  Qwen candidate 2: REPAIR started; accepted=0/10
+  Qwen candidate 2: REJECTED; accepted=0/10; elapsed=595s; Compilation failed
+  Qwen candidate 3: REPAIR started; accepted=0/10
+  Qwen candidate 3: REJECTED; accepted=0/10; elapsed=665s; Wrong or missing test class
+  Qwen candidate 4: REPAIR started; accepted=0/10
+  Qwen candidate 4: REJECTED; accepted=0/10; elapsed=709s; Wrong or missing test class
+  Qwen candidate 5: GENERATE started; accepted=0/10
+  Qwen candidate 5: REJECTED; accepted=0/10; elapsed=731s; Compilation failed
+  Qwen candidate 6: REPAIR started; accepted=0/10
+  Qwen candidate 6: REJECTED; accepted=0/10; elapsed=755s; Compilation failed
+  Qwen candidate 7: REPAIR started; accepted=0/10
+  Qwen candidate 7: REJECTED; accepted=0/10; elapsed=778s; Compilation failed
+  Qwen candidate 8: REPAIR started; accepted=0/10
+  Qwen candidate 8: REJECTED; accepted=0/10; elapsed=801s; JUnit validation failed
+  Qwen candidate 9: GENERATE started; accepted=0/10
+  Qwen candidate 9: ACCEPTED; accepted=1/10; elapsed=825s
+  Qwen candidate 10: GENERATE started; accepted=1/10
+  Qwen candidate 10: REJECTED; accepted=1/10; elapsed=851s; Compilation failed
+  Qwen candidate 11: REPAIR started; accepted=1/10
+  Qwen candidate 11: REJECTED; accepted=1/10; elapsed=882s; Compilation failed
+  Qwen candidate 12: REPAIR started; accepted=1/10
+  Qwen candidate 12: REJECTED; accepted=1/10; elapsed=911s; Compilation failed
+  Qwen candidate 13: REPAIR started; accepted=1/10
+  Qwen candidate 13: REJECTED; accepted=1/10; elapsed=949s; Wrong or missing test class
+  Qwen candidate 14: GENERATE started; accepted=1/10
+  Qwen candidate 14: REJECTED; accepted=1/10; elapsed=973s; Compilation failed
+  Qwen candidate 15: REPAIR started; accepted=1/10
+  Qwen candidate 15: REJECTED; accepted=1/10; elapsed=1013s; JUnit validation failed
+  Qwen candidate 16: REPAIR started; accepted=1/10
+  Qwen candidate 16: REJECTED; accepted=1/10; elapsed=1048s; JUnit validation failed
+  Qwen candidate 17: REPAIR started; accepted=1/10
+  Qwen candidate 17: REJECTED; accepted=1/10; elapsed=1082s; Wrong or missing test class
+  Qwen candidate 18: GENERATE started; accepted=1/10
+  Qwen candidate 18: ACCEPTED; accepted=2/10; elapsed=1106s
+  Qwen candidate 19: GENERATE started; accepted=2/10
+  Qwen candidate 19: REJECTED; accepted=2/10; elapsed=1134s; Compilation failed
+  Qwen candidate 20: REPAIR started; accepted=2/10
+  Qwen candidate 20: REJECTED; accepted=2/10; elapsed=1177s; JUnit validation failed
+  Qwen candidate 21: REPAIR started; accepted=2/10
+  Qwen candidate 21: REJECTED; accepted=2/10; elapsed=1266s; Wrong or missing test class
+  Qwen candidate 22: REPAIR started; accepted=2/10
+  Qwen candidate 22: REJECTED; accepted=2/10; elapsed=1317s; JUnit validation failed
+  Qwen candidate 23: GENERATE started; accepted=2/10
+  Qwen candidate 23: REJECTED; accepted=2/10; elapsed=1343s; Compilation failed
+  Qwen candidate 24: REPAIR started; accepted=2/10
+  Qwen candidate 24: REJECTED; accepted=2/10; elapsed=1371s; JUnit validation failed
+  Qwen candidate 25: REPAIR started; accepted=2/10
+  Qwen candidate 25: REJECTED; accepted=2/10; elapsed=1396s; JUnit validation failed
+  Qwen candidate 26: REPAIR started; accepted=2/10
+  Qwen candidate 26: REJECTED; accepted=2/10; elapsed=1424s; JUnit validation failed
+  Qwen candidate 27: GENERATE started; accepted=2/10
+  Qwen candidate 27: REJECTED; accepted=2/10; elapsed=1449s; Compilation failed
+  Qwen candidate 28: REPAIR started; accepted=2/10
+  Qwen candidate 28: REJECTED; accepted=2/10; elapsed=1477s; Compilation failed
+  Qwen candidate 29: REPAIR started; accepted=2/10
+  Qwen candidate 29: REJECTED; accepted=2/10; elapsed=1504s; Compilation failed
+  Qwen candidate 30: REPAIR started; accepted=2/10
+  Qwen candidate 30: REJECTED; accepted=2/10; elapsed=1530s; Compilation failed
+  Qwen candidate 31: GENERATE started; accepted=2/10
+  Qwen candidate 31: REJECTED; accepted=2/10; elapsed=1557s; Compilation failed
+  Qwen candidate 32: REPAIR started; accepted=2/10
+  Qwen candidate 32: REJECTED; accepted=2/10; elapsed=1596s; JUnit validation failed
+  Qwen candidate 33: REPAIR started; accepted=2/10
+  Qwen candidate 33: REJECTED; accepted=2/10; elapsed=1632s; Wrong or missing test class
+  Qwen candidate 34: REPAIR started; accepted=2/10
+  Qwen candidate 34: REJECTED; accepted=2/10; elapsed=1667s; Wrong or missing test class
+  Qwen candidate 35: GENERATE started; accepted=2/10
+  Qwen candidate 35: REJECTED; accepted=2/10; elapsed=1691s; Compilation failed
+  Qwen candidate 36: REPAIR started; accepted=2/10
+  Qwen candidate 36: REJECTED; accepted=2/10; elapsed=1720s; Compilation failed
+  Qwen candidate 37: REPAIR started; accepted=2/10
+  Qwen candidate 37: REJECTED; accepted=2/10; elapsed=1748s; Compilation failed
+  Qwen candidate 38: REPAIR started; accepted=2/10
+  Qwen candidate 38: REJECTED; accepted=2/10; elapsed=1775s; Compilation failed
+  Qwen candidate 39: GENERATE started; accepted=2/10
+  Qwen candidate 39: TIMEOUT; accepted=2/10; elapsed=1800s; timed out
+RUN FINISHED: com.viktor.lab4.SimpleJsonParser; status=OK; accepted=2/10; stop=time_limit; elapsed=1800.0s
+Metadata: C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f\QwenLLM\SimpleJsonParser\1800\run10-seed10010\llm-run.json
+
+Done. Summary: C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\generation_runs.csv
+GENERATION FINISHED: OK=4, EMPTY=0, FAIL=0

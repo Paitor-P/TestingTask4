@@ -1,0 +1,72 @@
+
+RUN: C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\.venv\Scripts\python.exe -u C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\analyze_test_quality.py --tools EvoSuite --budgets 120 --seeds 101 --scope class-family --generated-tests-root C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\suites --report-root C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\family-measure-20260908-235700-479098
+============================================================
+Active filters:
+  Tools: ['EvoSuite']
+  Cases: ['LongestIncreasingSubsequence', 'LruCache', 'PricingEngine', 'SimpleJsonParser']
+  Budgets (sec): [120]
+  Runs: ALL
+============================================================
+
+
+Test collection summary:
+  Total matching filters: 4
+  Will process: 4 tasks
+
+Executing 4 Gradle analysis tasks sequentially...
+  [1/4] EvoSuite/LongestIncreasingSubsequence/120/run1 - OK
+  [2/4] EvoSuite/LruCache/120/run1 - OK
+  [3/4] EvoSuite/PricingEngine/120/run1 - OK
+  [4/4] EvoSuite/SimpleJsonParser/120/run1 - OK
+
+Done.
+Detailed:   C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\family-measure-20260908-235700-479098\quality\quality_runs__tools-EvoSuite__cases-all__budgets-120__runs-all__seeds-101.csv
+Aggregated: C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\family-measure-20260908-235700-479098\quality\quality_summary__tools-EvoSuite__cases-all__budgets-120__runs-all__seeds-101.csv
+
+RUN: C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\.venv\Scripts\python.exe -u C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\analyze_test_quality.py --tools Randoop --budgets 120 --seeds 101 --scope class-family --generated-tests-root C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\suites --report-root C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\family-measure-20260908-235700-479098
+============================================================
+Active filters:
+  Tools: ['Randoop']
+  Cases: ['LongestIncreasingSubsequence', 'LruCache', 'PricingEngine', 'SimpleJsonParser']
+  Budgets (sec): [120]
+  Runs: ALL
+============================================================
+
+
+Test collection summary:
+  Total matching filters: 4
+  Will process: 4 tasks
+
+Executing 4 Gradle analysis tasks sequentially...
+  [1/4] Randoop/LongestIncreasingSubsequence/120/run1 - OK
+  [2/4] Randoop/LruCache/120/run1 - OK
+  [3/4] Randoop/PricingEngine/120/run1 - OK
+  [4/4] Randoop/SimpleJsonParser/120/run1 - OK
+
+Done.
+Detailed:   C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\family-measure-20260908-235700-479098\quality\quality_runs__tools-Randoop__cases-all__budgets-120__runs-all__seeds-101.csv
+Aggregated: C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\family-measure-20260908-235700-479098\quality\quality_summary__tools-Randoop__cases-all__budgets-120__runs-all__seeds-101.csv
+
+RUN: C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\.venv\Scripts\python.exe -u C:\Users\user\Documents\Polytech\Testing\Lab4up\scripts\analyze_test_quality.py --tools QwenLLM --budgets 1800 --seeds 101 --scope class-family --generated-tests-root C:\Users\user\Documents\Polytech\Testing\Lab4up\src\generatedTest\qwen-v4-20260908-020700-5fa27f --report-root C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\family-measure-20260908-235700-479098
+============================================================
+Active filters:
+  Tools: ['QwenLLM']
+  Cases: ['LongestIncreasingSubsequence', 'LruCache', 'PricingEngine', 'SimpleJsonParser']
+  Budgets (sec): [1800]
+  Runs: ALL
+============================================================
+
+
+Test collection summary:
+  Total matching filters: 4
+  Will process: 4 tasks
+
+Executing 4 Gradle analysis tasks sequentially...
+  [1/4] QwenLLM/LongestIncreasingSubsequence/1800/run1 - OK
+  [2/4] QwenLLM/LruCache/1800/run1 - OK
+  [3/4] QwenLLM/PricingEngine/1800/run1 - OK
+  [4/4] QwenLLM/SimpleJsonParser/1800/run1 - OK
+
+Done.
+Detailed:   C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\family-measure-20260908-235700-479098\quality\quality_runs__tools-QwenLLM__cases-all__budgets-1800__runs-all__seeds-101.csv
+Aggregated: C:\Users\user\Documents\Polytech\Testing\Lab4up\reports\data\family-measure-20260908-235700-479098\quality\quality_summary__tools-QwenLLM__cases-all__budgets-1800__runs-all__seeds-101.csv
