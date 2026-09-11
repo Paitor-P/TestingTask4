@@ -1,0 +1,46 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest5 {
+
+    @Test(timeout=1000)
+    public void testLengthOfLIS() {
+        LongestIncreasingSubsequence lis = new LongestIncreasingSubsequence();
+
+        // Test case 1: Basic case with increasing sequence
+        int[] nums1 = {1, 2, 3, 4, 5};
+        assertEquals(5, lis.lengthOfLIS(nums1));
+
+        // Test case 2: Basic case with decreasing sequence
+        int[] nums2 = {5, 4, 3, 2, 1};
+        assertEquals(1, lis.lengthOfLIS(nums2));
+
+        // Test case 3: Sequence with repeated elements
+        int[] nums3 = {1, 1, 2, 3, 4, 5};
+        assertEquals(5, lis.lengthOfLIS(nums3));
+
+        // Test case 4: Sequence with all equal elements
+        int[] nums4 = {1, 1, 1, 1, 1};
+        assertEquals(1, lis.lengthOfLIS(nums4));
+
+        // Test case 5: Empty sequence
+        int[] nums5 = {};
+        assertEquals(0, lis.lengthOfLIS(nums5));
+
+        // Test case 6: Single element sequence
+        int[] nums6 = {42};
+        assertEquals(1, lis.lengthOfLIS(nums6));
+
+        // Test case 7: Sequence with only one increasing step
+        int[] nums7 = {1, 3, 5, 7, 9};
+        assertEquals(5, lis.lengthOfLIS(nums7));
+
+        // Test case 8: Sequence with only one decreasing step
+        int[] nums8 = {9, 7, 5, 3, 1};
+        assertEquals(5, lis.lengthOfLIS(nums8));
+    }
+}
+```

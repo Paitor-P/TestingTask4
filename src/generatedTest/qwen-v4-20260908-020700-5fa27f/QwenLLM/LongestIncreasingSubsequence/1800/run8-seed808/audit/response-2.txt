@@ -1,0 +1,30 @@
+To fix the compilation error and ensure that the test runs correctly, we need to create an instance of the `LongestIncreasingSubsequence` class and then call the `lengthOfLIS` method on that instance. Additionally, we need to ensure that the expected and result are correctly compared.
+
+Here is the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest2 {
+
+    @Test(timeout = 1000)
+    public void testLengthOfLIS() {
+        int[] numbers = {10, 9, 2, 5, 3, 7, 101, 18};
+        int expected = 4;
+        LongestIncreasingSubsequence lis = new LongestIncreasingSubsequence();
+        int result = lis.lengthOfLIS(numbers);
+        assertEquals(expected, result);
+    }
+}
+```
+
+### Explanation:
+1. **Instance Creation**: We create an instance of `LongestIncreasingSubsequence` using its declared public constructor.
+2. **Method Invocation**: We call the `lengthOfLIS` method on this instance.
+3. **Assertion**: We use `assertEquals` to verify that the result matches the expected value.
+4. **Test Annotation**: The `@Test(timeout = 1000)` annotation ensures that the test runs within 1000 milliseconds.
+
+This should resolve the compilation error and ensure that the test passes.

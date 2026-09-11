@@ -1,0 +1,22 @@
+To fix the test, we need to use a method that can handle `double` values in `assertEquals`. The `org.junit.Assert` class does not provide a method directly for comparing `double` values with a tolerance, so we will use `org.junit.Assert.assertEquals` with a small epsilon value to handle floating-point precision issues.
+
+Here's the corrected code:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class QwenTest42 {
+
+    @Test(timeout = 1000)
+    public void testParseSingleNumber() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        Object result = parser.parse("123.45");
+        assertEquals(123.45, result, 1e-9); // Use a very small tolerance
+    }
+}
+```
+
+In this corrected version, we use `assertEquals` with a tolerance value of `1e-9` to allow for minor differences in the floating-point representation of `123.45`. This should pass the test without any compilation errors.

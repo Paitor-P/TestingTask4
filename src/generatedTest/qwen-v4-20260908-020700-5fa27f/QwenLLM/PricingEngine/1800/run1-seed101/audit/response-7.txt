@@ -1,0 +1,53 @@
+Certainly! Let's fix the failing test by ensuring that the quantity is greater than 0 in the `PricingRequest` object. Here's the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.PricingEngine;
+
+public class QwenTest7 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithEmptyRequest() {
+        PricingEngine pricingEngine = new PricingEngine();
+        PricingRequest request = new PricingRequest(
+                0.0, 1, PricingEngine.CustomerType.REGULAR, false, null, false, 0
+        );
+        double result = pricingEngine.calculateFinalPrice(request);
+        assertEquals(0.0, result, 0.001);
+    }
+}
+```
+
+In the original test, the `quantity` was set to 1, which is correct. However, the test case should ensure that the quantity is greater than 0. Let's modify the test to check for this condition:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.PricingEngine;
+
+public class QwenTest7 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithEmptyRequest() {
+        PricingEngine pricingEngine = new PricingEngine();
+        PricingRequest request = new PricingRequest(
+                0.0, 1, PricingEngine.CustomerType.REGULAR, false, null, false, 0
+        );
+
+        // Check that the quantity is greater than 0
+        if (request.quantity() <= 0) {
+            throw new IllegalArgumentException("Quantity must be > 0");
+        }
+
+        double result = pricingEngine.calculateFinalPrice(request);
+        assertEquals(0.0, result, 0.001);
+    }
+}
+```
+
+This ensures that the `quantity` is greater than 0 before proceeding with the calculation. If the quantity is not greater than 0, it throws an `IllegalArgumentException`, which is caught and handled as a test failure.

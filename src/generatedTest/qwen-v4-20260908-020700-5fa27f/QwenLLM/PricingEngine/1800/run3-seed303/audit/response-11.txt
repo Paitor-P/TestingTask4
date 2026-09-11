@@ -1,0 +1,28 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest11 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPrice() {
+        PricingEngine pricingEngine = new PricingEngine();
+        PricingRequest request = new PricingRequest(
+                99.99,
+                10,
+                PricingEngine.CustomerType.REGULAR,
+                true,
+                "SAVE10",
+                true,
+                500
+        );
+
+        double expected = 999.99 * 10 * 0.85 - 0.1 * 999.99 * 10 * 0.1 + 7.99;
+        double result = pricingEngine.calculateFinalPrice(request);
+
+        assertEquals(expected, result, 0.01); // Adjusted tolerance
+    }
+}
+```

@@ -1,0 +1,26 @@
+package com.viktor.lab4.autogen;
+import com.viktor.lab4.LruCache.*;
+import org.junit.*;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.LruCache;
+import java.util.Map;
+
+public class QwenTest18 {
+
+    @Test(timeout = 1000)
+    public void testRemoveLeastRecentlyUsedEntryWhenCapacityExceeded() {
+        LruCache<String, Integer> cache = new LruCache<>(2);
+        cache.put("a", 1);
+        cache.put("b", 2);
+        cache.put("c", 3);
+
+        // After adding "c", the size of the cache is 3, which exceeds the capacity of 2
+        // The least recently used entry "a" should be removed
+        assertEquals(2, cache.size());
+        assertFalse(cache.containsKey("a"));
+        assertTrue(cache.containsKey("b"));
+        assertTrue(cache.containsKey("c"));
+    }
+}

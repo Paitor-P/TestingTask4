@@ -1,0 +1,26 @@
+The error is due to the fact that the `calculateFinalPrice` method is not static, but the test is trying to call it as if it were. Since `calculateFinalPrice` is a non-static method, it must be called on an instance of the `PricingEngine` class. To fix this, we need to create an instance of `PricingEngine` and then call the method on that instance.
+
+Here is the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.PricingEngine;
+
+public class QwenTest42 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithThreshold() {
+        PricingRequest request = new PricingRequest(
+                49.99, 10, PricingEngine.CustomerType.REGULAR, false, "SAVE10", false, 0
+        );
+        PricingEngine engine = new PricingEngine(); // Create an instance of PricingEngine
+        double expected = 49.99 * 10 * (1.0 - 0.15 - 0.05) + 7.99;
+        assertEquals(expected, engine.calculateFinalPrice(request), 0.01);
+    }
+}
+```
+
+In this corrected version, we have added an instance of `PricingEngine` (`engine`) and called the `calculateFinalPrice` method on this instance. This should resolve the compilation error and allow the test to run successfully.

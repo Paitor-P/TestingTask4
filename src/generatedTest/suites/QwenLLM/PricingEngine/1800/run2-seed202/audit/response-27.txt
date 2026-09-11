@@ -1,0 +1,52 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.PricingEngine;
+
+public class QwenTest27 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPrice() {
+        PricingRequest request1 = new PricingRequest(100.0, 10, PricingEngine.CustomerType.REGULAR, false, "SAVE10", true, 100);
+        double expected1 = 100.0 * 10 * 0.9 * 0.95 + 7.99;
+        assertEquals(expected1, PricingEngine.calculateFinalPrice(request1), 0.001);
+
+        PricingRequest request2 = new PricingRequest(100.0, 10, PricingEngine.CustomerType.VIP, false, "SAVE10", true, 100);
+        double expected2 = 100.0 * 10 * 0.88 * 0.95 + 7.99;
+        assertEquals(expected2, PricingEngine.calculateFinalPrice(request2), 0.001);
+
+        PricingRequest request3 = new PricingRequest(100.0, 10, PricingEngine.CustomerType.REGULAR, true, "SAVE10", true, 100);
+        double expected3 = 100.0 * 10 * 0.9 * 0.95 + 7.99;
+        assertEquals(expected3, PricingEngine.calculateFinalPrice(request3), 0.001);
+
+        PricingRequest request4 = new PricingRequest(100.0, 10, PricingEngine.CustomerType.VIP, true, "SAVE10", true, 100);
+        double expected4 = 100.0 * 10 * 0.88 * 0.95 + 7.99;
+        assertEquals(expected4, PricingEngine.calculateFinalPrice(request4), 0.001);
+
+        PricingRequest request5 = new PricingRequest(100.0, 20, PricingEngine.CustomerType.REGULAR, false, "SAVE10", true, 100);
+        double expected5 = 100.0 * 20 * 0.9 * 0.95 + 7.99;
+        assertEquals(expected5, PricingEngine.calculateFinalPrice(request5), 0.001);
+
+        PricingRequest request6 = new PricingRequest(100.0, 20, PricingEngine.CustomerType.VIP, false, "SAVE10", true, 100);
+        double expected6 = 100.0 * 20 * 0.88 * 0.95 + 7.99;
+        assertEquals(expected6, PricingEngine.calculateFinalPrice(request6), 0.001);
+
+        PricingRequest request7 = new PricingRequest(100.0, 20, PricingEngine.CustomerType.REGULAR, true, "SAVE10", true, 100);
+        double expected7 = 100.0 * 20 * 0.9 * 0.95 + 7.99;
+        assertEquals(expected7, PricingEngine.calculateFinalPrice(request7), 0.001);
+
+        PricingRequest request8 = new PricingRequest(100.0, 20, PricingEngine.CustomerType.VIP, true, "SAVE10", true, 100);
+        double expected8 = 100.0 * 20 * 0.88 * 0.95 + 7.99;
+        assertEquals(expected8, PricingEngine.calculateFinalPrice(request8), 0.001);
+
+        PricingRequest request9 = new PricingRequest(100.0, 20, PricingEngine.CustomerType.REGULAR, false, "FLAT5", true, 100);
+        double expected9 = 100.0 * 20 * 0.9 * 0.95 + 7.99 - 5.0;
+        assertEquals(expected9, PricingEngine.calculateFinalPrice(request9), 0.001);
+
+        PricingRequest request10 = new PricingRequest(100.0, 20, PricingEngine.CustomerType.VIP, false, "FLAT5", true, 100);
+        double expected10 = 100.0 * 20 * 0.88 * 0.95 + 7.99 - 5.0;
+        assertEquals(expected10, PricingEngine.calculateFinalPrice(request10), 0.001);
+
+        Pricing

@@ -1,0 +1,19 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import com.viktor.lab4.LruCache;
+
+public class QwenTest54 {
+
+    @Test(timeout = 1000)
+    public void testEmptyCache() {
+        LruCache<Integer, String> cache = new LruCache<>(1);
+        assertThrows(IllegalArgumentException.class, () -> cache.put(1, "value"));
+        assertFalse(cache.containsKey(1));
+        assertEquals(0, cache.size());
+    }
+}
+```

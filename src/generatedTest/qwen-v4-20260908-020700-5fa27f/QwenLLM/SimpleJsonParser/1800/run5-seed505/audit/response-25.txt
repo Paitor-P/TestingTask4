@@ -1,0 +1,22 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest25 {
+
+    @Test(timeout=1000)
+    public void testParseEmptyString() {
+        SimpleJsonParser parser = new SimpleJsonParser(null); // Fixed: Use null as the argument to the constructor
+        try {
+            Object result = parser.parse("");
+            assertNull(result);
+        } catch (IllegalArgumentException e) {
+            assertEquals("input must not be null", e.getMessage());
+        }
+    }
+}
+```
+
+This corrected code ensures that the `SimpleJsonParser` constructor is called with the correct argument type, which is `String`.

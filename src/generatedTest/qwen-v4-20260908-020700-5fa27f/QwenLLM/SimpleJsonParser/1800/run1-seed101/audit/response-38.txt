@@ -1,0 +1,56 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.SimpleJsonParser;
+
+public class QwenTest36 {
+
+    @Test(timeout = 1000)
+    public void testSimpleNumberParsing() {
+        double result = SimpleJsonParser.parseNumber("-123.456");
+        assertEquals(-123.456, result, 0.0001);
+    }
+
+    @Test(timeout = 1000)
+    public void testNullInputParsing() {
+        try {
+            SimpleJsonParser.parse(null);
+            fail("Expected IllegalArgumentException for null input");
+        } catch (IllegalArgumentException e) {
+            assertEquals("input must not be null", e.getMessage());
+        }
+    }
+
+    @Test(timeout = 1000)
+    public void testEmptyStringParsing() {
+        Object result = SimpleJsonParser.parse("");
+        assertNull(result);
+    }
+
+    @Test(timeout = 1000)
+    public void testEmptyArrayParsing() {
+        Object result = SimpleJsonParser.parse("[]");
+        assertEquals(new ArrayList<>(), result);
+    }
+
+    @Test(timeout = 1000)
+    public void testSingleStringInArrayParsing() {
+        Object result = SimpleJsonParser.parse("[\"hello\"]");
+        assertEquals(List.of("hello"), result);
+    }
+
+    @Test(timeout = 1000)
+    public void testNestedArrayParsing() {
+        Object result = SimpleJsonParser.parse("[[1, 2], [3, 4]]");
+        assertEquals(List.of(List.of(1, 2), List.of(3, 4)), result);
+    }
+
+    @Test(timeout = 1000)
+    public void testSingleObjectInArrayParsing() {
+        Object result = SimpleJsonParser.parse("[{\"key\": \"value\"}]");
+        assertEquals(List.of(Map.of("key", "value")), result);
+    }
+}
+```

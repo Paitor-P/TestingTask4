@@ -1,0 +1,30 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.LruCache;
+import java.util.Map;
+
+public class QwenTest38 {
+    @Test(timeout = 1000)
+    public void testPutAndGetAndSize() {
+        LruCache<String, String> lruCache = new LruCache<>(2);
+        lruCache.put("key1", "value1");
+        lruCache.put("key2", "value2");
+        assertEquals("value1", lruCache.get("key1"));
+        assertEquals("value2", lruCache.get("key2"));
+        assertEquals(2, lruCache.size());
+        lruCache.put("key3", "value3");
+        assertNull(lruCache.get("key1"));
+        assertEquals("value3", lruCache.get("key2"));
+        assertEquals("value3", lruCache.get("key3"));
+        assertEquals(2, lruCache.size());
+        lruCache.put("key1", "new_value1");
+        assertEquals("new_value1", lruCache.get("key1"));
+        assertEquals("value3", lruCache.get("key2"));
+        assertEquals("value3", lruCache.get("key3"));
+        assertEquals(2, lruCache.size());
+    }
+}
+```

@@ -1,0 +1,23 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.SimpleJsonParser;
+
+public class QwenTest1 {
+
+    @Test(timeout = 1000)
+    public void testParseValidJson() {
+        String input = "{\"name\":\"John\",\"age\":30,\"city\":\"New York\"}";
+        Object result = new SimpleJsonParser().parse(input);
+        Map<String, Object> expected = new HashMap<>();
+        expected.put("name", "John");
+        expected.put("age", 30);
+        expected.put("city", "New York");
+        assertEquals(expected, result);
+    }
+}
+```
+
+In this test, we are parsing a valid JSON string and asserting that the parsed result matches an expected `Map` object.

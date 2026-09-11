@@ -1,0 +1,12 @@
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\02fae4a5fd408ffa\QwenTest17\QwenTest17.java:12: error: constructor SimpleJsonParser in class SimpleJsonParser cannot be applied to given types;
+        SimpleJsonParser parser = new SimpleJsonParser("1");
+                                  ^
+  required: no arguments
+  found:    String
+  reason: actual and formal argument lists differ in length
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\02fae4a5fd408ffa\QwenTest17\QwenTest17.java:13: error: cannot find symbol
+        Double result = (Double) parser.parse(parser.input);
+                                                    ^
+  symbol:   variable input
+  location: variable parser of type SimpleJsonParser
+2 errors

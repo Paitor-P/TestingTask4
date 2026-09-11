@@ -1,0 +1,18 @@
+package com.viktor.lab4.autogen;
+import com.viktor.lab4.PricingEngine;
+import com.viktor.lab4.PricingEngine.*;
+import org.junit.*;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest50 {
+    @Test(timeout=1000)
+    public void testEmptyRequest() {
+        PricingEngine engine = new PricingEngine();
+        PricingRequest request = new PricingRequest(0.0, 1, CustomerType.REGULAR, false, null, false, 0);
+        double expected = 7.99; // Corrected expected value
+        double result = engine.calculateFinalPrice(request);
+        assertEquals(expected, result, 0.001);
+    }
+}

@@ -1,0 +1,98 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest47 {
+
+    @Test(timeout = 1000)
+    public void testLruCacheBasicOperations() {
+        LruCache<String, Integer> cache = new LruCache<>(2);
+
+        // Put first two entries
+        cache.put("a", 1);
+        cache.put("b", 2);
+
+        // Check size and containsKey
+        assertEquals(2, cache.size());
+        assertTrue(cache.containsKey("a"));
+        assertTrue(cache.containsKey("b"));
+
+        // Get existing key
+        assertEquals(1, cache.get("a").intValue());
+
+        // Put a new key, evicting the least recently used
+        cache.put("c", 3);
+
+        // Check size, containsKey, and get
+        assertEquals(2, cache.size());
+        assertFalse(cache.containsKey("a"));
+        assertTrue(cache.containsKey("c"));
+        assertEquals(3, cache.get("c").intValue());
+
+        // Put another key, evicting the least recently used
+        cache.put("d", 4);
+
+        // Check size, containsKey, and get
+        assertEquals(2, cache.size());
+        assertFalse(cache.containsKey("b"));
+        assertTrue(cache.containsKey("d"));
+        assertEquals(4, cache.get("d").intValue());
+
+        // Attempt to get a non-existent key
+        assertNull(cache.get("a"));
+
+        // Check size
+        assertEquals(2, cache.size());
+    }
+
+    @Test(timeout = 1000)
+    public void testLruCacheCapacityLimit() {
+        LruCache<String, Integer> cache = new LruCache<>(1);
+
+        // Put first entry
+        cache.put("a", 1);
+
+        // Check size and containsKey
+        assertEquals(1, cache.size());
+        assertTrue(cache.containsKey("a"));
+
+        // Put a new key, evicting the least recently used
+        cache.put("b", 2);
+
+        // Check size, containsKey, and get
+        assertEquals(1, cache.size());
+        assertFalse(cache.containsKey("a"));
+        assertTrue(cache.containsKey("b"));
+        assertEquals(2, cache.get("b").intValue());
+
+        // Attempt to put another key, evicting the least recently used
+        cache.put("c", 3);
+
+        // Check size, containsKey, and get
+        assertEquals(1, cache.size());
+        assertFalse(cache.containsKey("b"));
+        assertTrue(cache.containsKey("c"));
+        assertEquals(3, cache.get("c").intValue());
+    }
+
+    @Test(timeout = 1000)
+    public void testLruCacheWithNegativeCapacity() {
+        try {
+            LruCache<String, Integer> cache = new LruCache<>(-1);
+        } catch (IllegalArgumentException e) {
+            // Expected exception
+        }
+    }
+
+    @Test(timeout = 1000)
+    public void testLruCacheWithZeroCapacity() {
+        try {
+            LruCache<String, Integer> cache = new LruCache<>(0);
+        } catch (IllegalArgumentException e) {
+            // Expected exception
+        }
+    }
+}
+```

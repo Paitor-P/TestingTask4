@@ -1,0 +1,28 @@
+To fix the compilation errors, we need to import the `java.util.List` and `java.util.Map` classes at the top of the file. Here's the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.util.List;
+import java.util.Map;
+
+public class QwenTest24 {
+
+    @Test(timeout=1000)
+    public void testSimpleJsonParsing() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        String input = "[1, 2, 3, \"Hello\", {\"key\": \"value\"}]";
+        Object result = parser.parse(input);
+        List<Object> expected = List.of(
+                1, 2, 3, "Hello",
+                Map.of("key", "value")
+        );
+        assertEquals(expected, result);
+    }
+}
+```
+
+In this corrected version, the `List` and `Map` classes are imported at the top of the file, which resolves the compilation errors. The rest of the test code remains unchanged, ensuring that the `SimpleJsonParser` class is tested to parse the specified JSON input and produce the expected result.

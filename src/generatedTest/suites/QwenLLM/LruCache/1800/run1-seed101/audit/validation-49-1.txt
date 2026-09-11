@@ -1,0 +1,15 @@
+JUnit version 4.13.2
+.E
+Time: 0,008
+There was 1 failure:
+1) testBasicOperations(com.viktor.lab4.autogen.QwenTest49)
+java.lang.AssertionError: expected null, but was:<two>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotNull(Assert.java:756)
+	at org.junit.Assert.assertNull(Assert.java:738)
+	at org.junit.Assert.assertNull(Assert.java:748)
+	at com.viktor.lab4.autogen.QwenTest49.testBasicOperations(QwenTest49.java:29)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+

@@ -1,0 +1,84 @@
+To fix the reported failure, we need to ensure that the test class `QwenTest70` exists and is properly defined. Let's create the missing test class and fix the test method to assert the expected behavior.
+
+Here's the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest70 {
+
+    @Test(timeout = 1000)
+    public void testParseEmptyArray() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        Object result = parser.parse("[]");
+        assertEquals(new ArrayList<>(), result);
+    }
+
+    @Test(timeout = 1000)
+    public void testParseEmptyString() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        Object result = parser.parse("");
+        assertNull(result); // Assuming null for an empty string
+    }
+
+    @Test(timeout = 1000)
+    public void testParseSingleString() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        Object result = parser.parse("\"test\"");
+        assertEquals("test", result);
+    }
+
+    @Test(timeout = 1000)
+    public void testParseSingleNumber() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        Object result = parser.parse("123");
+        assertEquals(123.0, result, 0.001); // Allow for minor floating-point precision errors
+    }
+
+    @Test(timeout = 1000)
+    public void testParseArrayWithOneElement() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        Object result = parser.parse("[\"test\"]");
+        assertEquals(new ArrayList<Object>() {{ add("test"); }}, result);
+    }
+
+    @Test(timeout = 1000)
+    public void testParseNestedArray() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        Object result = parser.parse("[[1, 2], [3, 4]]");
+        assertEquals(new ArrayList<Object>() {{
+            add(new ArrayList<Object>() {{ add(1); add(2); }});
+            add(new ArrayList<Object>() {{ add(3); add(4); }});
+        }}, result);
+    }
+
+    @Test(timeout = 1000)
+    public void testParseNestedObject() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        Object result = parser.parse("{\"key\": \"value\"}");
+        assertEquals("value", ((Map<?, ?>) result).get("key"));
+    }
+
+    @Test(timeout = 1000)
+    public void testParseComplexJson() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        Object result = parser.parse("{\"name\": \"John\", \"age\": 30, \"city\": \"New York\"}");
+        assertEquals("John", ((Map<?, ?>) result).get("name"));
+        assertEquals(30, ((Map<?, ?>) result).get("age"));
+        assertEquals("New York", ((Map<?, ?>) result).get("city"));
+    }
+
+    @Test(timeout = 1000)
+    public void testParseInvalidJson() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        try {
+            parser.parse("invalid json");
+        } catch (IllegalArgumentException e) {
+            assertEquals("Unsupported token 'i'", e.getMessage());
+        }
+    }
+
+    @Test(timeout = 10

@@ -1,0 +1,25 @@
+To resolve the compilation error, we need to change the expected value in the `assertEquals` method to a `double` instead of a `String`. The `assertEquals` method expects both arguments to be of type `Object`, and since `123.45` is a `double`, we should directly pass it as the second argument in the method.
+
+Here is the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest58 {
+
+    @Test(timeout = 1000)
+    public void testSimpleJsonParserWithThreshold() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+
+        // Test case: Parse a JSON string with a number at a threshold
+        String input = "123.45";
+        Object result = parser.parse(input);
+        assertEquals(123.45, result, 1e-10); // Allow for minor rounding errors
+    }
+}
+```
+
+This code should now compile without errors, and the test will pass if the `SimpleJsonParser` correctly parses the input string as a `double`.

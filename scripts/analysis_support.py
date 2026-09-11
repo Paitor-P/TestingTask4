@@ -5,7 +5,7 @@ from __future__ import annotations
 import math
 import re
 import tomllib
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from statistics import mean, stdev, variance
 from typing import Iterable
@@ -52,6 +52,11 @@ class ExperimentConfig:
     target_classes: list[str]
     budgets: list[int]
     seeds: list[int]
+    tool_budgets: dict[str, list[int]] = field(default_factory=dict)
+    reference_budgets: dict[str, int] = field(default_factory=dict)
+
+    def budgets_for(self, tool: str) -> list[int]:
+        return self.tool_budgets.get(tool, self.budgets)
 
     @property
     def cases(self) -> list[str]:
@@ -76,11 +81,21 @@ def load_experiment_config(project_root: Path, value: str | Path) -> ExperimentC
             raise ValueError(f"All '{name}' values in {config_path} must be {value_type.__name__}")
         return configured_values
 
+    tool_budgets = data.get('tool_budgets', {})
+    reference_budgets = data.get('comparison', {}).get('reference_budgets', {})
+    for tool, budgets in tool_budgets.items():
+        if not isinstance(budgets, list) or not budgets or any(not isinstance(b, int) or b <= 0 for b in budgets):
+            raise ValueError(f'Invalid tool-specific budgets for {tool}')
+    for tool, budget in reference_budgets.items():
+        if not isinstance(budget, int) or budget <= 0:
+            raise ValueError(f'Invalid comparison reference budget for {tool}')
     return ExperimentConfig(
         tools=values("tools", str),
         target_classes=values("target_classes", str),
         budgets=values("budgets", int),
         seeds=values("seeds", int),
+        tool_budgets=tool_budgets,
+        reference_budgets=reference_budgets,
     )
 
 

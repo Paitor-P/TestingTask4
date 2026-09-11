@@ -1,0 +1,15 @@
+JUnit version 4.13.2
+.E
+Time: 0,013
+There was 1 failure:
+1) testCalculateFinalPrice(com.viktor.lab4.autogen.QwenTest44)
+java.lang.AssertionError: expected:<44.0> but was:<507.99>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:555)
+	at org.junit.Assert.assertEquals(Assert.java:685)
+	at com.viktor.lab4.autogen.QwenTest44.testCalculateFinalPrice(QwenTest44.java:16)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+

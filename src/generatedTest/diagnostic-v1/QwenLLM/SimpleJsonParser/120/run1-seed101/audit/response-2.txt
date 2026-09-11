@@ -1,0 +1,46 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.util.Arrays;
+
+public class QwenTest2 {
+
+    @Test(timeout = 1000)
+    public void testParseEmptyString() {
+        SimpleJsonParser parser = new SimpleJsonParser("");
+        assertSame(parser.parse(""), new Object());
+    }
+
+    @Test(timeout = 1000)
+    public void testParseNullString() {
+        SimpleJsonParser parser = new SimpleJsonParser(null);
+        try {
+            parser.parse("");
+            fail("Should throw IllegalArgumentException for null input");
+        } catch (IllegalArgumentException e) {
+            assertEquals("input must not be null", e.getMessage());
+        }
+    }
+
+    @Test(timeout = 1000)
+    public void testParseNumber() {
+        SimpleJsonParser parser = new SimpleJsonParser("123.45");
+        assertEquals(123.45, parser.parse(), 0.0001);
+    }
+
+    @Test(timeout = 1000)
+    public void testParseString() {
+        SimpleJsonParser parser = new SimpleJsonParser("\"Hello, World!\"");
+        assertEquals("Hello, World!", parser.parse());
+    }
+
+    @Test(timeout = 1000)
+    public void testParseArray() {
+        SimpleJsonParser parser = new SimpleJsonParser("[1, 2, \"three\", false]");
+        assertEquals(Arrays.asList(1, 2, "three", false), parser.parse());
+    }
+}
+```

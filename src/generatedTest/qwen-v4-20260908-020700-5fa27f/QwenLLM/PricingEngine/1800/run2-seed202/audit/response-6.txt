@@ -1,0 +1,31 @@
+Certainly! The issue in the test is that the `quantity` field is set to zero, which causes an `IllegalArgumentException` in the `calculateFinalPrice` method. To fix this, we need to set a valid quantity greater than zero. Here's the corrected test:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest5 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithEmptyInput() {
+        PricingRequest request = new PricingRequest(
+                0.0,  // basePrice
+                1,      // quantity (valid value)
+                CustomerType.REGULAR, // customerType
+                false,    // seasonalSale
+                "",       // couponCode
+                false,    // firstOrder
+                0         // loyaltyPoints
+        );
+
+        PricingEngine pricingEngine = new PricingEngine();
+        double finalPrice = pricingEngine.calculateFinalPrice(request);
+
+        assertEquals(0.0, finalPrice, 0.001); // Expecting zero as the base price is zero
+    }
+}
+```
+
+In this corrected test, the `quantity` is set to 1, which should pass the validation and return the expected result.

@@ -1,0 +1,34 @@
+To fix the reported failure, we need to ensure that the `QwenTest46` class exists and is correctly defined. Here is the complete corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest46 {
+
+    @Test(timeout = 1000)
+    public void testEmptyInput() {
+        SimpleJsonParser parser = new SimpleJsonParser("");
+        try {
+            parser.parse("");
+            fail("Expected IllegalArgumentException for empty input");
+        } catch (IllegalArgumentException e) {
+            assertEquals("input must not be null", e.getMessage());
+        }
+    }
+
+    @Test(timeout = 1000)
+    public void testNullInput() {
+        try {
+            new SimpleJsonParser(null);
+            fail("Expected IllegalArgumentException for null input");
+        } catch (IllegalArgumentException e) {
+            assertEquals("input must not be null", e.getMessage());
+        }
+    }
+}
+```
+
+This file includes the `QwenTest46` class with two test cases: one for an empty input and another for a null input, both of which are expected to throw an `IllegalArgumentException` with the message "input must not be null".

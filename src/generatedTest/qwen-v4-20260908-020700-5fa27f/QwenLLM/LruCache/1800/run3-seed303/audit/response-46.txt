@@ -1,0 +1,32 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.LruCache;
+
+public class QwenTest46 {
+
+    @Test(timeout = 1000)
+    public void testSinglePutAndGet() {
+        LruCache<String, Integer> lruCache = new LruCache<>(3);
+        lruCache.put("a", 1);
+        lruCache.put("b", 2);
+        lruCache.put("c", 3);
+
+        assertEquals(3, lruCache.size());
+        assertEquals(1, lruCache.get("a"));
+        assertEquals(2, lruCache.get("b"));
+        assertEquals(3, lruCache.get("c"));
+
+        // Add an element that would evict the oldest element
+        lruCache.put("d", 4);
+
+        assertEquals(3, lruCache.size());
+        assertEquals(0, lruCache.get("a")); // Fixed assertion to check if "a" is removed
+        assertEquals(2, lruCache.get("b"));
+        assertEquals(3, lruCache.get("c"));
+        assertEquals(4, lruCache.get("d"));
+    }
+}
+```

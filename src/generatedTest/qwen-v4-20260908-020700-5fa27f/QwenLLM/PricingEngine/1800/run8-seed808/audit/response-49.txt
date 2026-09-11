@@ -1,0 +1,31 @@
+Certainly! Below is the complete Java 17 JUnit 4 regression test class for the `PricingEngine` class, focusing on a boundary case with an empty input:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import com.viktor.lab4.PricingEngine;
+
+public class QwenTest49 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithEmptyRequest() {
+        PricingRequest request = new PricingRequest(
+                0.0, 
+                0, 
+                PricingEngine.CustomerType.REGULAR, 
+                false, 
+                "", 
+                false, 
+                0
+        );
+
+        double finalPrice = PricingEngine.calculateFinalPrice(request);
+        assertEquals(0.0, finalPrice, 0.001);
+    }
+}
+```
+
+This test checks the behavior of the `calculateFinalPrice` method when it receives an empty `PricingRequest` object. It ensures that the method returns `0.0`, as per the implementation, which handles cases where the base price, quantity, or any other relevant field is zero.

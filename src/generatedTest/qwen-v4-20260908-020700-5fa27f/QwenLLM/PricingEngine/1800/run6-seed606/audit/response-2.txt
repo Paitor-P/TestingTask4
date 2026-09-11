@@ -1,0 +1,32 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.PricingEngine;
+import com.viktor.lab4.PricingEngine.CustomerType;
+
+public class QwenTest2 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPrice() {
+        PricingEngine engine = new PricingEngine();
+
+        PricingRequest request = new PricingRequest(
+                10.0, // basePrice
+                5,   // quantity
+                CustomerType.REGULAR,
+                false,
+                "SAVE10",
+                true,
+                200 // loyaltyPoints
+        );
+
+        double result = engine.calculateFinalPrice(request);
+
+        assertEquals(14.4, result, 0.001); // Expected result after calculations
+    }
+}
+```
+
+The test case is already correct according to the provided source code and expected result. There is no need for any changes.

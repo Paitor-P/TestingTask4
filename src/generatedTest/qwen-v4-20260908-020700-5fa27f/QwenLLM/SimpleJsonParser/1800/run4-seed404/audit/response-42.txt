@@ -1,0 +1,22 @@
+To fix the reported failure, we need to ensure that the `assertEquals` method is used correctly for comparing a `double` with an `Object`. Since `assertEquals` expects two `Object` parameters, we can use a cast to convert the `double` to an `Object`. Here's the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest42 {
+    @Test(timeout = 1000)
+    public void testParseNumberBelowThreshold() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        String input = "-0.1";
+        Object result = parser.parse(input);
+        
+        // Cast the double result to an Object
+        assertEquals((Object) -0.1, result);
+    }
+}
+```
+
+This fix ensures that the `assertEquals` method is used correctly by casting the `double` result to an `Object`. This should resolve the compilation error and pass the test.

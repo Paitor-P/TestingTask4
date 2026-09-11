@@ -1,0 +1,23 @@
+The issue is that the `assertEquals` method expected a `String` for the first argument, but received a `double`. The corrected code should use `assertEquals(double, double)` to compare the expected `double` value with the actual `double` value extracted from the parsed result.
+
+Here's the complete corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest21 {
+
+    @Test(timeout = 1000)
+    public void testParseSingleNumber() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        String input = "42";
+        Object result = parser.parse(input);
+        assertEquals(42.0, (double) result, 0.0001);
+    }
+}
+```
+
+In this corrected version, the `assertEquals(double, double)` method is used to compare the `double` value `42.0` with the `double` value extracted from the parsed result. The `(double) result` cast is necessary because `parseValue()` returns an `Object`, and we need to convert it to a `double` for comparison. The `0.0001` tolerance allows for minor floating-point precision differences.

@@ -1,0 +1,26 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest17 {
+
+    @Test(timeout=1000)
+    public void testVipLoyaltyPointsDiscount() {
+        PricingEngine engine = new PricingEngine();
+        PricingRequest request = new PricingRequest(
+                100.0,
+                20,
+                PricingEngine.CustomerType.VIP,
+                false,
+                "SAVE10",
+                true,
+                190
+        );
+
+        double finalPrice = engine.calculateFinalPrice(request);
+        assertEquals(161.18, finalPrice, 0.01);
+    }
+}
+```

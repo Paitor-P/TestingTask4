@@ -1,0 +1,34 @@
+Certainly! Below is the corrected Java 17 JUnit 4 regression test class for the provided `SimpleJsonParser` source code. The test class `QwenTest25` contains a single `@Test` method that verifies the parsing of a simple JSON string.
+
+```java
+package com.viktor.lab4;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class QwenTest25 {
+
+    @Test(timeout = 1000)
+    public void testParseSimpleJson() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        String input = "[1, 2, 3, \"hello\", true, false]";
+        Object result = parser.parse(input);
+
+        assertNotNull(result);
+        assertTrue(result instanceof List);
+        List<Object> list = (List<Object>) result;
+        assertEquals(7, list.size());
+        assertEquals(1, list.get(0));
+        assertEquals(2, list.get(1));
+        assertEquals(3, list.get(2));
+        assertEquals("hello", list.get(3));
+        assertTrue((Boolean) list.get(4));
+        assertFalse((Boolean) list.get(5));
+    }
+}
+```
+
+### Key Changes:
+1. **Class Name**: Changed from `QwenTest24` to `QwenTest25`.
+2. **Imports**: Ensured that the `List` class is imported from `java.util`.
+3. **Assertions**: Corrected the assertions to ensure that the parsed result is not null and is an instance of `List`.

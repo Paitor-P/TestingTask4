@@ -1,0 +1,31 @@
+To fix the compilation error and make the test static, we need to create an instance of the `PricingEngine` class within the test method. Here's the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.PricingEngine;
+
+public class QwenTest33 {
+
+    @Test(timeout=1000)
+    public void testCalculateFinalPrice() {
+        PricingEngine engine = new PricingEngine();
+        PricingRequest request = new PricingRequest(
+                100.0,
+                10,
+                PricingEngine.CustomerType.REGULAR,
+                true,
+                "SAVE10",
+                false,
+                500
+        );
+
+        double expected = 100.0 * 10 * (1.0 - 0.15) - 5.0 + 7.99;
+        assertEquals(expected, engine.calculateFinalPrice(request), 0.001);
+    }
+}
+```
+
+This change makes the `PricingEngine` instance static, allowing the static method `calculateFinalPrice` to be called from the test method. The rest of the test remains unchanged.

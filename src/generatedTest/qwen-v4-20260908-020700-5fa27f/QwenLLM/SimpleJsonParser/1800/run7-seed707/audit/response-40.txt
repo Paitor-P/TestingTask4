@@ -1,0 +1,35 @@
+To fix the compilation failure and ensure the test runs correctly, we need to import the necessary classes from the Java Collections Framework. Here's the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.util.Map;
+
+public class QwenTest40 {
+
+    @Test(timeout=1000)
+    public void testSimpleJsonParser() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        String json = "{\"name\":\"John\", \"age\":30}";
+        Object result = parser.parse(json);
+
+        if (result == null) {
+            throw new AssertionError("Parsed result is null");
+        }
+
+        // Correct the type assertion to use Map
+        if (!(result instanceof Map)) {
+            throw new AssertionError("Parsed result is not a Map");
+        }
+
+        Map<?, ?> resultMap = (Map<?, ?>) result;
+        assertEquals("John", resultMap.get("name"));
+        assertEquals(30, resultMap.get("age").intValue());
+    }
+}
+```
+
+In this corrected version, we import `java.util.Map` to use it for the type assertion. This should resolve the compilation errors and ensure that the test runs without issues.

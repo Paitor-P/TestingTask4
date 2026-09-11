@@ -1,0 +1,16 @@
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\9e1ac7bdb006992f\QwenTest27\QwenTest27.java:17: error: cannot find symbol
+        assertTrue(result instanceof List);
+                                     ^
+  symbol:   class List
+  location: class QwenTest27
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\9e1ac7bdb006992f\QwenTest27\QwenTest27.java:18: error: cannot find symbol
+        assertEquals(new ArrayList<>(List.of(1, 2, 3)), result);
+                         ^
+  symbol:   class ArrayList
+  location: class QwenTest27
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\9e1ac7bdb006992f\QwenTest27\QwenTest27.java:18: error: cannot find symbol
+        assertEquals(new ArrayList<>(List.of(1, 2, 3)), result);
+                                     ^
+  symbol:   variable List
+  location: class QwenTest27
+3 errors

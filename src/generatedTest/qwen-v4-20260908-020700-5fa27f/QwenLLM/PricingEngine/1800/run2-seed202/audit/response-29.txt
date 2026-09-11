@@ -1,0 +1,28 @@
+To fix the reported failure, we need to ensure that the calculation for the final price correctly handles the initial state of the request when the base price is 0 and the quantity is 1. Let's re-evaluate the logic and ensure that the discount and shipping are correctly applied in this scenario.
+
+Here's the corrected version of the JUnit test:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest28 {
+
+    @Test(timeout = 1000)
+    public void testEmptyRequest() {
+        PricingEngine engine = new PricingEngine();
+        PricingRequest request = new PricingRequest(0.0, 1, CustomerType.REGULAR, false, null, false, 0); // Changed quantity from 0 to 1
+        double expected = 0.0; // The expected final price should be 0 because base price is 0
+        double actual = engine.calculateFinalPrice(request);
+        assertEquals(expected, actual, 0.001);
+    }
+}
+```
+
+### Explanation of Changes:
+- **Quantity Check**: Changed the quantity from 0 to 1 in the `PricingRequest` instance to satisfy the precondition `request.quantity() > 0`.
+- **Expected Value**: Adjusted the expected value to 0.0 because the base price is 0, and no discounts or shipping are applied in this case.
+
+This should resolve the failure and ensure that the test passes correctly.

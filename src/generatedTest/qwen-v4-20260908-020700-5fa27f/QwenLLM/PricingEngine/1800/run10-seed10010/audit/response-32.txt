@@ -1,0 +1,29 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.PricingEngine;
+
+public class QwenTest32 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithVipCustomerAndCouponCode() {
+        PricingRequest request = new PricingRequest(
+                49.99,
+                20,
+                PricingEngine.CustomerType.VIP,
+                false,
+                "SAVE10",
+                true,
+                100
+        );
+
+        double expected = 89.98; // Calculation based on the source code
+
+        double actual = PricingEngine.calculateFinalPrice(request);
+
+        assertEquals("Test failed: Incorrect final price for VIP customer with SAVE10 coupon", expected, actual, 0.001);
+    }
+}
+```

@@ -1,0 +1,21 @@
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\50c8c137ca3913eb\QwenTest37\QwenTest37.java:16: error: cannot find symbol
+        assertTrue(result instanceof Map);
+                                     ^
+  symbol:   class Map
+  location: class QwenTest37
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\50c8c137ca3913eb\QwenTest37\QwenTest37.java:17: error: cannot find symbol
+        assertEquals("John", ((Map<?, ?>) result).get("name"));
+                               ^
+  symbol:   class Map
+  location: class QwenTest37
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\50c8c137ca3913eb\QwenTest37\QwenTest37.java:18: error: cannot find symbol
+        assertEquals(30, ((Map<?, ?>) result).get("age"));
+                           ^
+  symbol:   class Map
+  location: class QwenTest37
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\50c8c137ca3913eb\QwenTest37\QwenTest37.java:19: error: cannot find symbol
+        assertEquals("New York", ((Map<?, ?>) result).get("city"));
+                                   ^
+  symbol:   class Map
+  location: class QwenTest37
+4 errors

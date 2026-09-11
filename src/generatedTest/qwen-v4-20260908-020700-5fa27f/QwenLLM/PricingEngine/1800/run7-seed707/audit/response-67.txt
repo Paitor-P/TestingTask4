@@ -1,0 +1,31 @@
+```java
+package com.viktor.lab4.autogen;
+
+import com.viktor.lab4.PricingEngine;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest67 {
+
+    private PricingEngine pricingEngine = new PricingEngine(); // Construct the PricingEngine instance
+
+    @Test(timeout = 1000)
+    public void testEdgeCases() {
+        // Test case 1: Empty request
+        PricingRequest emptyRequest = new PricingRequest(0.0, 0, CustomerType.REGULAR, false, "", false, 0);
+        assertEquals(0.0, pricingEngine.calculateFinalPrice(emptyRequest), 0.001);
+
+        // Test case 2: Zero quantity
+        PricingRequest zeroQuantityRequest = new PricingRequest(10.0, 0, CustomerType.REGULAR, false, "", false, 0);
+        assertEquals(0.0, pricingEngine.calculateFinalPrice(zeroQuantityRequest), 0.001);
+
+        // Test case 3: Zero base price
+        PricingRequest zeroBasePriceRequest = new PricingRequest(0.0, 1, CustomerType.REGULAR, false, "", false, 0);
+        assertEquals(0.0, pricingEngine.calculateFinalPrice(zeroBasePriceRequest), 0.001);
+
+        // Test case 4: Zero loyalty points
+        PricingRequest zeroLoyaltyPointsRequest = new PricingRequest(10.0, 1, CustomerType.REGULAR, false, "", false, 0);
+        assertEquals(7.99, pricingEngine.calculateFinalPrice(zeroLoyaltyPointsRequest), 0.001);
+    }
+}
+```

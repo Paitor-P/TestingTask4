@@ -1,0 +1,13 @@
+JUnit version 4.13.2
+.E
+Time: 0,008
+There was 1 failure:
+1) testPutAndGet(com.viktor.lab4.autogen.QwenTest21)
+org.junit.ComparisonFailure: expected:<[three]> but was:<[four]>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at com.viktor.lab4.autogen.QwenTest21.testPutAndGet(QwenTest21.java:31)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+

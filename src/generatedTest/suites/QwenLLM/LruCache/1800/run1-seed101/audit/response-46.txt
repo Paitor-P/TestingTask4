@@ -1,0 +1,50 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest46 {
+
+    @Test(timeout = 1000)
+    public void testLruCacheBasicOperations() {
+        LruCache<String, Integer> cache = new LruCache<>(2);
+
+        // Put first two entries
+        cache.put("a", 1);
+        cache.put("b", 2);
+
+        // Check size and containsKey
+        assertEquals(2, cache.size());
+        assertTrue(cache.containsKey("a"));
+        assertTrue(cache.containsKey("b"));
+
+        // Get existing key
+        assertEquals(1, cache.get("a").intValue());
+
+        // Put a new key, evicting the least recently used
+        cache.put("c", 3);
+
+        // Check size, containsKey, and get
+        assertEquals(2, cache.size());
+        assertFalse(cache.containsKey("a"));
+        assertTrue(cache.containsKey("c"));
+        assertEquals(3, cache.get("c").intValue());
+
+        // Put another key, evicting the least recently used
+        cache.put("d", 4);
+
+        // Check size, containsKey, and get
+        assertEquals(2, cache.size());
+        assertFalse(cache.containsKey("b"));
+        assertTrue(cache.containsKey("d"));
+        assertEquals(4, cache.get("d").intValue());
+
+        // Attempt to get a non-existent key
+        assertNull(cache.get("a"));
+
+        // Check size
+        assertEquals(2, cache.size());
+    }
+}
+```

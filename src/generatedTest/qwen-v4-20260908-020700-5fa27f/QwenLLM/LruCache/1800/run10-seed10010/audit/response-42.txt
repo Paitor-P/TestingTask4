@@ -1,0 +1,19 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.LruCache;
+
+public class QwenTest42 {
+
+    @Test(timeout=1000)
+    public void testCapacityExceeded() {
+        LruCache<String, String> cache = new LruCache<>(2);
+        cache.put("key1", "value1");
+        cache.put("key2", "value2");
+        assertFalse(cache.containsKey("key1"));
+        assertTrue(cache.containsKey("key2"));
+    }
+}
+```

@@ -17,6 +17,11 @@ import org.junit.runner.Result;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Comparator;
+import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,6 +32,14 @@ public final class TraceCollector {
     public static void main(String[] args) throws Exception {
         Map<String, String> params = parseArgs(args);
         String targetClass = required(params, "--targetClass");
+        String scope = params.getOrDefault("--scope", "top-level");
+        if (!scope.equals("top-level") && !scope.equals("class-family")) {
+            throw new IllegalArgumentException("Unknown scope: " + scope);
+        }
+        if (params.containsKey("--describe")) {
+            System.out.println(buildCoverage(targetClass, new ExecutionDataStore(), scope, true));
+            return;
+        }
         String testClass = required(params, "--testClass");
         String testMethod = required(params, "--testMethod");
 
@@ -40,11 +53,12 @@ public final class TraceCollector {
         SessionInfoStore session = new SessionInfoStore();
         readExecutionData(execData, store, session);
 
-        String vector = buildCoverageVector(targetClass, store);
+        String vector = buildCoverage(targetClass, store, scope, false);
         System.out.println(vector);
 
         if (!result.wasSuccessful()) {
             System.err.println("Test failed: " + testClass + "#" + testMethod);
+            System.exit(1);
         }
     }
 
@@ -66,12 +80,29 @@ public final class TraceCollector {
         }
     }
 
-    private static String buildCoverageVector(String targetClass, ExecutionDataStore store) throws IOException {
+    private static String buildCoverage(String targetClass, ExecutionDataStore store, String scope, boolean describe) throws Exception {
         CoverageBuilder coverageBuilder = new CoverageBuilder();
         Analyzer analyzer = new Analyzer(store, coverageBuilder);
         String resource = targetClass.replace('.', '/') + ".class";
 
-        try (InputStream classStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(resource)) {
+        if (scope.equals("class-family")) {
+            // Enumerate compiled files, not loaded classes: unexecuted nested classes
+            // must still contribute zero coordinates to every tool's vector.
+            URL url = Thread.currentThread().getContextClassLoader().getResource(resource);
+            if (url == null || !url.getProtocol().equals("file")) {
+                throw new IllegalStateException("class-family requires a compiled classes directory: " + targetClass);
+            }
+            Path outer = Path.of(url.toURI());
+            String stem = outer.getFileName().toString().replaceFirst("\\.class$", "");
+            try (var files = Files.list(outer.getParent())) {
+                for (Path file : files.filter(p -> {
+                    String name = p.getFileName().toString();
+                    return name.equals(stem + ".class") || (name.startsWith(stem + "$") && name.endsWith(".class"));
+                }).sorted().toList()) {
+                    analyzer.analyzeAll(file.toFile());
+                }
+            }
+        } else try (InputStream classStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(resource)) {
             if (classStream == null) {
                 throw new IllegalStateException("Target class not found on classpath: " + targetClass);
             }
@@ -79,13 +110,15 @@ public final class TraceCollector {
         }
 
         String internalName = targetClass.replace('.', '/');
-        IClassCoverage classCoverage = coverageBuilder.getClasses().stream()
-            .filter(c -> c.getName().equals(internalName))
-            .findFirst()
-            .orElseThrow(() -> new IllegalStateException("Coverage for class not found: " + targetClass));
+        List<IClassCoverage> classes = coverageBuilder.getClasses().stream()
+            .filter(c -> c.getName().equals(internalName)
+                || (scope.equals("class-family") && c.getName().startsWith(internalName + "$")))
+            .sorted(Comparator.comparing(IClassCoverage::getName)).toList();
+        if (classes.isEmpty()) throw new IllegalStateException("Coverage for class not found: " + targetClass);
 
         StringBuilder vector = new StringBuilder();
-        for (int line = classCoverage.getFirstLine(); line <= classCoverage.getLastLine(); line++) {
+        for (IClassCoverage classCoverage : classes) {
+          for (int line = classCoverage.getFirstLine(); line <= classCoverage.getLastLine(); line++) {
             ILine lineInfo = classCoverage.getLine(line);
             if (lineInfo.getStatus() == ICounter.EMPTY) {
                 continue;
@@ -95,7 +128,9 @@ public final class TraceCollector {
             if (vector.length() > 0) {
                 vector.append(',');
             }
-            vector.append(covered ? '1' : '0');
+            if (describe) vector.append(classCoverage.getName()).append('#').append(line);
+            else vector.append(covered ? '1' : '0');
+          }
         }
         return vector.toString();
     }

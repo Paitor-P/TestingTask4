@@ -1,0 +1,43 @@
+```java
+package com.viktor.lab4.autogen;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import org.junit.Test;
+
+import java.util.List;
+import java.util.Map;
+
+public class QwenTest16 {
+
+    @Test(timeout = 1000)
+    public void testParseComplexJson() {
+        String input = "{\"key1\":123,\"key2\":456.78,\"key3\":{\"key4\":\"value4\"},\"key5\":[1,2,3]}";
+        SimpleJsonParser parser = new SimpleJsonParser();
+        Object result = parser.parse(input);
+
+        assertTrue(result instanceof List);
+        List<Object> list = (List<Object>) result;
+        assertEquals(5, list.size());
+
+        Object key1 = list.get(0);
+        assertEquals(123, key1);
+
+        Object key2 = list.get(1);
+        assertEquals(456.78, key2, 0.001); // Corrected to use double comparison
+
+        Object key3 = list.get(2);
+        assertTrue(key3 instanceof Map);
+        Map<?, ?> map3 = (Map<?, ?>) key3;
+        assertEquals("value4", map3.get("key4"));
+
+        Object key5 = list.get(3);
+        assertTrue(key5 instanceof List);
+        List<Object> list5 = (List<Object>) key5;
+        assertEquals(3, list5.size());
+        assertEquals(1, list5.get(0));
+        assertEquals(2, list5.get(1));
+        assertEquals(3, list5.get(2));
+    }
+}
+```

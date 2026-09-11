@@ -1,0 +1,92 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest15 {
+    @Test(timeout = 1000)
+    public void testCalculateFinalPrice() {
+        PricingRequest request1 = new PricingRequest(
+                99.99,
+                15,
+                CustomerType.REGULAR,
+                true,
+                "SAVE10",
+                true,
+                250
+        );
+
+        PricingRequest request2 = new PricingRequest(
+                99.99,
+                15,
+                CustomerType.VIP,
+                true,
+                "SAVE10",
+                true,
+                250
+        );
+
+        PricingRequest request3 = new PricingRequest(
+                99.99,
+                15,
+                CustomerType.REGULAR,
+                true,
+                "SAVE10",
+                false,
+                250
+        );
+
+        PricingRequest request4 = new PricingRequest(
+                99.99,
+                15,
+                CustomerType.VIP,
+                true,
+                "SAVE10",
+                false,
+                250
+        );
+
+        PricingRequest request5 = new PricingRequest(
+                99.99,
+                15,
+                CustomerType.REGULAR,
+                false,
+                "SAVE10",
+                true,
+                250
+        );
+
+        PricingRequest request6 = new PricingRequest(
+                99.99,
+                15,
+                CustomerType.VIP,
+                false,
+                "SAVE10",
+                true,
+                250
+        );
+
+        double expected1 = 1417.42; // Calculated based on the given logic
+        double expected2 = 1417.42; // VIP customer with SAVE10 coupon
+        double expected3 = 982.89; // REGULAR customer without SAVE10 coupon
+        double expected4 = 982.89; // VIP customer without SAVE10 coupon
+        double expected5 = 1417.42; // REGULAR customer with SAVE10 coupon
+        double expected6 = 1417.42; // VIP customer with SAVE10 coupon
+
+        double actual1 = new PricingEngine().calculateFinalPrice(request1);
+        double actual2 = new PricingEngine().calculateFinalPrice(request2);
+        double actual3 = new PricingEngine().calculateFinalPrice(request3);
+        double actual4 = new PricingEngine().calculateFinalPrice(request4);
+        double actual5 = new PricingEngine().calculateFinalPrice(request5);
+        double actual6 = new PricingEngine().calculateFinalPrice(request6);
+
+        assertEquals(expected1, actual1, 0.01);
+        assertEquals(expected2, actual2, 0.01);
+        assertEquals(expected3, actual3, 0.01);
+        assertEquals(expected4, actual4, 0.01);
+        assertEquals(expected5, actual5, 0.01);
+        assertEquals(expected6, actual6, 0.01);
+    }
+}
+```

@@ -1,0 +1,29 @@
+To fix the compilation error and ensure the test passes, we need to ensure that the `assertEquals` method is used consistently. The error occurs because `assertEquals` has two overloaded versions, one for comparing `long` values and another for comparing `Object` values. We need to make sure the method used is appropriate for the types being compared.
+
+Here's the corrected code:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.util.LinkedHashMap;
+
+public class QwenTest14 {
+
+    @Test(timeout = 1000)
+    public void testCacheEviction() {
+        LruCache<Integer, Integer> cache = new LruCache<>(2);
+        cache.put(1, 10);
+        cache.put(2, 20);
+        cache.put(3, 30); // This should evict the least recently used key, 1
+        assertNull(cache.get(1));
+        assertEquals(20, (int) cache.get(2)); // Cast to int to match the expected type
+        assertEquals(30, (int) cache.get(3)); // Cast to int to match the expected type
+    }
+}
+```
+
+### Explanation:
+- **Cast to `int`**: Since `cache.get(2)` and `cache.get(3)` return `Integer` objects, we need to cast them to `int` to match the expected type in the assertions. This ensures that the `assertEquals` method is used correctly for comparing integers.

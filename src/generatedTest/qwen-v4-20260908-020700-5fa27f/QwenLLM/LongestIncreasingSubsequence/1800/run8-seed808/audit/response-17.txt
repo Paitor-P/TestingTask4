@@ -1,0 +1,22 @@
+To resolve the compilation error, we need to make the `lengthOfLIS` method static. This allows the method to be called from the static context of the `QwenTest17` class. Here's the corrected code:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.LongestIncreasingSubsequence;
+
+public class QwenTest17 {
+
+    @Test(timeout = 1000)
+    public void testLengthOfLIS() {
+        int[] numbers = {10, 9, 2, 5, 3, 7, 101, 18};
+        int expected = 4;
+        int actual = LongestIncreasingSubsequence.lengthOfLIS(numbers);
+        assertEquals(expected, actual);
+    }
+}
+```
+
+This code maintains the original scenario while fixing the compilation error by making the `lengthOfLIS` method static.

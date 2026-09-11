@@ -17,6 +17,8 @@ STATISTICS IN AGGREGATED REPORT:
 
 import argparse
 import csv
+import json
+import hashlib
 import os
 import re
 import shutil
@@ -66,7 +68,7 @@ def parse_generation_summary(summary_path: str) -> Dict[str, Optional[float]]:
     return gen_map
 
 
-def get_jacoco_metrics(xml_path: str, target_class_fqn: str) -> Dict[str, Optional[float]]:
+def get_jacoco_metrics(xml_path: str, target_class_fqn: str, scope: str = 'top-level') -> Dict[str, Optional[float]]:
     """Extract JaCoCo code coverage metrics from XML report."""
     default_result = {'linePct': None, 'branchPct': None, 'instPct': None}
 
@@ -78,6 +80,22 @@ def get_jacoco_metrics(xml_path: str, target_class_fqn: str) -> Dict[str, Option
         root = tree.getroot()
 
         target_name = target_class_fqn.replace('.', '/')
+
+        if scope == 'class-family':
+            # A line coordinate is (binary class name, line number), as in spectra.
+            # Sum counters, never average the percentages of differently sized classes.
+            totals = {kind: [0, 0] for kind in ('LINE', 'BRANCH', 'INSTRUCTION')}
+            for element in root.findall('.//class'):
+                name = element.get('name', '')
+                if name != target_name and not name.startswith(target_name + '$'):
+                    continue
+                for counter in element.findall('counter'):
+                    if counter.get('type') in totals:
+                        value = totals[counter.get('type')]
+                        value[0] += int(counter.get('covered', 0))
+                        value[1] += int(counter.get('missed', 0))
+            return {key: round(100 * totals[kind][0] / sum(totals[kind]), 2) if sum(totals[kind]) else None
+                    for key, kind in (('linePct', 'LINE'), ('branchPct', 'BRANCH'), ('instPct', 'INSTRUCTION'))}
 
         for pkg in root.findall('.//package'):
             for class_elem in pkg.findall('class'):
@@ -238,6 +256,7 @@ def execute_gradle_analysis(params: Dict) -> Dict:
         "pitest",
         f"-PgeneratedTestsDir={work_dir}",
         f"-PpitTargetClass={target_class}",
+        f"-PmeasurementScope={params.get('scope', 'top-level')}",
         f"-PpitTargetTests={pit_tests_pattern}",
         f"-PbuildDir={build_dir}",
     ]
@@ -271,7 +290,7 @@ def execute_gradle_analysis(params: Dict) -> Dict:
     pit_xml = os.path.join(build_dir, "reports/pitest/generated/mutations.xml")
     test_results_dir = os.path.join(build_dir, "test-results/generatedTest")
 
-    coverage = get_jacoco_metrics(jacoco_xml, target_class)
+    coverage = get_jacoco_metrics(jacoco_xml, target_class, params.get('scope', 'top-level'))
     pit = get_pit_metrics(pit_xml)
     tests = get_test_counts(test_results_dir)
 
@@ -307,6 +326,8 @@ def build_output_paths(reports_dir: str, args: argparse.Namespace) -> tuple[str,
     ]
     if args.skip_execution:
         parts.append("skip-exec")
+    if getattr(args, 'seeds', None):
+        parts.append(filter_token('seeds', args.seeds))
     output_dir = Path(reports_dir) / "quality"
     output_dir.mkdir(parents=True, exist_ok=True)
     return (
@@ -371,19 +392,26 @@ def main():
         action='store_true',
         help='Stop on first error'
     )
+    parser.add_argument('--generated-tests-root', default='src/generatedTest/suites', help='Root of generated suites')
+    parser.add_argument('--report-root', default='reports/data', help='Separate output directory for a new experiment')
+    parser.add_argument('--scope', choices=['top-level', 'class-family'], default='top-level')
+    parser.add_argument('--seeds', type=int, nargs='+', default=None)
     args = parser.parse_args()
+    if args.scope == 'class-family' and args.report_root == 'reports/data':
+        parser.error('Use a separate --report-root for class-family measurements')
+    filename_filters = argparse.Namespace(**vars(args))
 
     repo = str(Path(args.project_root).resolve())
     os.chdir(repo)
     experiment = load_experiment_config(Path(repo), args.experiment_config)
     args.tools = args.tools or experiment.tools
     args.cases = args.cases or experiment.cases
-    args.budgets = args.budgets or experiment.budgets
 
-    generated_root = os.path.join(repo, "src/generatedTest/suites")
-    reports_dir = os.path.join(repo, "reports", "data")
+    generated_root = os.path.join(repo, args.generated_tests_root)
+    reports_dir = os.path.join(repo, args.report_root)
 
-    summary_csv, agg_csv = build_output_paths(reports_dir, args)
+    filename_filters.tools = args.tools
+    summary_csv, agg_csv = build_output_paths(reports_dir, filename_filters)
 
     generation_map = parse_generation_summary(os.path.join(reports_dir, "generation_runs.csv"))
     records = []
@@ -432,7 +460,7 @@ def main():
                 except ValueError:
                     continue
 
-                if args.budgets and budget not in args.budgets:
+                if budget not in (args.budgets or experiment.budgets_for(tool)):
                     continue
 
                 for run_dir in sorted(budget_dir.iterdir(), key=lambda path: path.name):
@@ -445,15 +473,29 @@ def main():
 
                     run = int(match.group(1))
                     seed = int(match.group(2))
+                    if args.seeds and seed not in args.seeds:
+                        continue
 
                     if args.runs and run not in args.runs:
                         continue
 
+                    total_found += 1
                     java_files = list(run_dir.glob("**/*.java"))
                     if not java_files:
+                        llm_metadata = run_dir / 'llm-run.json'
+                        if llm_metadata.exists():
+                            metadata = json.loads(llm_metadata.read_text(encoding='utf-8'))
+                            records.append({
+                                'tool': tool, 'case': class_simple, 'targetClass': target_class,
+                                'budgetSec': budget, 'run': run, 'seed': seed,
+                                'generatedTestFiles': 0, 'testsExecuted': 0,
+                                'testFailures': 0, 'testSkipped': 0,
+                                'generationElapsedSec': metadata['elapsedSec'],
+                                'analysisElapsedSec': 0, 'status': metadata['status'],
+                                'error': metadata.get('infrastructureError', 'No candidate passed validation within budget'),
+                                'sourceDir': str(run_dir), 'preparedDir': '',
+                            })
                         continue
-
-                    total_found += 1
 
                     pit_tests_pattern = (
                         "com.viktor.lab4.*ESTest*" if tool == "EvoSuite"
@@ -465,6 +507,11 @@ def main():
                         str(budget), f"run{run}-seed{seed}"
                     )
                     build_dir = _build_analysis_dir(repo, tool, class_simple, budget, run, seed)
+                    if args.generated_tests_root != 'src/generatedTest/suites':
+                        namespace = hashlib.sha256(str(Path(generated_root).resolve()).encode()).hexdigest()[:12]
+                        build_dir = os.path.join(repo, 'build', 'analysis', namespace, tool, class_simple, str(budget), f'run{run}-seed{seed}')
+                    if args.scope == 'class-family':
+                        build_dir = os.path.join(build_dir, 'class-family-v1')
 
                     # Prepare working directory before parallel execution
                     prepare_working_test_dir(tool, str(run_dir), work_dir)
@@ -480,6 +527,7 @@ def main():
                             'target_class': target_class,
                             'pit_tests_pattern': pit_tests_pattern
                         }
+                        params['scope'] = args.scope
                         tasks.append(params)
                         task_metadata[task_id] = {
                             'tool': tool,
@@ -497,6 +545,8 @@ def main():
                         # If skipping execution, add record immediately
                         gen_key = f"{tool}|{class_simple}|{budget}|{run}"
                         gen_elapsed = generation_map.get(gen_key)
+                        if (run_dir / 'llm-run.json').exists():
+                            gen_elapsed = json.loads((run_dir / 'llm-run.json').read_text(encoding='utf-8'))['elapsedSec']
 
                         jacoco_xml = os.path.join(build_dir, "reports/jacoco/generated/jacocoGeneratedTestReport.xml")
                         pit_xml = os.path.join(build_dir, "reports/pitest/generated/mutations.xml")
@@ -510,7 +560,7 @@ def main():
                             if missing_outputs else ''
                         )
 
-                        coverage = get_jacoco_metrics(jacoco_xml, target_class)
+                        coverage = get_jacoco_metrics(jacoco_xml, target_class, args.scope)
                         pit = get_pit_metrics(pit_xml)
                         tests = get_test_counts(test_results_dir)
 
@@ -541,6 +591,7 @@ def main():
                             'sourceDir': str(run_dir),
                             'preparedDir': work_dir
                         }
+                        record['buildDir'] = build_dir
                         records.append(record)
 
     # Show results of filtering
@@ -578,6 +629,8 @@ def main():
 
             gen_key = f"{metadata['tool']}|{metadata['class_simple']}|{metadata['budget']}|{metadata['run']}"
             gen_elapsed = generation_map.get(gen_key)
+            if (metadata['run_dir'] / 'llm-run.json').exists():
+                gen_elapsed = json.loads((metadata['run_dir'] / 'llm-run.json').read_text(encoding='utf-8'))['elapsedSec']
 
             record = {
                 'tool': metadata['tool'],
@@ -606,19 +659,32 @@ def main():
                 'sourceDir': str(metadata['run_dir']),
                 'preparedDir': metadata['work_dir']
             }
+            record['buildDir'] = metadata['build_dir']
             records.append(record)
 
     records.sort(key=lambda r: (r['tool'], r['case'], r['budgetSec'], r['run']))
+    for record in records:
+        record['measurementScope'] = args.scope
+        metadata_path = Path(record['sourceDir']) / 'llm-run.json'
+        record['generationBudgetKind'] = 'search_time'
+        record['generationStopReason'] = ''
+        record['generationTargetTests'] = None
+        if metadata_path.exists():
+            generation = json.loads(metadata_path.read_text(encoding='utf-8'))
+            record['generationBudgetKind'] = generation.get('budgetKind', 'wall_time')
+            record['generationStopReason'] = generation.get('stopReason', 'time_limit')
+            record['generationTargetTests'] = generation['config'].get('target_accepted_tests')
 
     if records:
         fieldnames = [
-            'tool', 'case', 'targetClass', 'budgetSec', 'run', 'seed',
+            'tool', 'case', 'targetClass', 'budgetSec', 'run', 'seed', 'measurementScope',
             'generatedTestFiles', 'testsExecuted', 'testFailures', 'testSkipped',
             'lineCoveragePct', 'branchCoveragePct', 'instructionCoveragePct',
             'mutationScorePct', 'mutationsTotal', 'mutationsKilled',
             'mutationsSurvived', 'mutationsTimedOut', 'mutationsNoCoverage',
             'generationElapsedSec', 'analysisElapsedSec', 'status', 'error',
-            'sourceDir', 'preparedDir'
+            'generationBudgetKind', 'generationStopReason', 'generationTargetTests',
+            'sourceDir', 'preparedDir', 'buildDir'
         ]
 
         with open(summary_csv, 'w', newline='', encoding='utf-8') as f:
@@ -690,20 +756,20 @@ def main():
 
     agg_records.sort(key=lambda r: (r['tool'], r['case'], r['budgetSec']))
 
-    if agg_records:
-        agg_fieldnames = [
+    # Always replace the snapshot, including when every run is EMPTY/FAILED.
+    agg_fieldnames = [
             'tool', 'case', 'budgetSec', 'runs',
             'testsSamples', 'meanTestsExecuted', 'testsVariance', 'testsStddev', 'testsCI_lower', 'testsCI_upper',
             'lineSamples', 'meanLineCoveragePct', 'lineVariance', 'lineStddev', 'lineCI_lower', 'lineCI_upper',
             'branchSamples', 'meanBranchCoveragePct', 'branchVariance', 'branchStddev', 'branchCI_lower', 'branchCI_upper',
             'instructionSamples', 'meanInstructionCoveragePct', 'instructionVariance', 'instructionStddev', 'instructionCI_lower', 'instructionCI_upper',
             'mutationSamples', 'meanMutationScorePct', 'mutationVariance', 'mutationStddev', 'mutationCI_lower', 'mutationCI_upper'
-        ]
+    ]
 
-        with open(agg_csv, 'w', newline='', encoding='utf-8') as f:
-            writer = csv.DictWriter(f, fieldnames=agg_fieldnames)
-            writer.writeheader()
-            writer.writerows(agg_records)
+    with open(agg_csv, 'w', newline='', encoding='utf-8') as f:
+        writer = csv.DictWriter(f, fieldnames=agg_fieldnames)
+        writer.writeheader()
+        writer.writerows(agg_records)
 
     print()
     print("Done.")

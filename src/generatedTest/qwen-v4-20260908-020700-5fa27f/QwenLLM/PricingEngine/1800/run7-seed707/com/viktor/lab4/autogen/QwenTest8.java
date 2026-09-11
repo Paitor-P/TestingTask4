@@ -1,0 +1,31 @@
+package com.viktor.lab4.autogen;
+import com.viktor.lab4.PricingEngine.*;
+import org.junit.*;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.PricingEngine;
+
+public class QwenTest8 {
+
+    @Test(timeout=1000)
+    public void testInvalidCustomerType() {
+        PricingRequest request = new PricingRequest(
+                50.0,
+                5,
+                null, // null customerType
+                false,
+                "SAVE10",
+                true,
+                100
+        );
+
+        try {
+            PricingEngine pricingEngine = new PricingEngine();
+            pricingEngine.calculateFinalPrice(request);
+            fail("Expected IllegalArgumentException for null customerType");
+        } catch (IllegalArgumentException e) {
+            assertEquals("customerType must not be null", e.getMessage());
+        }
+    }
+}

@@ -1,0 +1,13 @@
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\b93b23d4f1eabd44\QwenTest25\QwenTest25.java:14: error: store has private access in LruCache
+        assertTrue(cache.store.isEmpty());
+                        ^
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\b93b23d4f1eabd44\QwenTest25\QwenTest25.java:15: error: store has private access in LruCache
+        assertEquals(0, cache.store.size());
+                             ^
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\b93b23d4f1eabd44\QwenTest25\QwenTest25.java:16: error: store has private access in LruCache
+        assertNull(cache.store.get("key"));
+                        ^
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\b93b23d4f1eabd44\QwenTest25\QwenTest25.java:17: error: store has private access in LruCache
+        assertFalse(cache.store.containsKey("key"));
+                         ^
+4 errors

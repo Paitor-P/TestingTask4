@@ -1,0 +1,22 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.util.LinkedHashMap;
+
+public class QwenTest14 {
+
+    @Test(timeout = 1000)
+    public void testCacheEviction() {
+        LruCache<Integer, Integer> cache = new LruCache<>(2);
+        cache.put(1, 10);
+        cache.put(2, 20);
+        cache.put(3, 30); // This should evict the least recently used key, 1
+        assertNull(cache.get(1));
+        assertEquals(20, cache.get(2)); // No cast needed as cache.get(2) returns int
+        assertEquals(30, cache.get(3)); // No cast needed as cache.get(3) returns int
+    }
+}
+```

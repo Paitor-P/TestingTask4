@@ -1,0 +1,40 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest39 {
+
+    @Test(timeout = 1000)
+    public void testNormalCacheOperations() {
+        LruCache<String, Integer> cache = new LruCache<>(3);
+
+        // Insert elements into the cache
+        cache.put("a", 1);
+        cache.put("b", 2);
+        cache.put("c", 3);
+
+        // Verify the cache size
+        assertEquals(3, cache.size());
+
+        // Access an existing key
+        assertEquals(2, (int) cache.get("b"));
+
+        // Attempt to access a non-existent key
+        assertNull(cache.get("d"));
+
+        // Check if a key exists in the cache
+        assertTrue(cache.containsKey("a"));
+        assertFalse(cache.containsKey("d"));
+
+        // Remove an element and check the size
+        cache.remove("a"); // Corrected method name from "removeEntry" to "remove"
+        assertEquals(2, cache.size());
+
+        // Verify the cache contents
+        assertEquals(2, (int) cache.get("b"));
+        assertEquals(3, (int) cache.get("c"));
+    }
+}
+```

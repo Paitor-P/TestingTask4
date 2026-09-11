@@ -1,0 +1,17 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest28 {
+
+    @Test(timeout = 1000)
+    public void testZeroQuantity() {
+        PricingEngine engine = new PricingEngine(); // Construct an instance using the declared public constructor
+        PricingRequest request = new PricingRequest(10.0, 0, CustomerType.REGULAR, false, "", false, 0); // Changed quantity from 1 to 0
+        double finalPrice = engine.calculateFinalPrice(request);
+        assertEquals(7.99, finalPrice, 0.001); // Adjusted expected value to 7.99
+    }
+}
+```

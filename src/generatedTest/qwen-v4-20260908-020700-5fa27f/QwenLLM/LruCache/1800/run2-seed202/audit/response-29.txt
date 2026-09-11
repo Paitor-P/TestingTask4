@@ -1,0 +1,35 @@
+To fix the compilation error and correct the type mismatch in the assertions, we need to ensure that the `assertEquals` method is correctly used. The error is due to the mismatch between the expected and observed types. Let's correct the code:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.LruCache;
+
+public class QwenTest29 {
+
+    @Test(timeout = 1000)
+    public void testPutAndGet() {
+        LruCache<String, Integer> cache = new LruCache<>(3);
+        cache.put("a", 1);
+        cache.put("b", 2);
+        cache.put("c", 3);
+
+        assertEquals(3, cache.size());
+        assertEquals(1, cache.get("a"));
+        assertEquals(2, cache.get("b"));
+        assertEquals(3, cache.get("c"));
+
+        cache.put("d", 4); // "a" is least recently used, should be removed
+
+        assertEquals(3, cache.size());
+        assertNull(cache.get("a"));
+        assertEquals(2, cache.get("b"));
+        assertEquals(3, cache.get("c"));
+        assertEquals(4, cache.get("d"));
+    }
+}
+```
+
+In this corrected version, the `assertEquals` method is used with the correct types. The `size` method returns an `int`, and the `get` method returns an `Integer`. The assertions are correctly typed to match these return types. This should resolve the compilation error and ensure the test runs without issues.

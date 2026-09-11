@@ -1,0 +1,13 @@
+JUnit version 4.13.2
+.E
+Time: 0,013
+There was 1 failure:
+1) testParseWithInvalidInput(com.viktor.lab4.autogen.QwenTest7)
+org.junit.ComparisonFailure: expected:<[input must not be null]> but was:<[Unsupported token 'i' at position 0]>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at com.viktor.lab4.autogen.QwenTest7.testParseWithInvalidInput(QwenTest7.java:19)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+

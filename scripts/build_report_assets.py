@@ -10,7 +10,7 @@ from typing import Iterable
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from analysis_support import DATA_DIR, GENERATED_REPORT_DIR, PROJECT_ROOT, resolve_project_path
+from analysis_support import DATA_DIR, GENERATED_REPORT_DIR, PROJECT_ROOT, resolve_project_path, load_experiment_config
 
 
 def output_dir_path(base_output: Path | None) -> Path:
@@ -114,7 +114,13 @@ def load_summary_aggregated() -> pd.DataFrame:
     ran_path = quality_dir / "quality_summary__tools-Randoop__cases-all__budgets-all__runs-all.csv"
     evo = read_csv(evo_path, "quality summary for EvoSuite")
     ran = read_csv(ran_path, "quality summary for Randoop")
-    return pd.concat([evo, ran], ignore_index=True)
+    frames = [evo, ran]
+    llm_path = quality_dir / "quality_summary__tools-QwenLLM__cases-all__budgets-all__runs-all.csv"
+    if llm_path.exists():
+        llm = pd.read_csv(llm_path)
+        if not llm.empty:
+            frames.append(llm)
+    return pd.concat(frames, ignore_index=True)
 
 
 def load_summary_raw() -> pd.DataFrame:
@@ -123,7 +129,13 @@ def load_summary_raw() -> pd.DataFrame:
     ran_path = quality_dir / "quality_runs__tools-Randoop__cases-all__budgets-all__runs-all.csv"
     evo = read_csv(evo_path, "quality runs for EvoSuite")
     ran = read_csv(ran_path, "quality runs for Randoop")
-    return pd.concat([evo, ran], ignore_index=True)
+    frames = [evo, ran]
+    llm_path = quality_dir / "quality_runs__tools-QwenLLM__cases-all__budgets-all__runs-all.csv"
+    if llm_path.exists():
+        llm = pd.read_csv(llm_path)
+        # Failures are reported separately; they are not measured mutation scores.
+        frames.append(llm[llm['status'] == 'OK'])
+    return pd.concat(frames, ignore_index=True)
 
 
 def load_similarity_aggregated() -> pd.DataFrame:
@@ -142,6 +154,12 @@ def ordered_unique(values: Iterable) -> list:
         if value not in seen:
             seen.append(value)
     return seen
+
+
+def select_reference_configurations(frame: pd.DataFrame, references: dict[str, int]) -> pd.DataFrame:
+    if not references:
+        return frame.copy()
+    return frame[frame['budgetSec'].eq(frame['tool'].map(references))].copy()
 
 
 def plot_grouped_bar_tool_metric(
@@ -165,7 +183,7 @@ def plot_grouped_bar_tool_metric(
     tool_hatches = {"EvoSuite": "//", "Randoop": ".."}
 
     series_count = len(metrics) * len(tools)
-    bar_width = 0.8 / series_count
+    bar_width = 0.8 / max(series_count, 1)
     x_positions = list(range(len(budgets)))
 
     plt.figure(figsize=(10, 6))
@@ -176,7 +194,7 @@ def plot_grouped_bar_tool_metric(
             values = []
             for budget in budgets:
                 match = df[(df["tool"] == tool) & (df["budgetSec"] == budget)]
-                values.append(match[metric_col].iloc[0] if not match.empty else 0)
+                values.append(match[metric_col].iloc[0] if not match.empty else float('nan'))
 
             label = f"{tool} {metric_label}"
             plt.bar(
@@ -227,7 +245,7 @@ def plot_grouped_bar(
         values = []
         for x_val in x_values:
             match = df[(df[x_col] == x_val) & (df[series_col] == series)]
-            values.append(match[value_col].iloc[0] if not match.empty else 0)
+            values.append(match[value_col].iloc[0] if not match.empty else float('nan'))
         plt.bar(
             [x + offset for x in x_positions],
             values,
@@ -318,6 +336,11 @@ def generate_tables_and_plots(output_dir: Path) -> None:
 
     summary_agg = load_summary_aggregated()
     summary_raw = load_summary_raw()
+    time_summary = summary_agg[summary_agg['tool'].isin(['EvoSuite', 'Randoop'])].copy()
+    references = load_experiment_config(PROJECT_ROOT, 'experiment.toml').reference_budgets
+    summary_agg = select_reference_configurations(summary_agg, references)
+    summary_raw = select_reference_configurations(summary_raw, references)
+    print('Primary quality: explicit reference configurations. Time curves: EvoSuite/Randoop only.')
     similarity_agg = load_similarity_aggregated()
     similarity_excl = load_similarity_exclusive()
 
@@ -326,6 +349,16 @@ def generate_tables_and_plots(output_dir: Path) -> None:
     notebook_path = output_dir / "notebooks" / "research_tables.ipynb"
 
     tables = []
+    outcome_path = DATA_DIR / 'quality/llm_generation_outcomes.csv'
+    if outcome_path.exists():
+        outcome_table = tables_dir / 'llm_generation_outcomes.csv'
+        save_table(pd.read_csv(outcome_path), outcome_table)
+        tables.append(('LLM generation outcomes (all attempted runs)', outcome_table))
+    scope_path = tables_dir / 'comparison_sample_counts.csv'
+    scope = summary_agg[['tool', 'case', 'budgetSec', 'runs']].copy()
+    scope['budgetKind'] = scope['tool'].map({'EvoSuite': 'search_time', 'Randoop': 'search_time', 'QwenLLM': 'safety_ceiling'})
+    save_table(scope, scope_path)
+    tables.append(('Observed sample counts (conditional on successful analysis)', scope_path))
 
     rq1_cases = [
         "LongestIncreasingSubsequence",
@@ -336,6 +369,8 @@ def generate_tables_and_plots(output_dir: Path) -> None:
 
     for idx, case_name in enumerate(rq1_cases, start=1):
         df_case = summary_agg[summary_agg["case"] == case_name].copy()
+        if df_case.empty:
+            continue
         ensure_columns(
             df_case,
             [
@@ -351,6 +386,7 @@ def generate_tables_and_plots(output_dir: Path) -> None:
             [
                 "tool",
                 "budgetSec",
+                "runs",
                 "meanLineCoveragePct",
                 "meanBranchCoveragePct",
                 "meanInstructionCoveragePct",
@@ -361,23 +397,28 @@ def generate_tables_and_plots(output_dir: Path) -> None:
         tables.append((f"Table 5.{idx} — {case_name}", table_path))
 
         fig_path = figures_dir / f"figure_5_{idx}_coverage_{case_name}.png"
-        plot_grouped_bar_tool_metric(
-            df_case,
-            case_name,
-            fig_path,
-            title=f"Coverage Metrics — {case_name}",
-        )
+        coverage = df_case.melt(id_vars=['tool'], value_vars=['meanLineCoveragePct', 'meanBranchCoveragePct', 'meanInstructionCoveragePct'],
+                                var_name='metric', value_name='coverage')
+        coverage['metric'] = coverage['metric'].map({'meanLineCoveragePct': 'Line', 'meanBranchCoveragePct': 'Branch', 'meanInstructionCoveragePct': 'Instruction'})
+        sample_labels = {row.tool: f'{row.tool} (n={int(row.runs)})' for row in df_case.itertuples()}
+        coverage['tool'] = coverage['tool'].map(sample_labels)
+        plot_grouped_bar(coverage, x_col='metric', series_col='tool', value_col='coverage',
+                         output_path=fig_path, title=f'Coverage at reference configurations — {case_name}',
+                         y_label='Coverage (%)', y_limit=(0, 100))
 
     df_tool_summary = summary_agg.groupby("tool", as_index=False).agg(
         {
+            "case": "nunique",
             "meanLineCoveragePct": "mean",
             "meanBranchCoveragePct": "mean",
             "meanInstructionCoveragePct": "mean",
         }
     )
+    df_tool_summary.rename(columns={'case': 'classSamples'}, inplace=True)
     df_tool_summary = df_tool_summary[
         [
             "tool",
+            "classSamples",
             "meanLineCoveragePct",
             "meanBranchCoveragePct",
             "meanInstructionCoveragePct",
@@ -394,14 +435,15 @@ def generate_tables_and_plots(output_dir: Path) -> None:
     save_table(df_mutation, table_path)
     tables.append(("Table 5.6 — Mutation Score by Class", table_path))
 
-    df_mutant_analysis = summary_raw.groupby("tool", as_index=False).agg(
+    # Give each class equal weight even when successful run counts differ.
+    df_mutant_analysis = summary_raw.groupby(["tool", "case"], as_index=False).agg(
         {
             "mutationsTotal": "mean",
             "mutationsKilled": "mean",
             "mutationsSurvived": "mean",
             "mutationsNoCoverage": "mean",
         }
-    )
+    ).groupby('tool', as_index=False).mean(numeric_only=True)
     table_path = tables_dir / "table_5_7_mutant_analysis.csv"
     save_table(df_mutant_analysis, table_path)
     tables.append(("Table 5.7 — Mutant Analysis", table_path))
@@ -422,7 +464,7 @@ def generate_tables_and_plots(output_dir: Path) -> None:
     )
 
     for case_name in rq1_cases:
-        df_case = summary_agg[summary_agg["case"] == case_name].copy()
+        df_case = time_summary[time_summary["case"] == case_name].copy()
         fig_path = figures_dir / f"figure_5_6_coverage_vs_budget_{case_name}.png"
         plot_line(
             df_case,
@@ -519,6 +561,25 @@ def generate_tables_and_plots(output_dir: Path) -> None:
         title="Exclusive Coverage Analysis",
         y_label="Lines",
     )
+
+    for pair in ('EvoSuite-QwenLLM', 'Randoop-QwenLLM'):
+        pair_path = DATA_DIR / 'similarity' / f'similarity_summary__tools-{pair}__classes-all__budgets-all__runs-all.csv'
+        if pair_path.exists():
+            pair_frame = pd.read_csv(pair_path)
+            tool_a, tool_b = pair.split('-')
+            if not {'tool_a_budget_sec', 'tool_b_budget_sec'}.issubset(pair_frame.columns):
+                print(f'Skip legacy/pilot pair snapshot without reference budgets: {pair_path.name}')
+                continue
+            pair_frame = pair_frame[(pair_frame['tool_a_budget_sec'] == references[tool_a]) &
+                                    (pair_frame['tool_b_budget_sec'] == references[tool_b])]
+            table_path = tables_dir / f'similarity_{pair}.csv'
+            save_table(pair_frame, table_path)
+            tables.append((f'Pairwise similarity — {pair}', table_path))
+            if not pair_frame.empty:
+                pair_frame['configuration'] = pair
+                plot_grouped_bar(pair_frame, x_col='program_class', series_col='configuration',
+                    value_col='mean_max_jaccard', output_path=figures_dir / f'jaccard_{pair}.png',
+                    title=f'Jaccard at reference configurations: {pair}', y_label='Mean Jaccard')
 
     write_notebook(notebook_path, tables, output_dir)
 

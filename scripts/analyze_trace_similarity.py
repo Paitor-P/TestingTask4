@@ -2,10 +2,13 @@
 
 import argparse
 import csv
+import json
+import hashlib
 import os
 import re
 import shutil
 import subprocess
+from itertools import combinations
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -301,6 +304,7 @@ def run_trace_method(
     test_class: str,
     test_method: str,
     destfile: Path,
+    scope: str = 'top-level',
 ) -> str | None:
     jacoco_args = (
         f"destfile={destfile},append=false,dumponexit=false,includes={target_class.replace('.', '/') + '*'}"
@@ -318,9 +322,11 @@ def run_trace_method(
             test_class,
             "--testMethod",
             test_method,
+            '--scope', scope,
         ],
         capture_output=True,
         text=True,
+        timeout=60,
     )
     if result.returncode != 0:
         return None
@@ -338,19 +344,31 @@ def collect_traces(
     runs: list[int] | None,
     gradle_cmd: str,
     java_exe: str,
+    tool_budgets: dict[str, list[int]] | None = None,
+    scope: str = 'top-level',
+    seeds: list[int] | None = None,
 ) -> None:
     ensure_main_classes(gradle_cmd, repo)
     traces_dir.mkdir(parents=True, exist_ok=True)
 
     for tool in tools:
         print(f"[collect] tool={tool}")
-        tool_file = "evosuite_test_traces.csv" if tool == "EvoSuite" else "randoop_test_traces.csv"
+        selected_times = times or (tool_budgets or {}).get(tool)
+        tool_file = f"{_safe_token(tool).lower()}_test_traces.csv"
         out_csv = traces_dir / tool_file
+        previous = pd.read_csv(out_csv) if out_csv.exists() else None
+        schema_path = out_csv.with_suffix('.schema.json')
+        schema = {'scope': scope, 'classes': {}}
+        if schema_path.exists():
+            schema = json.loads(schema_path.read_text(encoding='utf-8'))
+        if schema['scope'] != scope or (previous is not None and scope == 'class-family' and not schema_path.exists()):
+            raise ValueError('Trace scope mismatch; choose a new --traces-dir')
+        collecting_csv = out_csv.with_suffix('.collecting.csv')
         header = REQUIRED_COLUMNS + ["run"]
 
         # A collection is a reproducible snapshot of the selected filters.
         # Replacing it avoids duplicate rows when the command is repeated.
-        with out_csv.open("w", encoding="utf-8", newline="") as handle:
+        with collecting_csv.open("w", encoding="utf-8", newline="") as handle:
             writer = csv.writer(handle)
             writer.writerow(header)
 
@@ -374,7 +392,7 @@ def collect_traces(
                         budget = int(budget_dir.name)
                     except ValueError:
                         continue
-                    if times and budget not in times:
+                    if selected_times and budget not in selected_times:
                         continue
 
                     for run_dir in sorted(budget_dir.iterdir(), key=lambda path: path.name):
@@ -385,6 +403,8 @@ def collect_traces(
                             continue
                         run_id = int(match.group("run"))
                         seed = int(match.group("seed"))
+                        if seeds and seed not in seeds:
+                            continue
                         if runs and run_id not in runs:
                             continue
 
@@ -416,6 +436,15 @@ def collect_traces(
                             cwd=repo,
                         )
                         jacoco_agent = run_cmd([gradle_cmd, "-q", "printJacocoAgentPath"], cwd=repo)
+                        if scope == 'class-family':
+                            coordinates = run_cmd([java_exe, '-cp', classpath + os.pathsep + jacoco_agent,
+                                'com.viktor.lab4.trace.TraceCollector', '--targetClass', target_class,
+                                '--scope', scope, '--describe', 'true'], cwd=repo).split(',')
+                            source_path = repo / 'src/main/java' / (target_class.replace('.', '/') + '.java')
+                            description = {'coordinates': coordinates, 'sourceSha256': hashlib.sha256(source_path.read_bytes()).hexdigest()}
+                            if class_simple in schema['classes'] and schema['classes'][class_simple] != description:
+                                raise ValueError('Trace coordinates/source changed; use a new --traces-dir')
+                            schema['classes'][class_simple] = description
 
                         # Each JVM is short-lived but CPU- and I/O-heavy; sequential
                         # collection avoids process startup storms and disk contention.
@@ -430,9 +459,14 @@ def collect_traces(
                                 vector_line = run_trace_method(
                                     java_exe, classpath, jacoco_agent, target_class,
                                     test_class, method, destfile,
+                                    scope,
                                 )
                                 if not vector_line:
+                                    if scope == 'class-family':
+                                        raise RuntimeError(f'Trace failed: {tool}/{class_simple}/{run_dir.name}/{test_class}#{method}')
                                     continue
+                                if scope == 'class-family' and len(vector_line.split(',')) != len(coordinates):
+                                    raise ValueError('Trace vector does not match coordinate schema')
                                 writer.writerow(
                                     [
                                         class_simple,
@@ -443,6 +477,15 @@ def collect_traces(
                                         run_id,
                                     ]
                                 )
+        if previous is not None:
+            selected = pd.Series(True, index=previous.index)
+            for column, values in (("program_class", classes), ("generation_time_sec", selected_times), ("run", runs), ('seed', seeds)):
+                if values:
+                    selected &= previous[column].isin(values)
+            current = pd.read_csv(collecting_csv)
+            pd.concat([previous[~selected], current], ignore_index=True).to_csv(collecting_csv, index=False)
+        collecting_csv.replace(out_csv)
+        schema_path.write_text(json.dumps(schema, indent=2), encoding='utf-8')
 
 
 def compare_traces(
@@ -450,14 +493,40 @@ def compare_traces(
     classes: list[str] | None,
     times: list[int] | None,
     runs: list[int] | None,
+    tool_a: str = "EvoSuite",
+    tool_b: str = "Randoop",
+    budget_a: int | None = None,
+    budget_b: int | None = None,
+    seeds: list[int] | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    evo_path = traces_dir / "evosuite_test_traces.csv"
-    ran_path = traces_dir / "randoop_test_traces.csv"
+    evo_path = traces_dir / f"{_safe_token(tool_a).lower()}_test_traces.csv"
+    ran_path = traces_dir / f"{_safe_token(tool_b).lower()}_test_traces.csv"
     evo = pd.read_csv(evo_path)
     ran = pd.read_csv(ran_path)
 
-    validate_columns(evo, "EvoSuite")
-    validate_columns(ran, "Randoop")
+    schemas = []
+    for path in (evo_path, ran_path):
+        sidecar = path.with_suffix('.schema.json')
+        schemas.append(json.loads(sidecar.read_text(encoding='utf-8')) if sidecar.exists() else {'scope': 'top-level', 'classes': {}})
+    if schemas[0]['scope'] != schemas[1]['scope']:
+        raise ValueError('Cannot compare traces with different measurement scopes')
+    family = schemas[0]['scope'] == 'class-family'
+    if family:
+        common = set(evo.program_class) & set(ran.program_class)
+        for name in common:
+            if name not in schemas[0]['classes'] or schemas[0]['classes'].get(name) != schemas[1]['classes'].get(name):
+                raise ValueError(f'Coordinate/source mismatch for {name}')
+
+    validate_columns(evo, tool_a)
+    validate_columns(ran, tool_b)
+    if (budget_a is None) != (budget_b is None):
+        raise ValueError('Specify both reference budgets or neither')
+    if budget_a is not None:
+        evo = evo[evo['generation_time_sec'] == budget_a].copy()
+        ran = ran[ran['generation_time_sec'] == budget_b].copy()
+        # Pair observations by class/run/seed, not by equal runtime allocations.
+        # Restore both actual configuration ceilings explicitly in output below.
+        ran['generation_time_sec'] = budget_a
 
     run_col = "run"
     if run_col not in evo.columns or run_col not in ran.columns:
@@ -467,6 +536,9 @@ def compare_traces(
     if classes:
         evo = evo[evo["program_class"].isin(classes)]
         ran = ran[ran["program_class"].isin(classes)]
+    if seeds:
+        evo = evo[evo.seed.isin(seeds)]
+        ran = ran[ran.seed.isin(seeds)]
     if times:
         evo = evo[evo["generation_time_sec"].isin(times)]
         ran = ran[ran["generation_time_sec"].isin(times)]
@@ -479,17 +551,26 @@ def compare_traces(
     keys = ["program_class", "generation_time_sec", run_col]
     if run_col != "seed":
         keys.append("seed")
+    if family:
+        # Run directory numbers can differ when repetitions are added later.
+        for frame in (evo, ran):
+            if frame.groupby(['program_class', 'generation_time_sec', 'seed'])['run'].nunique().gt(1).any():
+                raise ValueError('More than one run per seed: select an unambiguous experiment')
+        keys = ['program_class', 'generation_time_sec', 'seed']
     results: list[GroupResult] = []
     exclusive_records: list[ExclusiveResult] = []
 
     evo_keys = {tuple(row) for row in evo[keys].drop_duplicates().itertuples(index=False, name=None)}
     ran_keys = {tuple(row) for row in ran[keys].drop_duplicates().itertuples(index=False, name=None)}
 
-    for key in sorted(evo_keys | ran_keys):
+    # For new tools, an unperformed/empty run is not an observed zero similarity.
+    # Availability and empty-generation rates are reported separately.
+    comparison_keys = evo_keys | ran_keys if (tool_a, tool_b) == ('EvoSuite', 'Randoop') else evo_keys & ran_keys
+    for key in sorted(comparison_keys):
         key_values = dict(zip(keys, key))
         program_class = str(key_values["program_class"])
         generation_time = int(key_values["generation_time_sec"])
-        run_id = int(key_values[run_col])
+        run_id = int(key_values.get(run_col, key_values['seed']))
         seed = int(key_values["seed"])
         evo_group = evo.copy()
         ran_group = ran.copy()
@@ -498,6 +579,9 @@ def compare_traces(
             ran_group = ran_group[ran_group[column] == value]
         if evo_group.empty and ran_group.empty:
             continue
+        if family:
+            available = evo_group if not evo_group.empty else ran_group
+            run_id = int(available[run_col].iloc[0])
         print(
             f"[compare] class={program_class} time={generation_time} "
             f"run={run_id} evo={len(evo_group)} ran={len(ran_group)}"
@@ -506,11 +590,11 @@ def compare_traces(
         results.append(compute_group_similarity(program_class, generation_time, run_id, seed, mat_evo, mat_ran))
         exclusive_records.append(compute_exclusive_lines(program_class, generation_time, run_id, seed, mat_evo, mat_ran))
 
-    detail_df = pd.DataFrame([r.__dict__ for r in results]).sort_values(
+    detail_df = pd.DataFrame([r.__dict__ for r in results], columns=GroupResult.__dataclass_fields__).sort_values(
         ["program_class", "generation_time_sec", "run", "seed"]
     )
 
-    exclusive_df = pd.DataFrame([r.__dict__ for r in exclusive_records]).sort_values(
+    exclusive_df = pd.DataFrame([r.__dict__ for r in exclusive_records], columns=ExclusiveResult.__dataclass_fields__).sort_values(
         ["program_class", "generation_time_sec", "run", "seed"]
     )
 
@@ -539,7 +623,16 @@ def compare_traces(
             )
         )
 
-    agg_df = pd.DataFrame([r.__dict__ for r in agg_records]).sort_values(["program_class", "generation_time_sec"])
+    agg_df = pd.DataFrame([r.__dict__ for r in agg_records], columns=AggregateResult.__dataclass_fields__).sort_values(["program_class", "generation_time_sec"])
+    if (tool_a, tool_b) != ("EvoSuite", "Randoop"):
+        # Legacy pair keeps its published schema. New pairs use explicit neutral sides.
+        for frame in (detail_df, agg_df, exclusive_df):
+            frame.rename(columns={c: c.replace('evosuite', 'tool_a').replace('randoop', 'tool_b') for c in frame.columns}, inplace=True)
+            frame.insert(0, 'tool_b', tool_b)
+            frame.insert(0, 'tool_a', tool_a)
+            if budget_a is not None:
+                frame.rename(columns={'generation_time_sec': 'tool_a_budget_sec'}, inplace=True)
+                frame['tool_b_budget_sec'] = budget_b
     return detail_df, agg_df, exclusive_df
 
 
@@ -556,7 +649,7 @@ def calc_confidence_interval(values: list[float]) -> dict[str, float | None]:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Collect per-test spectra and compare EvoSuite vs Randoop.")
+    parser = argparse.ArgumentParser(description="Collect per-test spectra and compare generator pairs.")
     parser.add_argument("--project-root", default=None, help="Repo root; defaults to parent of this script.")
     parser.add_argument("--experiment-config", default="experiment.toml", help="TOML manifest with shared experiment factors.")
     parser.add_argument("--generated-tests", default="src/generatedTest/suites", help="Root with generated tests.")
@@ -572,6 +665,9 @@ def main() -> None:
     parser.add_argument("--gradle", default=".\\gradlew.bat", help="Gradle wrapper path.")
     parser.add_argument("--java", default="java", help="Java executable.")
     parser.add_argument("--skip-collect", action="store_true", help="Skip collection; use existing traces.")
+    parser.add_argument("--collect-only", action="store_true", help="Collect selected tools without pairwise comparison.")
+    parser.add_argument('--scope', choices=['top-level', 'class-family'], default='top-level')
+    parser.add_argument('--seeds', default=None, help='Comma-separated seed filter')
     args = parser.parse_args()
 
     repo = Path(args.project_root).resolve() if args.project_root else PROJECT_ROOT
@@ -590,7 +686,7 @@ def main() -> None:
     requested_runs = split_csv_arg(args.runs)
     tools = requested_tools or experiment.tools
     classes = requested_classes or experiment.cases
-    times = [int(x) for x in requested_budgets or []] or experiment.budgets
+    times = [int(x) for x in requested_budgets or []] or None
     runs = [int(x) for x in requested_runs or []] or None
 
     filters = [
@@ -603,8 +699,8 @@ def main() -> None:
     ]
     out_path = filtered_csv_path(out_path.parent, out_path.stem, filters)
 
-    if "EvoSuite" not in tools or "Randoop" not in tools:
-        raise ValueError("Both EvoSuite and Randoop are required for comparison.")
+    if len(set(tools)) < 2 and not args.collect_only:
+        raise ValueError("At least two distinct tools are required for comparison.")
 
     if not args.skip_collect:
         collect_traces(
@@ -617,17 +713,22 @@ def main() -> None:
             runs=runs,
             gradle_cmd=str(gradle_path),
             java_exe=args.java,
+            tool_budgets={tool: experiment.budgets_for(tool) for tool in tools},
+            scope=args.scope,
+            seeds=[int(x) for x in split_csv_arg(args.seeds)] if args.seeds else None,
         )
 
-    result, aggregated, exclusive = compare_traces(traces_dir, classes, times, runs)
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    result.to_csv(out_path, index=False)
-
-    agg_path = filtered_csv_path(out_path.parent, "similarity_summary", filters)
-    aggregated.to_csv(agg_path, index=False)
-
-    excl_path = filtered_csv_path(out_path.parent, "exclusive_coverage_runs", filters)
-    exclusive.to_csv(excl_path, index=False)
+    if args.collect_only:
+        return
+    for tool_a, tool_b in combinations(tools, 2):
+        reference = experiment.reference_budgets if 'QwenLLM' in (tool_a, tool_b) and not requested_budgets else {}
+        result, aggregated, exclusive = compare_traces(traces_dir, classes, times, runs, tool_a, tool_b,
+                                                     reference.get(tool_a), reference.get(tool_b),
+                                                     [int(x) for x in split_csv_arg(args.seeds)] if args.seeds else None)
+        pair_filters = [filter_token('tools', [tool_a, tool_b])] + filters[1:]
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        for stem, frame in ((Path(args.out).stem, result), ('similarity_summary', aggregated), ('exclusive_coverage_runs', exclusive)):
+            frame.to_csv(filtered_csv_path(out_path.parent, stem, pair_filters), index=False)
 
 
 if __name__ == "__main__":

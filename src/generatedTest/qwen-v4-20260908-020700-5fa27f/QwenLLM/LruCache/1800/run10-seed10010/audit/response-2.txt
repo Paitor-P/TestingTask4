@@ -1,0 +1,67 @@
+Certainly! Below is a small Java 17 JUnit 4 regression test class for the `LruCache` class, focusing on a boundary case: an empty, zero, or smallest legal input.
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.LruCache;
+
+public class QwenTest2 {
+
+    @Test(timeout = 1000)
+    public void testEmptyCache() {
+        // Create an LruCache with capacity 1
+        LruCache<String, Integer> cache = new LruCache<>(1);
+
+        // Check that the cache is empty
+        assertTrue(cache.isEmpty());
+        assertEquals(0, cache.size());
+
+        // Attempt to put a key-value pair
+        cache.put("key1", 1);
+
+        // Check that the cache is not empty and contains the correct key-value pair
+        assertFalse(cache.isEmpty());
+        assertEquals(1, cache.size());
+        assertEquals(1, cache.get("key1"));
+    }
+
+    @Test(timeout = 1000)
+    public void testZeroCapacityCache() {
+        // Create an LruCache with capacity 0
+        LruCache<String, Integer> cache = new LruCache<>(0);
+
+        // Check that the cache is empty
+        assertTrue(cache.isEmpty());
+        assertEquals(0, cache.size());
+
+        // Attempt to put a key-value pair
+        cache.put("key1", 1);
+
+        // Check that the cache is empty after a put operation
+        assertTrue(cache.isEmpty());
+        assertEquals(0, cache.size());
+    }
+
+    @Test(timeout = 1000)
+    public void testSmallestLegalCapacityCache() {
+        // Create an LruCache with capacity 1
+        LruCache<String, Integer> cache = new LruCache<>(1);
+
+        // Check that the cache is empty
+        assertTrue(cache.isEmpty());
+        assertEquals(0, cache.size());
+
+        // Attempt to put a key-value pair
+        cache.put("key1", 1);
+
+        // Check that the cache is not empty and contains the correct key-value pair
+        assertFalse(cache.isEmpty());
+        assertEquals(1, cache.size());
+        assertEquals(1, cache.get("key1"));
+    }
+}
+```
+
+This test class includes three test methods to verify the behavior of the `LruCache` class when dealing with an empty cache, a cache with zero capacity, and a cache with the smallest legal capacity (which is 1).

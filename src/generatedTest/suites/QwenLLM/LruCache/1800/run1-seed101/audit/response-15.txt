@@ -1,0 +1,37 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.LruCache;
+
+public class QwenTest15 {
+
+    @Test(timeout = 1000)
+    public void testEdgeCases() {
+        LruCache<String, Integer> lruCache = new LruCache<>(3);
+
+        // Get non-existent key
+        assertNull(lruCache.get("nonExistentKey"));
+
+        // Put and get a key
+        lruCache.put("key1", 1);
+        assertEquals(1, lruCache.get("key1"));
+
+        // Clear cache
+        lruCache.clear();
+        assertNull(lruCache.get("key1"));
+
+        // Put and get multiple keys
+        lruCache.put("key2", 2);
+        lruCache.put("key3", 3);
+        assertEquals(2, lruCache.get("key2"));
+        assertEquals(3, lruCache.get("key3"));
+
+        // Put and get key that exceeds capacity
+        lruCache.put("key4", 4);
+        assertEquals(4, lruCache.get("key4"));
+        assertEquals(2, lruCache.get("key2")); // key2 is removed
+    }
+}
+```

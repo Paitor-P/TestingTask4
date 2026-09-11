@@ -1,0 +1,6 @@
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\15a3129215c89919\QwenTest6\QwenTest6.java:21: error: cannot find symbol
+        cache.remove("nonExistentKey"); // Attempt to remove a non-existent key
+             ^
+  symbol:   method remove(String)
+  location: variable cache of type LruCache<String,Integer>
+1 error

@@ -1,0 +1,27 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.PricingEngine;
+
+public class QwenTest37 {
+
+    @Test(timeout=1000)
+    public void testCalculateFinalPriceWithSeasonalSale() {
+        PricingEngine pricingEngine = new PricingEngine();
+        PricingRequest request = new PricingRequest(
+                100.0,
+                10,
+                PricingEngine.CustomerType.REGULAR,
+                true, // seasonal sale
+                null,
+                false,
+                100
+        );
+
+        double expected = 100.0 * 10 * (1.0 - 0.15);
+        assertEquals(expected, pricingEngine.calculateFinalPrice(request), 0.01);
+    }
+}
+```

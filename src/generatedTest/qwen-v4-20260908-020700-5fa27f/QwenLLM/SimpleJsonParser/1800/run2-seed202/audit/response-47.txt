@@ -1,0 +1,26 @@
+To fix the compilation error and ensure the test runs correctly, we need to change the constructor invocation in the failing test. The constructor `SimpleJsonParser` takes a `String` as a parameter, so we need to pass an empty string to it.
+
+Here is the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest46 {
+
+    @Test(timeout = 1000)
+    public void testEmptyInput() {
+        SimpleJsonParser parser = new SimpleJsonParser("");
+        try {
+            parser.parse("");
+            fail("Expected IllegalArgumentException for empty input");
+        } catch (IllegalArgumentException e) {
+            assertEquals("input must not be null", e.getMessage());
+        }
+    }
+}
+```
+
+This change ensures that the `SimpleJsonParser` constructor is called with the correct argument type, resolving the compilation error.

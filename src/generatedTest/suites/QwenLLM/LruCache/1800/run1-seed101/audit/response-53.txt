@@ -1,0 +1,41 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.LruCache;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class QwenTest53 {
+
+    @Test(timeout = 1000)
+    public void testBasicOperations() {
+        LruCache<String, Integer> cache = new LruCache<>(3);
+
+        // Basic insertions
+        cache.put("A", 1);
+        cache.put("B", 2);
+        cache.put("C", 3);
+
+        // Check size and containsKey
+        assertEquals(3, cache.size());
+        assertTrue(cache.containsKey("A"));
+        assertTrue(cache.containsKey("B"));
+        assertTrue(cache.containsKey("C"));
+
+        // Get an element
+        assertEquals(1, cache.get("A").intValue());
+
+        // Insert a new element to trigger eviction
+        cache.put("D", 4);
+
+        // Check evict and containsKey
+        assertEquals(3, cache.size());
+        assertFalse(cache.containsKey("A"));
+        assertTrue(cache.containsKey("B"));
+        assertTrue(cache.containsKey("C"));
+        assertFalse(cache.containsKey("D"));
+    }
+}
+```

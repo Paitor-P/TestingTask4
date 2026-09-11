@@ -1,0 +1,48 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.LruCache;
+
+public class QwenTest13 {
+
+    @Test(timeout = 1000)
+    public void testPutAndGet() {
+        LruCache<String, Integer> lruCache = new LruCache<>(3);
+
+        // Put elements
+        lruCache.put("A", 1);
+        lruCache.put("B", 2);
+        lruCache.put("C", 3);
+
+        // Check size
+        assertEquals(3, lruCache.size());
+
+        // Get an element
+        int value = lruCache.get("B");
+        assertEquals(2, value);
+
+        // Check size after get
+        assertEquals(3, lruCache.size());
+
+        // Put a new element to exceed capacity
+        lruCache.put("D", 4);
+
+        // Check size after put
+        assertEquals(3, lruCache.size());
+
+        // Check that the least recently used element was evicted
+        assertNull(lruCache.get("A"));
+
+        // Put another element to replace the evicted one
+        lruCache.put("E", 5);
+
+        // Check size after put
+        assertEquals(3, lruCache.size());
+
+        // Check that the evicted element is no longer in the cache
+        assertNull(lruCache.get("D"));
+    }
+}
+```

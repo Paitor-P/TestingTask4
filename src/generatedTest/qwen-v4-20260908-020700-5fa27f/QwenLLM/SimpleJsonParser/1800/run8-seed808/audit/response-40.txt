@@ -1,0 +1,28 @@
+To fix the reported failure, we need to update the expected type in the assertion to match the actual type returned by the `parse` method. The `parse` method now returns an `Object`, so we should use `Object` in the assertion.
+
+Here's the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.SimpleJsonParser;
+
+public class QwenTest40 {
+    @Test(timeout = 1000)
+    public void testParseSimpleJson() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        String input = "{\"name\":\"John\", \"age\":30, \"city\":\"New York\"}";
+        Object result = parser.parse(input);
+        assertNotNull(result);
+        assertTrue(result instanceof Map); // Corrected to use Object
+        Map<String, Object> map = (Map<String, Object>) result; // Corrected to use Object
+        assertEquals("John", map.get("name"));
+        assertEquals(30, map.get("age"));
+        assertEquals("New York", map.get("city"));
+    }
+}
+```
+
+This should resolve the compilation error and pass the test.

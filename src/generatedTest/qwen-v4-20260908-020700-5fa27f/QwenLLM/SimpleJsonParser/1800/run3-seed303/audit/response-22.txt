@@ -1,0 +1,20 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest22 {
+
+    @Test(timeout=1000)
+    public void testEmptyInput() {
+        SimpleJsonParser parser = new SimpleJsonParser(); // Fix: Use the declared public constructor
+        try {
+            Object result = parser.parse(""); // Fix: Parse an empty String
+            assertEquals(null, result);
+        } catch (Exception e) {
+            fail("Unexpected exception: " + e.getMessage());
+        }
+    }
+}
+```

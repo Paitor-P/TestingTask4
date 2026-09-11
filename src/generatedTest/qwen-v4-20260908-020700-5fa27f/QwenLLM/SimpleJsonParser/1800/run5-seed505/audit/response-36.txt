@@ -1,0 +1,40 @@
+The failure is due to the fact that the test class `QwenTest36` does not exist. Let's create a new test class and add the missing test. Here is the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest36 {
+
+    @Test(timeout = 1000)
+    public void testParseSimpleArray() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        String input = "[1, 2, 3]";
+        Object result = parser.parse(input);
+        assertTrue(result instanceof List);
+        List<Object> list = (List<Object>) result;
+        assertEquals(3, list.size());
+        assertEquals(1, list.get(0));
+        assertEquals(2, list.get(1));
+        assertEquals(3, list.get(2));
+    }
+
+    @Test(timeout = 1000)
+    public void testParseSimpleObject() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        String input = "{\"key\":\"value\"}";
+        Object result = parser.parse(input);
+        assertTrue(result instanceof java.util.Map);
+        Map<String, Object> map = (Map<String, Object>) result;
+        assertEquals("value", map.get("key"));
+    }
+}
+```
+
+In this corrected version, two new test methods have been added:
+1. `testParseSimpleArray` to test parsing a simple JSON array.
+2. `testParseSimpleObject` to test parsing a simple JSON object.

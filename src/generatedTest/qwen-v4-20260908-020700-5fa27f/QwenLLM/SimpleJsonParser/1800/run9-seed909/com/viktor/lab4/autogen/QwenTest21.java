@@ -1,0 +1,19 @@
+package com.viktor.lab4.autogen;
+import com.viktor.lab4.SimpleJsonParser;
+import com.viktor.lab4.SimpleJsonParser.*;
+import org.junit.*;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest21 {
+
+    @Test(timeout = 1000)
+    public void testSingleNumber() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        String input = "42";
+        double expected = 42.0;
+        double result = (double) parser.parse(input);
+        assertEquals("Expected 42.0, but got " + result, expected, result, 0.0001);
+    }
+}

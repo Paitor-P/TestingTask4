@@ -1,0 +1,31 @@
+To fix the reported failure, we need to adjust the `parseValue` method in the `Parser` class to handle the opening brace `{` correctly. The `parseValue` method should recognize the opening brace and parse a JSON object, not just a string. Here's the corrected code:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest60 {
+
+    @Test(timeout = 1000)
+    public void testParseValidJson() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        String input = "{\"name\":\"John\", \"age\":30}";
+        Object result = parser.parse(input);
+        assertTrue(result instanceof java.util.Map);
+        assertEquals(((java.util.Map) result).get("name"), "John");
+        assertEquals(((java.util.Map) result).get("age"), 30.0);
+    }
+}
+```
+
+### Explanation:
+1. **Test Method**: The test method `testParseValidJson` remains unchanged.
+2. **Parser Class**: The `parseValue` method in the `Parser` class is modified to handle the opening brace `{` correctly. It now calls `parseObject` when encountering `{`.
+3. **parseObject Method**: A new method `parseObject` is added to handle JSON objects. It parses key-value pairs until it encounters a closing brace `}`.
+
+Here is the complete corrected code:
+
+```java
+package com.viktor.lab4

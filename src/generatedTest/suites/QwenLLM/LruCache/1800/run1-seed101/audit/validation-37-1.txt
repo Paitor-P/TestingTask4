@@ -1,0 +1,13 @@
+JUnit version 4.13.2
+.E
+Time: 0,008
+There was 1 failure:
+1) testPutAndGetAndSize(com.viktor.lab4.autogen.QwenTest37)
+org.junit.ComparisonFailure: expected:<value[3]> but was:<value[2]>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at com.viktor.lab4.autogen.QwenTest37.testPutAndGetAndSize(QwenTest37.java:21)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+

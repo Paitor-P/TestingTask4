@@ -1,0 +1,31 @@
+To address the issue of the missing test class, let's create the `QwenTest13` class and implement the necessary test method. The test will verify the calculation of the final price using the provided `PricingEngine` class.
+
+### Complete Corrected Java File:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.PricingEngine;
+
+public class QwenTest13 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPrice() {
+        PricingRequest request = new PricingRequest(
+            10.0, 5, PricingEngine.CustomerType.REGULAR, false, "SAVE10", true, 500
+        );
+
+        PricingEngine pricingEngine = new PricingEngine();
+        double finalPrice = pricingEngine.calculateFinalPrice(request);
+
+        // Expected final price after all calculations
+        double expectedFinalPrice = 35.49;
+
+        assertEquals(expectedFinalPrice, finalPrice, 0.001);
+    }
+}
+```
+
+This code includes the `QwenTest13` class with a test method `testCalculateFinalPrice` that verifies the correctness of the `calculateFinalPrice` method in the `PricingEngine` class. The test uses the provided `PricingRequest` with specific parameters and compares the calculated final price to the expected value, allowing for a small tolerance due to floating-point arithmetic inaccuracies.

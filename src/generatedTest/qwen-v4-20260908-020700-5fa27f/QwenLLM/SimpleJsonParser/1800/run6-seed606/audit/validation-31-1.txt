@@ -1,0 +1,12 @@
+JUnit version 4.13.2
+.E
+Time: 0,011
+There was 1 failure:
+1) testParseNumber(com.viktor.lab4.autogen.QwenTest31)
+java.lang.IllegalArgumentException: Unexpected trailing characters at position 4
+	at com.viktor.lab4.SimpleJsonParser.parse(SimpleJsonParser.java:18)
+	at com.viktor.lab4.autogen.QwenTest31.testParseNumber(QwenTest31.java:29)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+

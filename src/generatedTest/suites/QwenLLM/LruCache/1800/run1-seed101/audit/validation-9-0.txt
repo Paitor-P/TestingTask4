@@ -1,0 +1,35 @@
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\9c58fcf0699cf18e\QwenTest9\QwenTest9.java:23: error: reference to assertEquals is ambiguous
+        assertEquals(1, cache.get("one"));
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\9c58fcf0699cf18e\QwenTest9\QwenTest9.java:24: error: reference to assertEquals is ambiguous
+        assertEquals(2, cache.get("two"));
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\9c58fcf0699cf18e\QwenTest9\QwenTest9.java:25: error: reference to assertEquals is ambiguous
+        assertEquals(3, cache.get("three"));
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\9c58fcf0699cf18e\QwenTest9\QwenTest9.java:30: error: reference to assertEquals is ambiguous
+        assertEquals(4, cache.get("four"));
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\9c58fcf0699cf18e\QwenTest9\QwenTest9.java:31: error: reference to assertEquals is ambiguous
+        assertEquals(1, cache.get("one"));
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\9c58fcf0699cf18e\QwenTest9\QwenTest9.java:34: error: cannot find symbol
+        cache.remove("one");
+             ^
+  symbol:   method remove(String)
+  location: variable cache of type LruCache<String,Integer>
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\9c58fcf0699cf18e\QwenTest9\QwenTest9.java:41: error: reference to assertEquals is ambiguous
+        assertEquals(5, cache.get("five"));
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\9c58fcf0699cf18e\QwenTest9\QwenTest9.java:49: error: cannot find symbol
+        cache.clear();
+             ^
+  symbol:   method clear()
+  location: variable cache of type LruCache<String,Integer>
+8 errors

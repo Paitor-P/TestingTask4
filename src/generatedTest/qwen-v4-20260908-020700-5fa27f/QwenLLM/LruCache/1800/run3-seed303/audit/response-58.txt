@@ -1,0 +1,36 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.LruCache;
+
+public class QwenTest58 {
+
+    @Test(timeout = 1000)
+    public void testEmptyCache() {
+        LruCache<String, Integer> cache = new LruCache<>(2);
+        assert cache.size() == 0;
+        assert !cache.containsKey("key");
+        assert cache.get("key") == null;
+        cache.put("key", 1);
+        assert cache.size() == 1;
+        assert cache.containsKey("key");
+        assert cache.get("key") == 1;
+        cache.put("key2", 2);
+        assert cache.size() == 2;
+        assert cache.containsKey("key2");
+        assert cache.get("key2") == 2;
+        cache.put("key3", 3);
+        assert cache.size() == 2;
+        assert !cache.containsKey("key");
+        assert cache.get("key") == null;
+        assert cache.containsKey("key2");
+        assert cache.get("key2") == 2;
+        cache.remove("key2");
+        assert cache.size() == 1;
+        assert !cache.containsKey("key2");
+        assert cache.get("key2") == null;
+    }
+}
+```

@@ -126,7 +126,12 @@ tasks.register("printGeneratedTestClasspath") {
 
 pitest {
     targetClasses.set(
-        setOf(providers.gradleProperty("pitTargetClass").orElse("com.viktor.lab4.*").get())
+        providers.gradleProperty("pitTargetClass").orElse("com.viktor.lab4.*").map { target ->
+            if (providers.gradleProperty("measurementScope").orNull == "class-family") {
+                require(!target.contains('*')) { "class-family requires an exact outer class" }
+                setOf(target, target + "$" + "*")
+            } else setOf(target)
+        }
     )
     targetTests.set(
         setOf(providers.gradleProperty("pitTargetTests").orElse("com.viktor.lab4.*").get())
@@ -155,5 +160,12 @@ idea {
     module {
         testSources.from(sourceSets["generatedTest"].java.srcDirs)
         excludeDirs.addAll(listOf(file("scripts/.venv"), file("reports")))
+    }
+}
+
+tasks.register("printLlmValidationClasspath") {
+    description = "Production classes and JUnit 4, without any generated or manual test classes"
+    doLast {
+        println(sourceSets["main"].runtimeClasspath.asPath)
     }
 }

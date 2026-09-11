@@ -1,0 +1,25 @@
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\3f572a93ba8eac40\QwenTest30\QwenTest30.java:18: error: reference to assertEquals is ambiguous
+        assertEquals(1, cache.get("one"));
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\3f572a93ba8eac40\QwenTest30\QwenTest30.java:19: error: reference to assertEquals is ambiguous
+        assertEquals(2, cache.get("two"));
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\3f572a93ba8eac40\QwenTest30\QwenTest30.java:20: error: reference to assertEquals is ambiguous
+        assertEquals(3, cache.get("three"));
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\3f572a93ba8eac40\QwenTest30\QwenTest30.java:25: error: reference to assertEquals is ambiguous
+        assertEquals(2, cache.get("two"));
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\3f572a93ba8eac40\QwenTest30\QwenTest30.java:26: error: reference to assertEquals is ambiguous
+        assertEquals(3, cache.get("three"));
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\3f572a93ba8eac40\QwenTest30\QwenTest30.java:27: error: reference to assertEquals is ambiguous
+        assertEquals(4, cache.get("four"));
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+6 errors

@@ -1,0 +1,49 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.PricingEngine;
+import com.viktor.lab4.PricingRequest;
+
+public class QwenTest9 {
+
+    @Test(timeout = 1000)
+    public void testInvalidCustomerType() {
+        PricingRequest request = new PricingRequest(100.0, 1, null, false, "SAVE10", false, 0);
+        try {
+            PricingEngine.calculateFinalPrice(request);
+            fail("Expected IllegalArgumentException for null customerType");
+        } catch (IllegalArgumentException e) {
+            assertEquals("customerType must not be null", e.getMessage());
+        }
+    }
+}
+```
+
+The test file seems to be correctly set up for the `PricingEngine` class. However, it seems that the package declaration in the test file is incorrect. The package declaration should be `com.viktor.lab4.autogen`, but it should include the class name `QwenTest9`. Here's the corrected version:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.PricingEngine;
+import com.viktor.lab4.PricingRequest;
+
+public class QwenTest9 {
+
+    @Test(timeout = 1000)
+    public void testInvalidCustomerType() {
+        PricingRequest request = new PricingRequest(100.0, 1, null, false, "SAVE10", false, 0);
+        try {
+            PricingEngine.calculateFinalPrice(request);
+            fail("Expected IllegalArgumentException for null customerType");
+        } catch (IllegalArgumentException e) {
+            assertEquals("customerType must not be null", e.getMessage());
+        }
+    }
+}
+```
+
+This should resolve the compilation error and allow the test to run successfully.

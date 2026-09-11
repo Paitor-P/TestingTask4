@@ -1,5 +1,5 @@
 [experiment]
-tools = ["EvoSuite", "Randoop"]
+tools = ["EvoSuite", "Randoop", "QwenLLM"]
 target_classes = [
   "com.viktor.lab4.LongestIncreasingSubsequence",
   "com.viktor.lab4.LruCache",
@@ -8,3 +8,14 @@ target_classes = [
 ]
 budgets = [30, 60, 120]
 seeds = [101, 202, 303, 404, 505, 606, 707, 808, 909, 10010]
+
+# Qwen stops after its accepted-test quota; this number is only a safety ceiling.
+[tool_budgets]
+QwenLLM = [1800]
+
+# Primary quality comparison at explicit reference configurations.
+# Only EvoSuite and Randoop participate in the separate time-budget study.
+[comparison.reference_budgets]
+EvoSuite = 120
+Randoop = 120
+QwenLLM = 1800

@@ -1,0 +1,26 @@
+To fix the compilation error, we need to create an instance of `SimpleJsonParser` using its declared public constructor. The constructor does not take any parameters, so we should use the default constructor available in the class. Here's the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.SimpleJsonParser;
+
+public class QwenTest28 {
+
+    @Test(timeout=1000)
+    public void testInvalidNullInput() {
+        try {
+            SimpleJsonParser parser = new SimpleJsonParser(); // Use the default constructor
+            parser.parse("{}");
+        } catch (IllegalArgumentException e) {
+            assertEquals("input must not be null", e.getMessage());
+            return;
+        }
+        fail("Expected IllegalArgumentException for null input");
+    }
+}
+```
+
+This change ensures that the test can compile and run without errors. The `SimpleJsonParser` instance is now created using the default constructor, which initializes the `source` field to `null`.

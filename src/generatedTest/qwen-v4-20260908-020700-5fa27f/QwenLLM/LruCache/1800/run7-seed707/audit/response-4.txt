@@ -1,0 +1,41 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import com.viktor.lab4.LruCache;
+
+public class QwenTest4 {
+
+    @Test(timeout = 1000)
+    public void testGetPut() {
+        LruCache<String, Integer> cache = new LruCache<>(2);
+
+        // Put some items into the cache
+        cache.put("A", 1);
+        cache.put("B", 2);
+
+        // Check the size of the cache
+        assertEquals(2, cache.size());
+
+        // Get an item from the cache
+        Integer value = cache.get("A");
+        assertNotNull(value);
+        assertEquals(1, value.intValue());
+
+        // Put another item into the cache, which should replace "A"
+        cache.put("C", 3);
+
+        // Check the size of the cache and the value of "A"
+        assertEquals(2, cache.size());
+        assertNull(cache.get("A")); // Fix the assertion for the null value
+
+        // Check that "C" is in the cache
+        assertNotNull(cache.get("C"));
+        assertEquals(3, cache.get("C").intValue());
+    }
+}
+```
+
+In the original test, the assertion for `cache.get("A")` was checking for a `null` value, which is incorrect because `A` was put into the cache and retrieved before being replaced. The assertion should have checked for a non-null value with the expected value of `1`. The corrected assertion is `assertNotNull(value);` which now checks that the value is not `null` and matches the expected value of `1`.

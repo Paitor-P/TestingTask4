@@ -1,0 +1,40 @@
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\0cdd099542235ddf\QwenTest3\QwenTest3.java:11: error: cannot find symbol
+        PricingRequest request = new PricingRequest(100.0, 5, PricingEngine.CustomerType.REGULAR, false, null, false, 100);
+        ^
+  symbol:   class PricingRequest
+  location: class QwenTest3
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\0cdd099542235ddf\QwenTest3\QwenTest3.java:11: error: cannot find symbol
+        PricingRequest request = new PricingRequest(100.0, 5, PricingEngine.CustomerType.REGULAR, false, null, false, 100);
+                                     ^
+  symbol:   class PricingRequest
+  location: class QwenTest3
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\0cdd099542235ddf\QwenTest3\QwenTest3.java:13: error: non-static method calculateFinalPrice(PricingRequest) cannot be referenced from a static context
+        assertEquals(expected, PricingEngine.calculateFinalPrice(request), 0.01);
+                                            ^
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\0cdd099542235ddf\QwenTest3\QwenTest3.java:18: error: cannot find symbol
+        PricingRequest request = new PricingRequest(100.0, 10, PricingEngine.CustomerType.VIP, true, null, false, 200);
+        ^
+  symbol:   class PricingRequest
+  location: class QwenTest3
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\0cdd099542235ddf\QwenTest3\QwenTest3.java:18: error: cannot find symbol
+        PricingRequest request = new PricingRequest(100.0, 10, PricingEngine.CustomerType.VIP, true, null, false, 200);
+                                     ^
+  symbol:   class PricingRequest
+  location: class QwenTest3
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\0cdd099542235ddf\QwenTest3\QwenTest3.java:20: error: non-static method calculateFinalPrice(PricingRequest) cannot be referenced from a static context
+        assertEquals(expected, PricingEngine.calculateFinalPrice(request), 0.01);
+                                            ^
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\0cdd099542235ddf\QwenTest3\QwenTest3.java:25: error: cannot find symbol
+        PricingRequest request = new PricingRequest(100.0, 5, PricingEngine.CustomerType.REGULAR, true, null, false, 0);
+        ^
+  symbol:   class PricingRequest
+  location: class QwenTest3
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\0cdd099542235ddf\QwenTest3\QwenTest3.java:25: error: cannot find symbol
+        PricingRequest request = new PricingRequest(100.0, 5, PricingEngine.CustomerType.REGULAR, true, null, false, 0);
+                                     ^
+  symbol:   class PricingRequest
+  location: class QwenTest3
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\0cdd099542235ddf\QwenTest3\QwenTest3.java:27: error: non-static method calculateFinalPrice(PricingRequest) cannot be referenced from a static context
+        assertEquals(expected, PricingEngine.calculateFinalPrice(request), 0.01);
+                                            ^
+9 errors

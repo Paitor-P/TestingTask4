@@ -1,0 +1,46 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.util.Map;
+
+public class QwenTest36 {
+
+    @Test(timeout=1000)
+    public void testBasicCacheOperations() {
+        LruCache<Integer, String> cache = new LruCache<>(3);
+
+        // Put some items into the cache
+        cache.put(1, "one");
+        cache.put(2, "two");
+        cache.put(3, "three");
+
+        // Check size and get items
+        assertEquals(3, cache.size());
+        assertEquals("one", cache.get(1));
+        assertEquals("two", cache.get(2));
+        assertEquals("three", cache.get(3));
+
+        // Add a fourth item, which should evict the least recently used item (1)
+        cache.put(4, "four");
+
+        // Check size and get items again
+        assertEquals(3, cache.size());
+        assertNull(cache.get(1));
+        assertEquals("two", cache.get(2));
+        assertEquals("three", cache.get(4));
+
+        // Check containsKey
+        assertTrue(cache.containsKey(2));
+        assertFalse(cache.containsKey(1));
+
+        // Check removeEldestEntry
+        // Since the cache has a size of 3, the first item (1) is the eldest and will be removed
+        // This is checked indirectly by verifying that the size is 2 and 1 is not present
+        assertEquals(2, cache.size());
+        assertNull(cache.get(1));
+    }
+}
+```

@@ -1,0 +1,27 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest14 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithSeasonalSaleAndVIP() {
+        PricingRequest request = new PricingRequest(
+                99.99, // basePrice
+                5, // quantity
+                CustomerType.VIP, // customerType
+                true, // seasonalSale
+                null, // couponCode
+                false, // firstOrder
+                100 // loyaltyPoints
+        );
+
+        double expected = 99.99 * 5 * 0.87 * 0.87 * 0.95 + 7.99; // 99.99*5*87%*87%*95% + 7.99
+        double actual = PricingEngine.calculateFinalPrice(request);
+
+        assertEquals(expected, actual, 0.001);
+    }
+}
+```

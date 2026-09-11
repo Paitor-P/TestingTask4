@@ -1,0 +1,29 @@
+It seems there was an error in the initial test class naming. Let's correct that and add the missing test method. Here's the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest22 {
+
+    @Test(timeout=1000)
+    public void testLruCacheGetPutRemove() {
+        LruCache<String, Integer> cache = new LruCache<>(2);
+        cache.put("A", 1);
+        cache.put("B", 2);
+        assertEquals(1, cache.get("A").intValue());
+        assertEquals(2, cache.get("B").intValue());
+        cache.put("C", 3);
+        assertEquals(3, cache.get("C").intValue());
+        assertNull(cache.get("A").intValue());
+        cache.put("D", 4);
+        assertEquals(4, cache.get("D").intValue());
+        assertEquals(2, cache.get("B").intValue());
+        assertEquals(3, cache.get("C").intValue());
+    }
+}
+```
+
+This code now includes the `@Test` annotation, a test method named `testLruCacheGetPutRemove`, and is part of the `QwenTest22` class in the `com.viktor.lab4.autogen` package.

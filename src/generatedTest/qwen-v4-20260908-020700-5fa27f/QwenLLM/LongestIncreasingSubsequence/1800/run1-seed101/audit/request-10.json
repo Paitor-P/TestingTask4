@@ -1,0 +1,14 @@
+{
+  "model": "qwen2.5-coder:3b",
+  "prompt": "Generate a small Java 17 JUnit 4 regression test class for the source below.\nReturn ONLY a complete Java file, no explanations. Use package com.viktor.lab4.autogen;\npublic class QwenTest10. Import org.junit.Test, static org.junit.Assert.*, and com.viktor.lab4.LongestIncreasingSubsequence.\nWrite exactly ONE short @Test(timeout=1000) method with meaningful assertions on observable behavior.\nUse only public APIs and JDK/JUnit 4; no mocks, reflection, I/O, processes, network or sleeps.\nRead the actual signatures: call non-static methods through an instance constructed with a public constructor.\nOnly methods declared static may be called through the class name. Use nested types exactly as declared.\nInfer expected results carefully from the implementation. Include necessary java.util imports.\nFor numeric results, follow the order of operations, thresholds, caps and rounding in the source.\nDo not copy the production algorithm into the test or compare a method result with itself.\nDo not use @Ignore, assumptions, JUnit 5, or a main method. Keep the file below 500 tokens.\nThis is independent scenario 6. Focus: One interaction between two conditions, only after checking their combined effect carefully.\nSOURCE:\n```java\npackage com.viktor.lab4;\n\nimport java.util.Arrays;\n\npublic class LongestIncreasingSubsequence {\n\n    public int lengthOfLIS(int[] numbers) {\n        if (numbers == null) {\n            throw new IllegalArgumentException(\"numbers must not be null\");\n        }\n        if (numbers.length == 0) {\n            return 0;\n        }\n\n        int[] tails = new int[numbers.length];\n        int size = 0;\n\n        for (int number : numbers) {\n            int index = Arrays.binarySearch(tails, 0, size, number);\n            if (index < 0) {\n                index = -(index + 1);\n            }\n            tails[index] = number;\n            if (index == size) {\n                size++;\n            }\n        }\n\n        return size;\n    }\n}\n\n\n```\nReturn a complete Java file with exactly ONE @Test method, not a list of test cases.\n",
+  "stream": true,
+  "keep_alive": "60m",
+  "options": {
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "num_ctx": 8192,
+    "num_predict": 1024,
+    "num_thread": 6,
+    "seed": 110
+  }
+}

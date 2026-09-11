@@ -1,0 +1,13 @@
+JUnit version 4.13.2
+.E
+Time: 0,013
+There was 1 failure:
+1) testParseInvalidJsonInput(com.viktor.lab4.autogen.QwenTest9)
+org.junit.ComparisonFailure: expected:<[input must not be null]> but was:<[Unsupported token 'n' at position 0]>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at com.viktor.lab4.autogen.QwenTest9.testParseInvalidJsonInput(QwenTest9.java:16)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+

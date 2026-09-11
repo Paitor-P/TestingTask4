@@ -1,0 +1,16 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest41 {
+    @Test(timeout = 1000)
+    public void testParseNumberBelowThreshold() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        String input = "-0.1";
+        Object result = parser.parse(input);
+        assertEquals(-0.1, result, 1e-9);
+    }
+}
+```

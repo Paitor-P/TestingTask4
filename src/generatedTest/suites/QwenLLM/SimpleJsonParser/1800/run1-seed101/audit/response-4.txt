@@ -1,0 +1,51 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest4 {
+
+    @Test(timeout=1000)
+    public void testParseEmptyString() {
+        SimpleJsonParser parser = new SimpleJsonParser("");
+        assertEquals("", parser.parse(""));
+    }
+
+    @Test(timeout=1000)
+    public void testParseSingleInteger() {
+        SimpleJsonParser parser = new SimpleJsonParser("123");
+        assertEquals(123, parser.parse());
+    }
+
+    @Test(timeout=1000)
+    public void testParseSingleDouble() {
+        SimpleJsonParser parser = new SimpleJsonParser("123.45");
+        assertEquals(123.45, parser.parse(), 0.001);
+    }
+
+    @Test(timeout=1000)
+    public void testParseSingleString() {
+        SimpleJsonParser parser = new SimpleJsonParser("\"hello\"");
+        assertEquals("hello", parser.parse());
+    }
+
+    @Test(timeout=1000)
+    public void testParseSingleArray() {
+        SimpleJsonParser parser = new SimpleJsonParser("[1, 2, 3]");
+        assertEquals(new int[]{1, 2, 3}, parser.parse());
+    }
+
+    @Test(timeout=1000)
+    public void testParseNestedArray() {
+        SimpleJsonParser parser = new SimpleJsonParser("[[1, 2], [3, 4]]");
+        assertEquals(new int[][]{{1, 2}, {3, 4}}, parser.parse());
+    }
+
+    @Test(timeout=1000)
+    public void testParseNestedObject() {
+        SimpleJsonParser parser = new SimpleJsonParser("{\"a\": 1, \"b\": [2, {\"c\": 3}]}");
+        assertEquals(new Object[]{"a", 1, "b", new int[]{2, new Object[]{"c", 3}}}, parser.parse());
+    }
+}
+```

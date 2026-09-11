@@ -1,0 +1,27 @@
+It seems there was a misunderstanding in the previous response. The code snippet provided is for a JUnit 4 test for the `SimpleJsonParser` class, but it seems like there was a mistake in the test class name or structure. Let's correct that and ensure the test class name matches the scenario.
+
+Here's the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest24 {
+
+    @Test(timeout=1000)
+    public void testSimpleJsonParsing() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        String input = "[1, 2, 3, \"Hello\", {\"key\": \"value\"}]";
+        Object result = parser.parse(input);
+        List<Object> expected = List.of(
+                1, 2, 3, "Hello",
+                Map.of("key", "value")
+        );
+        assertEquals(expected, result);
+    }
+}
+```
+
+In this corrected version, the test class name is `QwenTest24`, which matches the scenario description. The rest of the test code is the same as before, ensuring that the `SimpleJsonParser` class is tested to parse the specified JSON input and produce the expected result.

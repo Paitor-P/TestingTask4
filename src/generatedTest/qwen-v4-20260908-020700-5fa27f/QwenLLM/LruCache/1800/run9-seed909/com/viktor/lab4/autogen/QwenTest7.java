@@ -1,0 +1,42 @@
+package com.viktor.lab4.autogen;
+import com.viktor.lab4.LruCache.*;
+import org.junit.*;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.LruCache;
+
+public class QwenTest7 {
+    @Test(timeout = 1000)
+    public void testBasicOperations() {
+        LruCache<Integer, String> cache = new LruCache<>(2);
+
+        // Put first entry
+        cache.put(1, "one");
+        assertEquals("one", cache.get(1));
+        assertEquals(1, cache.size());
+
+        // Put second entry
+        cache.put(2, "two");
+        assertEquals("two", cache.get(2));
+        assertEquals(2, cache.size());
+
+        // Put third entry, evicting first entry
+        cache.put(3, "three");
+        assertNull(cache.get(1));
+        assertEquals("two", cache.get(2));
+        assertEquals("three", cache.get(3));
+        assertEquals(2, cache.size());
+
+        // Put fourth entry, evicting second entry
+        cache.put(4, "four");
+        assertNull(cache.get(2));
+        assertEquals("three", cache.get(3));
+        assertEquals("four", cache.get(4));
+        assertEquals(2, cache.size());
+
+        // Check containsKey
+        assertTrue(cache.containsKey(3));
+        assertFalse(cache.containsKey(2));
+    }
+}

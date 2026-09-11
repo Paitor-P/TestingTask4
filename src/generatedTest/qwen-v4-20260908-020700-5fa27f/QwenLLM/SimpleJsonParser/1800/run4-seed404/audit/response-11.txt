@@ -1,0 +1,21 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.SimpleJsonParser;
+
+public class QwenTest11 {
+
+    @Test(timeout = 1000)
+    public void testParseInvalidString() {
+        try {
+            SimpleJsonParser parser = new SimpleJsonParser();
+            parser.parseValue("\"invalid string\"");
+            fail("Expected IllegalArgumentException");
+        } catch (IllegalArgumentException e) {
+            assertEquals("Unterminated string literal at position 10", e.getMessage());
+        }
+    }
+}
+```

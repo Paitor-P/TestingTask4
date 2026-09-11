@@ -1,0 +1,16 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest13 {
+
+    @Test(timeout = 1000)
+    public void testParseSingleElementArray() {
+        SimpleJsonParser parser = new SimpleJsonParser("[1]");
+        Object result = parser.parse();
+        assertEquals(1, result);
+    }
+}
+```

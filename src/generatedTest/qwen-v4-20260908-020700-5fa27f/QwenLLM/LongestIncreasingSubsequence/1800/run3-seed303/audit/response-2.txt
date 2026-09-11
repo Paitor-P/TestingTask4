@@ -1,0 +1,32 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest2 {
+
+    @Test(timeout = 1000)
+    public void testLengthOfLISWithBoundaryCases() {
+        // Test with empty array
+        int[] emptyArray = {};
+        assertEquals(0, new LongestIncreasingSubsequence().lengthOfLIS(emptyArray));
+
+        // Test with single element array
+        int[] singleElementArray = {5};
+        assertEquals(1, new LongestIncreasingSubsequence().lengthOfLIS(singleElementArray));
+
+        // Test with two identical elements
+        int[] twoIdenticalElements = {2, 2};
+        assertEquals(1, new LongestIncreasingSubsequence().lengthOfLIS(twoIdenticalElements));
+
+        // Test with decreasing array
+        int[] decreasingArray = {5, 4, 3, 2, 1};
+        assertEquals(1, new LongestIncreasingSubsequence().lengthOfLIS(decreasingArray));
+
+        // Test with increasing array
+        int[] increasingArray = {1, 2, 3, 4, 5};
+        assertEquals(5, new LongestIncreasingSubsequence().lengthOfLIS(increasingArray));
+    }
+}
+```

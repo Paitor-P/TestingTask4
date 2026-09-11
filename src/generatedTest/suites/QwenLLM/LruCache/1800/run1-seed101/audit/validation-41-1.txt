@@ -1,0 +1,13 @@
+JUnit version 4.13.2
+.E
+Time: 0,008
+There was 1 failure:
+1) testBasicOperations(com.viktor.lab4.autogen.QwenTest41)
+org.junit.ComparisonFailure: expected:<t[hree]> but was:<t[wo]>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at com.viktor.lab4.autogen.QwenTest41.testBasicOperations(QwenTest41.java:28)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+

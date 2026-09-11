@@ -1,0 +1,22 @@
+package com.viktor.lab4.autogen;
+import com.viktor.lab4.PricingEngine.*;
+import org.junit.*;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.PricingEngine;
+
+public class QwenTest51 {
+
+    @Test(timeout = 1000)
+    public void testInvalidRequestNull() {
+        PricingRequest request = null;
+        PricingEngine engine = new PricingEngine();
+        try {
+            engine.calculateFinalPrice(request);
+            fail("IllegalArgumentException should be thrown for null request");
+        } catch (IllegalArgumentException e) {
+            // Expected exception
+        }
+    }
+}

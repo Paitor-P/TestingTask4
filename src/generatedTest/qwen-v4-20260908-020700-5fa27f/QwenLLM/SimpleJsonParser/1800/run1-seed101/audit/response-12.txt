@@ -1,0 +1,21 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.SimpleJsonParser;
+
+public class QwenTest12 {
+
+    @Test(timeout = 1000)
+    public void testParseInvalidJsonInput() {
+        try {
+            new SimpleJsonParser().parse("not a json string");
+        } catch (IllegalArgumentException e) {
+            assertEquals("input must not be null", e.getMessage());
+            return;
+        }
+        fail("IllegalArgumentException expected for invalid input");
+    }
+}
+```

@@ -1,0 +1,23 @@
+To fix the compilation error, we need to specify the expected type for `assertEquals`. Since `cache.get("a")` returns an `Integer`, we should use `assertEquals(int, int)` to match the expected type. Here's the corrected code:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+import java.util.Map;
+
+public class QwenTest51 {
+
+    @Test(timeout = 1000)
+    public void testPutAndGetWithSingleElement() {
+        LruCache<String, Integer> cache = new LruCache<>(1);
+        cache.put("a", 1);
+        assertEquals(1, cache.get("a").intValue()); // Corrected assertion method
+        assertFalse(cache.containsKey("b"));
+    }
+}
+```
+
+This change ensures that the `assertEquals` method is used with the correct types, resolving the compilation error.

@@ -1,0 +1,34 @@
+To fix the compilation error and ensure the test can be executed, we need to instantiate the `PricingEngine` class in the test method. Here's the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.PricingEngine;
+
+public class QwenTest33 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithVipCustomerAndCouponCode() {
+        PricingEngine pricingEngine = new PricingEngine();
+        PricingRequest request = new PricingRequest(
+                49.99,
+                20,
+                PricingEngine.CustomerType.VIP,
+                false,
+                "SAVE10",
+                true,
+                100
+        );
+
+        double expected = 89.98; // Calculation based on the source code
+
+        double actual = pricingEngine.calculateFinalPrice(request);
+
+        assertEquals("Test failed: Incorrect final price for VIP customer with SAVE10 coupon", expected, actual, 0.001);
+    }
+}
+```
+
+In this corrected version, we instantiate the `PricingEngine` class using its declared public constructor, which allows us to call the `calculateFinalPrice` method. The rest of the test setup and assertions remain the same.

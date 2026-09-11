@@ -1,0 +1,20 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.LongestIncreasingSubsequence;
+
+public class QwenTest3 {
+
+    @Test(timeout = 1000)
+    public void testNullInputThrowsIllegalArgumentException() {
+        try {
+            new LongestIncreasingSubsequence().lengthOfLIS(null);
+            fail("Expected IllegalArgumentException for null input");
+        } catch (IllegalArgumentException e) {
+            assertEquals("numbers must not be null", e.getMessage());
+        }
+    }
+}
+```

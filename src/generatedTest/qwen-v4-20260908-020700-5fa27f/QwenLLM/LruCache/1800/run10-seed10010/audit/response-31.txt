@@ -1,0 +1,26 @@
+To fix the compilation failure in the `QwenTest30` test, we need to clarify which `assertEquals` method should be used. The error indicates that there is an ambiguity between the `long` and `Object` versions of `assertEquals`, which is resolved by specifying the type of the expected and actual values explicitly.
+
+Here's the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import com.viktor.lab4.LruCache;
+import java.util.HashMap;
+import java.util.Map;
+
+public class QwenTest30 {
+
+    @Test(timeout = 1000)
+    public void testPutAndGetSingleKey() {
+        LruCache<String, Integer> cache = new LruCache<>(2);
+        cache.put("one", 1);
+        assertEquals(Integer.valueOf(1), cache.get("one")); // Use Integer.valueOf() to match the expected type
+        assertEquals(2, cache.size()); // Size should be 2 due to LRU policy
+    }
+}
+```
+
+This change ensures that the expected and actual values are of the correct type (`Integer`), resolving the compilation error.

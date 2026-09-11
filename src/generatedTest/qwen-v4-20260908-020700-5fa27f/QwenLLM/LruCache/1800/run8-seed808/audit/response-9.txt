@@ -1,0 +1,27 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class QwenTest9 {
+
+    @Test(timeout=1000)
+    public void testPutWithInvalidCapacity() {
+        try {
+            new LruCache<>(0, new LinkedHashMap<>(16, 0.75f, true) {
+                @Override
+                protected boolean removeEldestEntry(Map.Entry<K, V> eldest) {
+                    return size() > LruCache.this.capacity;
+                }
+            });
+            fail("Expected IllegalArgumentException for non-positive capacity");
+        } catch (IllegalArgumentException e) {
+            // Expected exception
+        }
+    }
+}
+```

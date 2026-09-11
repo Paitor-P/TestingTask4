@@ -1,0 +1,28 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.PricingEngine;
+
+public class QwenTest35 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithThreshold() {
+        PricingRequest request = new PricingRequest(
+                45.0, // basePrice
+                10, // quantity
+                PricingEngine.CustomerType.REGULAR, // customerType
+                true, // seasonalSale
+                "SAVE10", // couponCode
+                true, // firstOrder
+                100 // loyaltyPoints
+        );
+
+        double expected = 45.0 * 10 * (1 - 0.10); // Calculate expected discount
+        double actual = new PricingEngine().calculateFinalPrice(request);
+
+        assertEquals(expected, actual, 0.01); // All conditions just below or at a threshold
+    }
+}
+```

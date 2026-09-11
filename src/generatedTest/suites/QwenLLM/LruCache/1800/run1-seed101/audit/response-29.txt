@@ -1,0 +1,57 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.LruCache;
+import java.util.Map;
+
+public class QwenTest29 {
+
+    @Test(timeout = 1000)
+    public void testBasicOperations() {
+        LruCache<String, Integer> cache = new LruCache<>(3);
+
+        // Test put and get
+        cache.put("a", 1);
+        assertEquals(1, cache.get("a").intValue());
+        assertEquals(1, cache.size());
+
+        cache.put("b", 2);
+        assertEquals(2, cache.get("b").intValue());
+        assertEquals(2, cache.size());
+
+        cache.put("c", 3);
+        assertEquals(3, cache.get("c").intValue());
+        assertEquals(3, cache.size());
+
+        // Test capacity limit
+        cache.put("d", 4); // Evicts "a" due to capacity limit
+        assertNull(cache.get("a"));
+        assertEquals(2, cache.size());
+
+        cache.put("e", 5); // Evicts "b" due to capacity limit
+        assertNull(cache.get("b"));
+        assertEquals(2, cache.size());
+
+        // Test containsKey and size
+        assertTrue(cache.containsKey("c"));
+        assertTrue(cache.containsKey("e"));
+        assertEquals(2, cache.size());
+
+        // Test get after eviction
+        assertEquals(3, cache.get("c").intValue());
+        assertEquals(3, cache.size());
+
+        // Test removing an existing entry
+        cache.remove("c");
+        assertNull(cache.get("c"));
+        assertEquals(1, cache.size());
+
+        // Test adding a new entry after removal
+        cache.put("f", 6);
+        assertEquals(6, cache.get("f").intValue());
+        assertEquals(2, cache.size());
+    }
+}
+```

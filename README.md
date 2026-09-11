@@ -1,8 +1,26 @@
 # Исследование генерации unit-тестов
 
-Сравнение Randoop и EvoSuite для `LongestIncreasingSubsequence`, `LruCache`, `PricingEngine` и `SimpleJsonParser`. Метрики: покрытие JaCoCo, мутационный анализ PIT и сходство спектров выполнения (Жаккар, Дайс).
+Полное развёртывание после клонирования и порядок воспроизведения результатов:
+[EXPERIMENT_REPRODUCTION.md](docs/EXPERIMENT_REPRODUCTION.md).
+
+Текущий рабочий процесс с вложенными классами и добавлением повторов:
+[CLASS_FAMILY_WORKFLOW.md](docs/CLASS_FAMILY_WORKFLOW.md).
+Пересчёт готовых наборов: `.\scripts\research.ps1 -Action measure -Seeds 101`.
+После успешной проверки: `.\scripts\research.ps1 -Action extend -Seeds 202,303`.
+
+Сравнение Randoop, EvoSuite и **QwenLLM** (локальная Qwen2.5-Coder 3B через Ollama) для `LongestIncreasingSubsequence`, `LruCache`, `PricingEngine` и `SimpleJsonParser`. Метрики: покрытие JaCoCo, мутационный анализ PIT и сходство спектров выполнения (Жаккар, Дайс).
+
+QwenLLM — отдельный авторский baseline, не ChatUniTest. Основное сравнение оценивает качество результатов: EvoSuite/Randoop при 120 секундах и Qwen с целью получить 10 проверенных JUnit-сценариев на класс. Для Qwen предусмотрен защитный предел 1800 секунд, но генерация останавливается раньше при достижении цели. Вторичное исследование зависимости от 30/60/120 секунд относится только к EvoSuite и Randoop. Протокол и команды: [LLM_PROTOCOL.md](docs/LLM_PROTOCOL.md).
+
+Первичная установка локального движка и модели: `.\scripts\setup_llm.ps1` (около 3,4 ГБ загрузок, больше места после распаковки). После перезагрузки: `.\scripts\setup_llm.ps1 -SkipModelPull`. Сервер работает на `127.0.0.1:11435`. Конфигурация LLM — `llm.toml`. Для генерации только новым инструментом используйте `--tools QwenLLM`; по умолчанию `experiment.toml` включает все три инструмента.
 
 ## Структура
+
+Актуальная проверка **v4** запускается командой `.\scripts\run_qwen_v4.ps1`.
+Она выполняет по одной серии (seed 101) для всех четырёх классов, создаёт отдельные
+каталоги тестов и журнала и в конце печатает `QWEN V4 BATCH FINISHED`.
+Старые результаты v3 остаются в `src/generatedTest/suites/QwenLLM/`.
+Подробности запуска и признаков завершения — в [протоколе](docs/LLM_PROTOCOL.md#запуск).
 
 - `src/main/java/` — исследуемые классы, консольный пример и Java-инструменты сбора трасс.
 - `src/main/resources/` — входные данные примеров.
@@ -13,8 +31,8 @@
 - `tools/` — JAR-файлы генераторов.
 - `reports/data/` — исходные результаты экспериментов: журналы генерации, качество, трассы и сходство.
 - `reports/generated/` — воспроизводимые таблицы, графики и notebook по исходным CSV.
-- `reports/` — текст и экспорт исследовательского отчета.
-- `docs/` — описание метрик и столбцов; `docs/archive/` — исторические выводы экспериментов.
+- `reports/` — рассчитанные CSV, таблицы, графики и notebook для отдельного LaTeX-отчёта.
+- `docs/` — протокол, порядок воспроизведения и описание метрик.
 - `build/` — временные файлы, подготовленные тесты и результаты Gradle, JaCoCo, PIT.
 
 Серии тестов и результаты экспериментов хранятся в Git. Кэши, окружение Python и результаты сборки игнорируются. Устаревшие PowerShell-реализации заменены Python-скриптами.
@@ -30,11 +48,11 @@ uv sync --project scripts --locked
 .\gradlew.bat classes
 ```
 
-LaTeX, TeX Live и MiKTeX не нужны. Matplotlib использует встроенный рендеринг. Необязательный экспорт Markdown-отчета в DOCX: `uv run --project scripts --with python-docx python scripts/export_report_docx.py`.
+Для выполнения эксперимента LaTeX, TeX Live и MiKTeX не нужны. Matplotlib использует встроенный рендеринг. LaTeX-отчёт оформляется отдельно на основе агрегированных CSV, таблиц и графиков.
 
 ## Конфигурация эксперимента
 
-`experiment.toml` — источник стандартных инструментов, классов, бюджетов и seed. Его читают генератор, анализ качества и анализ трасс; поэтому полный запуск не требует повторять один и тот же список параметров. У любого скрипта аргументы `--tools`, `--target-classes`, `--cases`, `--budgets` и `--seeds` имеют приоритет над манифестом. Другой файл можно передать через `--experiment-config путь/к/файлу.toml`.
+`experiment.toml` — источник стандартных инструментов, классов, бюджетов и seed. Его читают генератор, анализ качества и анализ трасс. `[tool_budgets]` задаёт отдельный предел Qwen, `[comparison.reference_budgets]` — настройки основного сравнения. Доступные у конкретного скрипта CLI-фильтры имеют приоритет над манифестом; их список выводится через `--help`. Другой файл можно передать через `--experiment-config путь/к/файлу.toml`.
 
 ## Генерация тестов
 
@@ -62,6 +80,8 @@ uv run --project scripts python scripts/generate_test_suites.py
 ```powershell
 uv run --project scripts python scripts/analyze_test_quality.py --tools EvoSuite
 uv run --project scripts python scripts/analyze_test_quality.py --tools Randoop
+uv run --project scripts python scripts/analyze_test_quality.py --tools QwenLLM
+uv run --project scripts python scripts/summarize_llm_runs.py
 ```
 
 Фильтры: `--cases LruCache`, `--budgets 30 60`, `--runs 1 2`. `--skip-execution` перечитывает существующие результаты сборки. Имена CSV включают фильтры и лежат в `reports/data/quality/`: `quality_runs__...csv` содержит отдельные прогоны, `quality_summary__...csv` — агрегаты. Результаты Gradle находятся в `build/analysis/results/{Tool}/{Class}/{Budget}/runN-seedS/`. Анализы выполняются последовательно: параллельные Gradle/PIT-процессы конкурировали за процессор, память, диск и кэши без выигрыша по общему времени.
@@ -72,6 +92,8 @@ uv run --project scripts python scripts/analyze_test_quality.py --tools Randoop
 uv run --project scripts python scripts/analyze_trace_similarity.py --tools EvoSuite,Randoop
 uv run --project scripts python scripts/build_report_assets.py
 ```
+
+Чтобы добавить только новые трассы к сохранённым старым: `uv run --project scripts python scripts/analyze_trace_similarity.py --tools QwenLLM --collect-only`, затем `uv run --project scripts python scripts/analyze_trace_similarity.py --tools EvoSuite,Randoop,QwenLLM --skip-collect`. Каждая пара получает отдельный CSV; для новых пар используются только совпадающие доступные серии. Сводки качества условны по успешным измерениям, поэтому рядом обязательно приводить `llm_generation_outcomes.csv` с неудачами и пустыми сериями.
 
 В `analyze_trace_similarity.py` списки передаются через запятую: `--classes LruCache,PricingEngine --budgets 30,60 --runs 1,2`. `--skip-collect` рассчитывает сходство по сохраненным трассам из `reports/data/traces/`. Подробные и агрегированные результаты записываются в `reports/data/similarity/`. `build_report_assets.py` читает полные сводки каждого инструмента и общую сводку сходства; одних результатов с фильтрами недостаточно. `--output-dir` меняет каталог вывода. Notebook `reports/generated/notebooks/research_tables.ipynb` открывается с рабочим каталогом `notebooks`.
 

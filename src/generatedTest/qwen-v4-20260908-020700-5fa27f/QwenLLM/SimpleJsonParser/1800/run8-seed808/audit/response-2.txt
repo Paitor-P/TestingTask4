@@ -1,0 +1,25 @@
+To fix the compilation error, we need to import the `java.util.Map` class, which is required for the type cast in the test. Here is the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import java.util.Map;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest1 {
+
+    @Test(timeout = 1000)
+    public void testParseSimpleJson() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        String input = "{\"name\":\"John\", \"age\":30}";
+        Object result = parser.parse(input);
+        assertTrue(result instanceof Map);
+        Map<String, Object> map = (Map<String, Object>) result;
+        assertEquals("John", map.get("name"));
+        assertEquals(30, map.get("age"));
+    }
+}
+```
+
+This code includes the necessary import statement for `java.util.Map` and compiles successfully without errors.

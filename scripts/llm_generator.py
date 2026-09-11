@@ -1,0 +1,330 @@
+"""Local Qwen baseline: source prompts, bounded automatic repair, no manual repair.
+
+Only candidates that compile and pass twice before the deadline enter the suite.
+Every request, response, rejection and runtime fingerprint is retained for audit.
+"""
+from __future__ import annotations
+
+import hashlib
+import http.client
+import json
+import os
+import platform
+import re
+import subprocess
+import time
+import tomllib
+from pathlib import Path
+from urllib.parse import urlsplit
+
+PROTOCOL = 'qwen-focused-repair-v4'
+SCENARIO_FOCI = (
+    'One simple normal case with small inputs; avoid combining optional features.',
+    'One boundary case: an empty, zero, or smallest legal input where applicable.',
+    'One invalid input explicitly rejected by the implementation; assert the documented exception.',
+    'One short operation sequence or repeated call; assert observable state or return values.',
+    'One condition just below or at a threshold; isolate it from other optional conditions.',
+    'One interaction between two conditions, only after checking their combined effect carefully.',
+)
+
+
+def write_json(path: Path, data: dict) -> None:
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def ensure_protocol_directory(output_root: Path) -> None:
+    for path in (output_root / 'QwenLLM').glob('*/*/run*/llm-run.json'):
+        protocol = json.loads(path.read_text(encoding='utf-8')).get('protocol')
+        if protocol != PROTOCOL:
+            raise ValueError(f'Cannot mix {protocol} with {PROTOCOL} in {output_root}. '
+                             'Use --output-root with a new directory or scripts/run_qwen_v4.ps1')
+
+
+def api(endpoint: str, route: str, payload: dict | None = None) -> dict:
+    url = urlsplit(endpoint)
+    if url.scheme != "http" or url.hostname not in {"127.0.0.1", "localhost", "::1"}:
+        raise ValueError("This baseline requires a local HTTP Ollama endpoint")
+    conn = http.client.HTTPConnection(url.hostname, url.port, timeout=180)
+    try:
+        conn.request("POST" if payload is not None else "GET", route,
+                     json.dumps(payload) if payload is not None else None,
+                     {"Content-Type": "application/json"})
+        response = conn.getresponse()
+        body = response.read()
+        if response.status != 200:
+            raise RuntimeError(f"Ollama HTTP {response.status}: {body[:500]!r}")
+        return json.loads(body)
+    finally:
+        conn.close()
+
+
+def prepare(repo: Path, config_path: Path, java_exe: str) -> dict:
+    config = tomllib.loads(config_path.read_text(encoding="utf-8"))["llm"]
+    for key in ('num_ctx', 'num_predict', 'num_thread', 'max_attempts', 'validation_timeout_sec'):
+        if not isinstance(config[key], int) or config[key] <= 0:
+            raise ValueError(f'{key} must be a positive integer')
+    if config['validation_repeats'] != 2:
+        raise ValueError('The protocol requires exactly two validation runs')
+    if not isinstance(config.get('max_repairs', 2), int) or config.get('max_repairs', 2) < 0:
+        raise ValueError('max_repairs must be a nonnegative integer')
+    endpoint, model = config["endpoint"], config["model"]
+    version = api(endpoint, "/api/version")
+    models = api(endpoint, "/api/tags")["models"]
+    match = next((m for m in models if m["name"] == model), None)
+    if match is None:
+        raise RuntimeError(f"Model {model} is missing; run scripts/setup_llm.ps1")
+    if config.get('model_digest') and match['digest'] != config['model_digest']:
+        raise RuntimeError('Model digest changed; use the recorded model or start a separate experiment')
+    details = api(endpoint, "/api/show", {"model": model})
+    started = time.monotonic()
+    api(endpoint, "/api/generate", {"model": model, "prompt": "", "stream": False,
+        "keep_alive": "60m", "options": {"num_ctx": config["num_ctx"], "num_thread": config["num_thread"]}})
+    warmup = time.monotonic() - started
+    result = subprocess.run([str(repo / "gradlew.bat"), "-q", "printLlmValidationClasspath"],
+                            cwd=repo, capture_output=True, text=True, check=True)
+    classpath = result.stdout.strip().splitlines()[-1]
+    java = Path(java_exe)
+    if not java.is_absolute():
+        import shutil
+        java = Path(shutil.which(java_exe) or java_exe)
+    javac = java.with_name("javac.exe" if os.name == "nt" else "javac")
+    java_version = subprocess.run([str(java), "-version"], capture_output=True, text=True, check=True)
+    return {"config": config, "classpath": classpath, "java": str(java), "javac": str(javac),
+            "fingerprint": {"ollama": version, "model": match, "model_details": details,
+                "platform": platform.platform(), "processor": platform.processor(),
+                "java": java_version.stderr, "warmupSec": warmup,
+                "adapterSha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}}
+
+
+def prompt_for(source: str, target: str, test_name: str, attempt: int) -> str:
+    return f"""Generate a small Java 17 JUnit 4 regression test class for the source below.
+Return ONLY a complete Java file, no explanations. Use package com.viktor.lab4.autogen;
+public class {test_name}. Import org.junit.Test, static org.junit.Assert.*, and {target}.
+Write exactly ONE short @Test(timeout=1000) method with meaningful assertions on observable behavior.
+Use only public APIs and JDK/JUnit 4; no mocks, reflection, I/O, processes, network or sleeps.
+Read the actual signatures: call non-static methods through an instance constructed with a public constructor.
+Only methods declared static may be called through the class name. Use nested types exactly as declared.
+Infer expected results carefully from the implementation. Include necessary java.util imports.
+For numeric results, follow the order of operations, thresholds, caps and rounding in the source.
+Do not copy the production algorithm into the test or compare a method result with itself.
+Do not use @Ignore, assumptions, JUnit 5, or a main method. Keep the file below 500 tokens.
+This is independent scenario {attempt}. Focus: {SCENARIO_FOCI[(attempt - 1) % len(SCENARIO_FOCI)]}
+SOURCE:
+```java
+{source}
+```
+Return a complete Java file with exactly ONE @Test method, not a list of test cases.
+"""
+
+
+def compact_diagnostics(diagnostics: str) -> str:
+    """Keep compiler locations and assertion messages, omit repetitive Java frames."""
+    lines = [line for line in diagnostics.splitlines() if not line.lstrip().startswith('at ')]
+    return '\n'.join(lines[:45])[:4000]
+
+
+def repair_prompt_for(source: str, target: str, test_name: str,
+                      previous: str, error: str, diagnostics: str) -> str:
+    return f"""Repair this existing Java 17 JUnit 4 regression test for {target}.
+This is a repair task, not a request for a new scenario.
+Keep the inputs, tested behavior and assertions. Fix the specific failure below.
+For a non-static method, construct an instance using its declared public constructor.
+For an assertion mismatch, re-check the expected value against the source and the observed result.
+Correct a mistaken expected value; do not remove assertions, increase tolerance to hide a mismatch,
+catch and suppress the failure, or replace an assertion with a tautology.
+Return ONLY the complete corrected Java file, package com.viktor.lab4.autogen,
+public class {test_name}, exactly ONE @Test(timeout=1000) method, preferably under 500 tokens.
+Use public APIs and JDK/JUnit 4 only; no mocks, reflection, I/O, processes, network,
+sleeps, @Ignore or assumptions. Preserve the scenario when renaming the class.
+REFERENCE SOURCE:
+```java
+{source}
+```
+FAILING TEST:
+{previous}
+FAILURE: {error}
+{compact_diagnostics(diagnostics)}
+Fix the reported failure before returning the code. Do not repeat the unchanged failing test.
+"""
+
+
+def extract_java(response: str, test_name: str) -> str:
+    blocks = re.findall(r"```(?:java)?\s*\n(.*?)```", response, re.S)
+    source = blocks[0].strip() if len(blocks) == 1 else response.strip()
+    if not re.search(r"\bpackage\s+com\.viktor\.lab4\.autogen\s*;", source):
+        raise ValueError("Wrong or missing package")
+    if not re.search(r"\bpublic\s+class\s+" + re.escape(test_name) + r"\b", source):
+        raise ValueError("Wrong or missing test class")
+    if not re.search(r"@(?:org\.junit\.)?Test\b", source):
+        raise ValueError("No JUnit tests")
+    if not re.search(r"\b(?:assert\w+|fail)\s*\(", source):
+        raise ValueError("No assertions")
+    if re.search(r"@(?:org\.junit\.)?Ignore\b|\bAssume\b|\bassume\w*\s*\(", source):
+        raise ValueError("Disabled or conditional tests")
+    return source + "\n"
+
+
+def add_target_import(source: str, target: str) -> str:
+    """Supply structural test scaffolding; never change test bodies or oracles."""
+    statements = [f'import {target};', f'import {target}.*;',
+                  'import org.junit.*;', 'import static org.junit.Assert.*;']
+    missing = [statement for statement in statements if statement not in source]
+    if not missing:
+        return source
+    return re.sub(r'(\bpackage\s+com\.viktor\.lab4\.autogen\s*;)',
+                  lambda match: match[0] + '\n' + '\n'.join(missing), source, count=1)
+
+
+def stream_candidate(config: dict, payload: dict, deadline: float, artifact: Path) -> tuple[str, dict]:
+    url = urlsplit(config["endpoint"])
+    conn = http.client.HTTPConnection(url.hostname, url.port, timeout=max(.01, deadline-time.monotonic()))
+    chunks, final = [], {}
+    try:
+        conn.request("POST", "/api/generate", json.dumps(payload), {"Content-Type": "application/json"})
+        response = conn.getresponse()
+        if response.status != 200:
+            raise RuntimeError(f"Ollama HTTP {response.status}")
+        with artifact.open("w", encoding="utf-8") as log:
+            while True:
+                remaining = deadline - time.monotonic()
+                if remaining <= 0:
+                    raise TimeoutError("Generation budget exhausted")
+                # HTTP/1.1 stream: adjust the socket timeout for the absolute deadline.
+                if conn.sock is not None:
+                    conn.sock.settimeout(remaining)
+                line = response.readline()
+                if not line:
+                    raise RuntimeError("Incomplete Ollama stream")
+                log.write(line.decode("utf-8"))
+                log.flush()
+                item = json.loads(line)
+                if "error" in item:
+                    raise RuntimeError(item["error"])
+                chunks.append(item.get("response", ""))
+                if item.get("done"):
+                    final = item
+                    break
+        return "".join(chunks), final
+    finally:
+        artifact.with_suffix(".txt").write_text("".join(chunks), encoding="utf-8")
+        conn.close()
+
+
+def generate(repo: Path, target: str, budget: int, seed: int, run_dir: Path, context: dict) -> str:
+    config = context["config"]
+    source_path = repo / "src/main/java" / (target.replace(".", "/") + ".java")
+    source = source_path.read_text(encoding="utf-8")
+    audit = run_dir / "audit"
+    audit.mkdir(parents=True, exist_ok=True)
+    # The source snapshot uses .txt so analyzers cannot mistake it for a test.
+    (audit / "target-source.txt").write_text(source, encoding="utf-8")
+    metadata = {"protocol": PROTOCOL, "target": target, "budgetSec": budget,
+                "seed": seed, "config": config, "sourceSha256": hashlib.sha256(source_path.read_bytes()).hexdigest(),
+                "fingerprint": context["fingerprint"], "attempts": [], "accepted": 0,
+                "budgetKind": "safety_ceiling", "stopReason": "max_attempts"}
+    started = time.monotonic()
+    deadline = started + budget
+    feedback = None
+    repair_depth = 0
+    scenario = 0
+    try:
+        for attempt in range(1, config["max_attempts"] + 1):
+            if time.monotonic() >= deadline:
+                metadata['stopReason'] = 'time_limit'
+                break
+            name = f"QwenTest{attempt}"
+            if feedback:
+                prompt = repair_prompt_for(source, target, name, **feedback)
+            else:
+                scenario += 1
+                prompt = prompt_for(source, target, name, scenario)
+            payload = {"model": config["model"], "prompt": prompt, "stream": True, "keep_alive": "60m",
+                       "options": {key: config[key] for key in
+                                   ("temperature", "top_p", "num_ctx", "num_predict", "num_thread")}}
+            payload["options"]["seed"] = seed + attempt - 1
+            write_json(audit / f"request-{attempt}.json", payload)
+            record = {"attempt": attempt, "seed": seed + attempt - 1, "status": "ERROR",
+                      "phase": 'repair' if feedback else 'generate', "repairDepth": repair_depth,
+                      "scenario": scenario}
+            print(f"  Qwen candidate {attempt}: {record['phase'].upper()} started; "
+                  f"accepted={metadata['accepted']}/{config.get('target_accepted_tests', 10)}", flush=True)
+            attempt_start = time.monotonic()
+            response = ''
+            diagnostics = ''
+            run_key = hashlib.sha256(str(run_dir.resolve()).encode()).hexdigest()[:16]
+            work = repo / "build/llm-validation" / run_key / name
+            try:
+                response, usage = stream_candidate(config, payload, deadline, audit / f"response-{attempt}.jsonl")
+                record["usage"] = {key: value for key, value in usage.items() if key != 'context'}
+                if usage.get("done_reason") == "length":
+                    raise ValueError("Output token limit reached")
+                candidate = add_target_import(extract_java(response, name), target)
+                record['normalization'] = 'strip-markdown-fences-and-ensure-junit-target-imports'
+                if len(re.findall(r'@(?:org\.junit\.)?Test\b', candidate)) != 1:
+                    raise ValueError('Return exactly ONE @Test method in this candidate')
+                work.mkdir(parents=True, exist_ok=True)
+                java_file = work / f"{name}.java"
+                java_file.write_text(candidate, encoding="utf-8")
+                commands = [[context["javac"], "-encoding", "UTF-8", "--release", "17", "-cp", context["classpath"], "-d", str(work), str(java_file)]]
+                commands += [[context["java"], "-Xmx256m", "-cp", str(work) + os.pathsep + context["classpath"],
+                              "org.junit.runner.JUnitCore", f"com.viktor.lab4.autogen.{name}"]] * config["validation_repeats"]
+                for index, command in enumerate(commands):
+                    remaining = deadline - time.monotonic()
+                    if remaining <= 0:
+                        raise TimeoutError("No validation time left")
+                    result = subprocess.run(command, cwd=repo, capture_output=True, text=True, errors="replace",
+                                            timeout=min(remaining, config["validation_timeout_sec"]))
+                    (audit / f"validation-{attempt}-{index}.txt").write_text(result.stdout + result.stderr, encoding="utf-8")
+                    diagnostics = result.stdout + result.stderr
+                    if result.returncode or (index > 0 and not re.search(r"OK \([1-9]\d* tests?\)", result.stdout)):
+                        raise ValueError("Compilation failed" if index == 0 else "JUnit validation failed")
+                    if index > 0 and not re.search(r'OK \(1 test\)', result.stdout):
+                        raise ValueError('The candidate must execute exactly one JUnit test')
+                if time.monotonic() > deadline:
+                    raise TimeoutError("Validation exceeded budget")
+                destination = run_dir / "com/viktor/lab4/autogen" / f"{name}.java"
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                destination.write_text(candidate, encoding="utf-8")
+                metadata["accepted"] += 1
+                record["status"] = "ACCEPTED"
+            except Exception as exc:
+                record["status"] = "TIMEOUT" if isinstance(exc, (TimeoutError, subprocess.TimeoutExpired)) else "REJECTED"
+                record["error"] = str(exc)
+                if not isinstance(exc, (ValueError, TimeoutError, subprocess.TimeoutExpired)):
+                    record['status'] = 'ERROR'
+                    metadata['infrastructureError'] = str(exc)
+            record["elapsedSec"] = time.monotonic() - attempt_start
+            metadata["attempts"].append(record)
+            print(f"  Qwen candidate {attempt}: {record['status']}; "
+                  f"accepted={metadata['accepted']}/{config.get('target_accepted_tests', 10)}; "
+                  f"elapsed={time.monotonic() - started:.0f}s"
+                  + (f"; {record['error']}" if record.get('error') else ''), flush=True)
+            if metadata.get('infrastructureError'):
+                metadata['stopReason'] = 'infrastructure_error'
+                break
+            if metadata['accepted'] >= config.get('target_accepted_tests', 10):
+                metadata['stopReason'] = 'accepted_test_quota'
+                break
+            if time.monotonic() >= deadline:
+                metadata['stopReason'] = 'time_limit'
+                break
+            if record['status'] == 'REJECTED' and response and repair_depth < config.get('max_repairs', 2):
+                feedback = dict(previous=response, error=record.get('error', ''), diagnostics=diagnostics)
+                repair_depth += 1
+            else:
+                feedback = None
+                repair_depth = 0
+    except KeyboardInterrupt:
+        metadata['stopReason'] = 'interrupted'
+        raise
+    finally:
+        metadata["elapsedSec"] = time.monotonic() - started
+        metadata["status"] = 'FAIL' if metadata.get('infrastructureError') else ("OK" if metadata["accepted"] else "EMPTY")
+        if metadata['stopReason'] == 'interrupted':
+            metadata['status'] = 'INTERRUPTED'
+        write_json(run_dir / "llm-run.json", metadata)
+        print(f"RUN FINISHED: {target}; status={metadata['status']}; "
+              f"accepted={metadata['accepted']}/{config.get('target_accepted_tests', 10)}; "
+              f"stop={metadata['stopReason']}; elapsed={metadata['elapsedSec']:.1f}s\n"
+              f"Metadata: {run_dir / 'llm-run.json'}", flush=True)
+    return metadata["status"]

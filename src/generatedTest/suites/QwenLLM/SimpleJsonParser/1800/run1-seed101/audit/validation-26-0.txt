@@ -1,0 +1,41 @@
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\1dc006db513c061b\QwenTest26\QwenTest26.java:18: error: cannot find symbol
+        Map<String, Object> map = (Map<String, Object>) parsed;
+        ^
+  symbol:   class Map
+  location: class QwenTest26
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\1dc006db513c061b\QwenTest26\QwenTest26.java:18: error: cannot find symbol
+        Map<String, Object> map = (Map<String, Object>) parsed;
+                                   ^
+  symbol:   class Map
+  location: class QwenTest26
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\1dc006db513c061b\QwenTest26\QwenTest26.java:20: error: cannot find symbol
+        assertTrue(map.get("array") instanceof List);
+                                               ^
+  symbol:   class List
+  location: class QwenTest26
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\1dc006db513c061b\QwenTest26\QwenTest26.java:21: error: cannot find symbol
+        List<?> array = (List<?>) map.get("array");
+        ^
+  symbol:   class List
+  location: class QwenTest26
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\1dc006db513c061b\QwenTest26\QwenTest26.java:21: error: cannot find symbol
+        List<?> array = (List<?>) map.get("array");
+                         ^
+  symbol:   class List
+  location: class QwenTest26
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\1dc006db513c061b\QwenTest26\QwenTest26.java:26: error: cannot find symbol
+        assertTrue(map.get("nested") instanceof Map);
+                                                ^
+  symbol:   class Map
+  location: class QwenTest26
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\1dc006db513c061b\QwenTest26\QwenTest26.java:27: error: cannot find symbol
+        Map<String, Object> nestedMap = (Map<String, Object>) map.get("nested");
+        ^
+  symbol:   class Map
+  location: class QwenTest26
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\1dc006db513c061b\QwenTest26\QwenTest26.java:27: error: cannot find symbol
+        Map<String, Object> nestedMap = (Map<String, Object>) map.get("nested");
+                                         ^
+  symbol:   class Map
+  location: class QwenTest26
+8 errors

@@ -1,0 +1,16 @@
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\585ecb810e4695b7\QwenTest34\QwenTest34.java:17: error: cannot find symbol
+        assertTrue(result instanceof List); // Fixed: Added type casting to List
+                                     ^
+  symbol:   class List
+  location: class QwenTest34
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\585ecb810e4695b7\QwenTest34\QwenTest34.java:18: error: cannot find symbol
+        assertEquals(1, ((List<?>) result).size()); // Fixed: Added type casting to List
+                          ^
+  symbol:   class List
+  location: class QwenTest34
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\585ecb810e4695b7\QwenTest34\QwenTest34.java:19: error: cannot find symbol
+        assertEquals(123, ((List<?>) result).get(0), 0.001); // Fixed: Added type casting to List
+                            ^
+  symbol:   class List
+  location: class QwenTest34
+3 errors

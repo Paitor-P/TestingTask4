@@ -1,0 +1,21 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class QwenTest47 {
+
+    @Test(timeout = 1000)
+    public void testParseNumberNearThreshold() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        String input = "123.456";
+        Object value = parser.parse(input);
+        assertEquals(123.456, value, 1e-9); // Allow for small floating-point precision errors
+        assertEquals(123, parser.position());
+    }
+}
+```

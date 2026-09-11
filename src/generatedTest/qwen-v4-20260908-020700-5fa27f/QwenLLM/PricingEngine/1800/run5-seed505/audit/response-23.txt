@@ -1,0 +1,32 @@
+The failure was due to the missing import statement for `com.viktor.lab4.PricingRequest`. The import statement was added at the beginning of the class file.
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.PricingEngine;
+import com.viktor.lab4.PricingRequest;
+
+public class QwenTest21 {
+
+    @Test(timeout = 1000)
+    public void testFinalPriceWithLoyaltyTierAndSeasonalSale() {
+        PricingEngine engine = new PricingEngine(); // Create an instance of PricingEngine
+        PricingRequest request = new PricingRequest(
+                50.0, // basePrice
+                15,  // quantity
+                PricingEngine.CustomerType.VIP, // customerType
+                true,  // seasonalSale
+                "SAVE10", // couponCode
+                false, // firstOrder
+                400    // loyaltyPoints
+        );
+
+        double expected = 43.15;
+        double actual = engine.calculateFinalPrice(request); // Call the method on the instance
+
+        assertEquals(expected, actual, 0.01);
+    }
+}
+```

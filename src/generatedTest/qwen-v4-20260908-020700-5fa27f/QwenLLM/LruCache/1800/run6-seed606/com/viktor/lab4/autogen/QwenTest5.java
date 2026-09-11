@@ -1,0 +1,21 @@
+package com.viktor.lab4.autogen;
+import com.viktor.lab4.LruCache;
+import com.viktor.lab4.LruCache.*;
+import org.junit.*;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class QwenTest5 {
+
+    @Test(timeout = 1000)
+    public void testLruCacheWithEmptyInput() {
+        LruCache<String, Integer> lruCache = new LruCache<>(1);
+        assertNull(lruCache.get("key"));
+        assertFalse(lruCache.containsKey("key"));
+        assertEquals(0, lruCache.size());
+    }
+}

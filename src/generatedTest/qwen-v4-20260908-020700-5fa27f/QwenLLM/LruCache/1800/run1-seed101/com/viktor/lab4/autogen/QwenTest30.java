@@ -1,0 +1,39 @@
+package com.viktor.lab4.autogen;
+import com.viktor.lab4.LruCache;
+import com.viktor.lab4.LruCache.*;
+import org.junit.*;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest30 {
+
+    @Test(timeout = 1000)
+    public void testBasicCacheOperations() {
+        LruCache<String, Integer> cache = new LruCache<>(3);
+        
+        // Add initial entries
+        cache.put("A", 1);
+        cache.put("B", 2);
+        cache.put("C", 3);
+        
+        // Check size and containsKey
+        assertEquals(3, cache.size());
+        assertTrue(cache.containsKey("A"));
+        assertTrue(cache.containsKey("B"));
+        assertTrue(cache.containsKey("C"));
+        
+        // Get an existing key
+        assertEquals(2, cache.get("B").intValue()); // Use intValue() to convert Integer to int
+        
+        // Put a new key to evict an existing one
+        cache.put("D", 4);
+        assertFalse(cache.containsKey("A"));
+        assertTrue(cache.containsKey("B"));
+        assertTrue(cache.containsKey("C"));
+        assertTrue(cache.containsKey("D"));
+        
+        // Check size after eviction
+        assertEquals(3, cache.size());
+    }
+}

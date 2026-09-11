@@ -1,0 +1,17 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest17 {
+
+    @Test(timeout = 1000)
+    public void testParseNumberCloseToThreshold() {
+        String input = "[1234567890.9999999999999999999]";
+        SimpleJsonParser parser = new SimpleJsonParser();
+        Object result = parser.parse(input);
+        assertEquals(1234567890.9999999999999999999, result, 1e-12);
+    }
+}
+```

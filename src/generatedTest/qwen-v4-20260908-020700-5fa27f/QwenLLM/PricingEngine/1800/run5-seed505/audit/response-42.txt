@@ -1,0 +1,28 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.PricingEngine;
+
+public class QwenTest41 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPrice() {
+        PricingEngine engine = new PricingEngine();
+        PricingRequest request = new PricingRequest(
+                49.99,
+                5,
+                PricingEngine.CustomerType.REGULAR,
+                false,
+                "SAVE10",
+                true,
+                200
+        );
+        double expected = 249.99;
+        assertEquals(expected, engine.calculateFinalPrice(request), 0.001);
+    }
+}
+```
+
+In the solution, an instance of `PricingEngine` is created and used within the test method to correctly invoke the `calculateFinalPrice` method. This resolves the compilation error that occurred due to attempting to call a non-static method from a static context.

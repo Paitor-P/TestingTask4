@@ -1,0 +1,19 @@
+Sure, let's fix the constructor call and ensure the test passes. The `SimpleJsonParser` class already has a public constructor that takes a `String` as an argument. Here's the corrected code:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest7 {
+    @Test(timeout=1000)
+    public void testEmptyInput() {
+        SimpleJsonParser parser = new SimpleJsonParser(""); // Fixed the constructor call
+        Object result = parser.parse("");
+        assertNull(result);
+    }
+}
+```
+
+This should resolve the compilation error and allow the test to pass. The `SimpleJsonParser` class is already defined with a public constructor that takes a `String` as an argument, so the constructor call now correctly constructs an instance of `SimpleJsonParser`.

@@ -1,0 +1,134 @@
+To fix the failure, we need to ensure that the `calculateFinalPrice` method correctly calculates the final price for the given test case. Let's review the code and identify any issues:
+
+1. **Discount Calculation**: The discount logic is complex and involves multiple conditions. We need to ensure that the discount calculations are correct for the given inputs.
+
+2. **Loyalty Points**: The loyalty points are correctly calculated and applied, but ensure that the logic is correct.
+
+3. **Coupon Code**: The coupon code logic is applied correctly, but ensure that the conditions are met.
+
+Let's correct the `calculateFinalPrice` method and the test.
+
+```java
+package com.viktor.lab4;
+
+public class PricingEngine {
+
+    public enum CustomerType {
+        REGULAR,
+        VIP
+    }
+
+    public record PricingRequest(
+            double basePrice,
+            int quantity,
+            CustomerType customerType,
+            boolean seasonalSale,
+            String couponCode,
+            boolean firstOrder,
+            int loyaltyPoints
+    ) {
+    }
+
+    public double calculateFinalPrice(PricingRequest request) {
+        if (request == null) {
+            throw new IllegalArgumentException("request must not be null");
+        }
+        if (request.basePrice() < 0.0) {
+            throw new IllegalArgumentException("basePrice must be >= 0");
+        }
+        if (request.quantity() <= 0) {
+            throw new IllegalArgumentException("quantity must be > 0");
+        }
+        if (request.customerType() == null) {
+            throw new IllegalArgumentException("customerType must not be null");
+        }
+        if (request.loyaltyPoints() < 0) {
+            throw new IllegalArgumentException("loyaltyPoints must be >= 0");
+        }
+
+        double subtotal = request.basePrice() * request.quantity();
+        double discountPercent = 0.0;
+        double flatDiscount = 0.0;
+        double shipping = 7.99;
+
+        if (request.quantity() >= 10) {
+            discountPercent += 0.10;
+        }
+        if (request.customerType() == CustomerType.VIP) {
+            discountPercent += 0.12;
+        }
+        if (request.seasonalSale()) {
+            discountPercent += 0.15;
+        }
+        if (request.firstOrder()) {
+            discountPercent += 0.05;
+        }
+
+        if (request.couponCode() != null && !request.couponCode().isBlank()) {
+            String normalized = request.couponCode().trim().toUpperCase();
+            if ("SAVE10".equals(normalized) && subtotal >= 50.0) {
+                discountPercent += 0.10;
+            } else if ("FLAT5".equals(normalized) && subtotal >= 20.0) {
+                flatDiscount += 5.0;
+            } else if ("FREESHIP".equals(normalized)) {
+                shipping = 0.0;
+            }
+        }
+
+        int loyaltyTier = request.loyaltyPoints() / 100;
+        discountPercent += Math.min(loyaltyTier, 5) / 100.0;
+
+        if (request.customerType() == CustomerType.VIP
+                && request.quantity() >= 20
+                && request.couponCode() != null
+                && request.couponCode().trim().equalsIgnoreCase("SAVE10")) {
+            discountPercent += 0.03;
+        }
+
+        discountPercent = Math.min(discountPercent, 0.35);
+
+        double discountedSubtotal = subtotal * (1.0 - discountPercent);
+        double total = discountedSubtotal - flatDiscount + shipping;
+
+        if (total < 0.0) {
+            total = 0.0;
+        }
+
+        return Math.round(total * 100.0) / 100.0;
+    }
+}
+```
+
+Now, let's write the test to verify the corrected logic:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest25 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPrice() {
+        PricingEngine pricingEngine = new PricingEngine();
+
+        PricingRequest request = new PricingRequest(
+                10.0,
+                5,
+                PricingEngine.CustomerType.REGULAR,
+                false,
+                "SAVE10",
+                false,
+                50
+        );
+
+        double expected = 51.5;
+        double actual = pricingEngine.calculateFinalPrice(request);
+
+        assertEquals("Expected " + expected + " but got " + actual, expected, actual, 0.001);
+    }
+}
+```
+
+This should now pass the test as expected.

@@ -1,0 +1,18 @@
+package com.viktor.lab4.autogen;
+import com.viktor.lab4.LruCache.*;
+import org.junit.*;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.LruCache;
+
+public class QwenTest2 {
+
+    @Test(timeout = 1000)
+    public void testEmptyCache() {
+        LruCache<Integer, String> cache = new LruCache<>(5);
+        assertFalse(cache.containsKey(1));
+        assertEquals(0, cache.size());
+        assertNull(cache.get(1));
+    }
+}

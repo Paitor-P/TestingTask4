@@ -1,0 +1,32 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.SimpleJsonParser;
+
+public class QwenTest9 {
+
+    @Test(timeout=1000)
+    public void testParseNumber() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        assertEquals(123.456, parser.parse("123.456"), 0.001);
+        assertEquals(-123.456, parser.parse("-123.456"), 0.001);
+        assertEquals(0, parser.parse("0"), 0.001);
+        assertEquals(-0, parser.parse("-0"), 0.001);
+        assertEquals(0.0, parser.parse("0.0"), 0.001);
+        assertEquals(0.123, parser.parse("0.123"), 0.001);
+        assertEquals(0.0123, parser.parse("0.0123"), 0.001);
+        assertEquals(0.00123, parser.parse("0.00123"), 0.001);
+        assertEquals(123456, parser.parse("123456"), 0.001);
+        assertEquals(-123456, parser.parse("-123456"), 0.001);
+        assertEquals(12345678901234567890.12345678901234567890, parser.parse("12345678901234567890.12345678901234567890"), 0.001);
+        assertEquals(-12345678901234567890.12345678901234567890, parser.parse("-12345678901234567890.12345678901234567890"), 0.001);
+        assertEquals(Double.POSITIVE_INFINITY, parser.parse("Infinity"), 0.001);
+        assertEquals(Double.NEGATIVE_INFINITY, parser.parse("-Infinity"), 0.001);
+        assertEquals(Double.NaN, parser.parse("NaN"), 0.001);
+        assertEquals(Double.MAX_VALUE, parser.parse("1.7976931348623157E308"), 0.001);
+        assertEquals(Double.MIN_VALUE, parser.parse("4.9e-324"), 0.001);
+    }
+}
+```

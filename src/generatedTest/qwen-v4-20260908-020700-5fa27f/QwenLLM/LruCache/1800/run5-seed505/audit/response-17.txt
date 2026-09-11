@@ -1,0 +1,58 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest17 {
+
+    public static class LruCache<K, V> {
+        private final int capacity;
+        private final LinkedHashMap<K, V> store;
+
+        public LruCache(int capacity) {
+            if (capacity <= 0) {
+                throw new IllegalArgumentException("capacity must be > 0");
+            }
+
+            this.capacity = capacity;
+            this.store = new LinkedHashMap<>(16, 0.75f, true) {
+                @Override
+                protected boolean removeEldestEntry(Map.Entry<K, V> eldest) {
+                    return size() > LruCache.this.capacity;
+                }
+            };
+        }
+
+        public V get(K key) {
+            return store.get(key);
+        }
+
+        public void put(K key, V value) {
+            store.put(key, value);
+        }
+
+        public boolean containsKey(K key) {
+            return store.containsKey(key);
+        }
+
+        public int size() {
+            return store.size();
+        }
+    }
+
+    @Test(timeout = 1000)
+    public void testEmptyCache() {
+        LruCache<String, Integer> cache = new LruCache<>(1);
+        assertEmpty(cache);
+        assertNull(cache.get("key"));
+        assertFalse(cache.containsKey("key"));
+        assertEquals(0, cache.size());
+    }
+
+    private void assertEmpty(LruCache<String, Integer> cache) {
+        assertNull(cache.store);
+        assertEquals(0, cache.store.size());
+    }
+}
+```

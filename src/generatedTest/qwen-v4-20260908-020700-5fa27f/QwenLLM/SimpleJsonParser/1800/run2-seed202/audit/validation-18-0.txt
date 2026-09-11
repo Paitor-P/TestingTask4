@@ -1,0 +1,11 @@
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\a6d7696450817651\QwenTest18\QwenTest18.java:16: error: cannot find symbol
+        assertEquals("John", ((Map<String, Object>) parsedValue).get("name"));
+                               ^
+  symbol:   class Map
+  location: class QwenTest18
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\a6d7696450817651\QwenTest18\QwenTest18.java:17: error: cannot find symbol
+        assertEquals(30.0, ((Map<String, Object>) parsedValue).get("age"), 0.001);
+                             ^
+  symbol:   class Map
+  location: class QwenTest18
+2 errors

@@ -1,0 +1,32 @@
+The test is already correctly structured and should pass given the provided code. The issue might be elsewhere in the test setup or the codebase. However, based on the provided code, the test should pass. If you have any other issues or need further assistance, please let me know!
+
+Here is the complete corrected Java file, package `com.viktor.lab4.autogen`, with the `QwenTest9` class:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.util.Map;
+
+public class QwenTest9 {
+
+    @Test(timeout = 1000)
+    public void testPutInvalidKeyThrowsIllegalArgumentException() {
+        // Arrange
+        LruCache<String, String> cache = new LruCache<>(10);
+
+        // Act
+        try {
+            cache.put(null, "value"); // null is an invalid key
+            fail("Expected IllegalArgumentException for null key");
+        } catch (IllegalArgumentException e) {
+            // Assert
+            assertEquals("key must not be null", e.getMessage());
+        }
+    }
+}
+```
+
+This file includes the original test `QwenTest8` with the correct assertion and timeout setting. The test should pass without any failures. If you have any other issues or need further assistance, please let me know!

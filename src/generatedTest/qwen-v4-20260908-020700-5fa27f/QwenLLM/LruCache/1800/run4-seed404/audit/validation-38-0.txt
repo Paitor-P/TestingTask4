@@ -1,0 +1,6 @@
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\3f572a93ba8eac40\QwenTest38\QwenTest38.java:34: error: cannot find symbol
+        cache.removeEntry("a"); // Corrected method name from "remove" to "removeEntry"
+             ^
+  symbol:   method removeEntry(String)
+  location: variable cache of type LruCache<String,Integer>
+1 error

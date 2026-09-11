@@ -1,0 +1,15 @@
+JUnit version 4.13.2
+.E
+Time: 0,007
+There was 1 failure:
+1) testPutAndGet(com.viktor.lab4.autogen.QwenTest7)
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at org.junit.Assert.assertNotNull(Assert.java:723)
+	at com.viktor.lab4.autogen.QwenTest7.testPutAndGet(QwenTest7.java:44)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+

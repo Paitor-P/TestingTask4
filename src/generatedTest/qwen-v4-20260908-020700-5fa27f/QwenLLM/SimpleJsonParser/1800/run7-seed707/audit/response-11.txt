@@ -1,0 +1,20 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class QwenTest11 {
+
+    @Test(timeout=1000)
+    public void testParseSingleNumber() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        try {
+            Object result = parser.parse("123.45");
+            assertEquals(123.45, result, 1e-9); // Adjusted tolerance
+        } catch (IllegalArgumentException e) {
+            fail("Unexpected exception: " + e.getMessage());
+        }
+    }
+}
+```

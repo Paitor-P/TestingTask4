@@ -1,0 +1,14 @@
+JUnit version 4.13.2
+.E
+Time: 0,014
+There was 1 failure:
+1) testCalculateFinalPriceWithRegularCustomerAndLoyaltyPoints(com.viktor.lab4.autogen.QwenTest39)
+java.lang.AssertionError: Expected final price expected:<233.39> but was:<183.19>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:555)
+	at com.viktor.lab4.autogen.QwenTest39.testCalculateFinalPriceWithRegularCustomerAndLoyaltyPoints(QwenTest39.java:24)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+

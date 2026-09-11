@@ -1,0 +1,47 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.LruCache;
+
+public class QwenTest17 {
+
+    @Test(timeout = 1000)
+    public void testCombinedConditionality() {
+        LruCache<Integer, String> lruCache = new LruCache<>(3);
+
+        // Check if the cache is initially empty
+        assertEquals(0, lruCache.size());
+
+        // Put elements into the cache
+        lruCache.put(1, "one");
+        lruCache.put(2, "two");
+        lruCache.put(3, "three");
+
+        // Check the size after putting elements
+        assertEquals(3, lruCache.size());
+
+        // Check if the cache contains the first element
+        assertTrue(lruCache.containsKey(1));
+
+        // Remove the first element
+        lruCache.remove(1); // Fixed: Use the correct method name
+
+        // Check the size after removal
+        assertEquals(2, lruCache.size());
+
+        // Add an element that evicts the least recently used element
+        lruCache.put(4, "four");
+
+        // Check the size after adding the new element
+        assertEquals(3, lruCache.size());
+
+        // Check if the cache contains the new element
+        assertTrue(lruCache.containsKey(4));
+
+        // Check if the cache no longer contains the first element
+        assertFalse(lruCache.containsKey(1));
+    }
+}
+```

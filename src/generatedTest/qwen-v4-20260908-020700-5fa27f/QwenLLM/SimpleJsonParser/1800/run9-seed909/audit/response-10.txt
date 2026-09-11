@@ -1,0 +1,26 @@
+To fix the reported failure, we need to make the `parse` method static and create an instance of `SimpleJsonParser` within the test method. Additionally, we need to ensure that the `getPosition` method is accessible from the static context. Here's the corrected code:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.SimpleJsonParser;
+
+public class QwenTest10 {
+
+    @Test(timeout = 1000)
+    public void testInvalidNullInput() {
+        try {
+            SimpleJsonParser parser = new SimpleJsonParser(); // Create an instance of SimpleJsonParser
+            parser.parse(null); // Use the instance to parse the null input
+            fail("Should have thrown IllegalArgumentException for null input");
+        } catch (IllegalArgumentException e) {
+            assertEquals("input must not be null", e.getMessage());
+            assertEquals(0, e.getPosition()); // Access position from the exception
+        }
+    }
+}
+```
+
+This code ensures that the `parse` method is called on an instance of `SimpleJsonParser`, and the `getPosition` method is accessed directly from the `IllegalArgumentException` exception.

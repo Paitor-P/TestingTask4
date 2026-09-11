@@ -1,0 +1,19 @@
+package com.viktor.lab4.autogen;
+import com.viktor.lab4.SimpleJsonParser;
+import com.viktor.lab4.SimpleJsonParser.*;
+import org.junit.*;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.util.List;
+
+public class QwenTest47 {
+
+    @Test(timeout = 1000)
+    public void testParseSimpleNumber() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        Object result = parser.parse("123");
+        assertEquals(123.0, (double) result, 0.0);
+    }
+}

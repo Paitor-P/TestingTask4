@@ -1,0 +1,30 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import com.viktor.lab4.PricingEngine;
+import com.viktor.lab4.PricingRequest;
+
+public class QwenTest23 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceBoundaryCases() {
+        // Test with an empty request
+        PricingRequest emptyRequest = new PricingRequest(0.0, 0, PricingEngine.CustomerType.REGULAR, false, null, false, 0);
+        double resultEmpty = PricingEngine.calculateFinalPrice(emptyRequest);
+        assertEquals(0.0, resultEmpty, 0.01);
+
+        // Test with zero quantity
+        PricingRequest zeroQuantityRequest = new PricingRequest(10.0, 0, PricingEngine.CustomerType.REGULAR, false, null, false, 0);
+        double resultZeroQuantity = PricingEngine.calculateFinalPrice(zeroQuantityRequest);
+        assertEquals(0.0, resultZeroQuantity, 0.01);
+
+        // Test with smallest legal quantity (1)
+        PricingRequest oneQuantityRequest = new PricingRequest(10.0, 1, PricingEngine.CustomerType.REGULAR, false, null, false, 0);
+        double resultOneQuantity = PricingEngine.calculateFinalPrice(oneQuantityRequest);
+        assertEquals(10.0, resultOneQuantity, 0.01);
+    }
+}
+```

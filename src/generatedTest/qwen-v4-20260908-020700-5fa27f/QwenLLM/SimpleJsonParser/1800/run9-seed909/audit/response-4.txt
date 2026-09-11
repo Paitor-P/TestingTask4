@@ -1,0 +1,24 @@
+To fix the compilation error and ensure that the test runs correctly, we need to use a different assertion method that can handle `double` values. The `assertEquals` method for `double` values is `assertEquals(double expected, double actual, double delta)`. Let's update the test accordingly:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest4 {
+
+    @Test(timeout = 1000)
+    public void testParseSimpleNumber() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        Object result = parser.parse("123.45");
+        assertEquals(123.45, result, 1e-10); // Using a small tolerance for floating-point comparison
+    }
+}
+```
+
+### Explanation:
+- **Test Method**: The test method `testParseSimpleNumber` is kept unchanged.
+- **Parser Instance**: The `SimpleJsonParser` instance is created as before.
+- **Parsing**: The `parse` method is called with the string `"123.45"`.
+- **Assertion**: The `assertEquals` method is used with three parameters: the expected `double` value (`123.45`), the actual `Object` returned by the parser (`result`), and a `delta` value (`1e-10`). The `delta` value is a small tolerance used to handle floating-point comparison inaccuracies.

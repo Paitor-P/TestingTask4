@@ -1,0 +1,15 @@
+JUnit version 4.13.2
+.E
+Time: 0,01
+There was 1 failure:
+1) testParseSingleDigit(com.viktor.lab4.autogen.QwenTest15)
+java.lang.AssertionError: expected: java.lang.String<42.0> but was: java.lang.Double<42.0>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at com.viktor.lab4.autogen.QwenTest15.testParseSingleDigit(QwenTest15.java:14)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+

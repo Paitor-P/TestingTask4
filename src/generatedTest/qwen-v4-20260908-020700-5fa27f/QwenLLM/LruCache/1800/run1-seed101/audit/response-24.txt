@@ -1,0 +1,24 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.LruCache;
+
+public class QwenTest24 {
+
+    @Test(timeout = 1000)
+    public void testEvictionAtThreshold() {
+        LruCache<String, String> cache = new LruCache<>(2);
+        cache.put("1", "one");
+        cache.put("2", "two");
+        cache.put("3", "three");
+
+        // Verify that "1" is evicted
+        assertNull(cache.get("1"));
+        assertNotNull(cache.get("2"));
+        assertNotNull(cache.get("3"));
+        assertEquals(2, cache.size());
+    }
+}
+```

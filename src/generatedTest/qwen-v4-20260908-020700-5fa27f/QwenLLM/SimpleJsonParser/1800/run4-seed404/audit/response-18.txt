@@ -1,0 +1,26 @@
+To fix the failure in the test, we need to change the assertion from `assertEquals(double, Object, double)` to `assertEquals(double, double, double)`, since the expected value is already a double. We will also adjust the tolerance to a more reasonable value to handle the precision of floating-point numbers.
+
+Here's the corrected code:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest18 {
+
+    @Test(timeout = 1000)
+    public void testParseNumberCloseToThreshold() {
+        String input = "[1234567890.9999999999999999999]";
+        SimpleJsonParser parser = new SimpleJsonParser();
+        Object result = parser.parse(input);
+        assertEquals(1234567890.9999999999999999999, (double) result, 1e-10);
+    }
+}
+```
+
+### Key Changes:
+- **Assertion Method**: Changed from `assertEquals(double, Object, double)` to `assertEquals(double, double, double)`.
+- **Type Casting**: Cast `result` to `double` before passing it to `assertEquals`, as `result` is of type `Object`.
+- **Tolerance**: Adjusted the tolerance to `1e-10` to better handle the precision of floating-point numbers.

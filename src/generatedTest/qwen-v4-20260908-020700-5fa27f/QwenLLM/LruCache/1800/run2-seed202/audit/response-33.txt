@@ -1,0 +1,37 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest33 {
+
+    @Test(timeout = 1000)
+    public void testEmptyCache() {
+        LruCache<String, Integer> cache = new LruCache<>(1);
+        assertFalse(cache.containsKey("test"));
+        assertEquals(0, cache.size());
+        assertNull(cache.get("test"));
+        cache.put("test", 42);
+        assertEquals(1, cache.size());
+        assertEquals(42, cache.get("test").intValue());
+        cache.get("test");
+        assertEquals(1, cache.size());
+        cache.put("test", 24);
+        assertEquals(1, cache.size());
+        assertEquals(24, cache.get("test").intValue());
+        cache.put("another", 10);
+        assertEquals(2, cache.size());
+        assertEquals(24, cache.get("test").intValue());
+        cache.put("third", 36);
+        assertEquals(3, cache.size());
+        assertEquals(36, cache.get("third").intValue());
+        cache.get("test");
+        assertEquals(3, cache.size());
+        assertEquals(36, cache.get("test").intValue());
+        // Corrected the assertion to match the expected behavior
+        assertEquals(3, cache.size());
+        assertEquals(36, cache.get("third").intValue());
+    }
+}
+```

@@ -1,0 +1,28 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.LruCache;
+
+public class QwenTest7 {
+
+    @Test(timeout = 1000)
+    public void testRemoveNonExistentKey() {
+        LruCache<String, Integer> cache = new LruCache<>(10);
+        assertEquals(0, cache.size());
+        assertFalse(cache.containsKey("key"));
+        assertNull(cache.get("key"));
+        cache.put("key", 10);
+        assertEquals(1, cache.size());
+        assertTrue(cache.containsKey("key"));
+        assertEquals(10, cache.get("key").intValue());
+        
+        // Attempt to remove a non-existent key
+        assertFalse(cache.remove("nonExistentKey")); // The method should return false
+        assertEquals(1, cache.size()); // The size should remain the same
+        assertFalse(cache.containsKey("nonExistentKey")); // The key should not exist
+        assertNull(cache.get("nonExistentKey")); // The value should be null
+    }
+}
+```

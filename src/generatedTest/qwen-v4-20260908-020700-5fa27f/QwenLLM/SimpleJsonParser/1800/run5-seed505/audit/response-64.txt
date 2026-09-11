@@ -1,0 +1,23 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.SimpleJsonParser;
+
+public class QwenTest64 {
+
+    @Test(timeout = 1000)
+    public void testInvalidNullInput() {
+        try {
+            SimpleJsonParser parser = new SimpleJsonParser();
+            parser.parse(null);
+            fail("Expected IllegalArgumentException for null input");
+        } catch (IllegalArgumentException e) {
+            assertEquals("input must not be null", e.getMessage());
+        }
+    }
+}
+```
+
+This corrected the failure by creating an instance of `SimpleJsonParser` within the test method. This allows the static method `parse` to be called on the instance.

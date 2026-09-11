@@ -1,0 +1,21 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest22 {
+
+    @Test(timeout=1000)
+    public void testSimpleJsonParsing() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        String input = "[1, 2, 3, \"Hello\", {\"key\": \"value\"}]";
+        Object result = parser.parse(input);
+        List<Object> expected = List.of(
+                1, 2, 3, "Hello",
+                Map.of("key", "value")
+        );
+        assertEquals(expected, result);
+    }
+}
+```

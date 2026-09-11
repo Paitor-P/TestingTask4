@@ -1,0 +1,33 @@
+To address the reported failure, we need to ensure that the test class is correctly named and that the test method is properly defined within it. Let's rename the class and update the test method to match the failing scenario.
+
+### Corrected Java File:
+
+```java
+package com.viktor.lab4.autogen;
+
+import java.util.Map;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.SimpleJsonParser;
+
+public class QwenTest22 {
+
+    @Test(timeout = 1000)
+    public void testParseSimpleObject() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        String input = "{\"name\":\"John\", \"age\":30, \"city\":\"New York\"}";
+        Object result = parser.parse(input);
+        assertTrue(result instanceof Map);
+        Map<String, Object> map = (Map<String, Object>) result;
+        assertEquals("John", map.get("name"));
+        assertEquals(30, map.get("age"));
+        assertEquals("New York", map.get("city"));
+    }
+}
+```
+
+### Key Changes:
+1. **Renamed Class**: Changed the class name from `QwenTest20` to `QwenTest22` to match the failing test.
+2. **Test Method**: Defined a new test method `testParseSimpleObject` to cover the scenario that was failing.
+
+This should resolve the reported failure and allow the test to pass.

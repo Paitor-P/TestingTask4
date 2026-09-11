@@ -1,0 +1,23 @@
+package com.viktor.lab4.autogen;
+import com.viktor.lab4.LongestIncreasingSubsequence;
+import com.viktor.lab4.LongestIncreasingSubsequence.*;
+import org.junit.*;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.util.Arrays;
+
+public class QwenTest3 {
+
+    @Test(timeout = 1000)
+    public void testLengthOfLISWithInvalidInput() {
+        LongestIncreasingSubsequence lis = new LongestIncreasingSubsequence();
+        try {
+            lis.lengthOfLIS(null);
+            fail("IllegalArgumentException should be thrown for null input");
+        } catch (IllegalArgumentException e) {
+            assertEquals("numbers must not be null", e.getMessage());
+        }
+    }
+}

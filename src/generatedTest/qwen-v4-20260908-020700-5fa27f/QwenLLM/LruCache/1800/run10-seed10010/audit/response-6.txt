@@ -1,0 +1,26 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.util.Map;
+
+public class QwenTest6 {
+
+    @Test(timeout = 1000)
+    public void testPutInvalidKeyThrowsIllegalArgumentException() {
+        // Arrange
+        LruCache<String, String> cache = new LruCache<>(10);
+
+        // Act
+        try {
+            cache.put(null, "value"); // null is an invalid key
+            fail("Expected IllegalArgumentException for null key");
+        } catch (IllegalArgumentException e) {
+            // Assert
+            assertEquals("key must not be null", e.getMessage());
+        }
+    }
+}
+```

@@ -1,0 +1,25 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class QwenTest23 {
+
+    @Test(timeout = 1000)
+    public void testParseEmptyString() {
+        SimpleJsonParser parser = new SimpleJsonParser(""); // Corrected: added 'new' keyword
+        try {
+            parser.parse("");
+            fail("Expected IllegalArgumentException for empty input");
+        } catch (IllegalArgumentException e) {
+            assertEquals("input must not be null", e.getMessage());
+        }
+    }
+}
+```
+
+This code fixes the compilation error by adding the `new` keyword when creating an instance of `SimpleJsonParser`. The rest of the test remains unchanged.

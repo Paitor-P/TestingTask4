@@ -1,0 +1,16 @@
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\702844d57f7c710d\QwenTest32\QwenTest32.java:16: error: cannot find symbol
+        assertEquals(Map.class, result.getClass());
+                     ^
+  symbol:   class Map
+  location: class QwenTest32
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\702844d57f7c710d\QwenTest32\QwenTest32.java:17: error: cannot find symbol
+        Map<String, Object> map = (Map<String, Object>) result;
+        ^
+  symbol:   class Map
+  location: class QwenTest32
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\702844d57f7c710d\QwenTest32\QwenTest32.java:17: error: cannot find symbol
+        Map<String, Object> map = (Map<String, Object>) result;
+                                   ^
+  symbol:   class Map
+  location: class QwenTest32
+3 errors

@@ -1,0 +1,29 @@
+To fix the reported failure, we need to ensure that the parsed value is an `Integer` instead of a `Double`. Let's update the test and the parsing logic to handle this correctly.
+
+Here's the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.SimpleJsonParser;
+
+public class QwenTest39 {
+
+    @Test(timeout=1000)
+    public void testParsingArrayWithSingleElement() {
+        String input = "[1]";
+        SimpleJsonParser parser = new SimpleJsonParser();
+        List<Object> result = (List<Object>) parser.parse(input);
+        assertEquals(1, result.size());
+        assertEquals(Integer.class, result.get(0).getClass());
+        assertEquals(1, result.get(0));
+    }
+}
+```
+
+In this corrected version, we added a check to ensure that the parsed value is an `Integer` using `result.get(0).getClass()`. This should resolve the assertion failure.

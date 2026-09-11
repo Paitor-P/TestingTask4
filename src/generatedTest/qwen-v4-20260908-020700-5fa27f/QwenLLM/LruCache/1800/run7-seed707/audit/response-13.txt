@@ -1,0 +1,23 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest13 {
+
+    @Test(timeout = 1000)
+    public void testSimplePutAndGet() {
+        LruCache<Integer, String> cache = new LruCache<>(2);
+        cache.put(1, "A");
+        cache.put(2, "B");
+        assertEquals("B", cache.get(2));
+        assertEquals("A", cache.get(1));
+        assertNull(cache.get(3)); // Since cache size is 2, the least recently used (A) is removed
+        cache.put(3, "C"); // Now 2 is least recently used, 3 is most recently used
+        assertEquals("C", cache.get(3));
+        assertEquals("B", cache.get(2)); // B is now most recently used
+        assertNull(cache.get(1)); // A is least recently used and is removed
+    }
+}
+```

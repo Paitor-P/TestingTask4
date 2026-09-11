@@ -1,0 +1,20 @@
+To fix the failure in the `testSimpleNumberParsing` method, we need to use the correct assertion method for comparing `double` values. The method `assertEquals` is not suitable for comparing `double` values directly. Instead, we can use `assertEquals` with a delta to account for floating-point arithmetic errors. Here's the corrected code:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest41 {
+
+    @Test(timeout = 1000)
+    public void testSimpleNumberParsing() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        Object result = parser.parse("123.45");
+        assertEquals(123.45, result, 0.001);
+    }
+}
+```
+
+In this corrected version, the `assertEquals` method is used with a delta of `0.001` to allow for minor floating-point precision differences. This ensures that the test passes even if the computed result has a slight discrepancy due to floating-point arithmetic.

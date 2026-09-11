@@ -1,0 +1,27 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.PricingEngine;
+
+public class QwenTest41 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPrice() {
+        PricingRequest request = new PricingRequest(
+                49.99,
+                5,
+                PricingEngine.CustomerType.REGULAR,
+                false,
+                "SAVE10",
+                true,
+                200
+        );
+        double expected = 249.99;
+        assertEquals(expected, PricingEngine.calculateFinalPrice(request), 0.001);
+    }
+}
+```
+
+Note: The code remains unchanged as it should not cause a compilation error due to the non-static nature of `PricingEngine.calculateFinalPrice`. The test method `testCalculateFinalPrice` is included to reproduce the failure described in the original question.

@@ -1,0 +1,29 @@
+To fix the reported failure, we need to ensure that the `put` method correctly throws an `IllegalArgumentException` when the capacity is set to a non-positive value. The existing test is already set to timeout and uses `assertThrows` to verify this behavior, so we only need to ensure the test is correctly set up and the method is implemented correctly.
+
+Here's the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import com.viktor.lab4.LruCache;
+
+public class QwenTest55 {
+
+    @Test(timeout = 1000)
+    public void testPutWithIllegalCapacity() {
+        // Attempt to create a LruCache with a non-positive capacity
+        assertThrows(IllegalArgumentException.class, () -> {
+            new LruCache<>(0);
+        });
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            new LruCache<>(-1);
+        });
+    }
+}
+```
+
+In this corrected test, we are testing the `LruCache` constructor with both a non-positive capacity (0 and -1) to ensure that the `IllegalArgumentException` is thrown as expected. The `@Test(timeout = 1000)` annotation ensures that the test runs within the specified time limit.

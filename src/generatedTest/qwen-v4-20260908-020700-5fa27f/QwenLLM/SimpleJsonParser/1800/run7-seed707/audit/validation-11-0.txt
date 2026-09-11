@@ -1,0 +1,17 @@
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\d8d3c8ea10a7edf4\QwenTest11\QwenTest11.java:17: error: no suitable method found for assertEquals(double,Object,double)
+            assertEquals(123.45, result, 1e-9); // Adjusted tolerance
+            ^
+    method Assert.assertEquals(String,Object[],Object[]) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(float,float,float) is not applicable
+      (argument mismatch; possible lossy conversion from double to float)
+    method Assert.assertEquals(double,double,double) is not applicable
+      (argument mismatch; Object cannot be converted to double)
+    method Assert.assertEquals(String,double,double) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(String,long,long) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(String,Object,Object) is not applicable
+      (argument mismatch; double cannot be converted to String)
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+1 error

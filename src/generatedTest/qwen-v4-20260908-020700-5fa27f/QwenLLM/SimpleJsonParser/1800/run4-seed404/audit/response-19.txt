@@ -1,0 +1,31 @@
+To fix the `ClassCastException`, we need to ensure that the `Object` returned by the parser is indeed a `Double`. We can modify the assertion to check the type of the result before casting it. Additionally, we need to handle the case where the parser returns a list, which should not occur in this context.
+
+Here's the corrected code:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest18 {
+
+    @Test(timeout = 1000)
+    public void testParseNumberCloseToThreshold() {
+        String input = "[1234567890.9999999999999999999]";
+        SimpleJsonParser parser = new SimpleJsonParser();
+        Object result = parser.parse(input);
+
+        if (result instanceof Double) {
+            assertEquals(1234567890.9999999999999999999, (double) result, 1e-10);
+        } else {
+            fail("Expected a Double, but got " + result.getClass().getName());
+        }
+    }
+}
+```
+
+### Key Changes:
+- **Type Checking**: Added a check to ensure `result` is an instance of `Double` before casting it.
+- **Error Handling**: Added a `fail` statement if `result` is not a `Double`, providing more context about the failure.
+- **Assertion**: Adjusted the assertion to check for the expected type, ensuring the test is more robust.

@@ -1,0 +1,14 @@
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\301a6a5df3551f64\QwenTest22\QwenTest22.java:13: error: cannot find symbol
+        com.viktor.lab4.PricingRequest request = new com.viktor.lab4.PricingRequest(100.0, 5, com.viktor.lab4.PricingEngine.CustomerType.REGULAR, false, "SAVE10", false, 500);
+                       ^
+  symbol:   class PricingRequest
+  location: package com.viktor.lab4
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\301a6a5df3551f64\QwenTest22\QwenTest22.java:13: error: cannot find symbol
+        com.viktor.lab4.PricingRequest request = new com.viktor.lab4.PricingRequest(100.0, 5, com.viktor.lab4.PricingEngine.CustomerType.REGULAR, false, "SAVE10", false, 500);
+                                                                    ^
+  symbol:   class PricingRequest
+  location: package com.viktor.lab4
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\301a6a5df3551f64\QwenTest22\QwenTest22.java:15: error: non-static method calculateFinalPrice(PricingRequest) cannot be referenced from a static context
+        double actual = com.viktor.lab4.PricingEngine.calculateFinalPrice(request);
+                                                     ^
+3 errors

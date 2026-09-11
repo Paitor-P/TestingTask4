@@ -1,0 +1,19 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest41 {
+
+    @Test(timeout=1000)
+    public void testParseNumber() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        String input = "123.456";
+        Object result = parser.parse(input);
+        assertEquals(123.456, (double) result, 1e-9); // Cast to double to match the expected type
+    }
+}
+```
+
+This fix ensures that the expected value is cast to a double before being compared with the result of the `parseNumber` method, matching the expected type of the result.

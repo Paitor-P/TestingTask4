@@ -1,0 +1,71 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest22 {
+
+    @Test(timeout = 1000)
+    public void testLruCache() {
+        LruCache<String, Integer> cache = new LruCache<>(3);
+
+        // Put some initial values
+        cache.put("a", 1);
+        cache.put("b", 2);
+        cache.put("c", 3);
+
+        // Check that the size is correct
+        assertEquals(3, cache.size());
+
+        // Access a value and check it is still in the cache
+        int value = cache.get("a");
+        assertEquals(1, value);
+
+        // Check that size is correct after accessing an existing key
+        assertEquals(3, cache.size());
+
+        // Put a new value and check that the oldest value is evicted
+        cache.put("d", 4);
+        assertEquals(3, cache.size());
+        assertNull(cache.get("a"));
+
+        // Check that the cache size is now correct after eviction
+        assertEquals(3, cache.size());
+
+        // Check that the new value is in the cache
+        value = cache.get("d");
+        assertEquals(4, value);
+
+        // Check that size is correct after accessing a new key
+        assertEquals(3, cache.size());
+
+        // Put another new value and check that the oldest value is evicted
+        cache.put("e", 5);
+        assertEquals(3, cache.size());
+        assertNull(cache.get("b"));
+
+        // Check that the cache size is now correct after eviction
+        assertEquals(3, cache.size());
+
+        // Check that the new value is in the cache
+        value = cache.get("e");
+        assertEquals(5, value);
+
+        // Check that size is correct after accessing a new key
+        assertEquals(3, cache.size());
+
+        // Put a final value and check that the oldest value is evicted
+        cache.put("f", 6);
+        assertEquals(3, cache.size());
+        assertNull(cache.get("c"));
+
+        // Check that the cache size is now correct after eviction
+        assertEquals(3, cache.size());
+
+        // Check that the new value is in the cache
+        value = cache.get("f");
+        assertEquals(6, value);
+    }
+}
+```

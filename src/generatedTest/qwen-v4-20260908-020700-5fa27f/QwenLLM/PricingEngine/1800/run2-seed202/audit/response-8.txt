@@ -1,0 +1,20 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest8 {
+
+    @Test(timeout = 1000)
+    public void testInvalidCustomerType() {
+        PricingRequest request = new PricingRequest(100.0, 1, null, false, "SAVE10", false, 500);
+        try {
+            PricingEngine.calculateFinalPrice(request);
+            fail("Expected IllegalArgumentException for null customerType");
+        } catch (IllegalArgumentException e) {
+            assertEquals("customerType must not be null", e.getMessage());
+        }
+    }
+}
+```

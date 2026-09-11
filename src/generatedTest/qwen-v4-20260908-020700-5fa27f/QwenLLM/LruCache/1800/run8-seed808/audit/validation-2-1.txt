@@ -1,0 +1,15 @@
+JUnit version 4.13.2
+.E
+Time: 0,046
+There was 1 failure:
+1) testPutAndGet(com.viktor.lab4.autogen.QwenTest2)
+java.lang.AssertionError: expected:<3> but was:<1>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:647)
+	at org.junit.Assert.assertEquals(Assert.java:633)
+	at com.viktor.lab4.autogen.QwenTest2.testPutAndGet(QwenTest2.java:17)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+

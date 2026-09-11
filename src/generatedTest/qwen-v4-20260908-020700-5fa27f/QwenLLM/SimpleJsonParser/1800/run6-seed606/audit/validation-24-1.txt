@@ -1,0 +1,13 @@
+JUnit version 4.13.2
+.E
+Time: 0,022
+There was 1 failure:
+1) testInvalidInput(com.viktor.lab4.autogen.QwenTest24)
+org.junit.ComparisonFailure: expected:<[input must not be null]> but was:<[Unsupported token 't' at position 0]>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at com.viktor.lab4.autogen.QwenTest24.testInvalidInput(QwenTest24.java:26)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+

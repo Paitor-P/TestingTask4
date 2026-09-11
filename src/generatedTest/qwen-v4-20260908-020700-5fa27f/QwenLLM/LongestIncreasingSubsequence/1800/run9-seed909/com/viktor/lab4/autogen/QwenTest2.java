@@ -1,0 +1,23 @@
+package com.viktor.lab4.autogen;
+import com.viktor.lab4.LongestIncreasingSubsequence.*;
+import org.junit.*;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.LongestIncreasingSubsequence;
+
+public class QwenTest2 {
+
+    @Test(timeout = 1000)
+    public void testLongestIncreasingSubsequence() {
+        int[] numbers = {10, 9, 2, 5, 3, 7, 101, 18};
+        int expected = 4;
+        try {
+            int result = new LongestIncreasingSubsequence().lengthOfLIS(numbers);
+            assertEquals(expected, result);
+        } catch (IllegalArgumentException e) {
+            // This exception is expected and should not be thrown
+            fail("IllegalArgumentException should not be thrown");
+        }
+    }
+}

@@ -1,0 +1,26 @@
+To fix the reported failure, we need to ensure that the `SimpleJsonParser` instance is properly initialized with a valid input string before calling the `parse` method. Here's the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.SimpleJsonParser;
+
+public class QwenTest28 {
+
+    @Test(timeout=1000)
+    public void testInvalidNullInput() {
+        SimpleJsonParser parser = new SimpleJsonParser(); // Use the default constructor
+        try {
+            parser.parse("{}");
+        } catch (IllegalArgumentException e) {
+            assertEquals("input must not be null", e.getMessage());
+            return;
+        }
+        fail("Expected IllegalArgumentException for null input");
+    }
+}
+```
+
+This change ensures that the `SimpleJsonParser` instance is properly initialized with a valid input string before calling the `parse` method. The `SimpleJsonParser` instance is now created using the default constructor, which initializes the `source` field to `null`. This should resolve the reported failure.

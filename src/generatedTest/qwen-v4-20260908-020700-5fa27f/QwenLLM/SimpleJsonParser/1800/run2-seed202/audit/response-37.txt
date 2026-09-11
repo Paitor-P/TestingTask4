@@ -1,0 +1,24 @@
+To fix the reported failure and ensure the test class is correctly named, we need to rename the test class to `QwenTest37` as indicated in the reference source. Here's the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class QwenTest37 {
+
+    @Test(timeout = 1000)
+    public void testParseNumberNearThreshold() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        String input = "1.000000000000001";
+        Object result = parser.parse(input);
+        assertEquals(1.000000000000001, result, 1e-14);
+    }
+}
+```
+
+This code now includes the corrected test class name and ensures that the test case for parsing a number near a threshold is properly implemented.

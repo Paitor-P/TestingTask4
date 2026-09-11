@@ -1,0 +1,14 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest14 {
+    @Test(timeout = 1000)
+    public void testEmptyArray() {
+        LongestIncreasingSubsequence lis = new LongestIncreasingSubsequence();
+        assertEquals(0, lis.lengthOfLIS(new int[]{}));
+    }
+}
+```

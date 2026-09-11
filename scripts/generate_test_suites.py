@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate reproducible test suites with EvoSuite and Randoop.
+Generate reproducible test suites with EvoSuite, Randoop and local Qwen.
 Generates test cases for multiple classes with various budgets and seeds.
 """
 
@@ -174,7 +174,7 @@ def get_next_run_index(out_base: Path, tool: str, class_short: str, budget: int)
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Generate test cases using EvoSuite and Randoop',
+        description='Generate test cases using EvoSuite, Randoop and local QwenLLM',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
     parser.add_argument(
@@ -182,6 +182,7 @@ def main():
         default=str(PROJECT_ROOT),
         help='Repository root directory'
     )
+    parser.add_argument('--llm-config', default='llm.toml', help='Local Qwen protocol configuration')
     parser.add_argument(
         '--experiment-config',
         default='experiment.toml',
@@ -244,9 +245,14 @@ def main():
     experiment = load_experiment_config(Path(repo_root), args.experiment_config)
 
     tools = expand_list_parameter(args.tools) if args.tools else experiment.tools
+    unknown_tools = set(tools) - {'EvoSuite', 'Randoop', 'QwenLLM'}
+    if unknown_tools:
+        raise ValueError(f'Unsupported tools: {sorted(unknown_tools)}')
     target_classes = expand_list_parameter(args.target_classes) if args.target_classes else experiment.target_classes
     budgets = expand_int_list_parameter(args.budgets, "budgets") if args.budgets else experiment.budgets
     seeds = expand_int_list_parameter(args.seeds, "seeds") if args.seeds else experiment.seeds
+    if any(b <= 0 for b in budgets) or any(s < 0 for s in seeds):
+        raise ValueError('Budgets must be positive and seeds nonnegative')
     
     evosuite_jar = os.path.join(repo_root, "tools/evosuite-1.2.0.jar")
     randoop_jar = os.path.join(repo_root, "tools/randoop-all-4.3.3.jar")
@@ -265,7 +271,7 @@ def main():
         ensure_file_exists(candidate_java, "Bundled JDK8 java.exe not found")
         java_exe = candidate_java
     
-    if "EvoSuite" in tools:
+    if "EvoSuite" in tools or "QwenLLM" in tools:
         java_was_explicit = args.use_bundled_jdk8 or (args.java_exe != parser.get_default('java_exe'))
         java_major = get_java_major_version(java_exe)
         
@@ -282,6 +288,10 @@ def main():
                 f"Use JDK 8/11/17 via --java-exe."
             )
     
+    if "QwenLLM" in tools:
+        if get_java_major_version(java_exe) != 17:
+            raise RuntimeError('Qwen validation requires JDK 17; use --java-exe')
+        os.environ['JAVA_HOME'] = str(Path(java_exe).resolve().parent.parent)
     if not args.skip_build:
         invoke_external(
             gradlew,
@@ -316,6 +326,11 @@ def main():
     summary_path = summary_dir / summary_file_name
     
     rows = []
+    llm_context = None
+    if 'QwenLLM' in tools and not args.dry_run:
+        from llm_generator import prepare, ensure_protocol_directory
+        ensure_protocol_directory(out_base)
+        llm_context = prepare(Path(repo_root), resolve_project_path(Path(repo_root), args.llm_config), java_exe)
     evosuite_jvm_args = [
         "-Djava.awt.headless=true",
         "--add-opens", "java.desktop/java.awt=ALL-UNNAMED",
@@ -326,10 +341,11 @@ def main():
     
     for tool in tools:
         print(f"Tool = {tool}")
+        tool_budgets = budgets if args.budgets else experiment.budgets_for(tool)
         for target in target_classes:
             print(f"target = {target}")
             class_short = get_class_short_name(target)
-            for budget in budgets:
+            for budget in tool_budgets:
                 for seed in seeds:
                     print(f"budget = {budget}, seed = {seed}")
                     run_index = get_next_run_index(out_base, tool, class_short, budget)
@@ -374,6 +390,12 @@ def main():
                             ]
                             invoke_external(java_exe, cmd_args, dry_run=args.dry_run)
                         
+                        elif tool == "QwenLLM":
+                            if args.dry_run:
+                                print(f'QwenLLM: {target}, budget={budget}s, seed={seed}, config={args.llm_config}')
+                            else:
+                                from llm_generator import generate
+                                status = generate(Path(repo_root), target, budget, seed, run_dir, llm_context)
                         else:
                             raise ValueError(f"Unsupported tool: {tool}")
                     
@@ -397,15 +419,22 @@ def main():
                         'error': error_text
                     })
     
-    with open(summary_path, 'w', newline='', encoding='utf-8') as f:
+    # Preserve earlier experimental measurements when adding another tool/run.
+    has_header = summary_path.exists() and summary_path.stat().st_size > 0
+    with open(summary_path, 'a', newline='', encoding='utf-8') as f:
         writer = csv.DictWriter(f, fieldnames=[
             'timestamp', 'tool', 'targetClass', 'budgetSec', 'run', 'seed',
             'status', 'elapsedSec', 'outputDir', 'error'
         ])
-        writer.writeheader()
+        if not has_header:
+            writer.writeheader()
         writer.writerows(rows)
     
     print(f"\nDone. Summary: {summary_path}")
+    print('GENERATION FINISHED: ' + ', '.join(
+        f'{status}={sum(row["status"] == status for row in rows)}'
+        for status in ('OK', 'EMPTY', 'FAIL')), flush=True)
+    return 1 if any(row['status'] == 'FAIL' for row in rows) else 0
 
 
 if __name__ == '__main__':

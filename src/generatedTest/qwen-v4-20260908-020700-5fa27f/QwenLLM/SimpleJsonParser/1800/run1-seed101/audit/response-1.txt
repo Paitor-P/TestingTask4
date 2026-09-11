@@ -1,0 +1,26 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest1 {
+
+    @Test(timeout = 1000)
+    public void testParseSimpleJson() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        String input = "[1, 2, 3, \"hello\", {\"key\": \"value\"}]";
+        Object result = parser.parse(input);
+        assertTrue(result instanceof List);
+        List<Object> listResult = (List<Object>) result;
+        assertEquals(6, listResult.size());
+        assertEquals(1, listResult.get(0));
+        assertEquals(2, listResult.get(1));
+        assertEquals(3, listResult.get(2));
+        assertEquals("hello", listResult.get(3));
+        assertTrue(listResult.get(4) instanceof Map);
+        Map<?, ?> mapResult = (Map<?, ?>) listResult.get(4);
+        assertEquals("value", mapResult.get("key"));
+    }
+}
+```

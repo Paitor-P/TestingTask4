@@ -1,0 +1,131 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest29 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPrice() {
+        PricingEngine engine = new PricingEngine();
+
+        PricingRequest request = new PricingRequest(
+                50.0, 15, PricingEngine.CustomerType.REGULAR, true, "SAVE10", true, 500);
+
+        double result = engine.calculateFinalPrice(request);
+        assertEquals(131.25, result, 0.01);
+    }
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithMultipleDiscounts() {
+        PricingEngine engine = new PricingEngine();
+
+        PricingRequest request = new PricingRequest(
+                100.0, 10, PricingEngine.CustomerType.VIP, true, "SAVE10", true, 500);
+
+        double result = engine.calculateFinalPrice(request);
+        assertEquals(90.0, result, 0.01);
+    }
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithLoyaltyPoints() {
+        PricingEngine engine = new PricingEngine();
+
+        PricingRequest request = new PricingRequest(
+                50.0, 10, PricingEngine.CustomerType.REGULAR, true, "SAVE10", true, 500);
+
+        double result = engine.calculateFinalPrice(request);
+        assertEquals(131.25, result, 0.01);
+    }
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithNoDiscounts() {
+        PricingEngine engine = new PricingEngine();
+
+        PricingRequest request = new PricingRequest(
+                50.0, 1, PricingEngine.CustomerType.REGULAR, false, null, false, 0);
+
+        double result = engine.calculateFinalPrice(request);
+        assertEquals(50.0, result, 0.01);
+    }
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithNegativeQuantity() {
+        PricingEngine engine = new PricingEngine();
+
+        PricingRequest request = new PricingRequest(
+                50.0, -1, PricingEngine.CustomerType.REGULAR, false, null, false, 0);
+
+        try {
+            engine.calculateFinalPrice(request);
+            fail("Expected IllegalArgumentException");
+        } catch (IllegalArgumentException e) {
+            // Expected exception
+        }
+    }
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithNegativeBasePrice() {
+        PricingEngine engine = new PricingEngine();
+
+        PricingRequest request = new PricingRequest(
+                -50.0, 1, PricingEngine.CustomerType.REGULAR, false, null, false, 0);
+
+        try {
+            engine.calculateFinalPrice(request);
+            fail("Expected IllegalArgumentException");
+        } catch (IllegalArgumentException e) {
+            // Expected exception
+        }
+    }
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithNullCustomerType() {
+        PricingEngine engine = new PricingEngine();
+
+        PricingRequest request = new PricingRequest(
+                50.0, 1, null, false, null, false, 0);
+
+        try {
+            engine.calculateFinalPrice(request);
+            fail("Expected IllegalArgumentException");
+        } catch (IllegalArgumentException e) {
+            // Expected exception
+        }
+    }
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithNegativeLoyaltyPoints() {
+        PricingEngine engine = new PricingEngine();
+
+        PricingRequest request = new PricingRequest(
+                50.0, 1, PricingEngine.CustomerType.REGULAR, false, null, false, -100);
+
+        try {
+            engine.calculateFinalPrice(request);
+            fail("Expected IllegalArgumentException");
+        } catch (IllegalArgumentException e) {
+            // Expected exception
+        }
+    }
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithLoyaltyTierMax() {
+        PricingEngine engine = new PricingEngine();
+
+        PricingRequest request = new PricingRequest(
+                50.0, 1, PricingEngine.CustomerType.REGULAR, false, null, false, 1000);
+
+        double result = engine.calculateFinalPrice(request);
+        assertEquals(51.25, result, 0.01);
+    }
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithLoyaltyTierMultipleDiscounts() {
+        PricingEngine engine = new PricingEngine();
+
+        PricingRequest request = new PricingRequest(
+                100.0, 10, PricingEngine.CustomerType.VIP, true, "SAVE10", true, 500);
+
+        double result = engine

@@ -1,0 +1,36 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.LruCache;
+
+public class QwenTest49 {
+
+    @Test(timeout = 1000)
+    public void testBasicOperations() {
+        LruCache<Integer, String> cache = new LruCache<>(3);
+
+        // Basic put and get operations
+        cache.put(1, "one");
+        cache.put(2, "two");
+        assertEquals("two", cache.get(2));
+        assertEquals("one", cache.get(1));
+
+        // Eviction test
+        cache.put(3, "three");
+        assertEquals("two", cache.get(2)); // "two" should be evicted
+        assertEquals("three", cache.get(3));
+
+        // Put after eviction
+        cache.put(4, "four");
+        assertEquals("three", cache.get(3)); // "three" should still be there
+        assertNull(cache.get(2)); // "two" has been evicted
+
+        // Check size
+        assertEquals(2, cache.size());
+    }
+}
+```
+
+This test class `QwenTest49` contains a single `@Test` method `testBasicOperations` that verifies the basic operations of the `LruCache` class, including put, get, eviction, and size checks. The test uses the `@Test(timeout=1000)` annotation to ensure the test runs within 1000 milliseconds.

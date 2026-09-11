@@ -1,0 +1,10 @@
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\9c58fcf0699cf18e\QwenTest14\QwenTest14.java:20: error: reference to assertEquals is ambiguous
+        assertEquals(1, lruCache.get("key1"));
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\9c58fcf0699cf18e\QwenTest14\QwenTest14.java:23: error: cannot find symbol
+        lruCache.clear();
+                ^
+  symbol:   method clear()
+  location: variable lruCache of type LruCache<String,Integer>
+2 errors

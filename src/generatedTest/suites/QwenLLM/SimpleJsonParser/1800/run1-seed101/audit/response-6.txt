@@ -1,0 +1,45 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest6 {
+
+    @Test(timeout=1000)
+    public void testParseEmptyString() {
+        SimpleJsonParser parser = new SimpleJsonParser("");
+        assertNull(parser.parse());
+    }
+
+    @Test(timeout=1000)
+    public void testParseSingleObject() {
+        SimpleJsonParser parser = new SimpleJsonParser("{\"name\":\"John\", \"age\":30}");
+        assertEquals("{\"name\":\"John\", \"age\":30}", parser.parse());
+    }
+
+    @Test(timeout=1000)
+    public void testParseEmptyArray() {
+        SimpleJsonParser parser = new SimpleJsonParser("[]");
+        assertEquals(new ArrayList<>(), parser.parse());
+    }
+
+    @Test(timeout=1000)
+    public void testParseSingleElementArray() {
+        SimpleJsonParser parser = new SimpleJsonParser("[1]");
+        assertEquals(1, parser.parse());
+    }
+
+    @Test(timeout=1000)
+    public void testParseNestedArray() {
+        SimpleJsonParser parser = new SimpleJsonParser("[[1, 2], [3, 4]]");
+        assertEquals(new ArrayList<>(List.of(List.of(1, 2), List.of(3, 4))), parser.parse());
+    }
+
+    @Test(timeout=1000)
+    public void testParseNestedObject() {
+        SimpleJsonParser parser = new SimpleJsonParser("{\"name\":{\"first\":\"John\", \"last\":\"Doe\"}, \"age\":30}");
+        assertEquals("{\"name\":{\"first\":\"John\", \"last\":\"Doe\"}, \"age\":30}", parser.parse());
+    }
+}
+```

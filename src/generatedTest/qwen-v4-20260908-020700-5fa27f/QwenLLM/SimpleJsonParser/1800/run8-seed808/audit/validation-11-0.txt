@@ -1,0 +1,26 @@
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\585ecb810e4695b7\QwenTest11\QwenTest11.java:15: error: cannot find symbol
+        assertTrue(result instanceof List);
+                                     ^
+  symbol:   class List
+  location: class QwenTest11
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\585ecb810e4695b7\QwenTest11\QwenTest11.java:16: error: cannot find symbol
+        assertEquals(3, ((List<?>) result).size());
+                          ^
+  symbol:   class List
+  location: class QwenTest11
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\585ecb810e4695b7\QwenTest11\QwenTest11.java:17: error: cannot find symbol
+        assertEquals(1, (int) ((List<?>) result).get(0));
+                                ^
+  symbol:   class List
+  location: class QwenTest11
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\585ecb810e4695b7\QwenTest11\QwenTest11.java:18: error: cannot find symbol
+        assertEquals(2, (int) ((List<?>) result).get(1));
+                                ^
+  symbol:   class List
+  location: class QwenTest11
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\585ecb810e4695b7\QwenTest11\QwenTest11.java:19: error: cannot find symbol
+        assertEquals(3, (int) ((List<?>) result).get(2));
+                                ^
+  symbol:   class List
+  location: class QwenTest11
+5 errors

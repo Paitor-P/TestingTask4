@@ -1,0 +1,21 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.LruCache;
+
+public class QwenTest6 {
+
+    @Test(timeout = 1000)
+    public void testPutInvalidNullKey() {
+        LruCache<Integer, String> cache = new LruCache<>(1);
+        try {
+            cache.put(null, "value");
+            fail("Expected IllegalArgumentException for null key");
+        } catch (IllegalArgumentException e) {
+            assertEquals("capacity must be > 0", e.getMessage());
+        }
+    }
+}
+```

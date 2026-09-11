@@ -1,0 +1,38 @@
+Certainly! Let's address the compilation error and ensure the test runs correctly. We need to import the `PricingRequest` class and make sure the `calculateFinalPrice` method is called on an instance of `PricingEngine`.
+
+Here's the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.PricingEngine;
+import com.viktor.lab4.PricingRequest;
+
+public class QwenTest21 {
+
+    @Test(timeout = 1000)
+    public void testFinalPriceWithLoyaltyTierAndSeasonalSale() {
+        PricingEngine engine = new PricingEngine(); // Create an instance of PricingEngine
+        PricingRequest request = new PricingRequest(
+                50.0, // basePrice
+                15,  // quantity
+                PricingEngine.CustomerType.VIP, // customerType
+                true,  // seasonalSale
+                "SAVE10", // couponCode
+                false, // firstOrder
+                400    // loyaltyPoints
+        );
+
+        double expected = 43.15;
+        double actual = engine.calculateFinalPrice(request); // Call the method on the instance
+
+        assertEquals(expected, actual, 0.01);
+    }
+}
+```
+
+### Key Changes:
+1. **Import Statement**: Added the import statement for `com.viktor.lab4.PricingRequest` to fix the compilation error.
+2. **Instance Creation**: Created an instance of `PricingEngine` to call the `calculateFinalPrice` method. This is necessary because the method is non-static and must be invoked on an object of the class.

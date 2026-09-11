@@ -1,0 +1,35 @@
+To fix the failure, we need to create an instance of `PricingEngine` and then call the `calculateFinalPrice` method on that instance. Here's the corrected code:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.PricingEngine;
+
+public class QwenTest15 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithLoyaltyPoints() {
+        // Create an instance of PricingEngine
+        PricingEngine engine = new PricingEngine();
+
+        PricingRequest request = new PricingRequest(
+                100.0,
+                15,
+                PricingEngine.CustomerType.REGULAR,
+                false,
+                "SAVE10",
+                false,
+                150
+        );
+
+        double expected = 117.0;
+        double actual = engine.calculateFinalPrice(request);
+
+        assertEquals("Test case failed", expected, actual, 0.001);
+    }
+}
+```
+
+In this corrected version, we've added an instance of `PricingEngine` and used it to call the `calculateFinalPrice` method, which resolves the compilation error.

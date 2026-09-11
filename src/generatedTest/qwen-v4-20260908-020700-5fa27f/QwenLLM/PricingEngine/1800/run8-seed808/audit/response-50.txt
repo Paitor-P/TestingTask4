@@ -1,0 +1,15 @@
+The error you're encountering is due to the fact that the `calculateFinalPrice` method is a non-static method and needs to be called on an instance of the `PricingEngine` class. To fix this, you need to create an instance of the `PricingEngine` class within the test method. Here's the corrected code:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import com.viktor.lab4.PricingEngine;
+
+public class QwenTest49 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithEmptyRequest() {
+        // Create an instance of PricingEngine

@@ -1,0 +1,19 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest36 {
+    @Test(timeout=1000)
+    public void testParseEmptyArray() {
+        SimpleJsonParser parser = new SimpleJsonParser("[]");
+        try {
+            Object result = parser.parse("");
+            assertEquals(new ArrayList<>(), result);
+        } catch (IllegalArgumentException e) {
+            fail("Unexpected exception");
+        }
+    }
+}
+```

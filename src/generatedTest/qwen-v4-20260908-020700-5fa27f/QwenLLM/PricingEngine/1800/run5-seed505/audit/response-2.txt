@@ -1,0 +1,29 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.PricingEngine;
+
+public class QwenTest2 {
+
+    @Test(timeout=1000)
+    public void testCalculateFinalPriceNormalCase() {
+        PricingEngine engine = new PricingEngine();
+        PricingRequest request = new PricingRequest(
+                10.0, // basePrice
+                5, // quantity
+                PricingEngine.CustomerType.REGULAR, // customerType
+                false, // seasonalSale
+                "SAVE10", // couponCode
+                true, // firstOrder
+                100 // loyaltyPoints
+        );
+
+        double expected = 50.0; // Expected price after applying all discounts and rounding
+        double result = engine.calculateFinalPrice(request);
+
+        assertEquals(expected, result, 0.001); // All assertions should be within 0.001 for rounding
+    }
+}
+```

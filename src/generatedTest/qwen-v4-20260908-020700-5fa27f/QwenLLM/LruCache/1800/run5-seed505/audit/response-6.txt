@@ -1,0 +1,24 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class QwenTest6 {
+
+    @Test(timeout = 1000)
+    public void testPutWithInvalidCapacity() {
+        // Attempt to create an LruCache with an invalid capacity
+        try {
+            new LruCache<>(0);
+            fail("Expected IllegalArgumentException for invalid capacity");
+        } catch (IllegalArgumentException e) {
+            // Expected exception, pass the test
+            assertEquals("capacity must be > 0", e.getMessage());
+        }
+    }
+}
+```

@@ -1,0 +1,28 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest39 {
+
+    @Test(timeout=1000)
+    public void testSimpleJsonParser() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        String json = "{\"name\":\"John\", \"age\":30}";
+        Object result = parser.parse(json);
+
+        if (result == null) {
+            throw new AssertionError("Parsed result is null");
+        }
+
+        if (!(result instanceof Map)) {
+            throw new AssertionError("Parsed result is not a Map");
+        }
+
+        Map<?, ?> resultMap = (Map<?, ?>) result;
+        assertEquals("John", resultMap.get("name"));
+        assertEquals(30, resultMap.get("age").intValue());
+    }
+}
+```

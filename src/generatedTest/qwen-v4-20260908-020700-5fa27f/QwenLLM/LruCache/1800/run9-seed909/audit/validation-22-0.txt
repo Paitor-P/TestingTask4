@@ -1,0 +1,25 @@
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\8e00359635fb956d\QwenTest22\QwenTest22.java:20: error: reference to assertEquals is ambiguous
+        assertEquals(1, cache.get("A"));
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\8e00359635fb956d\QwenTest22\QwenTest22.java:21: error: reference to assertEquals is ambiguous
+        assertEquals(2, cache.get("B"));
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\8e00359635fb956d\QwenTest22\QwenTest22.java:22: error: reference to assertEquals is ambiguous
+        assertEquals(3, cache.get("C"));
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\8e00359635fb956d\QwenTest22\QwenTest22.java:27: error: reference to assertEquals is ambiguous
+        assertEquals(2, cache.get("B"));
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\8e00359635fb956d\QwenTest22\QwenTest22.java:28: error: reference to assertEquals is ambiguous
+        assertEquals(3, cache.get("C"));
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\8e00359635fb956d\QwenTest22\QwenTest22.java:29: error: reference to assertEquals is ambiguous
+        assertEquals(4, cache.get("D"));
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+6 errors

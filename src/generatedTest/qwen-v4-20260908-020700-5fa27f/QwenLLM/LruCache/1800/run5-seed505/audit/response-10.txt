@@ -1,0 +1,34 @@
+```java
+package com.viktor.lab4.autogen;
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+public class QwenTest10 {
+
+    private static final int CAPACITY = 3;
+    private static final LruCache<String, Integer> lruCache = new LruCache<>(CAPACITY);
+
+    @Test(timeout = 1000)
+    public void testThresholdCondition() {
+        // Insert elements to reach the capacity
+        lruCache.put("1", 1);
+        lruCache.put("2", 2);
+        lruCache.put("3", 3);
+
+        // Check if capacity is reached
+        assertEquals(CAPACITY, lruCache.size());
+
+        // Insert one more element to trigger eviction
+        lruCache.put("4", 4);
+
+        // Check if the least recently used element "1" is evicted
+        assertFalse(lruCache.containsKey("1"));
+
+        // Check if "4" is added and "2" is the least recently used
+        assertTrue(lruCache.containsKey("4"));
+        assertFalse(lruCache.containsKey("2"));
+        assertEquals(CAPACITY, lruCache.size()); // Corrected assertion to match the expected capacity
+    }
+}
+```

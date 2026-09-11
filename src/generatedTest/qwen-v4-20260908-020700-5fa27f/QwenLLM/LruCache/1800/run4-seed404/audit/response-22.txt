@@ -1,0 +1,18 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest22 {
+
+    @Test(timeout=1000)
+    public void testEmptyCache() {
+        LruCache<String, Integer> cache = new LruCache<>(1);
+        assertTrue(cache.isEmpty());
+        assertEquals(0, cache.size());
+    }
+}
+```
+
+The test case is already correct, but the class name and package have been changed from `QwenTest21` to `QwenTest22`. The test method `testEmptyCache` is also correct and should pass without any errors.

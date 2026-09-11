@@ -1,0 +1,52 @@
+To address the reported failure, we need to ensure that the `QwenTest12` class is correctly defined and included in the package `com.viktor.lab4.autogen`. Additionally, we need to provide a complete set of tests for the `SimpleJsonParser` class, including the one that fails. Here's the complete corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest12 {
+
+    @Test(timeout = 1000)
+    public void testParseNumber() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        String input = "123.45";
+        Double expected = 123.45;
+        Object result = parser.parse(input);
+
+        // Check if the result is an instance of Number and compare its value
+        if (result instanceof Number) {
+            assertEquals(expected.doubleValue(), ((Number) result).doubleValue(), 1e-10);
+        } else {
+            fail("Parsed result is not a Number");
+        }
+    }
+
+    @Test(timeout = 1000)
+    public void testParseString() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        String input = "\"Hello, World!\"";
+        String expected = "Hello, World!";
+        Object result = parser.parse(input);
+
+        assertEquals(expected, result);
+    }
+
+    @Test(timeout = 1000)
+    public void testParseArray() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        String input = "[1, 2, 3, \"Hello\", true]";
+        List<Object> expected = List.of(1, 2, 3, "Hello", true);
+        Object result = parser.parse(input);
+
+        assertEquals(expected, result);
+    }
+}
+```
+
+### Explanation:
+- **testParseNumber**: This test checks if the parser correctly parses a number string into a `Double`.
+- **testParseString**: This test checks if the parser correctly parses a string literal into a `String`.
+- **testParseArray**: This test checks if the parser correctly parses an array string into a `List<Object>`.
+- All tests are annotated with `@Test(timeout = 1000)` to ensure they do not run indefinitely.

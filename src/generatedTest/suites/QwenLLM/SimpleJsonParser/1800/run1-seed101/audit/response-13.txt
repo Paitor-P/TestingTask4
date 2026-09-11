@@ -1,0 +1,42 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.SimpleJsonParser;
+
+public class QwenTest13 {
+
+    @Test(timeout = 1000)
+    public void testEmptyStringParsing() {
+        String input = "";
+        SimpleJsonParser parser = new SimpleJsonParser();
+        Object result = parser.parse(input);
+        assertNull(result);
+    }
+
+    @Test(timeout = 1000)
+    public void testSingleCharacterStringParsing() {
+        String input = "a";
+        SimpleJsonParser parser = new SimpleJsonParser();
+        Object result = parser.parse(input);
+        assertEquals("a", result);
+    }
+
+    @Test(timeout = 1000)
+    public void testSingleCharacterStringParsingWithSpaces() {
+        String input = " a";
+        SimpleJsonParser parser = new SimpleJsonParser();
+        Object result = parser.parse(input);
+        assertEquals("a", result);
+    }
+
+    @Test(timeout = 1000)
+    public void testSingleCharacterStringParsingWithMultipleSpaces() {
+        String input = "   a";
+        SimpleJsonParser parser = new SimpleJsonParser();
+        Object result = parser.parse(input);
+        assertEquals("a", result);
+    }
+}
+```

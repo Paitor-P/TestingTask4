@@ -1,0 +1,52 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest30 {
+
+    @Test(timeout = 1000)
+    public void testLongestIncreasingSubsequence() {
+        // Test with an empty array
+        int[] nums1 = {};
+        assertEquals(0, new LongestIncreasingSubsequence().lengthOfLIS(nums1));
+
+        // Test with a single element
+        int[] nums2 = {5};
+        assertEquals(1, new LongestIncreasingSubsequence().lengthOfLIS(nums2));
+
+        // Test with multiple elements, including a single increasing subsequence
+        int[] nums3 = {1, 2, 3, 4, 5};
+        assertEquals(5, new LongestIncreasingSubsequence().lengthOfLIS(nums3));
+
+        // Test with multiple elements, including a single decreasing subsequence
+        int[] nums4 = {5, 4, 3, 2, 1};
+        assertEquals(1, new LongestIncreasingSubsequence().lengthOfLIS(nums4));
+
+        // Test with multiple elements, including multiple increasing subsequences
+        int[] nums5 = {1, 2, 3, 2, 4, 5, 6};
+        assertEquals(6, new LongestIncreasingSubsequence().lengthOfLIS(nums5));
+
+        // Test with multiple elements, including multiple decreasing subsequences
+        int[] nums6 = {6, 5, 4, 3, 2, 1, 0};
+        assertEquals(1, new LongestIncreasingSubsequence().lengthOfLIS(nums6));
+
+        // Test with multiple elements, including a sequence that ends with a repeating element
+        int[] nums7 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10};
+        assertEquals(11, new LongestIncreasingSubsequence().lengthOfLIS(nums7));
+
+        // Test with multiple elements, including a sequence that starts with a repeating element
+        int[] nums8 = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 1};
+        assertEquals(11, new LongestIncreasingSubsequence().lengthOfLIS(nums8));
+
+        // Test with multiple elements, including a sequence that starts with a repeating element and ends with a repeating element
+        int[] nums9 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 11};
+        assertEquals(12, new LongestIncreasingSubsequence().lengthOfLIS(nums9));
+
+        // Test with multiple elements, including a sequence that starts with a repeating element and ends with a non-repeating element
+        int[] nums10 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 0};
+        assertEquals(12, new LongestIncreasingSubsequence().lengthOfLIS(nums10));
+    }
+}
+```

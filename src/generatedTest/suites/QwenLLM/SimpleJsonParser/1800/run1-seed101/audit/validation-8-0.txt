@@ -1,0 +1,227 @@
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\1dc006db513c061b\QwenTest8\QwenTest8.java:14: error: no suitable method found for assertEquals(double,Object,double)
+        assertEquals(123.456, parser.parse("123.456"), 0.001);
+        ^
+    method Assert.assertEquals(String,Object[],Object[]) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(float,float,float) is not applicable
+      (argument mismatch; possible lossy conversion from double to float)
+    method Assert.assertEquals(double,double,double) is not applicable
+      (argument mismatch; Object cannot be converted to double)
+    method Assert.assertEquals(String,double,double) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(String,long,long) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(String,Object,Object) is not applicable
+      (argument mismatch; double cannot be converted to String)
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\1dc006db513c061b\QwenTest8\QwenTest8.java:15: error: no suitable method found for assertEquals(double,Object,double)
+        assertEquals(-123.456, parser.parse("-123.456"), 0.001);
+        ^
+    method Assert.assertEquals(String,Object[],Object[]) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(float,float,float) is not applicable
+      (argument mismatch; possible lossy conversion from double to float)
+    method Assert.assertEquals(double,double,double) is not applicable
+      (argument mismatch; Object cannot be converted to double)
+    method Assert.assertEquals(String,double,double) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(String,long,long) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(String,Object,Object) is not applicable
+      (argument mismatch; double cannot be converted to String)
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\1dc006db513c061b\QwenTest8\QwenTest8.java:16: error: no suitable method found for assertEquals(int,Object,double)
+        assertEquals(0, parser.parse("0"), 0.001);
+        ^
+    method Assert.assertEquals(String,Object[],Object[]) is not applicable
+      (argument mismatch; int cannot be converted to String)
+    method Assert.assertEquals(float,float,float) is not applicable
+      (argument mismatch; Object cannot be converted to float)
+    method Assert.assertEquals(double,double,double) is not applicable
+      (argument mismatch; Object cannot be converted to double)
+    method Assert.assertEquals(String,double,double) is not applicable
+      (argument mismatch; int cannot be converted to String)
+    method Assert.assertEquals(String,long,long) is not applicable
+      (argument mismatch; int cannot be converted to String)
+    method Assert.assertEquals(String,Object,Object) is not applicable
+      (argument mismatch; int cannot be converted to String)
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\1dc006db513c061b\QwenTest8\QwenTest8.java:17: error: no suitable method found for assertEquals(int,Object,double)
+        assertEquals(-0, parser.parse("-0"), 0.001);
+        ^
+    method Assert.assertEquals(String,Object[],Object[]) is not applicable
+      (argument mismatch; int cannot be converted to String)
+    method Assert.assertEquals(float,float,float) is not applicable
+      (argument mismatch; Object cannot be converted to float)
+    method Assert.assertEquals(double,double,double) is not applicable
+      (argument mismatch; Object cannot be converted to double)
+    method Assert.assertEquals(String,double,double) is not applicable
+      (argument mismatch; int cannot be converted to String)
+    method Assert.assertEquals(String,long,long) is not applicable
+      (argument mismatch; int cannot be converted to String)
+    method Assert.assertEquals(String,Object,Object) is not applicable
+      (argument mismatch; int cannot be converted to String)
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\1dc006db513c061b\QwenTest8\QwenTest8.java:18: error: no suitable method found for assertEquals(double,Object,double)
+        assertEquals(0.0, parser.parse("0.0"), 0.001);
+        ^
+    method Assert.assertEquals(String,Object[],Object[]) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(float,float,float) is not applicable
+      (argument mismatch; possible lossy conversion from double to float)
+    method Assert.assertEquals(double,double,double) is not applicable
+      (argument mismatch; Object cannot be converted to double)
+    method Assert.assertEquals(String,double,double) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(String,long,long) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(String,Object,Object) is not applicable
+      (argument mismatch; double cannot be converted to String)
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\1dc006db513c061b\QwenTest8\QwenTest8.java:19: error: no suitable method found for assertEquals(double,Object,double)
+        assertEquals(0.123, parser.parse("0.123"), 0.001);
+        ^
+    method Assert.assertEquals(String,Object[],Object[]) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(float,float,float) is not applicable
+      (argument mismatch; possible lossy conversion from double to float)
+    method Assert.assertEquals(double,double,double) is not applicable
+      (argument mismatch; Object cannot be converted to double)
+    method Assert.assertEquals(String,double,double) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(String,long,long) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(String,Object,Object) is not applicable
+      (argument mismatch; double cannot be converted to String)
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\1dc006db513c061b\QwenTest8\QwenTest8.java:20: error: no suitable method found for assertEquals(double,Object,double)
+        assertEquals(0.0123, parser.parse("0.0123"), 0.001);
+        ^
+    method Assert.assertEquals(String,Object[],Object[]) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(float,float,float) is not applicable
+      (argument mismatch; possible lossy conversion from double to float)
+    method Assert.assertEquals(double,double,double) is not applicable
+      (argument mismatch; Object cannot be converted to double)
+    method Assert.assertEquals(String,double,double) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(String,long,long) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(String,Object,Object) is not applicable
+      (argument mismatch; double cannot be converted to String)
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\1dc006db513c061b\QwenTest8\QwenTest8.java:21: error: no suitable method found for assertEquals(double,Object,double)
+        assertEquals(0.00123, parser.parse("0.00123"), 0.001);
+        ^
+    method Assert.assertEquals(String,Object[],Object[]) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(float,float,float) is not applicable
+      (argument mismatch; possible lossy conversion from double to float)
+    method Assert.assertEquals(double,double,double) is not applicable
+      (argument mismatch; Object cannot be converted to double)
+    method Assert.assertEquals(String,double,double) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(String,long,long) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(String,Object,Object) is not applicable
+      (argument mismatch; double cannot be converted to String)
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\1dc006db513c061b\QwenTest8\QwenTest8.java:22: error: no suitable method found for assertEquals(int,Object,double)
+        assertEquals(123456, parser.parse("123456"), 0.001);
+        ^
+    method Assert.assertEquals(String,Object[],Object[]) is not applicable
+      (argument mismatch; int cannot be converted to String)
+    method Assert.assertEquals(float,float,float) is not applicable
+      (argument mismatch; Object cannot be converted to float)
+    method Assert.assertEquals(double,double,double) is not applicable
+      (argument mismatch; Object cannot be converted to double)
+    method Assert.assertEquals(String,double,double) is not applicable
+      (argument mismatch; int cannot be converted to String)
+    method Assert.assertEquals(String,long,long) is not applicable
+      (argument mismatch; int cannot be converted to String)
+    method Assert.assertEquals(String,Object,Object) is not applicable
+      (argument mismatch; int cannot be converted to String)
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\1dc006db513c061b\QwenTest8\QwenTest8.java:23: error: no suitable method found for assertEquals(int,Object,double)
+        assertEquals(-123456, parser.parse("-123456"), 0.001);
+        ^
+    method Assert.assertEquals(String,Object[],Object[]) is not applicable
+      (argument mismatch; int cannot be converted to String)
+    method Assert.assertEquals(float,float,float) is not applicable
+      (argument mismatch; Object cannot be converted to float)
+    method Assert.assertEquals(double,double,double) is not applicable
+      (argument mismatch; Object cannot be converted to double)
+    method Assert.assertEquals(String,double,double) is not applicable
+      (argument mismatch; int cannot be converted to String)
+    method Assert.assertEquals(String,long,long) is not applicable
+      (argument mismatch; int cannot be converted to String)
+    method Assert.assertEquals(String,Object,Object) is not applicable
+      (argument mismatch; int cannot be converted to String)
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\1dc006db513c061b\QwenTest8\QwenTest8.java:24: error: no suitable method found for assertEquals(double,Object,double)
+        assertEquals(12345678901234567890.12345678901234567890, parser.parse("12345678901234567890.12345678901234567890"), 0.001);
+        ^
+    method Assert.assertEquals(String,Object[],Object[]) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(float,float,float) is not applicable
+      (argument mismatch; possible lossy conversion from double to float)
+    method Assert.assertEquals(double,double,double) is not applicable
+      (argument mismatch; Object cannot be converted to double)
+    method Assert.assertEquals(String,double,double) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(String,long,long) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(String,Object,Object) is not applicable
+      (argument mismatch; double cannot be converted to String)
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\1dc006db513c061b\QwenTest8\QwenTest8.java:25: error: no suitable method found for assertEquals(double,Object,double)
+        assertEquals(-12345678901234567890.12345678901234567890, parser.parse("-12345678901234567890.12345678901234567890"), 0.001);
+        ^
+    method Assert.assertEquals(String,Object[],Object[]) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(float,float,float) is not applicable
+      (argument mismatch; possible lossy conversion from double to float)
+    method Assert.assertEquals(double,double,double) is not applicable
+      (argument mismatch; Object cannot be converted to double)
+    method Assert.assertEquals(String,double,double) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(String,long,long) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(String,Object,Object) is not applicable
+      (argument mismatch; double cannot be converted to String)
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\1dc006db513c061b\QwenTest8\QwenTest8.java:26: error: no suitable method found for assertEquals(double,Object,double)
+        assertEquals(Double.POSITIVE_INFINITY, parser.parse("Infinity"), 0.001);
+        ^
+    method Assert.assertEquals(String,Object[],Object[]) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(float,float,float) is not applicable
+      (argument mismatch; possible lossy conversion from double to float)
+    method Assert.assertEquals(double,double,double) is not applicable
+      (argument mismatch; Object cannot be converted to double)
+    method Assert.assertEquals(String,double,double) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(String,long,long) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(String,Object,Object) is not applicable
+      (argument mismatch; double cannot be converted to String)
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\1dc006db513c061b\QwenTest8\QwenTest8.java:27: error: no suitable method found for assertEquals(double,Object,double)
+        assertEquals(Double.NEGATIVE_INFINITY, parser.parse("-Infinity"), 0.001);
+        ^
+    method Assert.assertEquals(String,Object[],Object[]) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(float,float,float) is not applicable
+      (argument mismatch; possible lossy conversion from double to float)
+    method Assert.assertEquals(double,double,double) is not applicable
+      (argument mismatch; Object cannot be converted to double)
+    method Assert.assertEquals(String,double,double) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(String,long,long) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(String,Object,Object) is not applicable
+      (argument mismatch; double cannot be converted to String)
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\1dc006db513c061b\QwenTest8\QwenTest8.java:28: error: no suitable method found for assertEquals(double,Object,double)
+        assertEquals(Double.NaN, parser.parse("NaN"), 0.001);
+        ^
+    method Assert.assertEquals(String,Object[],Object[]) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(float,float,float) is not applicable
+      (argument mismatch; possible lossy conversion from double to float)
+    method Assert.assertEquals(double,double,double) is not applicable
+      (argument mismatch; Object cannot be converted to double)
+    method Assert.assertEquals(String,double,double) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(String,long,long) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(String,Object,Object) is not applicable
+      (argument mismatch; double cannot be converted to String)
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+15 errors

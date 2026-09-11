@@ -1,0 +1,34 @@
+To fix the reported failure, we need to make the `calculateFinalPrice` method non-static. We can achieve this by constructing an instance of the `PricingEngine` class using its declared public constructor. Here's the corrected code:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.PricingEngine;
+import com.viktor.lab4.PricingEngine.CustomerType;
+
+public class QwenTest2 {
+
+    @Test(timeout = 1000)
+    public void testNormalCase() {
+        PricingRequest request = new PricingRequest(
+                10.0,
+                5,
+                CustomerType.REGULAR,
+                false,
+                "SAVE10",
+                true,
+                200
+        );
+
+        PricingEngine engine = new PricingEngine(); // Construct an instance of PricingEngine
+        double expected = 55.0;
+        double actual = engine.calculateFinalPrice(request);
+
+        assertEquals(expected, actual, 0.01);
+    }
+}
+```
+
+In this corrected code, we've added a constructor call to the `PricingEngine` class to create an instance of the class. This allows us to call the `calculateFinalPrice` method on the instance, which resolves the non-static method reference error.

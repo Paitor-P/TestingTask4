@@ -1,0 +1,23 @@
+Certainly! Let's address the compilation error by using the correct `assertEquals` method for comparing `int` values. Here's the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+import java.util.Map;
+
+public class QwenTest51 {
+
+    @Test(timeout = 1000)
+    public void testPutAndGetWithSingleElement() {
+        LruCache<String, Integer> cache = new LruCache<>(1);
+        cache.put("a", 1);
+        assertEquals(1, cache.get("a")); // Corrected assertion method
+        assertFalse(cache.containsKey("b"));
+    }
+}
+```
+
+This change ensures that the `assertEquals` method is used with compatible types for comparing `int` values, resolving the compilation error.

@@ -1,0 +1,30 @@
+It seems there was an error in the original text provided, as it did not include the `PricingEngine` class or the test method. Let's correct that and ensure the test class and method are properly defined.
+
+Here's the complete corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest38 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithDiscount() {
+        PricingRequest request = new PricingRequest(
+                100.0,
+                10,
+                CustomerType.REGULAR,
+                false,
+                "SAVE10",
+                false,
+                0
+        );
+        double expected = 100.0 * (1.0 - 0.10) - 5.0 + 7.99;
+        assertEquals(98.99, PricingEngine.calculateFinalPrice(request), 0.01);
+    }
+}
+```
+
+This code defines a test class `QwenTest38` with a test method `testCalculateFinalPriceWithDiscount` that uses the `PricingEngine` class to calculate the final price with a discount and checks the result against the expected value. The test method uses JUnit's `assertEquals` method to verify that the calculated price matches the expected price within a small tolerance.

@@ -1,0 +1,34 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest19 {
+
+    @Test(timeout=1000)
+    public void testLengthOfLIS() {
+        LongestIncreasingSubsequence lis = new LongestIncreasingSubsequence();
+
+        int[] nums = {10, 9, 2, 5, 3, 7, 101, 18};
+        int expected = 4;
+        assertEquals(expected, lis.lengthOfLIS(nums));
+
+        int[] nums2 = {1, 3, 6, 7, 9, 4, 10};
+        expected = 6;
+        assertEquals(expected, lis.lengthOfLIS(nums2));
+
+        int[] nums3 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        expected = 10;
+        assertEquals(expected, lis.lengthOfLIS(nums3));
+
+        int[] nums4 = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+        expected = 1;
+        assertEquals(expected, lis.lengthOfLIS(nums4));
+
+        int[] nums5 = {1, 3, 2, 6, 5, 4, 7, 8, 9, 10};
+        expected = 4;
+        assertEquals(expected, lis.lengthOfLIS(nums5));
+    }
+}
+```

@@ -1,0 +1,10 @@
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\0cdd099542235ddf\QwenTest3\QwenTest3.java:15: error: non-static method calculateFinalPrice(PricingRequest) cannot be referenced from a static context
+        assertEquals(expected, PricingEngine.calculateFinalPrice(request), 0.001);
+                                            ^
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\0cdd099542235ddf\QwenTest3\QwenTest3.java:22: error: non-static method calculateFinalPrice(PricingRequest) cannot be referenced from a static context
+        assertEquals(expected, PricingEngine.calculateFinalPrice(request), 0.001);
+                                            ^
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\0cdd099542235ddf\QwenTest3\QwenTest3.java:29: error: non-static method calculateFinalPrice(PricingRequest) cannot be referenced from a static context
+        assertEquals(expected, PricingEngine.calculateFinalPrice(request), 0.001);
+                                            ^
+3 errors

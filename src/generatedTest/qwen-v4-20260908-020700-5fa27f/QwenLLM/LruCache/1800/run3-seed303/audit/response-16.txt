@@ -1,0 +1,35 @@
+To resolve the compilation error and fix the ambiguity in the `assertEquals` method, we need to ensure that we are using the correct method signature. In this case, we are dealing with integers, so we should use the `assertEquals(int, int)` method instead of the `assertEquals(long, long)` method, which is causing the ambiguity.
+
+Here is the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest15 {
+
+    @Test(timeout = 1000)
+    public void testPutAndGet() {
+        LruCache<String, Integer> lruCache = new LruCache<>(3);
+        lruCache.put("a", 1);
+        lruCache.put("b", 2);
+        lruCache.put("c", 3);
+
+        assertEquals(3, lruCache.size());
+        assertEquals(1, lruCache.get("a"));
+        assertEquals(2, lruCache.get("b"));
+        assertEquals(3, lruCache.get("c"));
+
+        lruCache.put("d", 4); // Should evict "a"
+        assertEquals(3, lruCache.size());
+        assertNull(lruCache.get("a"));
+        assertEquals(2, lruCache.get("b"));
+        assertEquals(3, lruCache.get("c"));
+        assertEquals(4, lruCache.get("d"));
+    }
+}
+```
+
+This change ensures that the `assertEquals` method is used with the correct type (`int`), resolving the compilation error.

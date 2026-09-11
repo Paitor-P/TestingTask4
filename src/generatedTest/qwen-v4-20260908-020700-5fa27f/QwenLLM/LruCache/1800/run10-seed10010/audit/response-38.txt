@@ -1,0 +1,23 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class QwenTest38 {
+
+    @Test(timeout=1000)
+    public void testZeroCapacity() {
+        LruCache<String, String> cache = new LruCache<>(0);
+        try {
+            cache.get("test");
+            fail("Expected IllegalArgumentException for zero capacity");
+        } catch (IllegalArgumentException e) {
+            // Expected exception
+        }
+    }
+}
+```

@@ -1,0 +1,27 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest36 {
+
+    @Test(timeout = 1000)
+    public void testDiscountOnFirstOrderWithCoupon() {
+        PricingEngine engine = new PricingEngine();
+        PricingRequest request = new PricingRequest(
+                30.0,
+                1,
+                PricingEngine.CustomerType.REGULAR,
+                false,
+                "SAVE10",
+                true,
+                100
+        );
+
+        double expected = 27.0; // 30 * 1 * (1 - 0.05) = 27.0, then 27 - 0.10 * 27 = 22.2
+        double result = engine.calculateFinalPrice(request);
+        assertEquals(expected, result, 0.001);
+    }
+}
+```

@@ -1,0 +1,30 @@
+To fix the reported failure, we need to adjust the assertion to correctly compare a `double` with an `Object`. The `assertEquals` method is expecting the second and third parameters to be of the same type. Since we are comparing a `double` with an `Object`, we need to convert the `double` to an `Object` of the same type.
+
+Here's the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class QwenTest12 {
+
+    @Test(timeout=1000)
+    public void testParseSingleNumber() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        try {
+            Object result = parser.parse("123.45");
+            assertEquals(Double.class, result.getClass()); // Check if the result is a Double
+            assertEquals(123.45, result, 1e-9); // Adjusted tolerance
+        } catch (IllegalArgumentException e) {
+            fail("Unexpected exception: " + e.getMessage());
+        }
+    }
+}
+```
+
+### Explanation:
+- We added a check to ensure that the result is of type `Double` using `assertEquals(Double.class, result.getClass())`.
+- This check ensures that the assertion is valid because we are comparing a `double` with an `Object` of type `Double`.
+- The rest of the test case remains unchanged, ensuring that the assertion still correctly compares the expected value to the observed result.

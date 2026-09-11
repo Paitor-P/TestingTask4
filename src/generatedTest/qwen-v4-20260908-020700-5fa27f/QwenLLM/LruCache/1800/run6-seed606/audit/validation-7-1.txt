@@ -1,0 +1,12 @@
+JUnit version 4.13.2
+.E
+Time: 0,011
+There was 1 failure:
+1) testPutWithInvalidKey(com.viktor.lab4.autogen.QwenTest7)
+java.lang.AssertionError: Expected IllegalArgumentException for null key
+	at org.junit.Assert.fail(Assert.java:89)
+	at com.viktor.lab4.autogen.QwenTest7.testPutWithInvalidKey(QwenTest7.java:19)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+

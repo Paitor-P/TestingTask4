@@ -1,0 +1,16 @@
+```java
+package com.viktor.lab4;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.SimpleJsonParser;
+
+public class QwenTest18 {
+
+    @Test(timeout = 1000)
+    public void testParseEmptyString() {
+        SimpleJsonParser parser = new SimpleJsonParser("");
+        assertNull(parser.parse(""));
+    }
+}
+```

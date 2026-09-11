@@ -1,0 +1,21 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest26 {
+
+    @Test(timeout = 1000)
+    public void testEmptyInput() {
+        SimpleJsonParser parser = new SimpleJsonParser(new StringBuilder(""));
+        try {
+            parser.parse("");
+        } catch (IllegalArgumentException e) {
+            assertEquals("Unexpected end of input at position 0", e.getMessage());
+        }
+    }
+}
+```
+
+In the provided code, the `SimpleJsonParser` constructor was not correctly called with the required parameter. The constructor expected a `String` parameter, but the test code was passing an empty `String` object instead. The change is to use a `StringBuilder` with an empty string to properly initialize the `SimpleJsonParser`.

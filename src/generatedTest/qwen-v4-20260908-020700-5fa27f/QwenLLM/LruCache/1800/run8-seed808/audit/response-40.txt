@@ -1,0 +1,33 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.util.Map;
+
+public class QwenTest40 {
+
+    @Test(timeout=1000)
+    public void testPutGet() {
+        LruCache<String, Integer> lruCache = new LruCache<>(2);
+        
+        lruCache.put("A", 1);
+        lruCache.put("B", 2);
+        assertEquals(2, lruCache.size());
+        assertEquals(2, lruCache.get("B").intValue());
+        
+        lruCache.put("C", 3);
+        assertEquals(2, lruCache.size());
+        assertNull(lruCache.get("A"));
+        assertEquals(3, lruCache.get("C").intValue());
+        
+        lruCache.put("A", 4);
+        assertEquals(2, lruCache.size());
+        assertEquals(4, lruCache.get("A").intValue());
+        assertEquals(3, lruCache.get("C").intValue());
+    }
+}
+```
+
+This corrected code ensures that the `assertEquals` method calls are correctly typed with `Integer` types, resolving the compilation error.

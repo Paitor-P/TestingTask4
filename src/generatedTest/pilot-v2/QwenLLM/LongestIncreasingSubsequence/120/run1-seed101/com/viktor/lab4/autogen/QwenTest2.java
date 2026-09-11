@@ -1,0 +1,65 @@
+package com.viktor.lab4.autogen;
+import com.viktor.lab4.LongestIncreasingSubsequence;
+import com.viktor.lab4.LongestIncreasingSubsequence.*;
+import org.junit.*;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.util.Arrays;
+
+public class QwenTest2 {
+
+    @Test(timeout = 1000)
+    public void testEmptyArray() {
+        LongestIncreasingSubsequence lis = new LongestIncreasingSubsequence();
+        assertEquals(0, lis.lengthOfLIS(new int[]{}));
+    }
+
+    @Test(timeout = 1000)
+    public void testSingleElementArray() {
+        LongestIncreasingSubsequence lis = new LongestIncreasingSubsequence();
+        assertEquals(1, lis.lengthOfLIS(new int[]{5}));
+    }
+
+    @Test(timeout = 1000)
+    public void testUniqueElements() {
+        LongestIncreasingSubsequence lis = new LongestIncreasingSubsequence();
+        assertEquals(5, lis.lengthOfLIS(new int[]{1, 2, 3, 4, 5}));
+    }
+
+    @Test(timeout = 1000)
+    public void testDescendingOrder() {
+        LongestIncreasingSubsequence lis = new LongestIncreasingSubsequence();
+        assertEquals(1, lis.lengthOfLIS(new int[]{5, 4, 3, 2, 1}));
+    }
+
+    @Test(timeout = 1000)
+    public void testIdenticalElements() {
+        LongestIncreasingSubsequence lis = new LongestIncreasingSubsequence();
+        assertEquals(1, lis.lengthOfLIS(new int[]{1, 1, 1, 1, 1}));
+    }
+
+    @Test(timeout = 1000)
+    public void testRandomOrder() {
+        LongestIncreasingSubsequence lis = new LongestIncreasingSubsequence();
+        int[] numbers = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5};
+        assertEquals(4, lis.lengthOfLIS(numbers));
+    }
+
+    @Test(timeout = 1000)
+    public void testSingleRepeatedElement() {
+        LongestIncreasingSubsequence lis = new LongestIncreasingSubsequence();
+        assertEquals(1, lis.lengthOfLIS(new int[]{1, 1, 1, 1, 1, 1}));
+    }
+
+    @Test(timeout = 1000)
+    public void testLargeArray() {
+        LongestIncreasingSubsequence lis = new LongestIncreasingSubsequence();
+        int[] numbers = new int[10000];
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = i;
+        }
+        assertEquals(10000, lis.lengthOfLIS(numbers));
+    }
+}

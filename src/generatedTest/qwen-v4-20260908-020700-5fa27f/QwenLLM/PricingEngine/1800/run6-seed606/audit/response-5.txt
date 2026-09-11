@@ -1,0 +1,19 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import com.viktor.lab4.PricingEngine;
+import com.viktor.lab4.PricingRequest;
+
+public class QwenTest5 {
+
+    @Test(timeout=1000)
+    public void testCalculateFinalPriceWithEmptyRequest() {
+        PricingRequest request = new PricingRequest(0.0, 0, PricingEngine.CustomerType.REGULAR, false, null, false, 0);
+        double result = PricingEngine.calculateFinalPrice(request);
+        assertEquals(0.0, result, 0.001);
+    }
+}
+```

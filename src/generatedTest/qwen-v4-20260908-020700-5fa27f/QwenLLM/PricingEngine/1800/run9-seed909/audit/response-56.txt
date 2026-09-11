@@ -1,0 +1,37 @@
+Certainly. Let's identify the issue and fix it.
+
+The error arises because the calculated total is slightly above the expected value due to floating-point arithmetic precision. We can adjust the assertion to handle this slight difference.
+
+Here's the corrected code:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.PricingEngine;
+
+public class QwenTest56 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceRegularCustomer() {
+        // Create an instance of PricingEngine
+        PricingEngine engine = new PricingEngine();
+        
+        PricingRequest request = new PricingRequest(
+                100.0,
+                5,
+                PricingEngine.CustomerType.REGULAR,
+                false,
+                "SAVE10",
+                true,
+                150
+        );
+        double expected = 425.0;
+        double result = engine.calculateFinalPrice(request);
+        assertEquals(expected, result, 0.001);
+    }
+}
+```
+
+This should resolve the assertion failure.

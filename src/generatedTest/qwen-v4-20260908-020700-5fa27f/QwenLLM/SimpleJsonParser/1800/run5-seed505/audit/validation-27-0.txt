@@ -1,0 +1,7 @@
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\d7f77f8e9697d69b\QwenTest27\QwenTest27.java:13: error: constructor SimpleJsonParser in class SimpleJsonParser cannot be applied to given types;
+        SimpleJsonParser parser = new SimpleJsonParser(""); // Fixed: Use an empty string as the argument to the constructor
+                                  ^
+  required: no arguments
+  found:    String
+  reason: actual and formal argument lists differ in length
+1 error

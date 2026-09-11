@@ -1,0 +1,31 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import com.viktor.lab4.LruCache;
+
+public class QwenTest44 {
+
+    @Test(timeout = 1000)
+    public void testEvictionOnThreshold() {
+        LruCache<Integer, Integer> cache = new LruCache<>(2);
+
+        // Populate the cache with two elements
+        cache.put(1, 10);
+        cache.put(2, 20);
+
+        // Check that the cache size is 2
+        assertEquals(2, cache.size());
+
+        // Add a new element to exceed the capacity, which should evict the oldest entry
+        cache.put(3, 30);
+
+        // Check that the oldest entry (key 1) has been removed and the new entry (key 3) is added
+        assertEquals(2, cache.size());
+        assertFalse(cache.containsKey(1));
+        assertTrue(cache.containsKey(3));
+    }
+}
+```

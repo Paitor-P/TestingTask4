@@ -1,0 +1,11 @@
+JUnit version 4.13.2
+.E
+Time: 0,012
+There was 1 failure:
+1) testParseNumberCloseToThreshold(com.viktor.lab4.autogen.QwenTest18)
+java.lang.ClassCastException: class java.util.ArrayList cannot be cast to class java.lang.Double (java.util.ArrayList and java.lang.Double are in module java.base of loader 'bootstrap')
+	at com.viktor.lab4.autogen.QwenTest18.testParseNumberCloseToThreshold(QwenTest18.java:16)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+

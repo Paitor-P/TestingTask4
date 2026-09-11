@@ -1,0 +1,9 @@
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\ec455e027623b118\QwenTest8\QwenTest8.java:24: error: cannot find symbol
+                int index = Arrays.binarySearch(tails, 0, size, number);
+                            ^
+  symbol:   variable Arrays
+  location: class LongestIncreasingSubsequence
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\ec455e027623b118\QwenTest8\QwenTest8.java:42: error: non-static method lengthOfLIS(int[]) cannot be referenced from a static context
+        assertEquals(expected, LongestIncreasingSubsequence.lengthOfLIS(numbers));
+                                                           ^
+2 errors

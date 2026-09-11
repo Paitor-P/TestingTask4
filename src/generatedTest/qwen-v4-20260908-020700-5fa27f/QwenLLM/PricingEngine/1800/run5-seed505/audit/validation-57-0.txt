@@ -1,0 +1,5 @@
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\f38ddb9a4cd5b1c4\QwenTest57\QwenTest57.java:100: error: incompatible types: com.viktor.lab4.PricingEngine.PricingRequest cannot be converted to com.viktor.lab4.autogen.QwenTest57.PricingEngine.PricingRequest
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> PricingEngine.calculateFinalPrice(request));
+                                                                                                                               ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+1 error

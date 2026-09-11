@@ -1,0 +1,20 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.PricingEngine;
+
+public class QwenTest28 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithEmptyInput() {
+        PricingEngine engine = new PricingEngine();
+        PricingRequest request = new PricingRequest(0.0, 1, PricingEngine.CustomerType.REGULAR, false, "", false, 0);
+        double result = engine.calculateFinalPrice(request);
+        assertEquals(0.0, result, 0.001);
+    }
+}
+```
+
+In the repaired code, the quantity parameter in the PricingRequest constructor was changed from 0 to 1, as the original test case was failing because the quantity must be greater than 0.

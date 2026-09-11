@@ -1,0 +1,46 @@
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\00d07c8878a52a16\QwenTest9\QwenTest9.java:15: error: cannot find symbol
+        assertEquals(100.0 + 7.99, pricingEngine.calculateFinalPrice(request1), 0.01);
+                                   ^
+  symbol:   variable pricingEngine
+  location: class QwenTest9
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\00d07c8878a52a16\QwenTest9\QwenTest9.java:19: error: cannot find symbol
+        assertEquals(100.0 * 1.02 - 7.99, pricingEngine.calculateFinalPrice(request2), 0.01);
+                                          ^
+  symbol:   variable pricingEngine
+  location: class QwenTest9
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\00d07c8878a52a16\QwenTest9\QwenTest9.java:23: error: cannot find symbol
+        assertEquals(100.0 * 1.07 - 7.99, pricingEngine.calculateFinalPrice(request3), 0.01);
+                                          ^
+  symbol:   variable pricingEngine
+  location: class QwenTest9
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\00d07c8878a52a16\QwenTest9\QwenTest9.java:27: error: cannot find symbol
+        assertEquals(100.0 * 1.05 + 7.99, pricingEngine.calculateFinalPrice(request4), 0.01);
+                                          ^
+  symbol:   variable pricingEngine
+  location: class QwenTest9
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\00d07c8878a52a16\QwenTest9\QwenTest9.java:31: error: cannot find symbol
+        assertEquals(100.0 + 7.99 * (1 + 5 * 0.01), pricingEngine.calculateFinalPrice(request5), 0.01);
+                                                    ^
+  symbol:   variable pricingEngine
+  location: class QwenTest9
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\00d07c8878a52a16\QwenTest9\QwenTest9.java:35: error: cannot find symbol
+        assertEquals(100.0 * 1.07 * (1 + 5 * 0.01) + 7.99, pricingEngine.calculateFinalPrice(request6), 0.01);
+                                                           ^
+  symbol:   variable pricingEngine
+  location: class QwenTest9
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\00d07c8878a52a16\QwenTest9\QwenTest9.java:39: error: cannot find symbol
+        assertEquals(100.0 * 1.07 * 1.02 - 7.99 * 1.07, pricingEngine.calculateFinalPrice(request7), 0.01);
+                                                        ^
+  symbol:   variable pricingEngine
+  location: class QwenTest9
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\00d07c8878a52a16\QwenTest9\QwenTest9.java:43: error: cannot find symbol
+        assertEquals(100.0 * 1.07 * 1.10 * 1.02 - 7.99 * 1.07 * 1.10, pricingEngine.calculateFinalPrice(request8), 0.01);
+                                                                      ^
+  symbol:   variable pricingEngine
+  location: class QwenTest9
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\00d07c8878a52a16\QwenTest9\QwenTest9.java:47: error: cannot find symbol
+        assertEquals(100.0 * 1.07 * 1.10 * 1.02 * 1.03 - 7.99 * 1.07 * 1.10 * 1.03, pricingEngine.calculateFinalPrice(request9), 0.01);
+                                                                                    ^
+  symbol:   variable pricingEngine
+  location: class QwenTest9
+9 errors

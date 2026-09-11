@@ -1,0 +1,17 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest19 {
+
+    @Test(timeout=1000)
+    public void testLengthOfLISWithOneElement() {
+        int[] numbers = {1};
+        int expected = 1;
+        int result = LongestIncreasingSubsequence.lengthOfLIS(numbers);
+        assertEquals("The length of LIS should be 1", expected, result);
+    }
+}
+```

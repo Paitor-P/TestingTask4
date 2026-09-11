@@ -1,0 +1,38 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest22 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPrice() {
+        PricingEngine engine = new PricingEngine();
+
+        PricingRequest request = new PricingRequest(100.0, 5, PricingEngine.CustomerType.REGULAR, false, null, false, 0);
+        double expected = 500.0 * (1.0 - 0.1) - 0 + 7.99;
+        assertEquals(expected, engine.calculateFinalPrice(request), 0.01);
+
+        request = new PricingRequest(100.0, 15, PricingEngine.CustomerType.VIP, false, null, false, 0);
+        expected = 1500.0 * (1.0 - 0.12) - 0 + 7.99;
+        assertEquals(expected, engine.calculateFinalPrice(request), 0.01);
+
+        request = new PricingRequest(100.0, 5, PricingEngine.CustomerType.REGULAR, true, null, false, 0);
+        expected = 500.0 * (1.0 - 0.15) - 0 + 7.99;
+        assertEquals(expected, engine.calculateFinalPrice(request), 0.01);
+
+        request = new PricingRequest(100.0, 1, true, false, "SAVE10", false, 0);
+        expected = 100.0 * (1.0 - 0.1) - 5.0 + 7.99;
+        assertEquals(expected, engine.calculateFinalPrice(request), 0.01);
+
+        request = new PricingRequest(100.0, 5, PricingEngine.CustomerType.VIP, false, "SAVE10", true, 100);
+        expected = 500.0 * (1.0 - 0.13) - 0 + 7.99;
+        assertEquals(expected, engine.calculateFinalPrice(request), 0.01);
+
+        request = new PricingRequest(100.0, 1, true, false, "SAVE10", false, 100);
+        expected = 100.0 * (1.0 - 0.1) - 0 + 7.99;
+        assertEquals(expected, engine.calculateFinalPrice(request), 0.01);
+    }
+}
+```

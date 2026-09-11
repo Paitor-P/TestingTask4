@@ -1,0 +1,73 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.PricingEngine;
+
+public class QwenTest30 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPrice() {
+        PricingRequest request = new PricingRequest(100.0, 10, CustomerType.REGULAR, false, "SAVE10", false, 100);
+        double expected = 90.0;
+        assertEquals(expected, PricingEngine.calculateFinalPrice(request), 0.01);
+    }
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithVIPDiscount() {
+        PricingRequest request = new PricingRequest(100.0, 10, CustomerType.VIP, false, "SAVE10", false, 100);
+        double expected = 81.0;
+        assertEquals(expected, PricingEngine.calculateFinalPrice(request), 0.01);
+    }
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithSeasonalSale() {
+        PricingRequest request = new PricingRequest(100.0, 10, CustomerType.REGULAR, true, "SAVE10", false, 100);
+        double expected = 89.0;
+        assertEquals(expected, PricingEngine.calculateFinalPrice(request), 0.01);
+    }
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithLoyaltyPoints() {
+        PricingRequest request = new PricingRequest(100.0, 10, CustomerType.REGULAR, false, "SAVE10", false, 500);
+        double expected = 90.0;
+        assertEquals(expected, PricingEngine.calculateFinalPrice(request), 0.01);
+    }
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithCouponCode() {
+        PricingRequest request = new PricingRequest(100.0, 10, CustomerType.REGULAR, false, "SAVE10", false, 100);
+        double expected = 90.0;
+        assertEquals(expected, PricingEngine.calculateFinalPrice(request), 0.01);
+    }
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithFirstOrderDiscount() {
+        PricingRequest request = new PricingRequest(100.0, 10, CustomerType.REGULAR, false, "SAVE10", true, 100);
+        double expected = 94.5;
+        assertEquals(expected, PricingEngine.calculateFinalPrice(request), 0.01);
+    }
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithMultipleDiscounts() {
+        PricingRequest request = new PricingRequest(100.0, 20, CustomerType.VIP, true, "SAVE10", true, 500);
+        double expected = 71.7;
+        assertEquals(expected, PricingEngine.calculateFinalPrice(request), 0.01);
+    }
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithZeroLoyaltyPoints() {
+        PricingRequest request = new PricingRequest(100.0, 10, CustomerType.REGULAR, false, "SAVE10", false, 0);
+        double expected = 90.0;
+        assertEquals(expected, PricingEngine.calculateFinalPrice(request), 0.01);
+    }
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithNegativeLoyaltyPoints() {
+        PricingRequest request = new PricingRequest(100.0, 10, CustomerType.REGULAR, false, "SAVE10", false, -100);
+        double expected = 90.0;
+        assertEquals(expected, PricingEngine.calculateFinalPrice(request), 0.01);
+    }
+}
+```

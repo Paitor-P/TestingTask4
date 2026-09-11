@@ -1,0 +1,413 @@
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:07.7849265Z","response":"To","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:07.8539571Z","response":" fix","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:07.922469Z","response":" the","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:07.9914984Z","response":" failure","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:08.05984Z","response":",","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:08.1285181Z","response":" we","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:08.1965551Z","response":" need","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:08.2647692Z","response":" to","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:08.3321038Z","response":" address","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:08.4008867Z","response":" the","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:08.4694258Z","response":" issue","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:08.5373595Z","response":" with","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:08.6060442Z","response":" parsing","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:08.6745561Z","response":" the","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:08.7426714Z","response":" JSON","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:08.8112442Z","response":" input","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:08.8800593Z","response":".","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:08.9480859Z","response":" The","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:09.0172575Z","response":" parser","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:09.0857999Z","response":" is","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:09.15337Z","response":" currently","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:09.2222205Z","response":" attempting","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:09.2904451Z","response":" to","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:09.358477Z","response":" parse","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:09.4275406Z","response":" a","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:09.49758Z","response":" JSON","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:09.5651396Z","response":" object","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:09.6378689Z","response":" `{","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:09.7063425Z","response":"}`","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:09.7734598Z","response":" but","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:09.8419717Z","response":" does","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:09.9083069Z","response":" not","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:09.9780097Z","response":" handle","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:10.0465407Z","response":" it","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:10.1154802Z","response":" correctly","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:10.1837923Z","response":".","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:10.2522188Z","response":" We","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:10.3201787Z","response":" need","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:10.3906986Z","response":" to","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:10.459801Z","response":" add","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:10.5278528Z","response":" a","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:10.5966653Z","response":" method","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:10.6664564Z","response":" to","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:10.7365321Z","response":" handle","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:10.8065298Z","response":" JSON","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:10.8750411Z","response":" objects","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:10.9442332Z","response":" and","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:11.0129108Z","response":" update","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:11.0816285Z","response":" the","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:11.1500967Z","response":" `","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:11.2181332Z","response":"parse","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:11.2874983Z","response":"Value","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:11.3555234Z","response":"`","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:11.4255343Z","response":" method","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:11.4940538Z","response":" to","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:11.5621564Z","response":" recognize","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:11.6305015Z","response":" and","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:11.6985414Z","response":" parse","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:11.766192Z","response":" these","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:11.8344844Z","response":" objects","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:11.9040328Z","response":".\n\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:11.9721124Z","response":"###","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:12.0398526Z","response":" Issues","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:12.1096845Z","response":" and","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:12.1791963Z","response":" Fixes","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:12.2478007Z","response":":\n\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:12.3165345Z","response":"1","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:12.385189Z","response":".","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:12.4556718Z","response":" **","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:12.5237544Z","response":"JSON","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:12.5929467Z","response":" Object","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:12.6651764Z","response":" Handling","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:12.7321245Z","response":"**:","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:12.7998829Z","response":" Add","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:12.8683944Z","response":" a","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:12.9401857Z","response":" new","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:13.0096953Z","response":" method","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:13.0782057Z","response":" `","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:13.147338Z","response":"parse","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:13.2151299Z","response":"Object","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:13.2835153Z","response":"`","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:13.351566Z","response":" to","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:13.4196014Z","response":" handle","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:13.4887366Z","response":" JSON","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:13.5575942Z","response":" objects","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:13.6266301Z","response":".\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:13.6945677Z","response":"2","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:13.7637343Z","response":".","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:13.8334026Z","response":" **","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:13.9005628Z","response":"Update","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:13.9682159Z","response":" `","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:14.0348835Z","response":"parse","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:14.1029205Z","response":"Value","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:14.1708679Z","response":"`","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:14.2406961Z","response":" Method","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:14.3095245Z","response":"**:","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:14.3780362Z","response":" Modify","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:14.4479722Z","response":" `","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:14.5140074Z","response":"parse","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:14.5821702Z","response":"Value","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:14.6508262Z","response":"`","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:14.7180859Z","response":" to","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:14.7864887Z","response":" recognize","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:14.8560486Z","response":" and","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:14.9231092Z","response":" call","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:14.9916702Z","response":" `","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:15.0596963Z","response":"parse","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:15.12892Z","response":"Object","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:15.1972364Z","response":"`","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:15.2632644Z","response":" when","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:15.3303727Z","response":" encountering","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:15.3989935Z","response":" an","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:15.4680224Z","response":" opening","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:15.5369572Z","response":" brace","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:15.6059942Z","response":" `{","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:15.6748839Z","response":"`.\n\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:15.741919Z","response":"###","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:15.8109326Z","response":" Correct","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:15.8788927Z","response":"ed","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:15.9459711Z","response":" Code","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:16.0175084Z","response":":\n\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:16.0895812Z","response":"```","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:16.1596087Z","response":"java","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:16.2317195Z","response":"\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:16.3047508Z","response":"package","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:16.3753585Z","response":" com","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:16.4457487Z","response":".v","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:16.5177839Z","response":"ik","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:16.5884141Z","response":"tor","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:16.6606207Z","response":".lab","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:16.7306555Z","response":"4","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:16.8028183Z","response":".aut","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:16.8726677Z","response":"ogen","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:16.9436751Z","response":";\n\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:17.0147087Z","response":"import","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:17.0853666Z","response":" org","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:17.1557405Z","response":".junit","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:17.2299026Z","response":".Test","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:17.3007249Z","response":";\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:17.3717784Z","response":"import","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:17.4417112Z","response":" static","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:17.5107499Z","response":" org","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:17.5809579Z","response":".junit","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:17.6508748Z","response":".Assert","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:17.7228429Z","response":".*;\n\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:17.7940408Z","response":"import","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:17.8634806Z","response":" java","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:17.9325157Z","response":".util","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:18.0042827Z","response":".Map","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:18.0744414Z","response":";\n\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:18.1451009Z","response":"public","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:18.215136Z","response":" class","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:18.2865855Z","response":" Q","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:18.3578022Z","response":"wen","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:18.428838Z","response":"Test","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:18.4998582Z","response":"3","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:18.5690132Z","response":"2","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:18.6393494Z","response":" {\n\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:18.7104416Z","response":"   ","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:18.7799192Z","response":" @","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:18.8497536Z","response":"Test","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:18.9205127Z","response":"(timeout","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:18.9910238Z","response":" =","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:19.0634162Z","response":" ","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:19.133451Z","response":"1","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:19.2042156Z","response":"0","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:19.2736555Z","response":"0","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:19.3453424Z","response":"0","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:19.4168268Z","response":")\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:19.4879847Z","response":"   ","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:19.5579868Z","response":" public","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:19.6280237Z","response":" void","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:19.6988003Z","response":" test","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:19.7688276Z","response":"Parse","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:19.8396353Z","response":"()","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:19.9096752Z","response":" {\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:19.9803545Z","response":"       ","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:20.0516694Z","response":" Simple","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:20.1232376Z","response":"Json","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:20.1937597Z","response":"Parser","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:20.2667703Z","response":" parser","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:20.337008Z","response":" =","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:20.4061742Z","response":" new","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:20.4776893Z","response":" Simple","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:20.5469321Z","response":"Json","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:20.6194699Z","response":"Parser","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:20.6904016Z","response":"();\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:20.7621779Z","response":"       ","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:20.8336704Z","response":" String","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:20.9055244Z","response":" input","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:20.9765542Z","response":" =","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:21.0478729Z","response":" \"{\\\"","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:21.1176536Z","response":"name","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:21.188478Z","response":"\\\":\\\"","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:21.2610994Z","response":"John","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:21.3311338Z","response":"\\\",","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:21.4040126Z","response":" \\\"","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:21.4749692Z","response":"age","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:21.5480029Z","response":"\\\":","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:21.6217525Z","response":"3","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:21.6912646Z","response":"0","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:21.7624764Z","response":"}\";\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:21.8318247Z","response":"       ","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:21.9023435Z","response":" Object","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:21.9720242Z","response":" result","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:22.0429816Z","response":" =","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:22.1129057Z","response":" parser","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:22.1834172Z","response":".parse","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:22.2529479Z","response":"(input","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:22.3232277Z","response":");\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:22.3933253Z","response":"       ","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:22.4642947Z","response":" assertTrue","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:22.5368661Z","response":"(result","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:22.6086691Z","response":" instanceof","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:22.6825494Z","response":" Map","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:22.751584Z","response":");\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:22.8236684Z","response":"       ","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:22.8941808Z","response":" Map","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:22.9660031Z","response":"\u003cString","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:23.0380389Z","response":",","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:23.1067488Z","response":" Object","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:23.1780085Z","response":"\u003e","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:23.2501664Z","response":" map","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:23.3191985Z","response":" =","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:23.3902678Z","response":" (","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:23.4622311Z","response":"Map","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:23.5331582Z","response":"\u003cString","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:23.6036789Z","response":",","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:23.674867Z","response":" Object","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:23.7469773Z","response":"\u003e)","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:23.8179289Z","response":" result","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:23.8869258Z","response":";\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:23.9578507Z","response":"       ","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:24.0289748Z","response":" assertEquals","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:24.098425Z","response":"(\"","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:24.1694732Z","response":"John","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:24.2395653Z","response":"\",","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:24.310053Z","response":" map","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:24.3820907Z","response":".get","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:24.4527451Z","response":"(\"","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:24.5231241Z","response":"name","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:24.5920492Z","response":"\"));\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:24.6623957Z","response":"       ","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:24.7344187Z","response":" assertEquals","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:24.8047237Z","response":"(","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:24.8757714Z","response":"3","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:24.9461509Z","response":"0","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:25.0179366Z","response":",","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:25.0904465Z","response":" map","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:25.1605053Z","response":".get","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:25.2312928Z","response":"(\"","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:25.3018131Z","response":"age","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:25.3709921Z","response":"\"));\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:25.4407833Z","response":"   ","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:25.5153336Z","response":" }\n\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:25.586846Z","response":"   ","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:25.6580422Z","response":" @","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:25.728505Z","response":"Test","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:25.799515Z","response":"(timeout","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:25.870519Z","response":" =","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:25.9395536Z","response":" ","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:26.0083727Z","response":"1","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:26.0789537Z","response":"0","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:26.1477135Z","response":"0","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:26.2191353Z","response":"0","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:26.2896678Z","response":")\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:26.361155Z","response":"   ","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:26.4318794Z","response":" public","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:26.5027889Z","response":" void","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:26.5734213Z","response":" test","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:26.6426639Z","response":"Parse","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:26.7135211Z","response":"Object","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:26.7837416Z","response":"()","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:26.8552645Z","response":" {\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:26.9260341Z","response":"       ","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:26.9959662Z","response":" Simple","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:27.0659229Z","response":"Json","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:27.1379594Z","response":"Parser","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:27.2085071Z","response":" parser","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:27.2755349Z","response":" =","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:27.3476201Z","response":" new","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:27.4188015Z","response":" Simple","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:27.4895096Z","response":"Json","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:27.5596361Z","response":"Parser","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:27.6304968Z","response":"();\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:27.7000082Z","response":"       ","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:27.7713792Z","response":" String","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:27.841417Z","response":" input","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:27.9130248Z","response":" =","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:27.9847251Z","response":" \"{}","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:28.0563499Z","response":"\";\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:28.1263862Z","response":"       ","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:28.1970327Z","response":" Object","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:28.2670894Z","response":" result","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:28.3375298Z","response":" =","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:28.408847Z","response":" parser","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:28.4813979Z","response":".parse","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:28.552217Z","response":"(input","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:28.6222561Z","response":");\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:28.6927048Z","response":"       ","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:28.7620682Z","response":" assertTrue","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:28.8338917Z","response":"(result","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:28.9044284Z","response":" instanceof","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:28.9760752Z","response":" Map","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:29.047112Z","response":");\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:29.1168635Z","response":"       ","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:29.1873304Z","response":" Map","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:29.2593189Z","response":"\u003cString","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:29.3296774Z","response":",","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:29.4006556Z","response":" Object","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:29.4726909Z","response":"\u003e","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:29.545166Z","response":" map","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:29.6152246Z","response":" =","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:29.6871484Z","response":" (","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:29.7587769Z","response":"Map","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:29.8301872Z","response":"\u003cString","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:29.9013986Z","response":",","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:29.97327Z","response":" Object","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:30.0439381Z","response":"\u003e)","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:30.1170898Z","response":" result","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:30.186396Z","response":";\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:30.2565035Z","response":"       ","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:30.3275376Z","response":" assertTrue","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:30.3999342Z","response":"(map","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:30.4699005Z","response":".isEmpty","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:30.5400933Z","response":"());\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:30.6100838Z","response":"   ","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:30.6802188Z","response":" }\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:30.7502551Z","response":"}\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:30.8203132Z","response":"``","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:30.8900285Z","response":"`\n\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:30.9623354Z","response":"###","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:31.0325005Z","response":" Explanation","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:31.1050131Z","response":":\n\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:31.1766398Z","response":"-","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:31.2472056Z","response":" **","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:31.3178068Z","response":"New","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:31.389538Z","response":" Test","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:31.462236Z","response":" Method","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:31.5322698Z","response":"**:","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:31.6027804Z","response":" Added","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:31.6730997Z","response":" `","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:31.7431332Z","response":"test","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:31.8143107Z","response":"Parse","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:31.8867867Z","response":"Object","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:31.9578198Z","response":"`","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:32.0276738Z","response":" to","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:32.0987613Z","response":" verify","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:32.170325Z","response":" that","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:32.2410693Z","response":" the","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:32.3126142Z","response":" parser","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:32.3818368Z","response":" correctly","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:32.4535728Z","response":" handles","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:32.5246099Z","response":" JSON","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:32.5945614Z","response":" objects","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:32.6653287Z","response":" `{","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:32.7370482Z","response":"}`","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:32.8055605Z","response":".\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:32.8776568Z","response":"-","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:32.948695Z","response":" **","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:33.0182169Z","response":"Update","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:33.0908584Z","response":" `","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:33.161894Z","response":"parse","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:33.2344909Z","response":"Value","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:33.3063371Z","response":"`","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:33.3772049Z","response":" Method","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:33.4476527Z","response":"**:","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:33.5181741Z","response":" Modified","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:33.5903765Z","response":" `","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:33.6619526Z","response":"parse","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:33.7342314Z","response":"Value","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:33.8051681Z","response":"`","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:33.8752045Z","response":" to","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:33.9473206Z","response":" check","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:34.0173639Z","response":" for","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:34.0883641Z","response":" an","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:34.1603903Z","response":" opening","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:34.2338246Z","response":" brace","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:34.3068888Z","response":" `{","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:34.3769166Z","response":"`","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:34.4509598Z","response":" and","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:34.523672Z","response":" call","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:34.5968801Z","response":" `","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:34.6693587Z","response":"parse","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:34.7417819Z","response":"Object","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:34.8152974Z","response":"`","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:34.889348Z","response":" if","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:34.9629284Z","response":" found","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:35.035953Z","response":".","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:35.1108964Z","response":" This","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:35.1848354Z","response":" allows","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:35.25821Z","response":" the","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:35.3303843Z","response":" parser","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:35.4045329Z","response":" to","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:35.477558Z","response":" handle","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:35.551506Z","response":" JSON","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:35.625021Z","response":" objects","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:35.6975322Z","response":" properly","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:35.769397Z","response":".\n\n","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:35.8412038Z","response":"This","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:35.915655Z","response":" should","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:35.9890193Z","response":" resolve","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:36.0644052Z","response":" the","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:36.1374336Z","response":" parsing","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:36.2121213Z","response":" issue","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:36.2851671Z","response":" and","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:36.3594093Z","response":" allow","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:36.4324427Z","response":" both","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:36.5059573Z","response":" tests","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:36.5803658Z","response":" to","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:36.6544143Z","response":" pass","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:36.7256576Z","response":".","done":false}
+{"model":"qwen2.5-coder:3b","created_at":"2026-09-09T20:34:36.7994355Z","response":"","done":true,"done_reason":"stop","context":[151644,8948,198,2610,525,1207,16948,11,3465,553,54364,14817,13,1446,525,264,10950,17847,13,151645,198,151644,872,198,98386,419,6350,7943,220,16,22,619,4562,220,19,30549,1273,369,469,3133,1579,10980,55282,19,24252,5014,6570,624,1986,374,264,12733,3383,11,537,264,1681,369,264,501,15048,624,19434,279,11127,11,12510,7709,323,54836,13,19716,279,3151,7901,3685,624,2461,264,2477,49730,1714,11,9245,458,2867,1667,1181,14275,584,4692,624,2461,458,27419,35301,11,312,15934,279,3601,897,2348,279,2530,323,279,13166,1102,624,33092,264,36004,3601,897,26,653,537,4057,54836,11,5263,24098,311,10265,264,35301,345,7173,323,27222,279,7901,11,476,8290,458,27419,448,264,259,2717,2449,624,5598,26687,279,4583,35965,7943,1034,11,6328,469,3133,1579,10980,55282,19,31055,11706,345,888,536,1207,16948,2271,18,18,11,6896,24038,569,2271,38966,28,16,15,15,15,8,1714,11,51654,1212,220,20,15,15,11211,624,10253,584,33356,323,97425,31701,4562,220,19,1172,26,902,68909,11,21844,11,358,17532,11,11364,11,3922,345,25809,82,11,569,12497,476,31846,13,81306,279,15048,979,92890,279,536,624,81076,53331,510,73594,10042,198,1722,469,3133,1579,10980,55282,19,401,474,1642,1971,11068,280,474,1642,1971,5814,401,888,536,8993,5014,6570,1476,262,584,3002,4715,2242,1946,8,341,286,421,320,1355,621,845,8,341,310,2510,501,21374,445,1355,1969,537,387,845,797,286,555,286,21102,6729,284,501,21102,5384,317,286,3002,897,284,6729,4632,1130,543,286,6729,36596,73804,1428,286,421,1505,9657,2079,1655,3727,2140,341,310,2510,501,21374,445,29430,27748,5766,518,2309,330,488,6729,6187,1423,286,555,286,470,897,280,262,555,262,869,1099,1590,536,21102,341,286,869,1590,923,2530,280,286,869,526,1922,401,286,869,21102,2242,2530,8,341,310,419,14698,284,2530,280,310,419,5154,284,220,15,280,286,555,286,869,3002,4715,1130,368,341,310,10706,73804,543,310,421,320,285,1655,3727,2140,341,394,2510,1465,445,29430,835,315,1946,797,310,555,310,1161,272,284,2530,17498,7195,317,310,421,320,66,621,7127,863,341,394,470,4715,703,543,310,456,310,421,320,66,621,48290,8,341,394,470,4715,1857,543,310,456,310,421,320,66,621,20672,1369,15633,2079,36420,1337,593,341,394,470,4715,2833,543,310,555,310,2510,1465,445,41884,3950,7127,488,272,488,62349,286,555,286,869,923,4715,703,368,341,310,24057,32756,1157,310,11410,7363,284,501,11410,1428,310,1393,1505,285,1655,3727,2140,341,394,1161,272,284,2530,17498,7195,40642,394,421,320,66,621,7127,863,341,503,470,7363,5070,543,394,555,394,421,320,66,621,28078,863,341,503,421,320,285,1655,3727,2140,341,664,2510,1465,445,20250,261,51199,12449,8500,797,503,456,503,1161,27783,284,2530,17498,7195,40642,503,3398,320,65826,8,341,664,1142,52090,1464,7363,2057,32756,1157,664,1142,93103,1464,7363,2057,54093,1157,664,1142,14853,1464,7363,2057,44702,664,1142,364,65,6,1464,7363,2057,11024,65,1157,664,1142,364,69,6,1464,7363,2057,11024,69,1157,664,1142,364,77,6,1464,7363,2057,11024,77,1157,664,1142,364,81,6,1464,7363,2057,11024,81,1157,664,1142,364,83,6,1464,7363,2057,11024,83,1157,664,1638,1464,2510,1465,445,41884,12449,8500,1124,2105,488,27783,317,503,456,394,335,770,341,503,7363,2057,1337,317,394,456,310,555,310,2510,1465,445,20250,261,51199,914,23141,797,286,555,286,869,7093,4715,2833,368,341,310,526,1191,284,1922,401,310,421,320,29107,368,621,69163,341,394,1922,3507,310,555,310,1349,47167,1428,310,421,1505,285,1655,3727,368,1009,32592,368,621,70235,341,394,1922,3507,394,1349,47167,543,310,555,310,923,3950,284,2530,12119,10639,11,1922,317,310,421,320,5839,6488,13645,899,1369,3950,44206,73133,593,341,394,2510,1465,445,29600,10155,1372,7127,488,3950,488,62349,310,555,310,1430,341,394,470,7093,10529,13274,317,310,335,2287,320,75128,505,8,341,394,2510,1465,445,7928,1372,7127,488,3950,488,62349,310,456,286,555,286,869,1759,20549,29,4715,1857,368,341,310,24057,492,677,317,310,10706,73804,543,310,1759,20549,29,2750,284,501,5056,28389,310,421,1505,285,1655,3727,368,1009,32592,368,621,42877,863,341,394,1922,3507,394,470,2750,280,310,555,310,1393,320,1866,8,341,394,2750,1364,27762,1130,1423,394,10706,73804,1428,394,421,320,285,1655,3727,2140,341,503,2510,1465,445,20250,261,51199,1334,797,394,555,394,1161,272,284,2530,17498,7195,40642,394,421,320,66,621,42877,863,341,503,470,2750,280,394,456,394,421,320,66,961,6614,863,341,503,2510,1465,445,18896,22262,476,364,30651,304,1334,714,2684,7127,488,272,488,62349,394,456,394,10706,73804,543,310,456,286,555,286,869,737,1349,47167,368,341,310,526,1191,284,1922,280,310,1393,1505,285,1655,3727,368,1009,15633,2079,36420,7,29107,10131,341,394,1922,3507,310,456,310,421,320,2468,621,1922,8,341,394,2510,1465,445,18896,15723,797,310,456,286,555,286,869,737,10706,73804,368,341,310,1393,1505,285,1655,3727,2140,341,394,1161,272,284,2530,17498,7195,317,394,421,320,66,621,364,364,1369,272,621,5196,77,6,1369,272,621,5196,81,6,1369,272,621,5196,83,863,341,503,1922,3507,503,3060,280,394,456,394,1438,280,310,456,286,555,286,869,737,24057,6933,3601,8,341,310,421,320,285,1655,3727,368,1369,2530,17498,7195,8,961,3601,8,341,394,2510,1465,445,18896,7127,488,3601,488,62349,310,456,310,1922,3507,286,555,286,869,1161,32592,368,341,310,470,2530,17498,7195,317,286,555,286,869,2710,374,1655,3727,368,341,310,470,1922,2604,2530,1954,543,286,555,286,869,526,2309,368,341,310,470,1922,280,286,555,286,869,21374,1465,2242,1943,8,341,310,470,501,21374,7333,488,330,518,2309,330,488,1922,317,286,456,262,456,3733,13874,3989,36973,1718,13602,510,1249,5046,279,4961,7901,11,582,1184,311,5978,429,279,1565,16374,5014,6570,63,536,12440,70835,264,4718,914,1119,264,1565,2227,63,1633,13,6771,594,2621,279,4714,323,3410,279,35965,2038,382,14374,36443,323,85963,1447,16,13,3070,11511,21756,369,5027,95518,576,1565,2227,63,536,374,949,315,279,1565,10042,1971,63,6328,11,773,582,1184,311,1159,432,624,17,13,3070,1957,3988,323,6730,3988,95518,576,536,829,323,1714,829,525,39140,13,576,536,1265,387,1565,48,16948,2271,18,17,63,323,279,1714,1265,387,1565,1944,14463,18639,18,13,3070,6570,6730,95518,576,1565,6400,63,1714,1265,470,264,1565,2227,3464,11,3002,43626,4518,315,1565,1190,62338,14374,39970,291,6119,1447,73594,10042,198,1722,469,3133,1579,10980,55282,19,31055,11706,401,474,1240,8332,8787,280,474,1099,1240,8332,11711,19513,474,1642,1971,10104,401,888,536,1207,16948,2271,18,17,1476,262,569,2271,38966,284,220,16,15,15,15,340,262,584,737,1273,14463,368,341,286,8993,5014,6570,6729,284,501,8993,5014,6570,543,286,923,1946,284,54734,606,23488,13079,16215,7245,424,11693,18,15,26259,286,3002,1102,284,6729,4632,5384,317,286,21627,4456,8083,5027,317,286,5027,3464,11,3002,29,2415,284,320,2227,3464,11,3002,9231,1102,280,286,10037,445,13079,497,2415,670,445,606,4010,286,10037,7,18,15,11,2415,670,445,424,4010,262,456,532,13874,19324,14374,71287,1447,12,3070,11511,21756,95518,1205,3694,1565,474,1642,1971,10104,26,63,311,1159,279,1565,2227,63,536,624,12,3070,1957,323,6730,34875,95518,46294,279,536,829,311,1565,48,16948,2271,18,17,63,323,279,1714,311,1565,1944,14463,63,311,5285,448,279,4024,15048,624,12,3070,6570,6730,95518,576,1565,6400,63,1714,1431,4675,264,1565,2227,3464,11,3002,43626,311,12440,3705,279,4718,22314,1102,382,1986,1265,8830,279,28672,5975,323,2138,279,1273,311,1494,624,90252,25,619,4562,10519,4641,198,56248,2319,220,19,13,16,18,13,17,198,5142,198,1462,25,220,15,11,15,16,16,198,3862,572,220,16,7901,510,16,8,1273,14463,14094,3133,1579,10980,55282,19,31055,11706,10003,16948,2271,18,17,340,10042,8019,89352,97009,25,33081,3950,11573,6,518,2309,220,15,271,36973,50661,79295,18200,1598,25,220,16,11,220,39645,1413,25,220,16,271,25958,279,4961,7901,1573,13451,279,2038,13,3155,537,13153,279,34857,21394,1273,624,151645,198,151644,77091,198,1249,5046,279,7901,11,582,1184,311,2621,279,4265,448,22314,279,4718,1946,13,576,6729,374,5023,19405,311,4715,264,4718,1633,53692,5541,714,1558,537,3705,432,12440,13,1205,1184,311,912,264,1714,311,3705,4718,6171,323,2647,279,1565,6400,1130,63,1714,311,15282,323,4715,1493,6171,382,14374,36443,323,85963,1447,16,13,3070,5370,3002,55713,95518,2691,264,501,1714,1565,6400,1190,63,311,3705,4718,6171,624,17,13,3070,4289,1565,6400,1130,63,6730,95518,49370,1565,6400,1130,63,311,15282,323,1618,1565,6400,1190,63,979,91272,458,8568,32864,53692,62338,14374,39970,291,6119,1447,73594,10042,198,1722,469,3133,1579,10980,55282,19,31055,11706,401,474,1240,8332,8787,280,474,1099,1240,8332,11711,19513,474,1642,1971,10104,401,888,536,1207,16948,2271,18,17,1476,262,569,2271,38966,284,220,16,15,15,15,340,262,584,737,1273,14463,368,341,286,8993,5014,6570,6729,284,501,8993,5014,6570,543,286,923,1946,284,54734,606,23488,13079,16215,7245,424,11693,18,15,26259,286,3002,1102,284,6729,4632,5384,317,286,21627,4456,8083,5027,317,286,5027,3464,11,3002,29,2415,284,320,2227,3464,11,3002,9231,1102,280,286,10037,445,13079,497,2415,670,445,606,4010,286,10037,7,18,15,11,2415,670,445,424,4010,262,555,262,569,2271,38966,284,220,16,15,15,15,340,262,584,737,1273,14463,1190,368,341,286,8993,5014,6570,6729,284,501,8993,5014,6570,543,286,923,1946,284,35503,876,286,3002,1102,284,6729,4632,5384,317,286,21627,4456,8083,5027,317,286,5027,3464,11,3002,29,2415,284,320,2227,3464,11,3002,9231,1102,280,286,21627,9147,9208,1423,262,456,532,13874,19324,14374,71287,1447,12,3070,3564,3393,6730,95518,17684,1565,1944,14463,1190,63,311,10146,429,279,6729,12440,13469,4718,6171,53692,5541,624,12,3070,4289,1565,6400,1130,63,6730,95518,29053,1565,6400,1130,63,311,1779,369,458,8568,32864,53692,63,323,1618,1565,6400,1190,63,421,1730,13,1096,6147,279,6729,311,3705,4718,6171,10277,382,1986,1265,8830,279,22314,4265,323,2138,2176,7032,311,1494,13],"total_duration":49638741300,"load_duration":9289900,"prompt_eval_count":1673,"prompt_eval_cached_count":168,"prompt_eval_duration":20550132000,"eval_count":413,"eval_duration":29014057000}

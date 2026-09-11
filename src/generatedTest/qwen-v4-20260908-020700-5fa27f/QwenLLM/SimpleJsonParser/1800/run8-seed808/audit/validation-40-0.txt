@@ -1,0 +1,16 @@
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\585ecb810e4695b7\QwenTest40\QwenTest40.java:16: error: cannot find symbol
+        assertTrue(result instanceof Map); // Corrected to use Object
+                                     ^
+  symbol:   class Map
+  location: class QwenTest40
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\585ecb810e4695b7\QwenTest40\QwenTest40.java:17: error: cannot find symbol
+        Map<String, Object> map = (Map<String, Object>) result; // Corrected to use Object
+        ^
+  symbol:   class Map
+  location: class QwenTest40
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\585ecb810e4695b7\QwenTest40\QwenTest40.java:17: error: cannot find symbol
+        Map<String, Object> map = (Map<String, Object>) result; // Corrected to use Object
+                                   ^
+  symbol:   class Map
+  location: class QwenTest40
+3 errors

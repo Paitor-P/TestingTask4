@@ -1,0 +1,34 @@
+Certainly! The issue is that the test class `QwenTest7` does not exist in the package `com.viktor.lab4.autogen`. Let's create this class and add the test method `testCalculateFinalPriceWithZeroQuantity` to it:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest7 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithZeroQuantity() {
+        PricingRequest request = new PricingRequest(
+                10.0,  // basePrice
+                0,      // quantity (invalid value, should cause an exception)
+                CustomerType.REGULAR, // customerType
+                false,    // seasonalSale
+                "",       // couponCode
+                false,    // firstOrder
+                0         // loyaltyPoints
+        );
+
+        PricingEngine pricingEngine = new PricingEngine();
+        try {
+            pricingEngine.calculateFinalPrice(request);
+            fail("Expected IllegalArgumentException for zero quantity");
+        } catch (IllegalArgumentException e) {
+            // Expected exception
+        }
+    }
+}
+```
+
+This test checks that the `calculateFinalPrice` method throws an `IllegalArgumentException` when the `quantity` is zero. The test uses `try-catch` to ensure that the exception is caught and an appropriate message is logged if the test fails.

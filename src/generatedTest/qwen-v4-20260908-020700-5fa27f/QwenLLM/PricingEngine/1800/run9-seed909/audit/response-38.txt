@@ -1,0 +1,29 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest38 {
+
+    public static class PricingEngineTest {
+
+        @Test(timeout = 1000)
+        public void testCalculateFinalPrice() {
+            PricingEngine engine = new PricingEngine();
+            PricingRequest request = new PricingRequest(
+                    29.99,
+                    12,
+                    PricingEngine.CustomerType.REGULAR,
+                    true,
+                    "SAVE10",
+                    true,
+                    150
+            );
+            double expected = 240.72;
+            double actual = engine.calculateFinalPrice(request);
+            assertEquals("The calculated final price does not match the expected value.", expected, actual, 0.01);
+        }
+    }
+}
+```

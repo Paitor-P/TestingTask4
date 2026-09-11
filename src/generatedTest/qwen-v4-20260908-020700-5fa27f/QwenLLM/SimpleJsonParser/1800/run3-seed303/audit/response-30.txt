@@ -1,0 +1,22 @@
+To fix the failure in the `QwenTest29` test, we need to modify the assertion to correctly compare the expected double value with the result returned by the `SimpleJsonParser`. The issue arises because the `assertEquals` method expects the expected value to be a `String`, but we are passing a `double` and a `double` for comparison.
+
+Here's the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest30 {
+
+    @Test(timeout = 1000)
+    public void testParseSingleNegativeNumber() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        Object result = parser.parse("-123.456");
+        assertEquals(-123.456, result, 1e-6);
+    }
+}
+```
+
+The test case `testParseSingleNegativeNumber` is already correctly asserting the expected result with the `assertEquals` method, which is used to compare a `double` with another `double`. Therefore, no further changes are needed in this test.

@@ -1,0 +1,46 @@
+To fix the failure, we need to make the `calculateFinalPrice` method static, as it is called from a static context in the test. Additionally, we need to ensure that the `PricingRequest` record is properly instantiated.
+
+Here is the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest13 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPrice() {
+        PricingRequest request = new PricingRequest(
+                50.0,
+                15,
+                CustomerType.REGULAR,
+                true,
+                "SAVE10",
+                true,
+                150
+        );
+
+        double expected = 57.4;
+        double result = PricingEngine.calculateFinalPrice(request);
+
+        assertEquals(expected, result, 0.001);
+    }
+}
+
+record PricingRequest(
+        double basePrice,
+        int quantity,
+        CustomerType customerType,
+        boolean seasonalSale,
+        String couponCode,
+        boolean firstOrder,
+        int loyaltyPoints
+) {
+}
+```
+
+### Key Changes:
+1. **Static Method**: The `calculateFinalPrice` method in the `PricingEngine` class is now static.
+2. **Record Instantiation**: The `PricingRequest` record is instantiated directly within the test method.

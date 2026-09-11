@@ -1,0 +1,21 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest7 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceBoundaryCases() {
+        PricingEngine pricingEngine = new PricingEngine();
+        PricingRequest request = new PricingEngine.PricingRequest(0.0, 1, PricingEngine.CustomerType.REGULAR, false, null, false, 0);
+        double expected = 0.0;
+        assertEquals(expected, pricingEngine.calculateFinalPrice(request), 0.001);
+
+        request = new PricingEngine.PricingRequest(50.0, 1, PricingEngine.CustomerType.REGULAR, false, null, false, 0);
+        expected = 50.0;
+        assertEquals(expected, pricingEngine.calculateFinalPrice(request), 0.001);
+    }
+}
+```

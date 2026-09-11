@@ -1,0 +1,39 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class QwenTest30 {
+
+    @Test(timeout=1000)
+    public void testLruCacheInsertAndRetrieve() {
+        LruCache<String, Integer> cache = new LruCache<>(2);
+
+        // Insert elements into the cache
+        cache.put("one", 1);
+        cache.put("two", 2);
+
+        // Verify the size of the cache
+        assertEquals(2, cache.size());
+
+        // Retrieve elements from the cache
+        assertEquals(1, cache.get("one"));
+        assertEquals(2, cache.get("two"));
+
+        // Insert a new element to exceed the capacity
+        cache.put("three", 3);
+
+        // Verify the size of the cache and the eldest element
+        assertEquals(2, cache.size());
+        assertEquals("two", cache.get("one")); // "one" should be evicted
+        assertEquals(3, cache.get("three"));
+
+        // Attempt to retrieve the evicted element
+        assertNull(cache.get("one"));
+    }
+}
+```

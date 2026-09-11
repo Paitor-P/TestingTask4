@@ -1,0 +1,16 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest19 {
+    @Test(timeout=1000)
+    public void testSingleDigitNumber() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        parser.input = "1";
+        Double result = (Double) parser.parse();
+        assertEquals(1.0, result, 0.001);
+    }
+}
+```

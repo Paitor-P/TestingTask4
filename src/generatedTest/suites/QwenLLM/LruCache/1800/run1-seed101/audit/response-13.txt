@@ -1,0 +1,54 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.LruCache;
+
+public class QwenTest13 {
+
+    @Test(timeout = 1000)
+    public void testBasicOperations() {
+        LruCache<String, Integer> lruCache = new LruCache<>(3);
+
+        // Initial state
+        assertNull(lruCache.get("key1"));
+        assertEquals(0, lruCache.size());
+
+        // Put first entry
+        lruCache.put("key1", 1);
+        assertEquals(1, lruCache.size());
+        assertEquals(1, lruCache.get("key1"));
+
+        // Put second entry
+        lruCache.put("key2", 2);
+        assertEquals(2, lruCache.size());
+        assertEquals(2, lruCache.get("key2"));
+
+        // Put third entry
+        lruCache.put("key3", 3);
+        assertEquals(3, lruCache.size());
+        assertEquals(3, lruCache.get("key3"));
+
+        // Put fourth entry should evict "key1"
+        lruCache.put("key4", 4);
+        assertEquals(3, lruCache.size());
+        assertNull(lruCache.get("key1"));
+        assertEquals(2, lruCache.get("key2"));
+        assertEquals(3, lruCache.get("key3"));
+        assertEquals(4, lruCache.get("key4"));
+
+        // Put another key-value pair
+        lruCache.put("key5", 5);
+        assertEquals(3, lruCache.size());
+        assertEquals(3, lruCache.get("key2"));
+        assertEquals(5, lruCache.get("key5"));
+
+        // Clear cache
+        lruCache.clear();
+        assertEquals(0, lruCache.size());
+        assertNull(lruCache.get("key2"));
+        assertNull(lruCache.get("key5"));
+    }
+}
+```

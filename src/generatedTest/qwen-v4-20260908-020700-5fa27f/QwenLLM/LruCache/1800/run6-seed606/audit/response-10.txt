@@ -1,0 +1,45 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.LruCache;
+
+public class QwenTest10 {
+
+    @Test(timeout = 1000)
+    public void testBasicOperations() {
+        LruCache<String, Integer> cache = new LruCache<>(3);
+
+        // Put some initial values
+        cache.put("A", 1);
+        cache.put("B", 2);
+        cache.put("C", 3);
+
+        // Verify the size of the cache
+        assertEquals(3, cache.size());
+
+        // Access an existing key
+        int value = cache.get("A");
+        assertEquals(1, value);
+
+        // Check that the order is correct (LRU behavior)
+        List<String> keys = new ArrayList<>(cache.keySet());
+        assertEquals("A", keys.get(0));
+        assertEquals("B", keys.get(1));
+        assertEquals("C", keys.get(2));
+
+        // Put a new key, evicting the oldest one
+        cache.put("D", 4);
+        assertEquals(3, cache.size());
+        assertTrue(cache.containsKey("B"));
+        assertFalse(cache.containsKey("A"));
+
+        // Check the order again
+        keys = new ArrayList<>(cache.keySet());
+        assertEquals("B", keys.get(0));
+        assertEquals("C", keys.get(1));
+        assertEquals("D", keys.get(2));
+    }
+}
+```

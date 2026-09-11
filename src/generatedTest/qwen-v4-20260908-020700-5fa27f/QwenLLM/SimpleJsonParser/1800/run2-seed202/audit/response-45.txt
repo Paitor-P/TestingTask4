@@ -1,0 +1,32 @@
+To fix the reported failure, we need to ensure that the test class is correctly defined and that the test method is annotated with `@Test`. Additionally, we need to provide a failing test case that demonstrates the failure before making changes to the existing test. Here's the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class QwenTest44 {
+
+    @Test(timeout = 1000)
+    public void testParseSingleNumber() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        Object result = parser.parse("123.45");
+        assertEquals(123.45, result, 1e-9); // Use a very small tolerance
+    }
+
+    @Test(timeout = 1000)
+    public void testParseInvalidNumber() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        Object result = parser.parse("123.45a");
+        assertEquals(Double.NaN, result); // Expected NaN for invalid number
+    }
+
+    @Test(timeout = 1000)
+    public void testParseEmptyString() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        Object result = parser.parse("");
+        assertEquals(null, result); // Expected null for empty string
+    }
+}
+```

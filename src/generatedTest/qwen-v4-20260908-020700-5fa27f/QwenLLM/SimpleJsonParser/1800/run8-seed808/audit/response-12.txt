@@ -1,0 +1,29 @@
+To fix the failing test, we need to ensure that the `List` class is imported correctly. The `List` class is part of the `java.util` package, so we need to import it at the beginning of the test class.
+
+Here is the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.SimpleJsonParser;
+
+import java.util.List;
+
+public class QwenTest12 {
+
+    @Test(timeout=1000)
+    public void testParseSimpleArray() {
+        SimpleJsonParser parser = new SimpleJsonParser();
+        Object result = parser.parse("[1, 2, 3]");
+        assertTrue(result instanceof List);
+        assertEquals(3, ((List<?>) result).size());
+        assertEquals(1, (int) ((List<?>) result).get(0));
+        assertEquals(2, (int) ((List<?>) result).get(1));
+        assertEquals(3, (int) ((List<?>) result).get(2));
+    }
+}
+```
+
+This change ensures that the `List` class is imported, which resolves the compilation error and allows the test to pass.

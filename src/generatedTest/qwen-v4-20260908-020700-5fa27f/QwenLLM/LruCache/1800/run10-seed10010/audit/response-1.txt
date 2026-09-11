@@ -1,0 +1,38 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.util.Map;
+
+public class QwenTest1 {
+
+    @Test(timeout = 1000)
+    public void testGetPut() {
+        LruCache<Integer, String> cache = new LruCache<>(3);
+
+        // Put some items
+        cache.put(1, "one");
+        cache.put(2, "two");
+        cache.put(3, "three");
+
+        // Retrieve items
+        assertEquals("one", cache.get(1));
+        assertEquals("two", cache.get(2));
+        assertEquals("three", cache.get(3));
+
+        // Check size
+        assertEquals(3, cache.size());
+
+        // Put more items to test eviction
+        cache.put(4, "four"); // Evicts key 1 due to LRU eviction policy
+        assertEquals("two", cache.get(2));
+        assertEquals("three", cache.get(3));
+        assertEquals("four", cache.get(4));
+
+        // Check size after eviction
+        assertEquals(3, cache.size());
+    }
+}
+```

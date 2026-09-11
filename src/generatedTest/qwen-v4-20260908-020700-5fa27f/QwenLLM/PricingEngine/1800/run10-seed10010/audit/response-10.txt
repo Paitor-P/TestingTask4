@@ -1,0 +1,35 @@
+To fix the reported failure, we need to ensure that the `PricingEngine` class is accessible from the `QwenTest9` class. Since `PricingEngine` is in a different package (`com.viktor.lab4`), we need to import it. Additionally, the `calculateFinalPrice` method is non-static, so we need to create an instance of `PricingEngine` to call the method.
+
+Here's the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import com.viktor.lab4.PricingEngine;
+import com.viktor.lab4.PricingRequest;
+
+public class QwenTest10 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPrice() {
+        PricingRequest request = new PricingRequest(
+                100.0,
+                20,
+                PricingEngine.CustomerType.REGULAR,
+                true,
+                "SAVE10",
+                true,
+                150
+        );
+
+        PricingEngine engine = new PricingEngine();
+        double expected = 190.0;
+        assertEquals(expected, engine.calculateFinalPrice(request), 0.001);
+    }
+}
+```
+
+### Explanation:
+1. **Import Statement**: We added the import statement `import com.viktor.lab4.PricingRequest;` to ensure that the `PricingRequest` class is accessible in the `QwenTest9` class.
+2. **Instance Creation**: We created an instance of `PricingEngine` using `PricingEngine engine = new PricingEngine();` to call the `calculateFinalPrice` method.
+3. **Assertion**: The `assertEquals` method is used to verify that the calculated final price matches the expected value. The tolerance `0.001` ensures that the difference is within a reasonable range.

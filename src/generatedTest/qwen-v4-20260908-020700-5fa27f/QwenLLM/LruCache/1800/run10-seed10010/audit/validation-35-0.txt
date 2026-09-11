@@ -1,0 +1,17 @@
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\9be33308f5832c5f\QwenTest35\QwenTest35.java:26: error: reference to assertEquals is ambiguous
+        assertEquals(1, cache.get("a")); // Use intValue() to convert Integer to int
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\9be33308f5832c5f\QwenTest35\QwenTest35.java:27: error: reference to assertEquals is ambiguous
+        assertEquals(2, cache.get("b"));
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\9be33308f5832c5f\QwenTest35\QwenTest35.java:35: error: reference to assertEquals is ambiguous
+        assertEquals(1, cache.get("a"));
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\9be33308f5832c5f\QwenTest35\QwenTest35.java:36: error: reference to assertEquals is ambiguous
+        assertEquals(3, cache.get("c"));
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+4 errors

@@ -1,0 +1,14 @@
+JUnit version 4.13.2
+.E
+Time: 0,013
+There was 1 failure:
+1) testCalculateFinalPrice(com.viktor.lab4.autogen.QwenTest45)
+java.lang.AssertionError: Calculated price does not match expected value expected:<44.999999999999986> but was:<332.99>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:555)
+	at com.viktor.lab4.autogen.QwenTest45.testCalculateFinalPrice(QwenTest45.java:28)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+

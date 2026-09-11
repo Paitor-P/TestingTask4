@@ -1,0 +1,35 @@
+Certainly! Let's fix the `testCalculateFinalPrice` method to handle the case where the `quantity` is less than or equal to zero. The method should throw an `IllegalArgumentException` in such cases. Here's the corrected version of the Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest5 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPrice() {
+        PricingRequest request = new PricingRequest(0.0, 0, CustomerType.REGULAR, false, "", false, 0);
+        try {
+            new PricingEngine().calculateFinalPrice(request);
+            fail("Expected IllegalArgumentException for quantity <= 0");
+        } catch (IllegalArgumentException e) {
+            assertEquals("quantity must be > 0", e.getMessage());
+        }
+
+        request = new PricingRequest(10.0, 0, CustomerType.REGULAR, false, "", false, 0);
+        try {
+            new PricingEngine().calculateFinalPrice(request);
+            fail("Expected IllegalArgumentException for quantity <= 0");
+        } catch (IllegalArgumentException e) {
+            assertEquals("quantity must be > 0", e.getMessage());
+        }
+
+        request = new PricingRequest(10.0, 1, CustomerType.REGULAR, false, "", false, 0);
+        assertEquals(10.0, new PricingEngine().calculateFinalPrice(request), 0.001);
+    }
+}
+```
+
+In this corrected version, the test checks that the `calculateFinalPrice` method throws an `IllegalArgumentException` when the `quantity` is less than or equal to zero. The `assertEquals` is used to verify that the exception message matches the expected error message.

@@ -1,0 +1,25 @@
+To fix the reported failure, we need to construct an instance of `PricingEngine` to call the `calculateFinalPrice` method. Additionally, we need to ensure that the method is correctly implemented and that the assertions are correctly set up. Here is the corrected Java file:
+
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class QwenTest26 {
+
+    @Test(timeout = 1000)
+    public void testCalculateFinalPriceWithZeroQuantity() {
+        PricingEngine engine = new PricingEngine();
+        PricingRequest request = new PricingRequest(10.0, 0, CustomerType.REGULAR, false, null, false, 0);
+        assertEquals(0.0, engine.calculateFinalPrice(request), 0.001);
+    }
+}
+```
+
+### Key Changes:
+1. **Constructing an Instance**: We created an instance of `PricingEngine` using its declared public constructor.
+2. **Method Call**: We called `calculateFinalPrice` on the `engine` instance instead of directly on the `PricingEngine` class. This is necessary because `calculateFinalPrice` is a non-static method.
+3. **Assertions**: The assertions remain unchanged to verify the correctness of the method.
+
+This should resolve the compilation error and allow the test to run successfully.

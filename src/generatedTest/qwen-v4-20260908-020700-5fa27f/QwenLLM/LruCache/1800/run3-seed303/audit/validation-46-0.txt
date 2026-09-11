@@ -1,0 +1,29 @@
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\15a3129215c89919\QwenTest46\QwenTest46.java:19: error: reference to assertEquals is ambiguous
+        assertEquals(1, lruCache.get("a"));
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\15a3129215c89919\QwenTest46\QwenTest46.java:20: error: reference to assertEquals is ambiguous
+        assertEquals(2, lruCache.get("b"));
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\15a3129215c89919\QwenTest46\QwenTest46.java:21: error: reference to assertEquals is ambiguous
+        assertEquals(3, lruCache.get("c"));
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\15a3129215c89919\QwenTest46\QwenTest46.java:27: error: reference to assertEquals is ambiguous
+        assertEquals(0, lruCache.get("a")); // Fixed assertion to check if "a" is removed
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\15a3129215c89919\QwenTest46\QwenTest46.java:28: error: reference to assertEquals is ambiguous
+        assertEquals(2, lruCache.get("b"));
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\15a3129215c89919\QwenTest46\QwenTest46.java:29: error: reference to assertEquals is ambiguous
+        assertEquals(3, lruCache.get("c"));
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\15a3129215c89919\QwenTest46\QwenTest46.java:30: error: reference to assertEquals is ambiguous
+        assertEquals(4, lruCache.get("d"));
+        ^
+  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+7 errors

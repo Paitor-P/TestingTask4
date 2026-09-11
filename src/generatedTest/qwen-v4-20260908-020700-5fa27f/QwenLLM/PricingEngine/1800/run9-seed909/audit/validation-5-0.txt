@@ -1,0 +1,11 @@
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\59b88b5cf77cd21d\QwenTest5\QwenTest5.java:15: error: cannot find symbol
+        assertEquals(expected, request.calculateFinalPrice(), 0.001);
+                                      ^
+  symbol:   method calculateFinalPrice()
+  location: variable request of type PricingRequest
+C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\59b88b5cf77cd21d\QwenTest5\QwenTest5.java:19: error: cannot find symbol
+        assertEquals(expected, request.calculateFinalPrice(), 0.001);
+                                      ^
+  symbol:   method calculateFinalPrice()
+  location: variable request of type PricingRequest
+2 errors

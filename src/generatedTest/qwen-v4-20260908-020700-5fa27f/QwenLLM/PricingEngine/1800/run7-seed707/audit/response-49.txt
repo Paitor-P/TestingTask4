@@ -1,0 +1,19 @@
+```java
+package com.viktor.lab4.autogen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import com.viktor.lab4.PricingEngine;
+
+public class QwenTest49 {
+
+    @Test(timeout=1000)
+    public void testInvalidInputNullRequest() {
+        PricingEngine pricingEngine = new PricingEngine();
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            pricingEngine.calculateFinalPrice(null);
+        });
+        assertEquals("request must not be null", exception.getMessage());
+    }
+}
+```
