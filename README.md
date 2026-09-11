@@ -99,6 +99,12 @@ uv run --project scripts python scripts/build_report_assets.py
 
 Описание: [столбцы CSV](docs/CSV_COLUMNS_REFERENCE.md), [алгоритм сходства](docs/similarity_pseudocode.md).
 
+## Эталонный пример
+
+Эталонные JSON-входы, ожидаемые результаты и ссылки на источники для всех четырёх
+классов находятся в `src/test/resources/reference/`. Команда `.\gradlew.bat test`
+вычисляет результаты и автоматически сравнивает их с эталонными.
+
 ## Если IDE индексирует TeX Live
 
 Источник — установленный **TeXiFy-IDEA**, а не Java/Python-зависимости проекта. В настройках TeXiFy отключите **Enable indexing of MiKTeX/TeX Live package files (requires restart)** и перезапустите IDE. Это глобальная настройка плагина (`enableExternalIndex=false`), поэтому она не хранится в репозитории.

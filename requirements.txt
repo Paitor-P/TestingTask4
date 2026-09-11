@@ -1,0 +1,7 @@
+# Справочный список
+# Проект продолжает устанавливать Python-зависимости из scripts/pyproject.toml
+# с фиксацией версий в scripts/uv.lock.
+numpy>=1.26
+pandas>=2.2
+matplotlib>=3.8
+pandas-stubs~=3.0.3
