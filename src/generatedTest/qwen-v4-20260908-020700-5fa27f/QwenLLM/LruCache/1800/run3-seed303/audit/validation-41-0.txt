@@ -1,9 +1,0 @@
-C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\15a3129215c89919\QwenTest41\QwenTest41.java:14: error: cannot infer type arguments for LruCache<>
-            new LruCache<>(-1, null); // Attempt to create a cache with negative capacity
-            ^
-  reason: cannot infer type-variable(s) K,V
-    (actual and formal argument lists differ in length)
-  where K,V are type-variables:
-    K extends Object declared in class LruCache
-    V extends Object declared in class LruCache
-1 error

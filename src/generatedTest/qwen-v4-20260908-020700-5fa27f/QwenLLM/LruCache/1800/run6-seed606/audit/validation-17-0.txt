@@ -1,9 +1,0 @@
-C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\b93b23d4f1eabd44\QwenTest17\QwenTest17.java:20: error: reference to assertEquals is ambiguous
-        assertEquals(20, cache.get(2)); // No cast needed as cache.get(2) returns int
-        ^
-  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
-C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\b93b23d4f1eabd44\QwenTest17\QwenTest17.java:21: error: reference to assertEquals is ambiguous
-        assertEquals(30, cache.get(3)); // No cast needed as cache.get(3) returns int
-        ^
-  both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
-2 errors

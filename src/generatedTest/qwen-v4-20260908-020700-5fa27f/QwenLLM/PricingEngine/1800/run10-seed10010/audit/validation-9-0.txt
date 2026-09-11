@@ -1,9 +1,0 @@
-C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\986d4254ac071bb0\QwenTest9\QwenTest9.java:8: error: cannot find symbol
-import com.viktor.lab4.PricingRequest;
-                      ^
-  symbol:   class PricingRequest
-  location: package com.viktor.lab4
-C:\Users\user\Documents\Polytech\Testing\Lab4up\build\llm-validation\986d4254ac071bb0\QwenTest9\QwenTest9.java:25: error: non-static method calculateFinalPrice(PricingRequest) cannot be referenced from a static context
-        assertEquals(expected, PricingEngine.calculateFinalPrice(request), 0.001);
-                                            ^
-2 errors
