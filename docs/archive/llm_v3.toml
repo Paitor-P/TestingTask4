@@ -1,0 +1,15 @@
+[llm]
+endpoint = "http://127.0.0.1:11435"
+model = "qwen2.5-coder:3b"
+model_digest = "f72c60cabf6237b07f6e632b2c48d533cef25eda2efbd34bed21c5e9c01e6225"
+temperature = 0.7
+top_p = 0.9
+num_ctx = 8192
+num_predict = 1024
+num_thread = 6
+max_attempts = 100
+max_repairs = 2
+target_accepted_tests = 10
+# Compile and execute each candidate twice; both checks consume the run budget.
+validation_repeats = 2
+validation_timeout_sec = 10
